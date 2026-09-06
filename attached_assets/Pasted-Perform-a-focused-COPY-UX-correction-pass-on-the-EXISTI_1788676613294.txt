@@ -1,0 +1,480 @@
+Perform a focused COPY + UX correction pass on the EXISTING website.
+
+DO NOT rebuild the site.
+DO NOT redesign it.
+DO NOT change the existing page architecture.
+DO NOT add new pages.
+DO NOT change the business model.
+DO NOT introduce new claims, statistics or capabilities.
+
+The strategic foundation is correct.
+
+The primary objective of this pass is:
+
+MAKE THE COMPANY EASIER FOR AN AUTO GLASS OWNER TO UNDERSTAND.
+
+The current copy is sometimes overly technical, overly operational, and sounds AI-generated.
+
+We need to preserve expertise while dramatically improving clarity.
+
+==================================================
+CORE COMMUNICATION RULE
+==================================================
+
+Write for the owner or marketing leader of an established auto glass company.
+
+They should understand within seconds:
+
+1. What we do.
+2. Why it matters.
+3. How it produces visibility, leads and booked jobs.
+4. Why we're different from a traditional marketing agency.
+5. How they can work with us.
+
+Prefer:
+
+CLEAR > CLEVER
+OUTCOMES > JARGON
+SPECIFIC > VAGUE
+HUMAN > CORPORATE
+EXPERT > OVERENGINEERED
+
+==================================================
+CORE BUSINESS STORY
+==================================================
+
+Auto Glass Search OS helps auto glass companies turn search visibility into qualified leads and booked jobs.
+
+We work across:
+
+- Google Search
+- Google Maps
+- AI-powered search
+- paid search
+- website conversion
+
+We also build AI-enabled systems and workflows that make search execution more efficient.
+
+Clients can work with us in two ways:
+
+MANAGED
+We run it for you.
+
+SEARCH SYSTEMS + TEAM
+We build the systems and workflows with your internal team and provide ongoing strategy, QA and support.
+
+Do not create a third/platform offer.
+
+==================================================
+HOMEPAGE
+==================================================
+
+Preserve the H1 concept:
+
+TURN SEARCH INTO BOOKED AUTO GLASS JOBS.
+
+Keep the customer journey concept:
+
+VISIBILITY
+→ TRUST
+→ LEADS
+→ BOOKED JOBS
+
+Keep the multi-surface search story:
+
+Google Search
+Google Maps
+AI Search
+Reviews / Authority
+Website / Calls
+Booked Jobs
+
+However, simplify the surrounding copy.
+
+Remove or rewrite unnecessarily technical phrases such as:
+
+- Service-Area Geometry
+- High-Conversion Dispatch Flow
+- Entity Authority & Proof Signals
+- TPA & Network Claim Navigation
+- Bay vs Mobile Fleet Utilization
+- vehicle-specific landing architecture
+- smartphone click-to-call ergonomics
+- Search Intent Calibration
+- Core Operating System
+
+when a normal business phrase communicates the idea better.
+
+Do not eliminate technical sophistication.
+Translate it into customer language.
+
+==================================================
+SIMPLIFY THE METHODOLOGY
+==================================================
+
+Keep:
+
+FOUND
+TRUSTED
+CHOSEN
+MEASURED
+
+But make each stage understandable to a business owner.
+
+FOUND
+
+Help customers discover the company across Google Search, Google Maps, local searches and AI-assisted discovery.
+
+TRUSTED
+
+Strengthen the information and proof customers use to decide whether to trust the company, including reviews, services, locations, warranties, insurance information and business credibility.
+
+CHOSEN
+
+Make it easy for prospective customers to call, request a quote or schedule service.
+
+MEASURED
+
+Connect marketing activity with qualified calls, quote requests and booked jobs whenever reliable tracking data is available.
+
+Do not populate these sections with invented operational metrics.
+
+==================================================
+AUTO GLASS SEO PAGE
+==================================================
+
+Preserve its search intent.
+
+The page should communicate:
+
+Build organic visibility for the services and markets that generate auto glass demand.
+
+Continue discussing:
+
+- windshield replacement
+- windshield repair
+- rock chip repair
+- mobile auto glass
+- ADAS recalibration
+- other relevant glass services
+- service-area content
+- internal linking
+- technical SEO
+
+Replace phrases such as:
+
+"Clean Canonical & Heading Topology"
+
+with language an owner understands.
+
+For example:
+
+"Clean Site Structure & Technical SEO"
+
+Technical terminology may appear in explanatory copy where useful, but should not dominate customer-facing headings.
+
+==================================================
+LOCAL SEO PAGE
+==================================================
+
+Preserve the page's focus on:
+
+Google Maps
+Google Business Profile
+local visibility
+reviews
+locations
+service areas
+
+Replace:
+
+"Google Maps 3-Pack & Service Area Dominance"
+
+with a confident but non-hype description centered on getting found by nearby customers.
+
+Avoid "dominate."
+
+Keep the ethical review-request language.
+
+Do not imply every company has multiple shops, dispatch vans or identical operating structures.
+
+==================================================
+AI SEARCH PAGE
+==================================================
+
+Lead with:
+
+AI SEARCH VISIBILITY
+
+not industry jargon.
+
+GEO/AEO may be explained secondarily.
+
+The owner should understand:
+
+Customers are increasingly encountering businesses and recommendations through AI-assisted search.
+
+We help make the business, services, locations and expertise easier for search and AI systems to understand and corroborate.
+
+Do not imply:
+
+- guaranteed ChatGPT recommendations
+- guaranteed citations
+- guaranteed AI visibility
+- secret ranking factors
+- proprietary AI technology
+
+Avoid overusing terms such as:
+
+knowledge graph
+entity optimization
+GEO
+AEO
+
+unless immediately explained in plain English.
+
+==================================================
+GOOGLE ADS PAGE
+==================================================
+
+Preserve the focus on high-intent auto glass searches.
+
+Use plain language around:
+
+- campaign structure
+- search terms
+- negative keywords
+- location targeting
+- service targeting
+- calls
+- quote requests
+- booked jobs
+- cost per acquisition
+
+Avoid assuming every prospect has:
+
+- a dispatcher
+- shop bays
+- mobile fleets
+- POS integration
+
+Use conditional language where appropriate.
+
+==================================================
+ABOUT PAGE
+==================================================
+
+Rewrite this page to sound human, credible and founder-led.
+
+Remove:
+
+"Leadership & Entity Governance"
+
+Replace it with something natural such as:
+
+BUILT FROM REAL SEARCH EXPERIENCE
+
+or:
+
+SPECIALIZED SEARCH. BUILT FOR AUTO GLASS.
+
+Keep:
+
+Valentina Borda
+Founder
+
+Parent company:
+Aligned Growth Digital
+
+Use "Founder" rather than "Founder & Managing Principal" unless there is a compelling business reason for the latter.
+
+Founder story:
+
+Valentina has 10+ years of experience across SEO, digital growth, eCommerce and marketing strategy.
+
+Through direct work in auto glass search, she saw how fragmented the customer acquisition landscape had become:
+
+SEO in one place.
+Maps somewhere else.
+Paid search somewhere else.
+AI search emerging.
+Conversion and reporting disconnected.
+
+Auto Glass Search OS was created to bring those pieces together around one objective:
+
+TURN VISIBILITY INTO QUALIFIED LEADS AND BOOKED JOBS.
+
+It also reflects a newer reality:
+
+AI allows marketing teams to execute more internally, but they still need strategy, systems, quality control and expertise.
+
+That is why the company supports both managed execution and team-enabled search systems.
+
+Do not fabricate client results or credentials.
+
+==================================================
+VISIBILITY ANALYSIS PAGE
+==================================================
+
+This is the primary conversion page.
+
+Preserve the strong H1 concept:
+
+FIND OUT WHO'S WINNING THE AUTO GLASS SEARCHES IN YOUR MARKET.
+
+Keep the offer concrete.
+
+The analysis may examine:
+
+- Google Maps visibility
+- organic visibility
+- AI search visibility
+- competitor visibility
+- website conversion friction
+- relevant paid search opportunities where applicable
+
+Avoid making the analysis sound like an automated SEO report.
+
+It is manually reviewed.
+
+IMPORTANT:
+
+The current page states:
+
+"Online form delivery is not active yet."
+
+Treat this as a development placeholder.
+
+Do not display this message once a functioning form is connected.
+
+If the form is not currently functional, clearly report what integration is required rather than pretending it works.
+
+==================================================
+AUTO GLASS OPERATIONS LANGUAGE
+==================================================
+
+The site should demonstrate strong industry understanding without pretending every auto glass company operates identically.
+
+Appropriate industry terminology includes:
+
+windshield replacement
+windshield repair
+rock chip repair
+mobile service
+in-shop service
+ADAS recalibration
+insurance claims
+OEM / aftermarket glass
+warranties
+fleet / commercial
+
+Use operational terms such as:
+
+dispatcher
+TPA
+shop bay
+fleet
+mobile dispatch
+insurance network
+
+only where contextually appropriate.
+
+Do not build the entire customer journey around those operational assumptions.
+
+==================================================
+BRAND / NAMING
+==================================================
+
+Do NOT rename the company during this pass.
+
+The final brand name is still being evaluated.
+
+Therefore:
+
+Do not add more unnecessary "Search OS" references.
+
+Use the brand name where naturally required.
+
+Do not turn "Search OS" into additional product names or proprietary claims.
+
+Keep the code structured so the brand name can be changed globally later.
+
+If brand strings are currently duplicated throughout components, centralize the primary brand name in configuration/site data where practical.
+
+==================================================
+COPY QUALITY CHECK
+==================================================
+
+Review every sentence on:
+
+/
+/auto-glass-seo/
+/auto-glass-local-seo/
+/ai-search-optimization/
+/google-ads/
+/about/
+/visibility-analysis/
+
+Ask:
+
+Would an established auto glass owner understand this immediately?
+
+Does it sound like something a senior search strategist would actually say?
+
+Is it useful?
+
+Is it necessary?
+
+Does it communicate an outcome?
+
+Remove unnecessary complexity.
+
+Do NOT dumb down the strategy.
+
+Do NOT make the copy generic.
+
+Preserve auto-glass specificity.
+
+==================================================
+SEO PROTECTION
+==================================================
+
+While simplifying copy:
+
+DO NOT damage:
+
+- primary page intent
+- H1 relevance
+- semantic heading hierarchy
+- internal linking
+- title tags
+- meta descriptions
+- schema
+- crawlable HTML
+- canonical URLs
+
+Do not stuff keywords to compensate for simpler copy.
+
+==================================================
+FINAL QA
+==================================================
+
+After changes:
+
+1. Run the production build.
+2. Verify all six primary pages.
+3. Verify all internal links.
+4. Check heading hierarchy.
+5. Check metadata.
+6. Check schema.
+7. Check mobile layouts.
+8. Check CTAs.
+9. Check Visibility Analysis conversion path.
+10. Search the codebase for the jargon identified above.
+11. Search for unsupported claims.
+12. Search for unnecessary repeated "Search OS" language.
+13. Confirm no new claims were invented.
+
+Then give me a concise change report.
+
+Do not deploy until the production build passes.

@@ -1,11 +1,11 @@
 export const siteConfig = {
   name: "Auto Glass Search OS",
   legalParent: "Aligned Growth Digital",
-  entityRelationship: "Auto Glass Search OS is a specialized brand operated by Aligned Growth Digital",
+  entityRelationship: "Auto Glass Search OS is a specialized brand of Aligned Growth Digital",
   tagline: "Turn Search Visibility Into Booked Auto Glass Jobs",
-  description: "The dedicated search and customer-acquisition operating system for established auto glass companies across Google Search, Google Maps, and AI search engines.",
+  description: "Search visibility and customer acquisition for established auto glass companies across Google Search, Google Maps, AI search, paid search, and website conversion.",
   founder: "Valentina Borda",
-  founderTitle: "Founder & Managing Principal, Aligned Growth Digital",
+  founderTitle: "Founder",
   primaryCta: "Get Your Visibility Analysis",
   primaryCtaOffer: "Complimentary Search + AI Visibility Analysis",
   siteUrl: "https://autoglasssearchos.com",
@@ -40,54 +40,54 @@ export const methodologyStages = [
     id: "found",
     step: "01",
     title: "FOUND",
-    subtitle: "Multi-Surface Search Coverage",
-    description: "Capture urgent consumer intent wherever windshield damage happens—across Google Organic, the 3-Pack Maps grid, service-area searches, and generative AI search surfaces.",
+    subtitle: "Be easier to find",
+    description: "Help customers find your company across Google Search, Google Maps, local searches, and AI-assisted search.",
     signals: [
-      "Google 3-Pack Placement",
-      "High-Intent Keyword Footprint",
-      "Service-Area Geometry",
-      "AI Answer Inclusion",
-      "Rock Chip & Repair Entry Points"
+      "Google Search visibility",
+      "Google Maps visibility",
+      "Service-area coverage",
+      "Clear service information",
+      "Windshield repair and replacement searches"
     ]
   },
   {
     id: "trusted",
     step: "02",
     title: "TRUSTED",
-    subtitle: "Entity Authority & Proof Signals",
-    description: "Drivers in emergency glass situations scan review recency, mobile fleet dispatch clarity, warranty protection, and insurance claim support in seconds before dialing.",
+    subtitle: "Give customers reasons to trust you",
+    description: "Strengthen the information customers use to decide: reviews, services, locations, warranties, insurance information, and business credibility.",
     signals: [
-      "Review Prominence & Recency",
-      "Insurance Workflow Transparency",
-      "ADAS Recalibration Credibility",
-      "TPA & Network Claim Navigation",
-      "NAP & Citation Integrity"
+      "Recent customer reviews",
+      "Clear insurance information",
+      "ADAS recalibration details",
+      "Accurate location details",
+      "Consistent business information"
     ]
   },
   {
     id: "chosen",
     step: "03",
     title: "CHOSEN",
-    subtitle: "High-Conversion Dispatch Flow",
-    description: "Turn visits into immediate phone calls and dispatch quote submissions with vehicle-specific landing architecture, smartphone click-to-call ergonomics, and instant estimate routing.",
+    subtitle: "Make it simple to contact you",
+    description: "Make it easy for prospective customers to call, request a quote, or schedule the service your business offers.",
     signals: [
-      "Inbound Phone Call Volume",
-      "Direct Dispatch Quote Rate",
-      "Smartphone Click-to-Call",
-      "Shop Bay vs Mobile Fleet Routing"
+      "Qualified phone calls",
+      "Quote requests",
+      "Clear mobile contact options",
+      "Service and scheduling details"
     ]
   },
   {
     id: "measured",
     step: "04",
     title: "MEASURED",
-    subtitle: "Booked Job Attribution",
-    description: "Connect marketing dollars directly to booked windshield replacements, recalibrated sensors, and mobile dispatch routes rather than vanity impressions.",
+    subtitle: "See what is producing opportunities",
+    description: "Connect marketing activity with qualified calls, quote requests, and booked jobs whenever reliable tracking data is available.",
     signals: [
-      "Cost Per Booked Job (CPBJ)",
-      "Customer Acquisition Cost (CAC)",
-      "Insurance vs Cash Ratio",
-      "Bay vs Mobile Fleet Utilization"
+      "Qualified calls",
+      "Quote requests",
+      "Booked jobs",
+      "Customer acquisition cost"
     ]
   }
 ];
@@ -96,33 +96,33 @@ export const searchIntentMatrix = [
   {
     queryType: "Urgent Replacement",
     sampleQuery: '"windshield replacement near me same day"',
-    userMindset: "Emergency, needs immediate mobile or drive-in technician today",
-    primarySurface: "Google Maps 3-Pack & Local Call Ads",
-    conversionMechanism: "Instant Click-to-Call, Live Mobile Dispatch confirmation",
-    targetValue: "High-Value Replacement"
+    userMindset: "Urgent need for service today",
+    primarySurface: "Google Maps and local search ads",
+    conversionMechanism: "Clear call and quote-request options",
+    targetValue: "Windshield replacement"
   },
   {
     queryType: "ADAS Optical Recalibration",
     sampleQuery: '"ADAS camera calibration after windshield install"',
     userMindset: "Safety-conscious driver or insurer looking for clearly documented recalibration capability",
-    primarySurface: "Organic Service Pillar & AI Search Overviews",
-    conversionMechanism: "Static/Dynamic Calibration Credibility & Insurance Billing",
-    targetValue: "Premium Add-On Opportunity"
+    primarySurface: "Service pages and AI-assisted search",
+    conversionMechanism: "Clear calibration and insurance information",
+    targetValue: "ADAS recalibration"
   },
   {
     queryType: "Insurance Coverage / Claim",
     sampleQuery: '"does insurance cover windshield replacement in [city]"',
     userMindset: "Confused about deductible, zero-deductible glass states, or billing",
-    primarySurface: "Informational SEO Guides & Schema FAQ Snippets",
-    conversionMechanism: "Step-by-step Insurance Claim Help & Deductible verification",
-    targetValue: "Frictionless Claim Initiation"
+    primarySurface: "Helpful service and insurance pages",
+    conversionMechanism: "Clear insurance claim information",
+    targetValue: "Insurance claim inquiry"
   },
   {
     queryType: "Rock Chip / Minor Repair",
     sampleQuery: '"windshield rock chip repair before it spreads"',
-    userMindset: "Price and time sensitive; evaluating repair vs full replacement",
-    primarySurface: "Organic Local Landing Pages & Google Maps",
-    conversionMechanism: "Clear repair availability, scheduling, and mobile-service options",
-    targetValue: "Volume & Lifetime Fleet Value"
+    userMindset: "Comparing repair and replacement options",
+    primarySurface: "Local service pages and Google Maps",
+    conversionMechanism: "Clear repair availability and scheduling options",
+    targetValue: "Rock chip repair"
   }
 ];
