@@ -1,9 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { siteConfig, isConfigured } from '../data/siteData';
+import { siteConfig } from '../data/siteData';
 
 const pageTitle = "Thank You | Auto Glass Search OS";
-const pageDescription = "We have received your auto glass visibility analysis request.";
+const pageDescription = "Your auto glass visibility analysis request has been received.";
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription} noindex>
@@ -11,44 +11,81 @@ const pageDescription = "We have received your auto glass visibility analysis re
     <div class="container">
       <div class="thankyou__inner">
 
+        <!-- Confirmation icon -->
         <div class="thankyou__icon" aria-hidden="true">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M5 14l6 6L23 8" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.5 13l6 6L21.5 7" stroke="var(--laser-cyan)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
 
-        <span class="eyebrow">Analysis Request Confirmed</span>
+        <span class="eyebrow">Analysis Request Received</span>
 
         <h1 id="thankyou-heading" class="text-balance">
-          We've received your details.
+          Your request is in review.
         </h1>
 
         <p class="thankyou__body">
-          If you reached this page after submitting a configured form, your request is in review. Auto Glass Search OS evaluates search coverage, local visibility, competitive signals, AI discovery, and conversion opportunities manually.
+          Valentina Borda manually reviews every visibility analysis request — examining your Google Maps presence, organic search coverage, AI search visibility, competitive landscape, and website conversion friction. You will receive a direct response with your analysis findings.
         </p>
 
-        {isConfigured(siteConfig.placeholders.calendlyUrl) && (
-          <div class="thankyou__schedule">
-            <h2 class="thankyou__schedule-title">
-              Optional: Schedule a direct 15-minute review.
-            </h2>
-            <p class="thankyou__schedule-desc">
-              Prefer to walk through the search data live with Valentina Borda?
-            </p>
+        <!-- Next steps -->
+        <div class="thankyou__next" aria-label="Next steps">
+          <p class="thankyou__next-label eyebrow">What happens next</p>
+          <ol class="thankyou__steps" role="list">
+            <li class="thankyou__step">
+              <span class="thankyou__step-num" aria-hidden="true">01</span>
+              <div>
+                <strong>Manual review begins.</strong>
+                <span> Your market, competitive landscape, and current visibility across search surfaces are examined individually.</span>
+              </div>
+            </li>
+            <li class="thankyou__step">
+              <span class="thankyou__step-num" aria-hidden="true">02</span>
+              <div>
+                <strong>Direct contact to confirm scope.</strong>
+                <span> We reach out by phone or email to confirm analysis scope and any clarifying details before delivering findings.</span>
+              </div>
+            </li>
+            <li class="thankyou__step">
+              <span class="thankyou__step-num" aria-hidden="true">03</span>
+              <div>
+                <strong>Findings delivered.</strong>
+                <span> Your visibility analysis is delivered — confidential, no obligation, no obligation to engage.</span>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Direct contact -->
+        <div class="thankyou__contact">
+          <p class="thankyou__contact-label">Need to reach us directly in the meantime?</p>
+          <div class="thankyou__contact-links">
             <a
-              href={siteConfig.placeholders.calendlyUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-analytics-event="scheduling_click"
-              class="btn btn--primary"
+              href={`mailto:${siteConfig.placeholders.email}?subject=Auto%20Glass%20Visibility%20Analysis%20Follow-up`}
+              data-analytics-event="email_click"
+              class="thankyou__contact-link"
             >
-              Select a Review Time on Calendar
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+                <path d="M1 4.5l6 4 6-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              </svg>
+              {siteConfig.placeholders.email}
+            </a>
+            <a
+              href={`tel:${siteConfig.placeholders.phone.replace(/[^\d+]/g, '')}`}
+              data-analytics-event="phone_click"
+              class="thankyou__contact-link"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 1h3l1.5 3.5-2 1.5A8 8 0 0 0 9 9.5l1.5-2L14 9v3a1 1 0 0 1-1 1A11 11 0 0 1 2 2a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              {siteConfig.placeholders.phone}
             </a>
           </div>
-        )}
+        </div>
 
         <a href="/" class="thankyou__back">
-          Return to Auto Glass Search OS Overview
+          Return to Auto Glass Search OS
         </a>
 
       </div>
@@ -60,77 +97,187 @@ const pageDescription = "We have received your auto glass visibility analysis re
   .thankyou {
     padding-top: 6rem;
     padding-bottom: 6rem;
-    min-height: 70dvh;
+    min-height: 75dvh;
     display: flex;
     align-items: center;
-    background-color: var(--surface-00);
+    background-color: var(--obsidian);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .thankyou::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 300px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0,210,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
   }
 
   .thankyou__inner {
-    max-width: 36rem;
+    max-width: 40rem;
     margin-inline: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
     text-align: center;
+    position: relative;
   }
 
   .thankyou__icon {
-    width: 4rem;
-    height: 4rem;
+    width: 4.5rem;
+    height: 4.5rem;
     border-radius: 50%;
-    background-color: rgba(52, 201, 138, 0.12);
-    border: 1px solid rgba(52, 201, 138, 0.35);
+    background-color: rgba(0, 210, 255, 0.08);
+    border: 1px solid rgba(0, 210, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 0 24px rgba(0, 210, 255, 0.12);
   }
 
   .thankyou__body {
     font-size: 1rem;
     color: var(--text-secondary);
-    line-height: 1.7;
-    max-width: 30rem;
+    line-height: 1.72;
+    max-width: 34rem;
   }
 
-  .thankyou__schedule {
+  /* Next steps */
+  .thankyou__next {
     width: 100%;
-    background-color: var(--surface-02);
-    border: 1px solid rgba(255,255,255,0.08);
+    background-color: var(--carbon-slate-2);
+    border: 1px solid rgba(0, 210, 255, 0.1);
     border-radius: var(--radius-xl);
     padding: 1.75rem;
     display: flex;
     flex-direction: column;
-    gap: 0.875rem;
+    gap: 1.25rem;
     text-align: left;
   }
 
-  .thankyou__schedule-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-primary);
+  .thankyou__next-label {
     margin: 0;
-    line-height: 1.4;
+    color: var(--text-tertiary);
   }
 
-  .thankyou__schedule-desc {
+  .thankyou__steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .thankyou__step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
     font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .thankyou__step strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .thankyou__step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    min-width: 2rem;
+    border-radius: var(--radius);
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--laser-cyan);
+    flex-shrink: 0;
+  }
+
+  /* Direct contact */
+  .thankyou__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    width: 100%;
+  }
+
+  .thankyou__contact-label {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--text-tertiary);
     margin: 0;
+  }
+
+  .thankyou__contact-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 480px) {
+    .thankyou__contact-links {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  .thankyou__contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255,255,255,0.08);
+    background: var(--carbon-slate-2);
+    transition: border-color var(--transition-fast), color var(--transition-fast);
+  }
+
+  .thankyou__contact-link:hover {
+    color: var(--laser-cyan);
+    border-color: rgba(0, 210, 255, 0.3);
+  }
+
+  .thankyou__contact-link svg {
+    color: var(--laser-cyan);
+    flex-shrink: 0;
   }
 
   .thankyou__back {
     font-family: var(--font-mono);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     color: var(--text-tertiary);
     text-decoration: none;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     transition: color var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
   }
 
   .thankyou__back::before {
-    content: '← ';
+    content: '←';
+    color: var(--laser-cyan);
   }
 
   .thankyou__back:hover {

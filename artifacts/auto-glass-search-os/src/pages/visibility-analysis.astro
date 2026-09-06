@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { siteConfig, isConfigured } from '../data/siteData';
+import LeadForm from '../components/LeadForm.astro';
+import BrandMark from '../components/BrandMark.astro';
 
 const pageTitle = "Complimentary Search + AI Visibility Analysis | Auto Glass Search OS";
 const pageDescription = "Find out who's winning the auto glass searches in your market. Request a complimentary search and AI visibility analysis for your auto glass company.";
@@ -11,64 +12,94 @@ const pageDescription = "Find out who's winning the auto glass searches in your 
     <div class="container">
       <div class="analysis-grid">
 
-        <!-- Left: Value prop -->
+        <!-- Left: Value proposition -->
         <div class="analysis-value">
-          <span class="eyebrow">Complimentary Executive Analysis</span>
+          <div class="analysis-eyebrow-wrap">
+            <span class="agos-brandmark" aria-hidden="true">
+              <BrandMark size={20} />
+            </span>
+            <span class="eyebrow">Complimentary Executive Analysis</span>
+          </div>
 
           <h1 id="analysis-heading" class="text-balance">
             Find out who's winning the auto glass searches in your market.
           </h1>
 
           <p class="analysis-value__lead">
-            Get a complimentary, manually reviewed analysis of how your auto glass company appears across Google Search, Google Maps, and AI-assisted search—and where competitors may be capturing jobs you are missing.
+            Get a complimentary, manually reviewed analysis of how your auto glass operation appears across Google Search, Google Maps, and AI-assisted search — and where competitors may be capturing jobs you are missing.
           </p>
 
           <div class="analysis-checklist" aria-label="What your analysis examines">
-            <p class="analysis-checklist__label eyebrow eyebrow--blue">What your analysis examines:</p>
+            <p class="analysis-checklist__label eyebrow eyebrow--blue">What your analysis covers:</p>
             <ul class="analysis-checklist__list" role="list">
-              <li class="check-item">Google Maps visibility in your market</li>
-              <li class="check-item">Organic visibility for windshield replacement, repair, mobile service, and ADAS recalibration</li>
+              <li class="check-item">Google Maps and local 3-pack visibility in your market</li>
+              <li class="check-item">Organic search coverage for windshield replacement, repair, mobile service, and ADAS recalibration</li>
               <li class="check-item">AI search visibility across relevant AI-assisted search experiences</li>
+              <li class="check-item">High-intent paid search opportunities, where applicable</li>
               <li class="check-item">Competitor presence across priority services and local search surfaces</li>
-              <li class="check-item">Website conversion friction</li>
-              <li class="check-item">Relevant paid-search opportunities, where applicable</li>
+              <li class="check-item">Website conversion friction points</li>
             </ul>
           </div>
+
+          <div class="analysis-value__promise">
+            <div class="promise-item">
+              <span class="promise-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 7l3.5 3.5L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>Manually reviewed, not automated</span>
+            </div>
+            <div class="promise-item">
+              <span class="promise-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 7l3.5 3.5L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>Confidential — not shared with competitors</span>
+            </div>
+            <div class="promise-item">
+              <span class="promise-icon" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 7l3.5 3.5L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>No obligation — scope confirmed before any engagement</span>
+            </div>
+          </div>
+
+          <div class="analysis-value__contact">
+            <p class="contact-label eyebrow">Prefer to reach us directly?</p>
+            <div class="contact-links">
+              <a href="mailto:valentina@alignedgrowthdigital.com?subject=Auto%20Glass%20Visibility%20Analysis" data-analytics-event="email_click" class="contact-link">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+                  <path d="M1 4.5l6 4 6-4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+                valentina@alignedgrowthdigital.com
+              </a>
+              <a href="tel:+15165211149" data-analytics-event="phone_click" class="contact-link">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M3 1h3l1.5 3.5-2 1.5A8 8 0 0 0 9 9.5l1.5-2L14 9v3a1 1 0 0 1-1 1A11 11 0 0 1 2 2a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                (516) 521-1149
+              </a>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Right: Form / contact -->
+        <!-- Right: Form -->
         <div class="analysis-form-panel">
           <div class="analysis-form-card">
             <header class="analysis-form-card__header">
               <h2 class="analysis-form-card__title">Request Your Market Visibility Analysis</h2>
-              <p class="analysis-form-card__note">
-                This page does not yet have a form-delivery integration. Please request your manually reviewed analysis by email or phone below.
+              <p class="analysis-form-card__subtitle">
+                Tell us about your operation and markets. Every analysis is reviewed manually by Valentina Borda.
               </p>
             </header>
 
-            <div class="analysis-form-card__contacts">
-              <a
-                href={`mailto:${siteConfig.placeholders.email}?subject=Search%20%2B%20AI%20Visibility%20Analysis`}
-                data-analytics-event="email_click"
-                class="btn btn--primary btn--full btn--lg"
-              >
-                Request Your Analysis by Email
-              </a>
-
-              {isConfigured(siteConfig.placeholders.phone) && (
-                <a
-                  href={`tel:${siteConfig.placeholders.phone.replace(/[^\d+]/g, '')}`}
-                  data-analytics-event="phone_click"
-                  class="btn btn--secondary btn--full btn--lg"
-                >
-                  Call {siteConfig.placeholders.phone}
-                </a>
-              )}
-
-              <p class="analysis-form-card__meta">
-                Every analysis is reviewed manually. Scope and timing are confirmed directly before work begins.
-              </p>
-            </div>
+            <LeadForm />
           </div>
         </div>
 
@@ -79,13 +110,28 @@ const pageDescription = "Find out who's winning the auto glass searches in your 
 
 <style>
   .analysis-page {
-    padding-top: 5rem;
+    padding-top: 4.5rem;
     padding-bottom: 6rem;
-    background-color: var(--surface-00);
+    background-color: var(--obsidian);
     min-height: 80dvh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Background accent */
+  .analysis-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 60%;
+    background: radial-gradient(ellipse at 80% 20%, rgba(30,64,175,0.1) 0%, transparent 60%);
+    pointer-events: none;
   }
 
   .analysis-grid {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
     gap: 4rem;
@@ -103,18 +149,24 @@ const pageDescription = "Find out who's winning the auto glass searches in your 
   .analysis-value {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.75rem;
+  }
+
+  .analysis-eyebrow-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .analysis-value__lead {
     font-size: 1rem;
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.72;
   }
 
   .analysis-checklist {
-    background-color: var(--surface-02);
-    border: 1px solid rgba(255,255,255,0.08);
+    background-color: var(--carbon-slate-2);
+    border: 1px solid rgba(0, 210, 255, 0.1);
     border-radius: var(--radius-xl);
     padding: 1.5rem;
     display: flex;
@@ -135,20 +187,95 @@ const pageDescription = "Find out who's winning the auto glass searches in your 
     gap: 0.625rem;
   }
 
-  /* Form card */
+  /* Promise bar */
+  .analysis-value__promise {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--fleet-amber-dim);
+    border: 1px solid var(--fleet-amber-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .promise-item {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+  }
+
+  .promise-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    background: var(--fleet-amber-dim);
+    border: 1px solid var(--fleet-amber-border);
+    color: var(--fleet-amber);
+    flex-shrink: 0;
+  }
+
+  /* Direct contact */
+  .analysis-value__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .contact-label {
+    color: var(--text-tertiary);
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    letter-spacing: 0.02em;
+  }
+
+  .contact-link:hover {
+    color: var(--laser-cyan);
+  }
+
+  .contact-link svg {
+    color: var(--laser-cyan);
+    flex-shrink: 0;
+  }
+
+  /* Form panel */
   .analysis-form-panel {
     position: sticky;
-    top: 6rem;
+    top: 5.5rem;
   }
 
   .analysis-form-card {
-    background-color: var(--surface-02);
-    border: 1px solid rgba(255,255,255,0.1);
+    background-color: var(--carbon-slate-2);
+    border: 1px solid rgba(0, 210, 255, 0.12);
     border-radius: var(--radius-2xl);
-    padding: 2rem;
+    padding: 2.25rem;
     display: flex;
     flex-direction: column;
     gap: 1.75rem;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,210,255,0.05);
   }
 
   @media (min-width: 640px) {
@@ -160,37 +287,22 @@ const pageDescription = "Find out who's winning the auto glass searches in your 
     flex-direction: column;
     gap: 0.5rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
   }
 
   .analysis-form-card__title {
-    font-size: 1.125rem;
-    font-weight: 600;
+    font-family: var(--font-display);
+    font-size: 1.1875rem;
+    font-weight: 700;
     color: var(--text-primary);
     margin: 0;
     line-height: 1.3;
   }
 
-  .analysis-form-card__note {
+  .analysis-form-card__subtitle {
     font-size: 0.8125rem;
     color: var(--text-tertiary);
     line-height: 1.6;
-    margin: 0;
-  }
-
-  .analysis-form-card__contacts {
-    display: flex;
-    flex-direction: column;
-    gap: 0.875rem;
-  }
-
-  .analysis-form-card__meta {
-    text-align: center;
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    color: var(--text-tertiary);
-    letter-spacing: 0.04em;
-    line-height: 1.7;
     margin: 0;
   }
 </style>

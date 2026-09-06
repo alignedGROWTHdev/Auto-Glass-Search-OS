@@ -3,56 +3,126 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { methodologyStages, searchIntentMatrix } from '../data/siteData';
 
 const pageTitle = "Auto Glass Search OS | Search & Customer Acquisition for Auto Glass Companies";
-const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Search OS helps established auto glass companies win customer demand across Google Search, Google Maps, and AI-powered discovery.";
+const pageDescription = "Turn search visibility into booked auto glass jobs. Auto Glass Search OS helps established auto glass companies win customer demand across Google Search, Google Maps, and AI-powered discovery.";
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
 
   <!-- ════════════════════════════════════════════
-       HERO
+       HERO — 60/40 split
        ════════════════════════════════════════════ -->
   <section class="hero" aria-labelledby="hero-heading">
     <div class="container">
-      <div class="hero__content">
+      <div class="hero__layout">
 
-        <span class="eyebrow eyebrow--blue" aria-label="Specialized Auto Glass Search and Customer Acquisition">
-          <span class="status-dot" aria-hidden="true"></span>
-          Specialized Auto Glass Search &amp; Customer Acquisition
-        </span>
+        <!-- Left 60 -->
+        <div class="hero__content fade-up">
 
-        <h1 id="hero-heading" class="hero__heading text-balance">
-          Turn Search Into<br />
-          <span class="hero__heading-accent">Booked Auto Glass Jobs.</span>
-        </h1>
+          <span class="eyebrow" aria-label="Specialized Auto Glass Search and Customer Acquisition">
+            <span class="status-dot" aria-hidden="true"></span>
+            Specialized Auto Glass Search &amp; Customer Acquisition
+          </span>
 
-        <p class="hero__lead">
-          Auto Glass Search OS helps established auto glass companies turn search visibility into qualified leads and booked jobs.
-        </p>
+          <h1 id="hero-heading" class="hero__heading text-balance">
+            Turn Search Visibility Into<br />
+            <span class="hero__heading-accent">Booked Auto Glass Jobs.</span>
+          </h1>
 
-        <p class="hero__sub">
-          We work across Google Search, Google Maps, AI search, paid search, and website conversion.
-        </p>
+          <p class="hero__lead">
+            Auto Glass Search OS helps established auto glass operators convert high-intent paid search and organic local search into qualified calls, quote requests, and booked jobs — with calls routing directly to shop dispatchers and optional AI Voice CSR technology for after-hours and overflow.
+          </p>
 
-        <div class="hero__actions">
-          <a
-            href="/visibility-analysis/"
-            data-analytics-event="primary_cta_click"
-            class="btn btn--primary btn--lg"
-          >
-            Get Your Visibility Analysis
-          </a>
-          <a
-            href="#search-methodology"
-            data-analytics-event="secondary_cta_click"
-            class="btn btn--secondary btn--lg"
-          >
-            See How It Works
-          </a>
+          <div class="hero__signals" role="list" aria-label="Core service signals">
+            <div class="hero__signal" role="listitem">
+              <span class="hero__signal-dot" aria-hidden="true"></span>
+              <span>High-intent paid search + organic local SEO</span>
+            </div>
+            <div class="hero__signal" role="listitem">
+              <span class="hero__signal-dot" aria-hidden="true"></span>
+              <span>Calls routed directly to shop dispatchers</span>
+            </div>
+            <div class="hero__signal" role="listitem">
+              <span class="hero__signal-dot" aria-hidden="true"></span>
+              <span>Optional AI Voice CSR for after-hours &amp; overflow</span>
+            </div>
+            <div class="hero__signal" role="listitem">
+              <span class="hero__signal-dot" aria-hidden="true"></span>
+              <span>Mobile route clustering + in-shop ADAS calibration bays</span>
+            </div>
+          </div>
+
+          <div class="hero__actions fade-up fade-up--delay-1">
+            <a
+              href="/visibility-analysis/"
+              data-analytics-event="primary_cta_click"
+              class="btn btn--primary btn--lg"
+            >
+              Get Your Visibility Analysis
+            </a>
+            <a
+              href="#search-methodology"
+              data-analytics-event="secondary_cta_click"
+              class="btn btn--secondary btn--lg"
+            >
+              See How It Works
+            </a>
+          </div>
+
+          <p class="hero__qualifier">
+            Built for established auto glass companies investing seriously in growth.
+          </p>
+
         </div>
 
-        <p class="hero__qualifier">
-          Built for established auto glass companies investing seriously in growth.
-        </p>
+        <!-- Right 40 — ecosystem visual -->
+        <div class="hero__visual fade-up fade-up--delay-2" aria-hidden="true">
+          <div class="hero__img-frame">
+            <div class="hero__img-hud hero__img-hud--tl" aria-hidden="true">
+              <span class="hud-label">SEARCH OS</span>
+              <span class="hud-dot"></span>
+            </div>
+            <div class="hero__img-hud hero__img-hud--br" aria-hidden="true">
+              <span class="hud-dot hud-dot--amber"></span>
+              <span class="hud-label hud-label--amber">ACTIVE</span>
+            </div>
+            <!-- Corner calibration marks -->
+            <svg class="hero__corner hero__corner--tl" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M1 9 L1 1 L9 1" stroke="rgba(0,210,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg class="hero__corner hero__corner--tr" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M17 9 L17 1 L9 1" stroke="rgba(0,210,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg class="hero__corner hero__corner--bl" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M1 9 L1 17 L9 17" stroke="rgba(0,210,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <svg class="hero__corner hero__corner--br" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+              <path d="M17 9 L17 17 L9 17" stroke="rgba(0,210,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <img
+              src="/auto_glass_search_ecosystem_aligned.webp"
+              alt="The Auto Glass Search Ecosystem"
+              class="hero__img"
+              width="960"
+              height="540"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <p class="hero__visual-note">
+            Conceptual ecosystem illustration. Interface figures are illustrative, not client performance claims.
+          </p>
+
+          <!-- Flow labels below image -->
+          <div class="hero__flow" aria-label="Service flow">
+            <span class="hero__flow-step">Search</span>
+            <span class="hero__flow-arrow" aria-hidden="true">→</span>
+            <span class="hero__flow-step">Call</span>
+            <span class="hero__flow-arrow" aria-hidden="true">→</span>
+            <span class="hero__flow-step">Dispatch</span>
+            <span class="hero__flow-arrow" aria-hidden="true">→</span>
+            <span class="hero__flow-step hero__flow-step--accent">Booked Job</span>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -65,37 +135,44 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
     <div class="container">
 
       <div class="section__header section__header--center">
-        <span class="eyebrow" aria-hidden="true">The Customer Search Reality</span>
+        <span class="eyebrow">The Customer Search Reality</span>
+        <span class="cyan-rule" style="margin: 0 auto;"></span>
         <h2 id="search-reality-heading" class="text-balance">
           Your customers are searching right now.
         </h2>
         <p class="section__lead">
-          Auto glass is often an urgent purchase. After windshield damage, drivers move quickly across search results, Maps, reviews, websites, insurance information, and phone calls while deciding whom to trust.
+          Auto glass is often an urgent purchase. After windshield damage, drivers move quickly across search results, Maps, reviews, websites, insurance information, and phone calls — deciding whom to trust in minutes.
         </p>
       </div>
 
       <div class="grid-3">
         <article class="card">
-          <div class="stage-badge" aria-label="Point 01">01</div>
-          <h3 class="card__title">The Urgent Local Query</h3>
+          <div class="card__top">
+            <div class="stage-badge" aria-label="Point 01">01</div>
+            <h3 class="card__title">The Urgent Local Query</h3>
+          </div>
           <p class="card__body">
-            Drivers query "windshield replacement near me same day" or "mobile auto glass repair [city]." Limited visibility across local results can move that opportunity toward another provider.
+            Drivers query "windshield replacement near me same day" or "mobile auto glass repair [city]." High-intent paid search and optimized local listings help more of that demand reach your dispatchers.
           </p>
         </article>
 
         <article class="card">
-          <div class="stage-badge" aria-label="Point 02">02</div>
-          <h3 class="card__title">AI-Assisted Search</h3>
+          <div class="card__top">
+            <div class="stage-badge" aria-label="Point 02">02</div>
+            <h3 class="card__title">AI-Assisted Discovery</h3>
+          </div>
           <p class="card__body">
-            Drivers also ask AI-assisted search questions such as "Which nearby auto glass shops provide ADAS recalibration?" Clear business, service, and location information helps these systems understand the available options.
+            Drivers ask AI search: "Which nearby auto glass shops provide ADAS recalibration?" Clear, structured business and service information — including in-shop calibration bay details — gives these systems better information to understand your operation.
           </p>
         </article>
 
         <article class="card">
-          <div class="stage-badge" aria-label="Point 03">03</div>
-          <h3 class="card__title">Instant Phone Call Decision</h3>
+          <div class="card__top">
+            <div class="stage-badge" aria-label="Point 03">03</div>
+            <h3 class="card__title">The Dispatch Decision</h3>
+          </div>
           <p class="card__body">
-            Many urgent auto glass decisions move to a phone call or quote request. Clear information about service availability, insurance support, mobile coverage, and warranties reduces friction in that decision.
+            Urgent auto glass decisions move to a phone call fast. Calls route directly to your shop dispatchers, with optional specialized AI Voice CSR technology supporting after-hours, overflow, and weekend intake.
           </p>
         </article>
       </div>
@@ -104,109 +181,169 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
   </section>
 
   <!-- ════════════════════════════════════════════
-       SEARCH ECOSYSTEM
+       SERVICE FLOW / ECOSYSTEM
        ════════════════════════════════════════════ -->
   <section class="section" aria-labelledby="ecosystem-heading">
     <div class="container">
 
       <div class="section__header">
-        <span class="eyebrow">The Customer Search Layer</span>
-          <h2 id="ecosystem-heading" class="text-balance">
-           Help customers find, trust, and contact you.
-          </h2>
+        <span class="eyebrow">The Search-to-Job Pipeline</span>
+        <span class="cyan-rule"></span>
+        <h2 id="ecosystem-heading" class="text-balance">
+          Connect search signals to customer calls and booked jobs.
+        </h2>
         <p class="section__sub">
-          Google Search &rarr; Google Maps &rarr; AI Search &rarr; Reviews + Authority &rarr; Website / Calls &rarr; Booked Jobs.
+          High-intent search &rarr; local Maps visibility &rarr; AI discovery &rarr; call routing &rarr; mobile dispatch &rarr; ADAS calibration &rarr; measured outcomes.
         </p>
       </div>
 
-      <div class="surface-grid" role="list" aria-label="Search surfaces">
-        <div class="surface-tile" role="listitem">
-          <span class="surface-tile__label eyebrow">01. Organic</span>
-          <span class="surface-tile__name">Google Search</span>
-          <span class="surface-tile__desc">Service information</span>
+      <div class="pipeline" role="list" aria-label="Service pipeline">
+
+        <div class="pipeline__step" role="listitem">
+          <div class="pipeline__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M10 7v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="pipeline__content">
+            <span class="pipeline__label eyebrow">01. Organic + Paid</span>
+            <span class="pipeline__name">High-Intent Search</span>
+            <span class="pipeline__desc">Google Ads and call-focused campaigns can use a 5,000+ negative-keyword control library when account scope warrants, alongside organic local search</span>
+          </div>
         </div>
-        <div class="surface-tile" role="listitem">
-          <span class="surface-tile__label eyebrow">02. Maps</span>
-          <span class="surface-tile__name">Google Maps</span>
-          <span class="surface-tile__desc">Nearby customers</span>
+
+        <div class="pipeline__connector" aria-hidden="true"></div>
+
+        <div class="pipeline__step" role="listitem">
+          <div class="pipeline__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 10a7 7 0 1 1 14 0 7 7 0 0 1-14 0z" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="pipeline__content">
+            <span class="pipeline__label eyebrow">02. Maps</span>
+            <span class="pipeline__name">Local Maps &amp; 3-Pack</span>
+            <span class="pipeline__desc">Visibility for nearby customers searching for immediate service</span>
+          </div>
         </div>
-        <div class="surface-tile" role="listitem">
-          <span class="surface-tile__label eyebrow">03. AI Search</span>
-          <span class="surface-tile__name">AI Search</span>
-          <span class="surface-tile__desc">Clear business details</span>
+
+        <div class="pipeline__connector" aria-hidden="true"></div>
+
+        <div class="pipeline__step" role="listitem">
+          <div class="pipeline__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="5" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M7 9h6M7 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="pipeline__content">
+            <span class="pipeline__label eyebrow">03. AI Search</span>
+            <span class="pipeline__name">AI Discovery</span>
+            <span class="pipeline__desc">Structured service and ADAS calibration data for AI-assisted search results</span>
+          </div>
         </div>
-        <div class="surface-tile" role="listitem">
-          <span class="surface-tile__label eyebrow">04. Trust</span>
-          <span class="surface-tile__name">Reviews &amp; Authority</span>
-          <span class="surface-tile__desc">Reviews and proof</span>
+
+        <div class="pipeline__connector" aria-hidden="true"></div>
+
+        <div class="pipeline__step" role="listitem">
+          <div class="pipeline__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 4h10l1 5H4L5 4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+              <circle cx="7.5" cy="15.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="13.5" cy="15.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M4 9v4h12V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="pipeline__content">
+            <span class="pipeline__label eyebrow">04. Call + Dispatch</span>
+            <span class="pipeline__name">Direct Dispatcher Routing</span>
+            <span class="pipeline__desc">Calls route to your shop dispatchers; AI Voice CSR covers after-hours &amp; overflow</span>
+          </div>
         </div>
-        <div class="surface-tile" role="listitem">
-          <span class="surface-tile__label eyebrow">05. Conversion</span>
-          <span class="surface-tile__name">Website / Calls</span>
-          <span class="surface-tile__desc">Calls and quote requests</span>
+
+        <div class="pipeline__connector" aria-hidden="true"></div>
+
+        <div class="pipeline__step pipeline__step--final" role="listitem">
+          <div class="pipeline__icon pipeline__icon--accent" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="pipeline__content">
+            <span class="pipeline__label eyebrow eyebrow--amber">05. Measured</span>
+            <span class="pipeline__name pipeline__name--accent">Booked Jobs</span>
+            <span class="pipeline__desc">Qualified calls, quote requests, and booked jobs — tracked where data allows</span>
+          </div>
         </div>
-        <div class="surface-tile surface-tile--final" role="listitem">
-          <span class="surface-tile__label eyebrow">06. Measured</span>
-          <span class="surface-tile__name surface-tile__name--accent">Booked Jobs</span>
-          <span class="surface-tile__desc surface-tile__desc--success">Trackable outcomes</span>
-        </div>
+
       </div>
 
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════
-       TWO WAYS TO OPERATE
+       TWO ENGAGEMENT MODELS
        ════════════════════════════════════════════ -->
   <section class="section section--alt" aria-labelledby="engagement-models-heading">
     <div class="container">
 
       <div class="section__header section__header--center">
         <span class="eyebrow">Engagement Models</span>
+        <span class="cyan-rule" style="margin: 0 auto;"></span>
         <h2 id="engagement-models-heading" class="text-balance">
           Two ways to work with us.
         </h2>
         <p class="section__lead">
-          Choose managed execution or work with us to build the systems and workflows your team can use.
+          Choose managed execution or work with us to build the search systems and workflows your team can use long-term.
         </p>
       </div>
 
       <div class="models-grid">
-        <!-- Managed -->
-        <article class="card model-card">
+        <!-- Managed Search OS -->
+        <article class="card model-card model-card--primary">
           <header class="model-card__header">
-            <h3 class="model-card__title">Managed Search OS</h3>
+            <div class="model-card__header-top">
+              <h3 class="model-card__title">Managed Search OS</h3>
+              <span class="model-card__badge">Recommended</span>
+            </div>
             <span class="model-card__mode eyebrow eyebrow--blue">We run it for you.</span>
           </header>
           <p class="card__body">
-            For established auto glass companies that want a specialized external team to lead strategy and execution across search, Maps, AI search, paid search, and conversion.
+            For established auto glass companies that want a specialized external team leading strategy and execution across search, Maps, AI search, paid search, and conversion — while your dispatchers stay focused on booking jobs.
           </p>
           <ul class="model-card__list" role="list">
-            <li class="arrow-item">SEO and Google Maps management</li>
-            <li class="arrow-item">AI search and paid-search strategy</li>
+            <li class="arrow-item">High-intent paid search and organic local SEO</li>
+            <li class="arrow-item">Google Maps management and local signals</li>
+            <li class="arrow-item">AI search optimization and structured data</li>
+            <li class="arrow-item">Call routing strategy and dispatch coordination</li>
             <li class="arrow-item">Measurement tied to qualified leads and booked jobs</li>
           </ul>
-          <a href="/visibility-analysis/" data-analytics-event="managed_search_os_interest" class="btn btn--ghost">
-            Get Your Analysis &rarr;
+          <a href="/visibility-analysis/" data-analytics-event="managed_search_os_interest" class="btn btn--primary">
+            Get Your Visibility Analysis &rarr;
           </a>
         </article>
 
-        <!-- Team -->
+        <!-- Search OS + Team -->
         <article class="card model-card">
           <header class="model-card__header">
-            <h3 class="model-card__title">Search OS + Team</h3>
+            <div class="model-card__header-top">
+              <h3 class="model-card__title">Search OS + Team</h3>
+            </div>
             <span class="model-card__mode eyebrow">We build it with your team.</span>
           </header>
           <p class="card__body">
-            For companies that want to build stronger internal search capability. We create practical workflows and AI-enabled systems with your team, then provide ongoing strategy, quality control, and support.
+            For companies that want to build stronger internal search capability. We create practical workflows and AI-enabled systems with your team, then provide ongoing strategy, quality control, and support as your markets grow.
           </p>
           <ul class="model-card__list" role="list">
-            <li class="arrow-item">Search systems and workflows</li>
-            <li class="arrow-item">Reusable AI-enabled processes</li>
+            <li class="arrow-item">Search systems and reusable workflows</li>
+            <li class="arrow-item">AI-enabled processes your team operates</li>
+            <li class="arrow-item">Mobile route clustering and fleet coordination frameworks</li>
             <li class="arrow-item">Ongoing strategy, quality control, and support</li>
           </ul>
-          <a href="/visibility-analysis/" data-analytics-event="search_os_team_interest" class="btn btn--ghost">
-            Get Your Analysis &rarr;
+          <a href="/visibility-analysis/" data-analytics-event="search_os_team_interest" class="btn btn--secondary">
+            Get Your Visibility Analysis &rarr;
           </a>
         </article>
       </div>
@@ -215,18 +352,19 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
   </section>
 
   <!-- ════════════════════════════════════════════
-       METHODOLOGY (FOUND → TRUSTED → CHOSEN → MEASURED)
+       METHODOLOGY: FOUND → TRUSTED → CHOSEN → MEASURED
        ════════════════════════════════════════════ -->
   <section id="search-methodology" class="section" aria-labelledby="methodology-heading">
     <div class="container">
 
       <div class="section__header section__header--center">
         <span class="eyebrow">How We Work</span>
+        <span class="cyan-rule" style="margin: 0 auto;"></span>
         <h2 id="methodology-heading" class="text-balance">
-          The 4-Stage Methodology
+          Found &rarr; Trusted &rarr; Chosen &rarr; Measured
         </h2>
         <p class="section__lead">
-          We connect the work across the customer journey, from being found to tracking qualified leads and booked jobs.
+          A four-stage discipline that connects search activity with qualified calls, booked jobs, and trackable outcomes.
         </p>
       </div>
 
@@ -236,13 +374,13 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
             <header class="stage-card__header">
               <span class="stage-card__title">{stage.title}</span>
               <span class="stage-tag" aria-label={`Stage ${stage.step}`}>
-                Stage {stage.step}
+                {stage.step}
               </span>
             </header>
             <span class="eyebrow eyebrow--blue stage-card__subtitle">{stage.subtitle}</span>
             <p class="card__body">{stage.description}</p>
             <div class="stage-card__metrics">
-              <span class="stage-card__metrics-label">What we focus on</span>
+              <span class="stage-card__metrics-label">Focus areas</span>
               <ul class="stage-card__metrics-list" role="list">
                 {stage.signals.map((s) => (
                   <li class="check-item">{s}</li>
@@ -264,11 +402,12 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
 
       <div class="section__header">
         <span class="eyebrow">Customer Search Needs</span>
+        <span class="cyan-rule"></span>
         <h2 id="intent-matrix-heading" class="text-balance">
-          Different searches call for different information.
+          Different searches. Different information needs.
         </h2>
         <p class="section__sub">
-          Search behavior changes based on the driver's need, urgency, and service question.
+          Search behavior changes based on the driver's urgency, service need, and insurance question.
         </p>
       </div>
 
@@ -307,11 +446,12 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
     <div class="container">
       <div class="measure-inner">
         <span class="eyebrow">Revenue Accountability</span>
+        <span class="cyan-rule" style="margin: 0 auto;"></span>
         <h2 id="measurement-heading" class="text-balance">
           Measure booked jobs, not just rankings.
         </h2>
         <p class="measure-body">
-          Where reliable call, quote, booking, and revenue data are available, measurement can connect search activity with qualified inquiries and booked jobs — not just rankings or traffic.
+          Where reliable call, quote, booking, and revenue data are available, measurement connects search activity with qualified inquiries and booked jobs — not just rankings or traffic numbers. Operational clarity starts with knowing which searches are producing revenue.
         </p>
       </div>
     </div>
@@ -324,19 +464,26 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
     <div class="container">
       <div class="icp-card">
         <div class="icp-card__content">
-          <span class="eyebrow">Partnership Profile</span>
-          <h2 id="icp-heading" class="text-balance">
-            Built for auto glass companies ready to scale.
-          </h2>
-          <p class="icp-card__desc">
-            Auto Glass Search OS is designed for established companies that want to improve how they are found online and how search turns into customer inquiries.
-          </p>
-          <ul class="icp-card__list" role="list">
-            <li class="check-item">Established auto glass business</li>
-            <li class="check-item">A clear set of services and markets to grow</li>
-            <li class="check-item">In-shop service, mobile service, or both</li>
-            <li class="check-item">A team ready to improve search performance</li>
-          </ul>
+          <div class="icp-card__left">
+            <span class="eyebrow">Partnership Profile</span>
+            <span class="cyan-rule"></span>
+            <h2 id="icp-heading" class="text-balance">
+              Built for auto glass operators ready to scale.
+            </h2>
+            <p class="icp-card__desc">
+              Auto Glass Search OS is designed for established companies that want to improve how they are found online and how search converts into qualified customer inquiries — across in-shop service, mobile dispatch, and ADAS calibration bays.
+            </p>
+          </div>
+          <div class="icp-card__right">
+            <ul class="icp-card__list" role="list">
+              <li class="check-item">Established auto glass business with a track record</li>
+              <li class="check-item">In-shop service, mobile fleet, or both</li>
+              <li class="check-item">In-house ADAS calibration capability or partnership</li>
+              <li class="check-item">Clear services and geographic markets to grow</li>
+              <li class="check-item">A team ready to improve search performance</li>
+              <li class="check-item">Seriously investing in sustainable customer acquisition</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -349,11 +496,12 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
     <div class="container">
       <div class="final-cta">
         <span class="eyebrow">Opportunity Diagnostic</span>
+        <span class="cyan-rule" style="margin: 0 auto;"></span>
         <h2 id="final-cta-heading" class="final-cta__heading text-balance">
           See where competitors are capturing jobs you're missing.
         </h2>
         <p class="final-cta__desc">
-          Request a complimentary visibility analysis for your auto glass company. We manually review Google Maps visibility, organic visibility, AI search visibility, competitor presence, and website conversion friction.
+          Request a complimentary, manually reviewed visibility analysis for your auto glass operation. We examine Google Maps visibility, organic search coverage, AI search presence, competitive positioning, paid search opportunities, and website conversion friction.
         </p>
         <a
           href="/visibility-analysis/"
@@ -363,7 +511,7 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
           Get Your Search + AI Visibility Analysis
         </a>
         <p class="final-cta__note">
-          Manually reviewed &middot; Confidential opportunity analysis
+          Manually reviewed &middot; Confidential opportunity analysis &middot; No obligation
         </p>
       </div>
     </div>
@@ -374,94 +522,265 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
 <style>
   /* ── Hero ─────────────────────────────────────── */
   .hero {
-    padding-top: 5rem;
-    padding-bottom: 6rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    background-color: var(--surface-00);
+    padding-top: 4.5rem;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid rgba(0,210,255,0.08);
+    background-color: var(--obsidian);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle radial glow behind hero */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(ellipse at 70% 30%, rgba(30,64,175,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+  }
+
+  @media (min-width: 1024px) {
+    .hero__layout {
+      grid-template-columns: 58fr 42fr;
+      gap: 4rem;
+    }
   }
 
   .hero__content {
-    max-width: 56rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    max-width: 56rem;
   }
 
   .hero__heading {
-    font-size: clamp(2.5rem, 6vw + 0.5rem, 4.25rem);
+    font-size: clamp(2.5rem, 5.5vw + 0.5rem, 4.25rem);
     font-weight: 800;
-    line-height: 1.0;
-    letter-spacing: -0.025em;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
     color: var(--text-primary);
   }
 
   .hero__heading-accent {
-    color: var(--blue);
+    color: var(--laser-cyan);
     display: block;
+    text-shadow: 0 0 40px rgba(0, 210, 255, 0.25);
   }
 
   .hero__lead {
-    font-size: clamp(1rem, 1.5vw + 0.5rem, 1.25rem);
+    font-size: clamp(1rem, 1.25vw + 0.5rem, 1.1875rem);
     color: var(--text-secondary);
-    line-height: 1.65;
-    max-width: 44rem;
+    line-height: 1.7;
+    max-width: 46rem;
   }
 
-  .hero__sub {
+  /* Service signals */
+  .hero__signals {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(19, 27, 46, 0.7);
+    border: 1px solid rgba(0, 210, 255, 0.12);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .hero__signal {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    color: var(--text-tertiary);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
     letter-spacing: 0.02em;
-    max-width: 40rem;
-    line-height: 1.7;
+    line-height: 1.5;
+  }
+
+  .hero__signal-dot {
+    width: 0.3125rem;
+    height: 0.3125rem;
+    border-radius: 50%;
+    background-color: var(--laser-cyan);
+    flex-shrink: 0;
+    opacity: 0.7;
   }
 
   .hero__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.875rem;
     align-items: center;
-    padding-top: 0.5rem;
+    padding-top: 0.25rem;
   }
 
   .hero__qualifier {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.06em;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 1.25rem;
+    margin-top: 0;
+  }
+
+  /* Hero visual */
+  .hero__visual {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .hero__img-frame {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    box-shadow:
+      0 0 0 1px rgba(0, 210, 255, 0.08),
+      0 24px 64px rgba(0, 0, 0, 0.5),
+      0 0 48px rgba(0, 210, 255, 0.06);
+    background: var(--carbon-slate);
+  }
+
+  .hero__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 0, 0, 1);
+  }
+
+  .hero__img-frame:hover .hero__img {
+    transform: scale(1.01);
+  }
+
+  .hero__visual-note {
+    margin: 0;
+    max-width: 40rem;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    line-height: 1.5;
     color: var(--text-tertiary);
     letter-spacing: 0.04em;
-    border-top: 1px solid rgba(255,255,255,0.07);
-    padding-top: 1.5rem;
-    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  /* HUD overlays */
+  .hero__img-hud {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    z-index: 2;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(11, 15, 25, 0.75);
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    border-radius: var(--radius);
+    padding: 0.25rem 0.5rem;
+  }
+
+  .hero__img-hud--tl { top: 0.75rem; left: 0.75rem; }
+  .hero__img-hud--br { bottom: 0.75rem; right: 0.75rem; }
+
+  .hud-label { color: var(--laser-cyan); }
+  .hud-label--amber { color: var(--fleet-amber); }
+
+  .hud-dot {
+    width: 0.3125rem;
+    height: 0.3125rem;
+    border-radius: 50%;
+    background-color: var(--laser-cyan);
+    box-shadow: 0 0 4px var(--laser-cyan);
+    animation: pulse-dot 2.5s ease-in-out infinite;
+  }
+
+  .hud-dot--amber {
+    background-color: var(--fleet-amber);
+    box-shadow: 0 0 4px var(--fleet-amber);
+  }
+
+  /* Corner calibration marks */
+  .hero__corner {
+    position: absolute;
+    z-index: 2;
+  }
+  .hero__corner--tl { top: 0.375rem; left: 0.375rem; }
+  .hero__corner--tr { top: 0.375rem; right: 0.375rem; }
+  .hero__corner--bl { bottom: 0.375rem; left: 0.375rem; }
+  .hero__corner--br { bottom: 0.375rem; right: 0.375rem; }
+
+  /* Flow labels */
+  .hero__flow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .hero__flow-step {
+    color: var(--text-tertiary);
+  }
+
+  .hero__flow-step--accent {
+    color: var(--laser-cyan);
+    font-weight: 500;
+  }
+
+  .hero__flow-arrow {
+    color: var(--text-tertiary);
+    font-size: 0.625rem;
   }
 
   /* ── Section base ─────────────────────────────── */
   .section {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    background-color: var(--surface-00);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background-color: var(--obsidian);
   }
 
   .section--alt {
-    background-color: var(--surface-01);
+    background-color: var(--carbon-slate);
   }
 
   .section--measure {
-    background-color: var(--surface-01);
+    background-color: var(--carbon-slate);
     text-align: center;
   }
 
   .section--cta {
-    background-color: var(--surface-00);
+    background-color: var(--obsidian);
     text-align: center;
   }
 
   .section__header {
-    max-width: 48rem;
     display: flex;
     flex-direction: column;
-    gap: 0.875rem;
+    gap: 1rem;
     margin-bottom: 3.5rem;
+    max-width: 50rem;
   }
 
   .section__header--center {
@@ -473,21 +792,23 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
   .section__lead {
     font-size: 1rem;
     color: var(--text-secondary);
-    line-height: 1.65;
+    line-height: 1.7;
+    max-width: 46rem;
   }
 
   .section__sub {
     font-family: var(--font-mono);
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     color: var(--text-tertiary);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
+    line-height: 1.6;
   }
 
   /* ── Grids ────────────────────────────────────── */
   .grid-3 {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   @media (min-width: 768px) {
@@ -497,7 +818,7 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
   .grid-4 {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   @media (min-width: 640px) {
@@ -509,7 +830,15 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
   }
 
   /* ── Cards ────────────────────────────────────── */
+  .card__top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    margin-bottom: 0.875rem;
+  }
+
   .card__title {
+    font-family: var(--font-display);
     font-size: 1.0625rem;
     font-weight: 600;
     color: var(--text-primary);
@@ -520,81 +849,139 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
   .card__body {
     font-size: 0.875rem;
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.72;
     margin: 0;
   }
 
-  .card {
+  /* ── Pipeline flow ────────────────────────────── */
+  .pipeline {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0;
+    max-width: 58rem;
+    margin-inline: auto;
   }
 
-  /* ── Surface grid ─────────────────────────────── */
-  .surface-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 768px) {
+    .pipeline {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
+  .pipeline__step {
+    display: flex;
+    flex-direction: column;
     gap: 0.75rem;
-    text-align: center;
+    padding: 1.5rem;
+    background: var(--carbon-slate-2);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: var(--radius-xl);
+    flex: 1;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    position: relative;
+    overflow: hidden;
   }
 
-  @media (min-width: 640px) {
-    .surface-grid { grid-template-columns: repeat(3, 1fr); }
+  .pipeline__step::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,210,255,0.03) 0%, transparent 50%);
+    pointer-events: none;
+    border-radius: inherit;
   }
 
-  @media (min-width: 1024px) {
-    .surface-grid { grid-template-columns: repeat(6, 1fr); }
+  .pipeline__step:hover {
+    border-color: rgba(0, 210, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.05);
   }
 
-  .surface-tile {
+  .pipeline__step--final {
+    background: rgba(30, 64, 175, 0.1);
+    border-color: rgba(30, 64, 175, 0.3);
+  }
+
+  .pipeline__step--final:hover {
+    border-color: rgba(30, 64, 175, 0.5);
+    box-shadow: 0 0 24px rgba(30, 64, 175, 0.15);
+  }
+
+  .pipeline__connector {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .pipeline__connector {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      flex-shrink: 0;
+      color: var(--laser-cyan);
+      font-size: 0.75rem;
+      opacity: 0.5;
+      position: relative;
+    }
+
+    .pipeline__connector::after {
+      content: '→';
+    }
+  }
+
+  .pipeline__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius-md);
+    background: rgba(0, 210, 255, 0.08);
+    border: 1px solid rgba(0, 210, 255, 0.18);
+    color: var(--laser-cyan);
+    flex-shrink: 0;
+  }
+
+  .pipeline__icon--accent {
+    background: rgba(30, 64, 175, 0.2);
+    border-color: rgba(30, 64, 175, 0.4);
+    color: var(--cobalt-hover);
+  }
+
+  .pipeline__content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 1.25rem 0.75rem;
-    background-color: var(--surface-02);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: var(--radius-lg);
+    gap: 0.25rem;
   }
 
-  .surface-tile--final {
-    background-color: rgba(49, 130, 246, 0.08);
-    border-color: rgba(49, 130, 246, 0.25);
+  .pipeline__label {
+    font-size: 0.5625rem;
   }
 
-  .surface-tile__label {
-    font-size: 0.6875rem;
-  }
-
-  .surface-tile__name {
-    font-size: 0.875rem;
+  .pipeline__name {
+    font-family: var(--font-display);
+    font-size: 0.9375rem;
     font-weight: 600;
     color: var(--text-primary);
     line-height: 1.3;
   }
 
-  .surface-tile__name--accent {
-    color: var(--blue);
+  .pipeline__name--accent {
+    color: var(--laser-cyan);
   }
 
-  .surface-tile__desc {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    color: var(--text-tertiary);
-    line-height: 1.5;
-  }
-
-  .surface-tile__desc--success {
-    color: var(--blue-hover);
-    font-weight: 500;
+  .pipeline__desc {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
   }
 
   /* ── Engagement Models ────────────────────────── */
   .models-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 60rem;
+    gap: 1.25rem;
+    max-width: 64rem;
     margin-inline: auto;
   }
 
@@ -603,26 +990,64 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
   }
 
   .model-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
     justify-content: space-between;
+  }
+
+  .model-card--primary {
+    background: rgba(30, 64, 175, 0.1);
+    border-color: rgba(30, 64, 175, 0.25);
+  }
+
+  .model-card--primary:hover {
+    border-color: rgba(30, 64, 175, 0.45);
+    box-shadow: 0 0 28px rgba(30, 64, 175, 0.12);
   }
 
   .model-card__header {
     display: flex;
     flex-direction: column;
     gap: 0.375rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1.125rem;
     border-bottom: 1px solid rgba(255,255,255,0.07);
   }
 
+  .model-card__header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
   .model-card__title {
-    font-size: 1.25rem;
+    font-family: var(--font-display);
+    font-size: 1.3125rem;
     font-weight: 700;
     color: var(--text-primary);
     margin: 0;
+    line-height: 1.2;
+  }
+
+  .model-card__badge {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius);
+    background: rgba(30, 64, 175, 0.2);
+    border: 1px solid rgba(30, 64, 175, 0.4);
+    color: var(--cobalt-hover);
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   .model-card__mode {
     letter-spacing: 0.08em;
+    font-size: 0.625rem;
   }
 
   .model-card__list {
@@ -635,44 +1060,51 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
   }
 
   /* ── Stage cards ──────────────────────────────── */
+  .stage-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
   .stage-card__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 0.5rem;
     padding-bottom: 0.875rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
 
   .stage-card__title {
-    font-family: var(--font-sans);
-    font-size: 1.0625rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 1.1875rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--laser-cyan);
+    text-shadow: 0 0 20px rgba(0, 210, 255, 0.25);
   }
 
   .stage-card__subtitle {
-    font-size: 0.6875rem;
+    font-size: 0.625rem;
   }
 
   .stage-tag {
     font-family: var(--font-mono);
-    font-size: 0.625rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
     padding: 0.2rem 0.5rem;
     border-radius: var(--radius);
-    background-color: rgba(49, 130, 246, 0.1);
-    border: 1px solid rgba(49, 130, 246, 0.2);
-    color: var(--blue);
+    background-color: rgba(0, 210, 255, 0.08);
+    border: 1px solid rgba(0, 210, 255, 0.18);
+    color: var(--laser-cyan);
     white-space: nowrap;
   }
 
   .stage-card__metrics {
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 0.875rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -681,9 +1113,9 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
 
   .stage-card__metrics-label {
     font-family: var(--font-mono);
-    font-size: 0.625rem;
+    font-size: 0.5625rem;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-tertiary);
   }
@@ -701,9 +1133,11 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
   .table-scroll {
     overflow-x: auto;
     border-radius: var(--radius-xl);
+    border: 1px solid rgba(255,255,255,0.06);
   }
 
   .intent-cell--primary {
+    font-family: var(--font-display);
     font-weight: 600;
     color: var(--text-primary);
   }
@@ -711,24 +1145,25 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
   .intent-cell--query {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--blue);
+    color: var(--laser-cyan);
   }
 
   .intent-cell--muted {
     color: var(--text-tertiary);
+    font-size: 0.8125rem;
   }
 
   .intent-cell--value {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    color: var(--blue-hover);
+    color: var(--fleet-amber);
     font-weight: 500;
     white-space: nowrap;
   }
 
   /* ── Measurement section ──────────────────────── */
   .measure-inner {
-    max-width: 44rem;
+    max-width: 46rem;
     margin-inline: auto;
     display: flex;
     flex-direction: column;
@@ -737,19 +1172,21 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
   }
 
   .measure-body {
-    font-size: 1rem;
+    font-size: 1.0625rem;
     color: var(--text-secondary);
-    line-height: 1.7;
-    max-width: 36rem;
+    line-height: 1.72;
+    max-width: 38rem;
     text-align: center;
   }
 
   /* ── ICP card ─────────────────────────────────── */
   .icp-card {
     border-radius: var(--radius-2xl);
-    border: 1px solid rgba(255,255,255,0.1);
-    background-color: var(--surface-02);
+    border: 1px solid rgba(0, 210, 255, 0.1);
+    background-color: var(--carbon-slate-2);
     padding: 3rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   @media (max-width: 639px) {
@@ -757,29 +1194,44 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
   }
 
   .icp-card__content {
-    max-width: 42rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    .icp-card__content {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .icp-card__left {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1rem;
   }
 
   .icp-card__desc {
     font-size: 0.9375rem;
     color: var(--text-secondary);
-    line-height: 1.65;
+    line-height: 1.7;
+  }
+
+  .icp-card__right {
+    display: flex;
+    align-items: center;
   }
 
   .icp-card__list {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-
-  @media (min-width: 560px) {
-    .icp-card__list { grid-template-columns: 1fr 1fr; }
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    width: 100%;
   }
 
   /* ── Final CTA ────────────────────────────────── */
@@ -788,31 +1240,31 @@ const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Sea
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    max-width: 44rem;
+    max-width: 48rem;
     margin-inline: auto;
   }
 
   .final-cta__heading {
-    font-size: clamp(1.875rem, 4vw + 0.5rem, 3rem);
+    font-size: clamp(1.875rem, 4vw + 0.5rem, 3.125rem);
     font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+    letter-spacing: -0.025em;
+    line-height: 1.06;
     color: var(--text-primary);
   }
 
   .final-cta__desc {
     font-size: 1rem;
     color: var(--text-secondary);
-    line-height: 1.65;
-    max-width: 36rem;
+    line-height: 1.7;
+    max-width: 38rem;
     text-align: center;
   }
 
   .final-cta__note {
     font-family: var(--font-mono);
-    font-size: 0.6875rem;
+    font-size: 0.625rem;
     color: var(--text-tertiary);
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
     margin: 0;
   }
 </style>
