@@ -1,0 +1,84 @@
+---
+import { siteConfig } from '../data/siteData';
+const pathname = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-white/10 bg-[#080C14]/90 backdrop-blur-md">
+  <!-- Top Telemetry Ticker -->
+  <div class="hidden md:flex items-center justify-between px-6 py-1.5 bg-[#0C1220] border-b border-white/5 text-[11px] font-mono text-slate-400">
+    <div class="flex items-center gap-4">
+      <span class="flex items-center gap-1.5 text-blue-400">
+        <span class="h-1.5 w-1.5 rounded-full bg-blue-500 animate-pulse"></span>
+        SPECIALIZED SEARCH ACQUISITION SYSTEM
+      </span>
+      <span class="text-slate-600">|</span>
+      <span>BUILT FOR ESTABLISHED AUTO GLASS OPERATORS</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-slate-400">HTML-FIRST ARCHITECTURE</span>
+      <span class="text-slate-600">|</span>
+      <span>AN ALIGNED GROWTH DIGITAL COMPANY</span>
+    </div>
+  </div>
+
+  <!-- Primary Nav -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Wordmark -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 font-heading text-lg font-bold group-hover:border-blue-400 transition-colors">
+          OS
+        </div>
+        <div class="flex flex-col">
+          <span class="text-lg font-bold tracking-tight text-white font-heading group-hover:text-blue-300 transition-colors">
+            AUTO GLASS <span class="text-blue-500">SEARCH OS</span>
+          </span>
+          <span class="text-[10px] tracking-widest text-slate-400 uppercase font-mono">
+            Customer Acquisition System
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+        {siteConfig.navLinks.map((item) => {
+          const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+          return (
+            <a
+              href={item.href}
+              class={`px-3.5 py-2 rounded text-sm font-medium transition-colors ${
+                isActive
+                  ? "text-blue-400 bg-blue-950/40 border border-blue-800/40"
+                  : "text-slate-300 hover:text-white hover:bg-white/5"
+              }`}
+            >
+              {item.name}
+            </a>
+          );
+        })}
+      </nav>
+
+      <!-- Action Button -->
+      <div class="hidden sm:flex items-center gap-3">
+        <a
+          href="/visibility-analysis/"
+          data-analytics-event="primary_cta_click"
+          class="inline-flex items-center justify-center px-4 py-2.5 text-xs font-semibold uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-500 transition-all rounded shadow-lg shadow-blue-700/25 border border-blue-400/30"
+        >
+          <span>Get Visibility Analysis</span>
+        </a>
+      </div>
+
+      <!-- Mobile Button -->
+      <div class="flex lg:hidden">
+        <a 
+          href="/visibility-analysis/" 
+          data-analytics-event="primary_cta_click"
+          class="px-3 py-1.5 text-xs font-semibold text-white bg-blue-600 rounded"
+        >
+          Analysis
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

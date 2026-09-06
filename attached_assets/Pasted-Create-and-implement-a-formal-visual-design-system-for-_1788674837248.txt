@@ -1,0 +1,516 @@
+Create and implement a formal visual design system for Auto Glass Search OS.
+
+IMPORTANT:
+Do not redesign the site from scratch.
+
+The business positioning, page architecture, content strategy and conversion strategy have already been established.
+
+This task is specifically to create consistency across typography, color, spacing, headings, buttons, cards, forms, navigation and brand presentation.
+
+The visual direction should align with the approved brand concept:
+
+AUTO GLASS SEARCH OS
+Premium automotive precision × enterprise search technology.
+
+The approved logo direction is a geometric "AG" monogram paired with the Auto Glass Search OS wordmark.
+
+The identity should feel:
+
+- sophisticated
+- technical
+- precise
+- premium
+- modern
+- credible
+- operational
+- B2B
+- specialized
+
+It should NOT feel like:
+
+- an auto repair shop
+- a generic SEO agency
+- a consumer mobile app
+- a crypto company
+- an AI startup cliché
+- a cheap automotive brand
+
+==================================================
+COLOR SYSTEM
+==================================================
+
+Create centralized design tokens / CSS variables.
+
+Use approximately:
+
+--navy: #0B1F30;
+--graphite: #263746;
+--slate: #647583;
+--blue: #3182F6;
+--blue-light: #DCEBFA;
+--off-white: #F7F8F6;
+--white: #FFFFFF;
+--border: #D8DEE3;
+
+You may make small adjustments where required for accessibility and visual consistency.
+
+Primary brand color:
+Deep navy.
+
+Primary accent:
+Electric/technical blue.
+
+Use blue intentionally for:
+- primary CTAs
+- active states
+- selected accents
+- links
+- important system indicators
+
+Do not overuse it.
+
+Remove the previous neon lime / orange automotive-app aesthetic.
+
+Maintain sufficient WCAG contrast for text and interactive elements.
+
+==================================================
+TYPOGRAPHY
+==================================================
+
+Primary typeface:
+
+Inter
+
+Use Inter for:
+- headings
+- body copy
+- navigation
+- buttons
+- forms
+- UI
+
+Technical accent font:
+
+IBM Plex Mono
+
+Use IBM Plex Mono VERY SPARINGLY for:
+- eyebrow labels
+- system labels
+- methodology numbers
+- small technical annotations
+- section identifiers
+
+Do not use IBM Plex Mono for paragraphs or primary headings.
+
+Avoid unnecessary font families.
+
+Prioritize:
+- readability
+- performance
+- hierarchy
+- consistency
+
+Load fonts efficiently and avoid unnecessary font weights.
+
+==================================================
+SEMANTIC HEADING SYSTEM
+==================================================
+
+Visual styling and HTML semantics must remain separate.
+
+Do not choose H1/H2/H3 tags based on desired font size.
+
+Use headings based on document hierarchy.
+
+Default rules:
+
+H1:
+Primary topic of the page.
+Normally one clear primary H1 per page.
+
+Desktop:
+approximately 56–64px
+
+Mobile:
+approximately 38–44px
+
+Weight:
+700–800
+
+Line height:
+approximately 1.0–1.1
+
+H2:
+Major topical section beneath the page topic.
+
+Desktop:
+approximately 38–44px
+
+Mobile:
+approximately 30–34px
+
+Weight:
+700
+
+H3:
+Subtopic beneath an H2.
+
+Desktop:
+approximately 24–28px
+
+Mobile:
+approximately 22–24px
+
+Weight:
+600–700
+
+H4:
+Use only when a genuine fourth-level content hierarchy exists.
+
+Do not use headings simply to style card titles.
+
+BODY:
+
+Desktop:
+17–18px
+
+Mobile:
+16–17px
+
+Line height:
+approximately 1.55–1.7
+
+Keep readable text lines generally around 60–75 characters where appropriate.
+
+==================================================
+SEO + CONTENT HEADING RULES
+==================================================
+
+Every indexable commercial page should have:
+
+- one clearly identifiable primary page topic
+- a descriptive H1 aligned with that topic
+- logical H2 sections
+- H3s only when subordinate to H2 content
+- no heading levels selected merely for appearance
+
+Avoid:
+
+- multiple competing page topics
+- keyword-stuffed headings
+- vague headings everywhere
+- skipping hierarchy without reason
+- using headings solely as visual labels
+
+Headings should help both humans and machines understand the structure and meaning of the page.
+
+Do not force exact-match keywords unnaturally.
+
+==================================================
+EYEBROW / SYSTEM LABEL
+==================================================
+
+Create a reusable non-heading component for labels such as:
+
+SEARCH OS / 01
+
+FOUND / 02
+
+BUILT FOR AUTO GLASS
+
+SEARCH + AI VISIBILITY
+
+Use:
+
+IBM Plex Mono
+12–13px
+500–600 weight
+uppercase
+approximately 0.08–0.14em letter spacing
+
+Use navy, slate or blue depending on context.
+
+IMPORTANT:
+
+These labels should generally be semantic spans/divs/paragraphs rather than H-tags unless they genuinely function as headings.
+
+==================================================
+WORDMARK TYPOGRAPHY
+==================================================
+
+The approved brand direction uses:
+
+AUTO GLASS
+SEARCH OS
+
+or:
+
+AUTO GLASS SEARCH OS
+
+"Auto Glass" should carry strong visual weight.
+
+"Search OS" may be differentiated through:
+
+- spacing
+- weight
+- blue accent
+- subtle tracking
+
+Do not make the wordmark overly futuristic.
+
+The geometric AG monogram should provide the distinctive visual identity.
+
+==================================================
+SPACING SYSTEM
+==================================================
+
+Create a consistent spacing scale.
+
+Use an 8px-based system where practical:
+
+8
+16
+24
+32
+48
+64
+80
+96
+128
+
+Do not scatter arbitrary spacing values throughout components.
+
+Desktop sections should generally have generous vertical whitespace.
+
+Mobile spacing should compress appropriately without feeling crowded.
+
+==================================================
+CONTENT WIDTH
+==================================================
+
+Create consistent container rules.
+
+Maximum site container:
+approximately 1200–1280px.
+
+Long-form reading width:
+approximately 680–760px.
+
+Do not allow paragraph copy to span extremely wide desktop screens.
+
+==================================================
+BUTTON SYSTEM
+==================================================
+
+Create:
+
+PRIMARY BUTTON
+
+Deep navy or blue background depending on context.
+High contrast.
+Clear hover/focus state.
+
+SECONDARY BUTTON
+
+Outline or understated treatment.
+
+TEXT LINK / TERTIARY CTA
+
+For lower-priority actions.
+
+Buttons should:
+
+- have consistent height
+- have consistent padding
+- use clear action language
+- have visible keyboard focus states
+- meet accessible target sizing
+
+Do not create excessive button variants.
+
+==================================================
+CARDS
+==================================================
+
+Cards should feel like sophisticated information architecture rather than generic SaaS tiles.
+
+Use:
+
+- restrained borders
+- subtle background differences
+- generous spacing
+- strong typography
+- minimal decorative effects
+
+Avoid:
+
+- excessive shadows
+- glowing borders
+- gradients everywhere
+- floating animations
+- oversized rounded corners
+- icon overload
+
+==================================================
+ICONOGRAPHY
+==================================================
+
+Use minimal geometric line icons where icons genuinely improve comprehension.
+
+Avoid:
+
+- cars
+- wrenches
+- gears
+- cracked windshields
+- magnifying glasses
+- robots
+- AI brains
+- rockets
+- megaphones
+
+The auto glass specialization should primarily come from CONTENT and imagery, not cliché icons.
+
+==================================================
+FORMS
+==================================================
+
+Create consistent styling for:
+
+- labels
+- inputs
+- selects
+- text areas
+- validation
+- errors
+- focus states
+- submit buttons
+
+Labels must remain visible.
+
+Do not rely solely on placeholder text as labels.
+
+Maintain accessible focus states and contrast.
+
+==================================================
+IMAGERY
+==================================================
+
+If photography is used, prioritize:
+
+- modern auto glass installation
+- calibration equipment
+- clean mobile service vehicles
+- modern facilities
+- premium automotive details
+- real technical environments
+
+Avoid:
+
+- dramatic shattered glass
+- fake technicians posing
+- mechanics holding tools
+- generic car stock photos
+- AI-generated futuristic cars
+- overly staged corporate photography
+
+==================================================
+RESPONSIVE TYPOGRAPHY
+==================================================
+
+Use responsive CSS/clamp() where appropriate rather than excessive breakpoint-specific font declarations.
+
+Typography should scale smoothly between mobile and desktop.
+
+Prevent:
+
+- headline overflow
+- awkward single-word wrapping
+- excessively large mobile headings
+- horizontal scrolling
+
+==================================================
+ACCESSIBILITY
+==================================================
+
+Verify:
+
+- text contrast
+- button contrast
+- keyboard focus
+- link visibility
+- form labels
+- semantic landmarks
+- heading hierarchy
+- reduced-motion preferences where applicable
+
+Do not sacrifice usability for aesthetics.
+
+==================================================
+PERFORMANCE
+==================================================
+
+Do not introduce heavy JavaScript for visual styling.
+
+Prefer CSS.
+
+Optimize font loading.
+
+Avoid unnecessary font weights.
+
+Avoid unnecessary animation libraries.
+
+Preserve Astro's HTML-first/static-rendered architecture.
+
+==================================================
+IMPLEMENTATION
+==================================================
+
+Centralize the design system rather than applying random component-level overrides.
+
+Where appropriate create reusable:
+
+- typography tokens
+- color tokens
+- spacing tokens
+- button variants
+- card patterns
+- form patterns
+- container widths
+- eyebrow component
+
+Refactor existing components to use the design system.
+
+Do NOT change page intent or business strategy as part of this task.
+
+==================================================
+QA
+==================================================
+
+After implementation:
+
+1. Run production build.
+2. Check every page desktop.
+3. Check every page mobile.
+4. Check heading hierarchy.
+5. Check font loading.
+6. Check contrast.
+7. Check button states.
+8. Check forms.
+9. Check header/navigation.
+10. Check footer.
+11. Check for old lime/orange styling.
+12. Check for inconsistent one-off CSS.
+13. Check layout shift caused by fonts.
+14. Check responsive heading wrapping.
+
+Then report:
+
+- design tokens created
+- fonts implemented
+- components updated
+- accessibility corrections
+- inconsistencies removed
+- remaining design issues
+
+Do not deploy until QA passes.

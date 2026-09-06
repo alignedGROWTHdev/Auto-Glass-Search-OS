@@ -1,7 +1,7 @@
 kind = "web"
 previewPath = "/"
 title = "Auto Glass Search OS"
-description = "A search-growth and customer-acquisition website for established auto glass businesses, covering organic search, local maps, AI visibility, paid search, and qualified lead capture."
+description = "A specialized search growth and AI systems website for established auto glass operators, offering managed execution or systems built with internal teams."
 version = "1.0.0"
 id = "artifacts/auto-glass-search-os"
 router = "path"
@@ -12,16 +12,12 @@ paths = [ "/" ]
 localPort = 18694
 
 [services.development]
-run = "pnpm --filter @workspace/auto-glass-search-os run dev"
+run = "pnpm run dev"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/auto-glass-search-os", "run", "build" ]
+build = [ "pnpm", "run", "build" ]
 serve = "static"
 publicDir = "artifacts/auto-glass-search-os/dist/public"
-
-[[services.production.rewrites]]
-from = "/*"
-to = "/index.html"
 
 [services.env]
 PORT = "18694"

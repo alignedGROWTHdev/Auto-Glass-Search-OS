@@ -1,0 +1,925 @@
+You are working inside the EXISTING Auto Glass Search OS Astro website.
+
+This website has already been designed, coded, imported and built.
+
+DO NOT rebuild the website from scratch.
+
+Preserve strong existing:
+
+- Astro architecture
+- components
+- styling
+- design system
+- technical SEO
+- page structure
+- metadata
+- schema
+- internal linking
+- conversion architecture
+
+Your job is to UPDATE AND IMPROVE the existing website based on the finalized business strategy below.
+
+Make strategic changes only where needed.
+
+==================================================
+1. FINAL BUSINESS POSITIONING
+==================================================
+
+Auto Glass Search OS is NOT simply an SEO agency.
+
+It is a specialized SEARCH GROWTH + AI SYSTEMS company built specifically for established auto glass operators.
+
+The company does two interconnected things:
+
+1. Helps auto glass companies acquire more customers across modern search.
+
+2. Builds AI-enabled search systems, workflows and operating infrastructure that make search execution more efficient and capable of being shared with internal marketing teams.
+
+The company combines:
+
+SEARCH STRATEGY
++
+AI SYSTEMS
++
+EXECUTION
++
+HUMAN EXPERTISE
+
+The result is a modern Search Operating System designed specifically for the auto glass industry.
+
+Core brand promise:
+
+GET FOUND.
+GET CHOSEN.
+BOOK MORE JOBS.
+
+Core methodology:
+
+FOUND → TRUSTED → CHOSEN → MEASURED
+
+Core measurement philosophy:
+
+MEASURE BOOKED JOBS, NOT JUST RANKINGS.
+
+==================================================
+2. WHAT "SEARCH OS" ACTUALLY MEANS
+==================================================
+
+The term "Search OS" must have substance throughout the website.
+
+It is not merely a brand name.
+
+A modern auto glass search operation requires coordination across:
+
+- traditional SEO
+- technical SEO
+- Google Maps
+- Google Business Profile
+- local search
+- service-area SEO
+- AI search visibility
+- content
+- internal linking
+- paid search
+- reputation
+- entity authority
+- conversion optimization
+- analytics
+- reporting
+- ongoing optimization
+
+Auto Glass Search OS organizes these into a structured operating system.
+
+Depending on the engagement, this may include:
+
+- search strategy
+- site architecture
+- documented workflows
+- AI-assisted workflows
+- reusable AI skills and instructions
+- knowledge bases
+- content workflows
+- internal-linking systems
+- technical SEO auditing
+- content QA
+- local SEO processes
+- AI visibility monitoring
+- competitor monitoring
+- reporting systems
+- conversion analysis
+- SOPs
+- governance
+- human QA
+
+IMPORTANT:
+
+Do NOT portray this as autonomous AI replacing marketers.
+
+Do NOT imply we currently own proprietary software that does not exist.
+
+Do NOT describe Auto Glass Search OS as a SaaS company.
+
+The current product is:
+
+SPECIALIZED EXPERTISE
++
+IMPLEMENTED SYSTEMS
++
+AI-ENABLED WORKFLOWS
++
+ONGOING STRATEGY / MANAGEMENT
+
+==================================================
+3. TWO WAYS TO WORK WITH AUTO GLASS SEARCH OS
+==================================================
+
+There are currently TWO operating models.
+
+Do NOT create a third active tier.
+
+Do NOT offer a software/platform subscription yet.
+
+--------------------------------
+OPTION 1
+MANAGED SEARCH OS
+--------------------------------
+
+Customer-facing concept:
+
+WE RUN IT FOR YOU.
+
+This is the highest-touch engagement.
+
+Designed for established auto glass companies that want a specialized external search team responsible for strategy and execution.
+
+Potential scope includes:
+
+- SEO strategy
+- technical SEO
+- Google Maps / local SEO
+- service-area SEO
+- AI search optimization
+- content strategy
+- content optimization
+- internal linking
+- authority / entity development
+- conversion optimization
+- analytics
+- reporting
+- Google Ads where included
+- ongoing Search OS management
+
+The client gets both:
+
+THE SYSTEM
++
+THE TEAM OPERATING IT.
+
+Do not reduce this to a list of SEO deliverables.
+
+Position it around growth, execution, accountability and customer acquisition.
+
+--------------------------------
+OPTION 2
+SEARCH OS + TEAM
+--------------------------------
+
+Customer-facing concept:
+
+WE BUILD IT WITH YOUR TEAM.
+
+This is designed for auto glass companies that already have internal marketing resources or want to develop more internal search capability.
+
+Auto Glass Search OS helps design and implement the search operating infrastructure.
+
+Potential components include:
+
+- search strategy
+- technical architecture
+- AI-assisted workflows
+- reusable AI instructions / skills
+- knowledge systems
+- content processes
+- internal-linking workflows
+- technical SEO QA
+- content QA
+- local SEO processes
+- reporting systems
+- governance
+- documentation
+- training
+
+The client's internal team can increasingly execute appropriate portions of the system.
+
+Auto Glass Search OS remains involved where appropriate through:
+
+- senior search strategy
+- QA
+- governance
+- training
+- system optimization
+- troubleshooting
+- AI workflow improvements
+- search landscape changes
+- periodic audits
+- strategic advisory
+
+The conceptual engagement lifecycle may look like:
+
+BUILD
+→ IMPLEMENT
+→ TRAIN
+→ OPERATE
+→ OPTIMIZE
+
+Do NOT publish a rigid timeline unless explicitly approved.
+
+Do NOT promise complete independence from Auto Glass Search OS.
+
+The point is to give companies a path toward greater internal capability while retaining access to senior search expertise and system support.
+
+==================================================
+4. DO NOT OFFER A PLATFORM YET
+==================================================
+
+Remove any active third-tier positioning such as:
+
+- Search OS Platform
+- self-service platform
+- SaaS
+- software subscription
+- proprietary AI platform
+
+We are NOT selling this today.
+
+However:
+
+Build the website architecture and components so a future software/platform offering could be introduced without redesigning the entire website.
+
+Internally, consider this a possible future 2027 roadmap direction.
+
+DO NOT prominently advertise:
+
+"Coming in 2027"
+
+unless there is a strategically appropriate, very subtle roadmap reference.
+
+Default behavior should be NOT to mention the future platform publicly.
+
+We should sell what exists today.
+
+==================================================
+5. CORE STRATEGIC MESSAGE
+==================================================
+
+An important market shift is happening:
+
+AI is making it possible for internal marketing teams to execute more search work themselves.
+
+Auto Glass Search OS should embrace this rather than fight it.
+
+The customer should understand:
+
+You do not have to choose between:
+
+A) outsourcing search forever
+
+and
+
+B) trying to build an AI-powered search operation internally without senior expertise.
+
+Auto Glass Search OS provides both paths.
+
+We can:
+
+RUN THE SEARCH OPERATION FOR YOU
+
+or
+
+BUILD THE SEARCH SYSTEM WITH YOUR TEAM.
+
+This is a major differentiator.
+
+Communicate it simply.
+
+Do NOT use fear-based AI messaging.
+
+Do NOT attack traditional agencies.
+
+Do NOT claim agencies are obsolete.
+
+Do NOT claim AI replaces SEO professionals.
+
+Do NOT say SEO is dead.
+
+==================================================
+6. HOMEPAGE POSITIONING
+==================================================
+
+Preserve the existing homepage where it is strong.
+
+Do NOT indiscriminately rewrite every section.
+
+The homepage should make the following clear relatively early:
+
+WHAT WE DO
+
+Turn search demand into booked auto glass jobs.
+
+WHERE WE DO IT
+
+Google Search
+Google Maps
+AI-powered discovery
+Paid Search
+
+HOW WE DO IT
+
+Through a specialized Search Operating System built specifically for the auto glass industry.
+
+HOW CLIENTS WORK WITH US
+
+We can run the system for you or build it with your team.
+
+==================================================
+7. ADD A "TWO WAYS TO OPERATE" SECTION
+==================================================
+
+Add an elegant section to the homepage.
+
+Potential heading:
+
+ONE SEARCH OS.
+TWO WAYS TO OPERATE IT.
+
+Introduce:
+
+MANAGED SEARCH OS
+We run it for you.
+
+SEARCH OS + TEAM
+We build it with your team.
+
+Keep this section concise.
+
+Explain the distinction clearly without dumping every deliverable onto the homepage.
+
+Each should lead naturally toward a conversation / Visibility Analysis.
+
+==================================================
+8. HERO
+==================================================
+
+Preserve the core hero message:
+
+TURN SEARCH INTO BOOKED AUTO GLASS JOBS.
+
+The supporting copy should communicate that Auto Glass Search OS combines:
+
+- SEO
+- Google Maps
+- AI search visibility
+- paid search
+- conversion
+- AI-enabled operating systems
+
+built specifically for auto glass operators.
+
+Do NOT overload the hero with the entire business model.
+
+Primary CTA:
+
+GET YOUR VISIBILITY ANALYSIS
+
+Secondary CTA may remain:
+
+SEE HOW IT WORKS
+
+or become:
+
+EXPLORE SEARCH OS
+
+Choose based on the existing UX.
+
+==================================================
+9. SEARCH OS EXPLANATION
+==================================================
+
+Create or improve a section explaining why "OS" matters.
+
+Possible conceptual message:
+
+SEARCH HAS BECOME AN OPERATING SYSTEM.
+
+Customers no longer discover an auto glass company through one channel.
+
+They move across:
+
+Google Search
+→ Maps
+→ Reviews
+→ AI answers
+→ Websites
+→ Ads
+→ Calls
+→ Quotes
+
+Auto Glass Search OS connects those discovery points into one coordinated customer-acquisition system.
+
+Then connect this to:
+
+FOUND
+→ TRUSTED
+→ CHOSEN
+→ MEASURED
+
+Avoid buzzwords.
+
+==================================================
+10. FOUND → TRUSTED → CHOSEN → MEASURED
+==================================================
+
+Preserve this framework.
+
+FOUND
+
+Google Search
+Google Maps
+local search
+service-area search
+AI discovery
+paid search
+
+TRUSTED
+
+reviews
+reputation
+local authority
+service expertise
+business/entity clarity
+insurance clarity
+warranty clarity
+third-party corroboration
+
+CHOSEN
+
+service pages
+location/service pages
+mobile UX
+quote forms
+click-to-call
+trust signals
+conversion paths
+
+MEASURED
+
+qualified calls
+quote requests
+booked jobs
+conversion rates
+lead sources
+cost per lead
+cost per booked job
+market performance
+revenue attribution where available
+
+==================================================
+11. PRIMARY OFFER / LEAD GENERATION
+==================================================
+
+Preserve:
+
+COMPLIMENTARY SEARCH + AI VISIBILITY ANALYSIS
+
+Primary CTA:
+
+GET YOUR VISIBILITY ANALYSIS
+
+This should remain the primary acquisition CTA.
+
+The analysis can evaluate:
+
+- organic search visibility
+- Google Maps visibility
+- service/search coverage
+- competitors
+- reviews/reputation
+- site architecture
+- technical SEO
+- local/entity signals
+- AI search visibility
+- conversion opportunities
+- paid search where relevant
+
+Position it as an opportunity analysis.
+
+NOT:
+
+an automated SEO report
+
+and NOT:
+
+a fake proprietary score.
+
+==================================================
+12. TARGET CUSTOMER
+==================================================
+
+Primary audience:
+
+Established, growth-oriented auto glass companies in the United States.
+
+Especially:
+
+- regional operators
+- multi-location operators
+- high-volume businesses
+- companies expanding markets
+- companies investing seriously in marketing
+- companies with internal marketing resources
+- companies interested in AI-enabled operations
+
+Do not broaden the positioning to generic automotive marketing.
+
+==================================================
+13. INDUSTRY SPECIFICITY
+==================================================
+
+The website should naturally demonstrate knowledge of:
+
+- windshield replacement
+- windshield repair
+- rock chip repair
+- mobile auto glass
+- in-shop service
+- door / back / side glass
+- ADAS recalibration
+- insurance claims
+- OEM vs aftermarket glass
+- warranties
+- same-day / next-day service
+- fleet / commercial work
+
+Do not keyword stuff.
+
+Do not invent operational facts.
+
+==================================================
+14. CLAIMS AUDIT — IMPORTANT
+==================================================
+
+Audit ALL existing copy.
+
+Remove, soften or rewrite unsupported claims.
+
+Pay particular attention to existing statements involving:
+
+- revenue ranges
+- market statistics
+- profit margins
+- ADAS margins
+- TPA behavior
+- certifications
+- client results
+- proprietary technology
+- performance claims
+- rankings
+- conversion improvements
+- market data
+
+Do NOT fabricate authority.
+
+Do NOT fabricate supporting evidence.
+
+If a claim is not supported by information supplied in this project, either:
+
+1. rewrite it as a non-quantified strategic observation, or
+2. remove it.
+
+==================================================
+15. ABOUT / FOUNDER
+==================================================
+
+Preserve:
+
+Founder:
+Valentina Borda
+
+Parent company:
+Aligned Growth Digital
+
+Truthful positioning:
+
+Valentina has more than a decade of experience across search, digital growth, eCommerce and marketing strategy.
+
+She has worked in competitive search environments and has direct experience applying search strategy within the auto glass industry.
+
+Do NOT:
+
+- name confidential clients
+- fabricate results
+- fabricate case studies
+- fabricate credentials
+- claim decades of auto glass specialization
+
+Make the founder story support the evolution toward:
+
+SEARCH EXPERTISE
++
+AI SYSTEMS
++
+OPERATIONAL STRATEGY.
+
+==================================================
+16. EXISTING PAGE INTENT
+==================================================
+
+Preserve distinct intent across:
+
+/
+
+/auto-glass-seo/
+
+/auto-glass-local-seo/
+
+/ai-search-optimization/
+
+/google-ads/
+
+/about/
+
+/visibility-analysis/
+
+/thank-you/
+
+/privacy/
+
+Do NOT create:
+
+/markets/
+/case-studies/
+/services/
+
+unless genuinely required by the revised navigation or architecture.
+
+We can expand later.
+
+==================================================
+17. SEO + AEO AUDIT
+==================================================
+
+Audit:
+
+- title tags
+- meta descriptions
+- H1s
+- H2/H3 hierarchy
+- search intent
+- cannibalization
+- internal links
+- anchor text
+- semantic HTML
+- canonical URLs
+- Open Graph
+- schema
+- breadcrumbs
+- sitemap
+- robots.txt
+- crawlability
+- rendered HTML
+- image optimization
+- accessibility
+- performance
+
+Core content must remain available in rendered HTML.
+
+Do not make core SEO content dependent on client-side JavaScript.
+
+==================================================
+18. ENTITY CLARITY
+==================================================
+
+Make these relationships explicit and consistent:
+
+Brand:
+Auto Glass Search OS
+
+Parent:
+Aligned Growth Digital
+
+Founder:
+Valentina Borda
+
+Category:
+Specialized search growth and AI systems company for the auto glass industry.
+
+Market:
+United States
+
+Methodology:
+FOUND → TRUSTED → CHOSEN → MEASURED
+
+Engagement Models:
+Managed Search OS
+Search OS + Team
+
+Primary Offer:
+Search + AI Visibility Analysis
+
+==================================================
+19. AI POSITIONING
+==================================================
+
+Use AI as a meaningful capability, not a buzzword.
+
+Appropriate concepts include:
+
+AI-enabled workflows
+AI-assisted search operations
+knowledge systems
+reusable skills/instructions
+automation
+human QA
+search intelligence
+operational efficiency
+
+Avoid:
+
+fully autonomous marketing
+replace your marketing team
+guaranteed AI rankings
+guaranteed ChatGPT visibility
+proprietary AI platform
+AI magic
+AI hype
+
+Human expertise and governance remain important.
+
+==================================================
+20. LEAD FORM + CRM
+==================================================
+
+Audit the existing LeadForm.
+
+Check:
+
+- validation
+- accessibility
+- error handling
+- success behavior
+- thank-you flow
+- spam readiness
+- secure webhook architecture
+
+Do not expose secrets client-side.
+
+If CRM/webhook/email configuration is incomplete, document exactly what is required rather than inventing credentials.
+
+==================================================
+21. ANALYTICS
+==================================================
+
+Preserve or prepare event tracking for:
+
+- primary CTA clicks
+- secondary CTA clicks
+- form starts
+- form submissions
+- phone clicks
+- email clicks
+- scheduling clicks
+- thank-you visits
+- Managed Search OS interest
+- Search OS + Team interest
+
+Do not invent GA4, GTM or Ads IDs.
+
+==================================================
+22. DESIGN
+==================================================
+
+Preserve the current strong design direction where possible.
+
+Desired feeling:
+
+MODERN AUTOMOTIVE OPERATIONS
+×
+SOPHISTICATED SEARCH TECHNOLOGY
+
+Premium
+technical
+modern
+clean
+specialized
+operational
+credible
+
+Avoid:
+
+generic SEO agency aesthetics
+auto-repair-shop aesthetics
+shattered-glass gimmicks
+cartoon vehicles
+robots
+AI brains
+rocket ships
+megaphones
+generic dashboards
+excessive gradients
+cheap stock imagery
+
+Do not redesign merely for novelty.
+
+==================================================
+23. DO NOT OVERBUILD
+==================================================
+
+Do NOT currently build:
+
+- SaaS functionality
+- a proprietary platform
+- client dashboards
+- hundreds of location pages
+- programmatic SEO
+- huge content libraries
+- fake case studies
+- fake testimonials
+- complex agent infrastructure merely for demonstration
+
+We are establishing the commercial foundation first.
+
+==================================================
+24. FUTURE ROADMAP — INTERNAL ONLY
+==================================================
+
+Architect the site so a future proprietary Search OS platform could eventually be introduced.
+
+Possible target:
+2027+
+
+However:
+
+DO NOT make this an active offer.
+
+DO NOT add it as a pricing tier.
+
+DO NOT promise a launch date.
+
+DO NOT create "Coming in 2027" messaging unless explicitly instructed later.
+
+This is an internal roadmap consideration only.
+
+==================================================
+25. FINAL QA
+==================================================
+
+After making changes:
+
+1. Run the Astro production build.
+2. Fix build errors.
+3. Verify all pages render.
+4. Inspect rendered HTML.
+5. Check navigation.
+6. Check internal links.
+7. Check metadata.
+8. Check canonical URLs.
+9. Check schema.
+10. Check sitemap.
+11. Check robots.txt.
+12. Check mobile layouts.
+13. Check accessibility.
+14. Check forms.
+15. Check conversion paths.
+16. Check performance.
+17. Search the entire codebase for unsupported claims.
+18. Search for old three-tier/platform messaging.
+19. Search for placeholders.
+20. Confirm Managed Search OS and Search OS + Team are positioned consistently.
+
+==================================================
+26. FINAL REPORT
+==================================================
+
+When complete, give me:
+
+1. Strategic positioning changes made.
+2. Homepage changes.
+3. Engagement-model changes.
+4. Copy changes.
+5. Unsupported claims removed.
+6. Pages modified.
+7. Components modified.
+8. SEO/AEO changes.
+9. Internal-linking changes.
+10. Schema/entity changes.
+11. Conversion changes.
+12. Form/integration issues remaining.
+13. Placeholders remaining.
+14. Production build result.
+15. Your top 5 recommendations for the next development phase.
+
+Do not deploy until the production build and QA pass.
+
+Do not rebuild the site from scratch.
+
+Improve the existing foundation strategically.

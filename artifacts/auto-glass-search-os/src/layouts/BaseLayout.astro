@@ -1,0 +1,159 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig, isConfigured } from '../data/siteData';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogType?: string;
+  noindex?: boolean;
+}
+
+const { 
+  title, 
+  description, 
+  canonical = new URL(Astro.url.pathname, siteConfig.siteUrl).href,
+  ogType = "website",
+  noindex = false
+} = Astro.props;
+
+const contactPoint = isConfigured(siteConfig.placeholders.phone) ? {
+  "@type": "ContactPoint",
+  "telephone": siteConfig.placeholders.phone,
+  "contactType": "customer service",
+  "email": isConfigured(siteConfig.placeholders.email) ? siteConfig.placeholders.email : undefined
+} : undefined;
+
+const breadcrumb = Astro.url.pathname !== "/" ? {
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Auto Glass Search OS",
+      "item": siteConfig.siteUrl
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": title.split("|")[0].trim(),
+      "item": canonical
+    }
+  ]
+} : undefined;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://autoglasssearchos.com/#organization",
+      "name": siteConfig.name,
+      "alternateName": "Auto Glass Search OS",
+      "url": siteConfig.siteUrl,
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": siteConfig.legalParent
+      },
+      "founder": {
+        "@type": "Person",
+        "name": siteConfig.founder,
+        "jobTitle": "Founder & Managing Principal, Aligned Growth Digital"
+      },
+      "description": siteConfig.description,
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "knowsAbout": [
+        "Auto Glass Search Strategy",
+        "Windshield Replacement SEO",
+        "Google Maps 3-Pack Optimization",
+        "ADAS Camera Recalibration Visibility",
+        "Auto Glass Paid Search and Google Ads",
+        "AI-Assisted Search Operations",
+        "Search Workflow Design and Governance"
+      ],
+      ...(contactPoint ? { "contactPoint": contactPoint } : {})
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://autoglasssearchos.com/#website",
+      "url": siteConfig.siteUrl,
+      "name": siteConfig.name,
+      "description": siteConfig.tagline,
+      "publisher": {
+        "@id": "https://autoglasssearchos.com/#organization"
+      }
+    },
+    ...(breadcrumb ? [breadcrumb] : [])
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth bg-[#080C14] text-slate-100 antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body class="min-h-screen flex flex-col font-sans selection:bg-blue-600/30 selection:text-white">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      const emitAnalyticsEvent = (eventName: string, detail: Record<string, string> = {}) => {
+        const payload = { event: eventName, page_path: window.location.pathname, ...detail };
+        window.dispatchEvent(new CustomEvent('agos:analytics', { detail: payload }));
+        const analyticsWindow = window as typeof window & { dataLayer?: Record<string, string>[] };
+        analyticsWindow.dataLayer?.push(payload);
+      };
+
+      document.addEventListener('click', (event) => {
+        const target = (event.target as HTMLElement).closest<HTMLElement>('[data-analytics-event]');
+        if (!target) return;
+        emitAnalyticsEvent(target.dataset.analyticsEvent || 'interaction', {
+          link_url: target instanceof HTMLAnchorElement ? target.href : '',
+          link_text: target.textContent?.trim() || ''
+        });
+      });
+
+      document.querySelectorAll<HTMLFormElement>('[data-lead-form]').forEach((form) => {
+        let started = false;
+        form.addEventListener('focusin', () => {
+          if (started) return;
+          started = true;
+          emitAnalyticsEvent('visibility_analysis_form_start');
+        });
+      });
+
+      if (window.location.pathname.startsWith('/thank-you')) {
+        emitAnalyticsEvent('thank_you_visit');
+      }
+    </script>
+  </body>
+</html>

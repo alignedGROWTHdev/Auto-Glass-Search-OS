@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig, isConfigured } from '../data/siteData';
+
+const pageTitle = "Thank You | Auto Glass Search OS";
+const pageDescription = "We have received your auto glass visibility analysis request.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} noindex>
+  <div class="py-24 flex items-center justify-center">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      
+      <div class="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mx-auto text-2xl font-heading">
+        ✓
+      </div>
+
+      <span class="inline-block px-3 py-1 rounded bg-blue-950/80 border border-blue-500/30 text-xs font-mono text-blue-400">
+        ANALYSIS REQUEST CONFIRMED
+      </span>
+
+      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white font-heading">
+        WE'VE RECEIVED YOUR DETAILS.
+      </h1>
+
+      <p class="text-base text-slate-300 leading-relaxed">
+        If you reached this page after submitting a configured form, your request is in review. Auto Glass Search OS evaluates search coverage, local visibility, competitive signals, AI discovery, and conversion opportunities manually.
+      </p>
+
+      {isConfigured(siteConfig.placeholders.calendlyUrl) && (
+      <div class="p-6 rounded-xl bg-[#0D1424] border border-white/10 text-left space-y-4">
+        <div>
+          <h2 class="text-base font-bold text-white font-heading">
+            Optional: Schedule a Direct 15-Minute Review
+          </h2>
+          <p class="text-xs text-slate-400">
+            Prefer to walk through the search data live with Valentina Borda?
+          </p>
+        </div>
+        <div>
+          <a
+            href={siteConfig.placeholders.calendlyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics-event="scheduling_click"
+            class="inline-block px-5 py-3 rounded bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider transition-all"
+          >
+            Select a Review Time on Calendar →
+          </a>
+        </div>
+      </div>
+      )}
+
+      <div class="pt-4">
+        <a href="/" class="text-xs font-mono text-slate-400 hover:text-white transition-colors">
+          ← Return to Auto Glass Search OS Overview
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,406 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { methodologyStages, searchIntentMatrix } from '../data/siteData';
+
+const pageTitle = "Auto Glass Search OS | Search & Customer Acquisition for Auto Glass Companies";
+const pageDescription = "Turn search into booked auto glass jobs. Auto Glass Search OS helps established auto glass companies win customer demand across Google Search, Google Maps, and AI-powered discovery.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- SECTION 1: HERO -->
+  <section class="relative overflow-hidden pt-16 pb-24 border-b border-white/10 bg-radial from-blue-950/20 via-[#080C14] to-[#080C14]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="max-w-4xl space-y-6 text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-blue-950/80 border border-blue-500/30 text-xs font-mono text-blue-300">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-ping"></span>
+          <span>SPECIALIZED AUTO GLASS SEARCH & CUSTOMER ACQUISITION</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white font-heading leading-[1.05]">
+          TURN SEARCH INTO <br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-white">
+            BOOKED AUTO GLASS JOBS.
+          </span>
+        </h1>
+
+        <p class="text-lg sm:text-xl text-slate-300 leading-relaxed font-light max-w-2xl">
+          Auto Glass Search OS helps established auto glass companies win customer demand across Google Search, Google Maps, and AI-powered discovery.
+        </p>
+
+        <p class="text-sm text-slate-400 font-mono">
+          SEO, local 3-pack visibility, AI search optimization, and call conversion—built specifically for independent and regional auto glass operators.
+        </p>
+
+        <!-- Direct Primary CTAs -->
+        <div class="pt-4 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+          <a
+            href="/visibility-analysis/"
+            data-analytics-event="primary_cta_click"
+            class="px-8 py-4 rounded bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-blue-600/30 border border-blue-400/40 transition-all text-center"
+          >
+            Get Your Visibility Analysis
+          </a>
+          <a
+            href="#search-methodology"
+            data-analytics-event="secondary_cta_click"
+            class="px-8 py-4 rounded bg-[#111724] hover:bg-[#172033] text-slate-200 font-semibold text-xs uppercase tracking-wider border border-white/10 transition-colors text-center"
+          >
+            See How It Works
+          </a>
+        </div>
+
+        <!-- Qualification copy -->
+        <div class="pt-6 flex items-center gap-2.5 text-xs text-slate-400 border-t border-white/10 font-mono">
+          <span class="text-emerald-400">✓</span>
+          <span>Built for established auto glass companies investing seriously in growth.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: CUSTOMER SEARCH PROBLEM -->
+  <section class="py-20 bg-[#0A0F19] border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-blue-400 font-semibold">
+          The Customer Search Reality
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white font-heading">
+          YOUR CUSTOMERS ARE SEARCHING RIGHT NOW.
+        </h2>
+        <p class="text-base text-slate-300 leading-relaxed">
+          Auto glass is often an urgent purchase. After windshield damage, drivers may move quickly across search results, Maps, reviews, websites, insurance information, and phone calls while deciding whom to trust.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-xl bg-[#0D1424] border border-white/10 space-y-3">
+          <div class="w-8 h-8 rounded bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 font-mono text-xs font-bold">
+            01
+          </div>
+          <h3 class="text-lg font-bold text-white font-heading">The Urgent Local Query</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Drivers query "windshield replacement near me same day" or "mobile auto glass repair [city]." Limited visibility across local results can move that opportunity toward another provider.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-[#0D1424] border border-white/10 space-y-3">
+          <div class="w-8 h-8 rounded bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 font-mono text-xs font-bold">
+            02
+          </div>
+          <h3 class="text-lg font-bold text-white font-heading">Emerging AI & Synthesis Prompts</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Vehicle owners can ask AI-assisted search experiences questions such as, "Which nearby auto glass shops provide ADAS recalibration?" Clear entity, service, and location information helps these systems interpret the available options.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-xl bg-[#0D1424] border border-white/10 space-y-3">
+          <div class="w-8 h-8 rounded bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 font-mono text-xs font-bold">
+            03
+          </div>
+          <h3 class="text-lg font-bold text-white font-heading">Instant Phone Call Decision</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Many urgent auto glass decisions move to a phone call or quote request. Clear information about service availability, insurance support, mobile coverage, and warranties can reduce friction in that decision.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: SEARCH ECOSYSTEM (VISUALIZATION) -->
+  <section class="py-20 bg-[#080C14] border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12 text-left">
+        <span class="text-xs font-mono uppercase tracking-widest text-blue-400 font-semibold">
+          The Customer Search Layer
+        </span>
+        <h2 class="text-3xl font-bold tracking-tight text-white font-heading mt-2">
+          A UNIFIED ENGINE ACROSS EVERY SEARCH SURFACE.
+        </h2>
+        <p class="text-sm text-slate-300 mt-2">
+          Google Search → Google Maps → AI Search → Reviews + Authority → Website / Calls → Booked Jobs.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center text-xs font-mono">
+        <div class="p-4 rounded-lg bg-[#0E1524] border border-white/5 space-y-2">
+          <div class="text-blue-400 font-bold">01. ORGANIC</div>
+          <div class="text-white">Google Search</div>
+          <div class="text-[10px] text-slate-400">Windshield & ADAS Pillars</div>
+        </div>
+        <div class="p-4 rounded-lg bg-[#0E1524] border border-white/5 space-y-2">
+          <div class="text-sky-400 font-bold">02. MAPS</div>
+          <div class="text-white">Google 3-Pack</div>
+          <div class="text-[10px] text-slate-400">Proximity & Geo-Radius</div>
+        </div>
+        <div class="p-4 rounded-lg bg-[#0E1524] border border-white/5 space-y-2">
+          <div class="text-purple-400 font-bold">03. AI SEARCH</div>
+          <div class="text-white">ChatGPT / GEO</div>
+          <div class="text-[10px] text-slate-400">Entity Recommendations</div>
+        </div>
+        <div class="p-4 rounded-lg bg-[#0E1524] border border-white/5 space-y-2">
+          <div class="text-amber-400 font-bold">04. TRUST</div>
+          <div class="text-white">Reviews & Authority</div>
+          <div class="text-[10px] text-slate-400">Insurance & Warranty</div>
+        </div>
+        <div class="p-4 rounded-lg bg-[#0E1524] border border-white/5 space-y-2">
+          <div class="text-emerald-400 font-bold">05. CONVERSION</div>
+          <div class="text-white">Direct Phone Calls</div>
+          <div class="text-[10px] text-slate-400">Mobile Dispatch Quotes</div>
+        </div>
+        <div class="p-4 rounded-lg bg-blue-950/60 border border-blue-500/40 space-y-2">
+          <div class="text-white font-bold">06. MEASURED</div>
+          <div class="text-blue-300 font-semibold">Booked Jobs</div>
+          <div class="text-[10px] text-emerald-400 font-bold">Revenue Attribution</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3.5: TWO WAYS TO OPERATE -->
+  <section class="py-24 bg-[#0A0F1A] border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-blue-400 font-semibold">
+          Engagement Models
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white font-heading">
+          ONE SEARCH OS.<br />TWO WAYS TO OPERATE IT.
+        </h2>
+        <p class="text-slate-300 text-sm max-w-xl mx-auto">
+          You don't have to choose between outsourcing search forever and trying to build an AI-powered search operation internally without senior expertise. We provide both paths.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Managed Search OS -->
+        <div class="p-8 rounded-xl bg-[#0D1424] border border-white/10 flex flex-col hover:border-blue-500/40 transition-all relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-4 opacity-10">
+            <svg class="w-24 h-24 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+          </div>
+          <div class="z-10 flex-1 space-y-4">
+            <h3 class="text-2xl font-bold text-white font-heading">MANAGED SEARCH OS</h3>
+            <div class="text-sm font-mono text-blue-400 uppercase tracking-wide">
+              We run it for you.
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed pt-2 border-t border-white/10">
+              Our highest-touch engagement. Designed for established auto glass companies that want a specialized external search team responsible for strategy and execution across Google, Maps, AI, and conversion.
+            </p>
+            <ul class="space-y-2 pt-4">
+              <li class="flex items-start gap-2 text-xs text-slate-400 font-mono"><span class="text-blue-500">→</span> End-to-end SEO & Maps management</li>
+              <li class="flex items-start gap-2 text-xs text-slate-400 font-mono"><span class="text-blue-500">→</span> AI search visibility monitoring</li>
+              <li class="flex items-start gap-2 text-xs text-slate-400 font-mono"><span class="text-blue-500">→</span> Measurement centered on booked-job outcomes</li>
+            </ul>
+          </div>
+          <div class="pt-8 mt-auto z-10">
+            <a href="/visibility-analysis/" data-analytics-event="managed_search_os_interest" class="inline-block text-xs font-bold font-mono text-white hover:text-blue-400 transition-colors uppercase tracking-wider">
+              Get Your Analysis →
+            </a>
+          </div>
+        </div>
+
+        <!-- Search OS + Team -->
+        <div class="p-8 rounded-xl bg-[#0D1424] border border-white/10 flex flex-col hover:border-blue-500/40 transition-all relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-4 opacity-10">
+            <svg class="w-24 h-24 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+          <div class="z-10 flex-1 space-y-4">
+            <h3 class="text-2xl font-bold text-white font-heading">SEARCH OS + TEAM</h3>
+            <div class="text-sm font-mono text-emerald-400 uppercase tracking-wide">
+              We build it with your team.
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed pt-2 border-t border-white/10">
+               Designed for companies that want to develop internal search capability. We build the workflows, reusable AI instructions, knowledge systems, QA processes, and governance that help your team execute appropriate portions with ongoing senior support.
+            </p>
+            <ul class="space-y-2 pt-4">
+              <li class="flex items-start gap-2 text-xs text-slate-400 font-mono"><span class="text-emerald-500">→</span> System design & technical architecture</li>
+              <li class="flex items-start gap-2 text-xs text-slate-400 font-mono"><span class="text-emerald-500">→</span> Reusable AI instructions & workflows</li>
+              <li class="flex items-start gap-2 text-xs text-slate-400 font-mono"><span class="text-emerald-500">→</span> Senior strategy, QA, & ongoing advisory</li>
+            </ul>
+          </div>
+          <div class="pt-8 mt-auto z-10">
+            <a href="/visibility-analysis/" data-analytics-event="search_os_team_interest" class="inline-block text-xs font-bold font-mono text-white hover:text-emerald-400 transition-colors uppercase tracking-wider">
+              Get Your Analysis →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: METHODOLOGY (FOUND -> TRUSTED -> CHOSEN -> MEASURED) -->
+  <section id="search-methodology" class="py-24 bg-[#0A0F1A] border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+        <span class="text-xs font-mono uppercase tracking-widest text-blue-400 font-semibold">
+          Core Operating System
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white font-heading">
+          THE 4-STAGE METHODOLOGY
+        </h2>
+        <p class="text-slate-300 text-sm max-w-xl mx-auto">
+          Search OS coordinates strategy, execution, workflows, human quality assurance, and measurement across the customer journey instead of treating each search channel as an isolated task.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {methodologyStages.map((stage) => (
+          <div class="p-6 rounded-xl bg-[#0D1424] border border-white/10 flex flex-col justify-between hover:border-blue-500/40 transition-colors">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <span class="text-lg font-bold text-white font-heading">{stage.title}</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-950 text-blue-400 border border-blue-800/40">
+                  STAGE {stage.step}
+                </span>
+              </div>
+              <div class="text-xs font-mono text-blue-400 uppercase tracking-wide">
+                {stage.subtitle}
+              </div>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                {stage.description}
+              </p>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/10 space-y-1.5">
+              <div class="text-[10px] font-mono uppercase tracking-wider text-slate-400">
+                Operational Metrics:
+              </div>
+              {stage.signals.map((s) => (
+                <div class="flex items-center gap-1.5 text-xs text-slate-300 font-mono">
+                  <span class="text-emerald-400">✓</span>
+                  <span>{s}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: INDUSTRY EXPERTISE (SEARCH INTENT MATRIX) -->
+  <section class="py-20 bg-[#080C14] border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12 text-left">
+        <span class="text-xs font-mono uppercase tracking-widest text-blue-400 font-semibold">
+          Search Intent Calibration
+        </span>
+        <h2 class="text-3xl font-bold tracking-tight text-white font-heading mt-2">
+          NOT ALL AUTO GLASS SEARCHES ARE CREATED EQUAL.
+        </h2>
+        <p class="text-sm text-slate-300 mt-2">
+          Different customer queries indicate completely different buying urgency, commercial value, and conversion paths:
+        </p>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs border-collapse border border-white/10 rounded-xl overflow-hidden bg-[#0C1220]">
+          <thead>
+            <tr class="bg-[#101828] border-b border-white/10 text-slate-300 font-mono uppercase tracking-wider">
+              <th class="p-4">Customer Query Intent</th>
+              <th class="p-4">Sample Driver Search</th>
+              <th class="p-4">Primary Discovery Surface</th>
+              <th class="p-4">Conversion Architecture</th>
+              <th class="p-4">Target Job Value</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/10 text-slate-300">
+            {searchIntentMatrix.map((item) => (
+              <tr class="hover:bg-white/5 transition-colors">
+                <td class="p-4 font-bold text-white font-heading">{item.queryType}</td>
+                <td class="p-4 font-mono text-blue-300">{item.sampleQuery}</td>
+                <td class="p-4">{item.primarySurface}</td>
+                <td class="p-4 text-slate-400">{item.conversionMechanism}</td>
+                <td class="p-4 font-mono text-emerald-400 font-semibold">{item.targetValue}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: MEASUREMENT -->
+  <section class="py-20 bg-[#0A0F1A] border-b border-white/10 text-center">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <span class="text-xs font-mono uppercase tracking-widest text-blue-400 font-semibold">
+        Revenue Accountability
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white font-heading">
+        MEASURE BOOKED JOBS, NOT JUST RANKINGS.
+      </h2>
+      <p class="text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Where reliable call, quote, booking, and revenue data are available, measurement can connect search activity with qualified inquiries and booked jobs—not just rankings or traffic.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECTION 7: IDEAL CLIENT PROFILE -->
+  <section class="py-20 bg-[#080C14] border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-2xl border border-white/15 bg-gradient-to-b from-[#0F1626] to-[#0A0E18] p-8 sm:p-12 relative overflow-hidden text-left">
+        <div class="max-w-3xl space-y-4">
+          <span class="text-xs font-mono uppercase tracking-widest text-blue-400 font-semibold">
+            Partnership Profile
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white font-heading">
+            BUILT FOR AUTO GLASS COMPANIES READY TO SCALE.
+          </h2>
+          <p class="text-sm text-slate-300 leading-relaxed">
+             Auto Glass Search OS is designed for established, growth-oriented operators with meaningful shop, mobile-service, or internal marketing capacity.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-xs font-mono text-slate-300">
+            <div class="flex items-start gap-2.5">
+              <span class="text-emerald-400">✓</span>
+              <span>Established regional or multi-location operator</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="text-emerald-400">✓</span>
+              <span>Established team, shop, or mobile service capacity</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="text-emerald-400">✓</span>
+              <span>In-shop facility and/or mobile service coverage</span>
+            </div>
+            <div class="flex items-start gap-2.5">
+              <span class="text-emerald-400">✓</span>
+              <span>Actively competing against Safelite & consolidators</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: FINAL CTA -->
+  <section class="py-24 bg-[#0B101C] text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
+      <span class="text-xs font-mono uppercase tracking-widest text-blue-400 font-semibold">
+        Opportunity Diagnostic
+      </span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white font-heading">
+        SEE WHERE COMPETITORS ARE CAPTURING JOBS YOU'RE MISSING.
+      </h2>
+      <p class="text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Request a complimentary search and AI visibility analysis for your auto glass company. We inspect your Google Maps 3-Pack rank, organic visibility, AI search inclusion, and call conversion friction.
+      </p>
+      <div class="pt-4 flex justify-center">
+        <a
+          href="/visibility-analysis/"
+          data-analytics-event="primary_cta_click"
+          class="px-8 py-4 rounded bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider shadow-xl shadow-blue-600/30 border border-blue-400/40 transition-all"
+        >
+          Get Your Search + AI Visibility Analysis →
+        </a>
+      </div>
+      <div class="text-xs font-mono text-slate-500">
+        Manually reviewed · Confidential opportunity analysis
+      </div>
+    </div>
+  </section>
+</BaseLayout>
