@@ -1,10 +1,12 @@
-# [Project name]
+# Auto Glass Search OS
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A specialist acquisition website helping established auto glass companies turn search demand into answered calls and booked glass jobs.
 
 ## Run & Operate
 
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/auto-glass-search-os run dev` — run the website through its managed workflow
+- `pnpm --filter @workspace/auto-glass-search-os run typecheck` — verify the website
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
@@ -22,7 +24,9 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/auto-glass-search-os/src/App.tsx` — routes, page content, shared shell, and lead form
+- `artifacts/auto-glass-search-os/src/index.css` — brand tokens and responsive styling
+- `artifacts/auto-glass-search-os/public/` — public SEO and browser assets
 
 ## Architecture decisions
 
@@ -30,7 +34,9 @@ _Populate as you build — non-obvious choices a reader couldn't infer from the 
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Multi-page marketing site for auto glass SEO, local search, AI search visibility, and Google Ads
+- Operator-specific positioning for windshield replacement, chip repair, ADAS recalibration, mobile fleets, dispatch, and insurance workflows
+- Client-side visibility analysis form with validation and confirmation state
 
 ## User preferences
 
