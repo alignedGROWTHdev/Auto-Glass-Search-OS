@@ -1,0 +1,147 @@
+You are an elite Lead UI/UX Designer and Senior Frontend Systems Architect specializing in automotive trade and industrial B2B digital platforms.
+
+We are overhauling the live website for "Auto Glass Search OS" (an Aligned Growth Digital Company, founded by Valentina Borda). 
+
+Current State Issue:
+The current site looks like a generic AI/Vercel SaaS template (flat dark slate background, electric blue buttons, monotonous card grids with 01/02/03 badges, and an empty black void on the right side of the hero). In addition, the conversion page (/visibility-analysis/) currently displays an amateur placeholder disclaimer ("This page does not yet have a form-delivery integration").
+
+Your Mission:
+Execute a complete visual, messaging, and structural redesign of the Astro project. Transform the site from an "AI template" into an authoritative, high-converting "Industrial Telemetry Command Center" tailored specifically for owners and COOs of established $2M–$20M+ auto glass enterprises (operators with 5–25 mobile vans and dedicated in-shop ADAS calibration bays).
+
+Maintain our core technical requirement: Native Astro 5 + Tailwind CSS, 100% pre-rendered, server-side semantic HTML for peak SEO crawlability, zero client-side JavaScript rendering walls.
+
+Here is the exact implementation specification:
+
+==================================================
+1. BRAND SYSTEM & DESIGN TOKENS
+==================================================
+Update `tailwind.config.mjs` and `src/styles/` (or `BaseLayout.astro`) with our custom industrial telemetry palette and typography:
+
+- Canvas & Backgrounds:
+  * Obsidian Tinted Glass: `#0B0F19` (main background, subtle blue-tinted privacy glass feel)
+  * Carbon Slate: `#131B2E` (elevated card containers and panels)
+  * Deep Bay Navy: `#0D1527` (secondary section contrast)
+- Accents & Telemetry:
+  * Laser Cyan: `#00D2FF` (laser leveling lines, active tabs, HUD reticles)
+  * Precision Cobalt: `#1E40AF` (primary action buttons, authoritative blue)
+  * Fleet Safety Amber: `#F59E0B` (alerts, ad spend waste highlights, warning tags)
+  * Tolerance Emerald: `#10B981` (Google #1 rank pins, ADAS pass verified)
+- Typography:
+  * Headings: Space Grotesk (geometric, architectural, instrument-cluster presence)
+  * Body: Plus Jakarta Sans (ultra-clean, highly legible, human warmth)
+  * Data/Metrics ONLY: Space Mono or JetBrains Mono (strictly reserved for currency, coordinates, and tolerances)
+- Border & Surface Polish:
+  * Replace flat `border-white/10` with subtle glassmorphic borders: `border-t-white/20 border-b-white/5` with `backdrop-blur-md` on elevated panels.
+
+==================================================
+2. HEADER & BRAND MARK OVERHAUL (`src/components/Header.astro`)
+==================================================
+- Replace the current square "AG" box logo with an inline SVG "Optical Crosshair" brand mark:
+  * An aerodynamic automotive windshield contour with specular glass edge glow.
+  * Intersected at the upper rearview mirror/camera location by a precision laser calibration crosshair.
+  * Wordmark: "AUTO GLASS" in bold Space Grotesk, paired with "SEARCH OS" and the sub-lockup "AN ALIGNED GROWTH DIGITAL COMPANY".
+- Header Utility Bar:
+  * Direct phone link: `tel:5165211149` displaying "(516) 521-1149" with a green pulsating "Live Dispatch" indicator pill.
+  * Primary Action Button: "GET MARKET ANALYSIS" styled in high-contrast Precision Cobalt with Laser Cyan hover glow.
+
+==================================================
+3. HOMEPAGE HERO OVERHAUL (`src/pages/index.astro`)
+==================================================
+Eliminate the 50% empty black space on desktop by rebuilding the hero into an asymmetric 60/40 layout:
+
+Left Column (60%):
+- Telemetry Badge: "AUTO GLASS SEARCH OS™ // INDUSTRIAL CUSTOMER ACQUISITION"
+- H1 Headline: "Turn Search Visibility Into Booked Auto Glass Jobs."
+- High-Conviction Subcopy: "The dedicated customer acquisition operating system for $2M–$20M multi-shop and mobile auto glass enterprises. Win Google 3-Pack rankings, capture high-margin ADAS camera recalibrations, and eliminate Safelite TPA steering across your service markets."
+- Four Strategic Proof Pills:
+  1. `5,000+ Negative Keyword Firewall`
+  2. `ADAS Optical Calibration Focus ($350–$650/Ticket)`
+  3. `Anti-Steering Claim Architecture`
+  4. `Cost Per Booked Job (CPBJ) Tracking`
+- CTA Group:
+  * Primary: "Request Market Visibility Analysis" (links to `/visibility-analysis/`)
+  * Secondary: "Call (516) 521-1149" (direct dial)
+
+Right Column (40%) — Interactive Search & Dispatch Telemetry Console:
+Build a rich visual telemetry component inside an Obsidian/Carbon Slate container:
+- Top Bar: "SEARCH & DISPATCH TELEMETRY // LIVE FEED" with green status indicator.
+- 5x5 Geo-Grid Mini-Map: Visualizing Google 3-Pack rank pins (green circles with "#1" and "#2") across a metropolitan service radius.
+- Inbound Dispatch Card:
+  * Vehicle: "2024 Ford F-150 SuperCrew"
+  * Service: "OEM Acoustic Windshield Replacement + Dynamic ADAS Camera Calibration"
+  * Status: "High-Margin ADAS Job Verified // Levittown, NY"
+  * Ticket Value: "$680.00" (Gross Margin: 72%)
+- Performance Metric Pill:
+  * "Cost Per Booked Job: $43.27 (-18.6% 30-Day Trend)"
+  * "Monthly Inbound Calls: 248 | Total Booked Jobs: 127 | ROAS: 6.7x"
+
+==================================================
+4. RESTRUCTURE "THE 3 OPERATIONAL REALITIES"
+==================================================
+Replace generic search descriptions with the 3 real financial bottlenecks an auto glass owner experiences:
+
+- Reality 01: The 15-Minute Mobile Decision
+  When road debris shatters a windshield, 82% of drivers call within 15 minutes. If your shop does not occupy the Google 3-Pack and feature instant smartphone click-to-call, that $450–$800 job routes to the next fleet on the map.
+- Reality 02: The $500 ADAS Margin Blind Spot
+  Modern 2020+ vehicles require camera recalibration after glass install. Operators without dedicated calibration landing architecture forfeit $350–$650 in high-margin insurance billing on every replacement.
+- Reality 03: Defeating Safelite & TPA Network Steering
+  Insurers and third-party administrators (Safelite Solutions, Lynx) aggressively route callers to corporate repair networks. Our anti-steering landing page architecture educates drivers on their legal Right-to-Choose before they enter the automated insurance queue.
+
+==================================================
+5. INTERACTIVE SEARCH INTENT MATRIX (Replacing the Raw Markdown Table)
+==================================================
+Replace the static markdown code table with a clean, interactive tabbed diagnostic component.
+Create 4 selectable tabs:
+1. "Urgent Same-Day Replacement"
+2. "ADAS Optical Calibration"
+3. "Insurance Claim & Anti-Steering"
+4. "Commercial Fleet & Dealership Accounts"
+
+For each tab, display:
+- Driver Mindset & Urgency Level
+- Winning Search Surface (Google Maps 3-Pack vs. AI Overview)
+- Conversion Mechanism (One-touch mobile dispatch vs. deductible verification)
+- Average Ticket Value ($380–$950 blended ticket)
+
+==================================================
+6. REVENUE ACCOUNTABILITY DASHBOARD (Replacing the Centered Text)
+==================================================
+Under "Measure booked jobs, not just rankings", replace the empty text block with a styled Revenue Intelligence Panel:
+- Gauge graphic or visual progress indicator: "Cost Per Booked Job: $44.20" (within target $35–$65 benchmark).
+- Two-tone Ratio Bar: "Insurance Claims: 68% | Cash / Out-of-Pocket: 32%".
+- Fleet Route Density Map indicator: "Mobile Route Clustering: 4.8 Jobs / Van / Day".
+- Clear statement: "We integrate directly with your auto glass management and dispatch software (Mainstreet, Glas-Weld, Mitchell, CCC ONE, Quest) to attribute closed revenue to exact search campaigns."
+
+==================================================
+7. CRITICAL CONVERSION REPAIR (`src/pages/visibility-analysis.astro` & `LeadForm.astro`)
+==================================================
+REMOVE the text stating "This page does not yet have a form-delivery integration".
+Restore and polish `src/components/LeadForm.astro` as a high-converting, professional diagnostic intake:
+- Step 1: Fleet & Facility Scale
+  * Radio / Select options: "1–3 Mobile Vans", "4–10 Vans + 1 Shop", "10–25 Vans + Multi-Bay Facilities", "25+ Enterprise Network"
+- Step 2: Primary Metro Market & Service Radius
+- Step 3: ADAS In-House Calibration Setup (Static Target Bays, Dynamic Mobile, or Planning to Add)
+- Step 4: Current Monthly Marketing Budget ($3k–$5k, $5k–$10k, $10k–$25k, $25k+)
+- Step 5: Contact Information (Name, Company, Direct Phone, Email)
+- Form Action: Cleanly handles submission and redirects to `/thank-you/`, displaying immediate confirmation and direct dial to `(516) 521-1149`.
+
+==================================================
+8. FOUNDER & AUTHORITY OVERHAUL (`src/pages/about.astro`)
+==================================================
+- Remove the "VB" circle avatar. Replace with an executive presentation of Valentina Borda:
+  * Title: Founder, Auto Glass Search OS & Managing Principal, Aligned Growth Digital
+  * Direct Phone: (516) 521-1149 | Email: valentina@alignedgrowthdigital.com
+- Add "A Letter to Auto Glass Operators":
+  Valentina explains her decade in digital growth, her hands-on work with auto glass shop owners, and why she engineered an operating system to protect independent operators against corporate consolidators and TPA steering.
+- Add Industry Standards & Compliance Badges:
+  * Auto Glass Safety Council (AGSC) Standard Awareness
+  * National Windshield Repair Division (NWRD) Best Practices
+  * OEM Calibration Optical Specification Compliance
+
+==================================================
+9. VERIFICATION & BUILD
+==================================================
+After applying these updates across `src/pages/`, `src/components/`, `src/styles/`, and `src/data/`:
+1. Ensure all telephone links point to `tel:5165211149` and emails to `valentina@alignedgrowthdigital.com`.
+2. Run `npm run build` or `pnpm build` to verify zero TypeScript or Astro syntax errors.
+3. Confirm that the static HTML renders all headings, metadata, schema, and layout elements cleanly.
