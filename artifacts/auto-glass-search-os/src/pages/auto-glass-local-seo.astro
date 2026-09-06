@@ -6,53 +6,166 @@ const pageDescription = "Improve Google Maps and local search visibility for win
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <section class="py-20 border-b border-white/10 bg-[#0A0E18]">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-left">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-blue-950/80 border border-blue-500/30 text-xs font-mono text-blue-400">
-        GOOGLE MAPS 3-PACK & SERVICE AREA DOMINANCE
-      </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white font-heading">
-        LOCAL SEO & GOOGLE MAPS: <br />
-        CAPTURE HIGH-URGENCY NEARBY DRIVERS.
-      </h1>
-      <p class="text-lg text-slate-300 max-w-3xl leading-relaxed">
-        Drivers with urgent glass needs often compare nearby businesses across Google Maps, reviews, service details, and company websites before they call. Auto Glass Search OS coordinates those local discovery signals across your shop locations and mobile service areas.
-      </p>
-      <div class="pt-2">
-        <a
-          href="/visibility-analysis/"
-          data-analytics-event="primary_cta_click"
-          class="inline-flex items-center gap-2 px-6 py-3.5 rounded bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs uppercase tracking-wider transition-all"
-        >
-          <span>Get Your Local Visibility Analysis</span>
-          <span>→</span>
-        </a>
+
+  <!-- Hero -->
+  <section class="page-hero" aria-labelledby="local-seo-heading">
+    <div class="container">
+      <div class="page-hero__content">
+        <span class="eyebrow">Google Maps 3-Pack &amp; Service Area Dominance</span>
+        <h1 id="local-seo-heading" class="text-balance">
+          Local SEO &amp; Google Maps: Capture high-urgency nearby drivers.
+        </h1>
+        <p class="page-hero__lead">
+          Drivers with urgent glass needs compare nearby businesses across Google Maps, reviews, service details, and company websites before they call. Auto Glass Search OS coordinates those local discovery signals across your shop locations and mobile service areas.
+        </p>
+        <div class="page-hero__cta">
+          <a
+            href="/visibility-analysis/"
+            data-analytics-event="primary_cta_click"
+            class="btn btn--primary btn--lg"
+          >
+            Get Your Local Visibility Analysis
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="py-20 border-b border-white/10 bg-[#0C1220]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-        <div class="p-6 rounded-xl bg-[#0F1628] border border-white/10 space-y-4">
-          <h2 class="text-xl font-bold text-white font-heading">Google Business Profile Alignment</h2>
-          <p class="text-xs text-slate-300 leading-relaxed">
+  <!-- Capability cards -->
+  <section class="section section--alt" aria-labelledby="local-capabilities-heading">
+    <div class="container">
+      <h2 id="local-capabilities-heading" class="sr-only">Local SEO Capabilities</h2>
+      <div class="cap-grid">
+
+        <article class="card">
+          <div class="card__top">
+            <span class="stage-badge" aria-hidden="true">01</span>
+            <h3 class="card__title">Google Business Profile Alignment</h3>
+          </div>
+          <p class="card__body">
             Primary and secondary category calibration (Auto Glass Shop, Windshield Repair Service), service catalogue completeness, and photo evidence from actual shop bays and mobile dispatch vans.
           </p>
-        </div>
-        <div class="p-6 rounded-xl bg-[#0F1628] border border-white/10 space-y-4">
-          <h2 class="text-xl font-bold text-white font-heading">Review Velocity & Sentiment Engine</h2>
-          <p class="text-xs text-slate-300 leading-relaxed">
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <span class="stage-badge" aria-hidden="true">02</span>
+            <h3 class="card__title">Review Velocity &amp; Sentiment Engine</h3>
+          </div>
+          <p class="card__body">
             Build an ethical review-request process that helps real customers describe the service they received in their own words, while your team monitors recurring trust and service themes.
           </p>
-        </div>
-        <div class="p-6 rounded-xl bg-[#0F1628] border border-white/10 space-y-4">
-          <h2 class="text-xl font-bold text-white font-heading">Multi-Location & Service Area Grids</h2>
-          <p class="text-xs text-slate-300 leading-relaxed">
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <span class="stage-badge" aria-hidden="true">03</span>
+            <h3 class="card__title">Multi-Location &amp; Service Area Grids</h3>
+          </div>
+          <p class="card__body">
             Coordinate location and service-area pages with the markets your shops and mobile teams can genuinely serve, without creating thin or duplicative local content.
           </p>
-        </div>
+        </article>
+
       </div>
     </div>
   </section>
+
 </BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background-color: var(--surface-00);
+  }
+
+  .page-hero__content {
+    max-width: 52rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .page-hero__lead {
+    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.1875rem);
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 42rem;
+  }
+
+  .page-hero__cta {
+    padding-top: 0.5rem;
+  }
+
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background-color: var(--surface-00);
+  }
+
+  .section--alt {
+    background-color: var(--surface-01);
+  }
+
+  .cap-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .cap-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .card {
+    background-color: var(--surface-02);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-xl);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: border-color 200ms;
+  }
+
+  .card:hover {
+    border-color: rgba(49,130,246,0.3);
+  }
+
+  .card__top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+  }
+
+  .card__title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.35;
+    padding-top: 0.125rem;
+  }
+
+  .card__body {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>

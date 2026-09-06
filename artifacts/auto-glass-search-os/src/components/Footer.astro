@@ -2,93 +2,336 @@
 import { siteConfig, isConfigured } from '../data/siteData';
 ---
 
-<footer class="bg-[#05080E] border-t border-white/10 text-slate-400 pt-16 pb-12">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
-      
-      <!-- Entity col -->
-      <div class="lg:col-span-2 space-y-4">
-        <a href="/" class="flex items-center gap-3">
-          <div class="w-8 h-8 rounded bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 font-heading font-bold text-sm">
-            OS
-          </div>
-          <span class="text-base font-bold tracking-tight text-white font-heading">
-            AUTO GLASS <span class="text-blue-500">SEARCH OS</span>
+<footer class="agos-footer" role="contentinfo">
+  <div class="agos-footer__inner container">
+
+    <!-- Main grid -->
+    <div class="agos-footer__grid">
+
+      <!-- Col 1: Entity -->
+      <div class="agos-footer__entity">
+        <a href="/" class="agos-footer__wordmark" aria-label="Auto Glass Search OS — Home">
+          <span class="ag-monogram" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M2 20 L7 6 L12 20" stroke="var(--blue)" stroke-width="1.8" stroke-linecap="square" stroke-linejoin="miter" fill="none"/>
+              <line x1="4.5" y1="15.5" x2="9.5" y2="15.5" stroke="var(--blue)" stroke-width="1.6" stroke-linecap="square"/>
+              <path d="M22 8.5 A5.8 5.8 0 1 0 22 17.5" stroke="var(--text-primary)" stroke-width="1.7" stroke-linecap="square" fill="none"/>
+              <line x1="17.5" y1="13" x2="22" y2="13" stroke="var(--text-primary)" stroke-width="1.7" stroke-linecap="square"/>
+              <line x1="22" y1="13" x2="22" y2="17.5" stroke="var(--text-primary)" stroke-width="1.7" stroke-linecap="square"/>
+            </svg>
+          </span>
+          <span class="agos-footer__wordmark-text">
+            AUTO GLASS <span class="agos-footer__wordmark-accent">SEARCH OS</span>
           </span>
         </a>
-        <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
-          The specialized search operating system designed specifically for established auto glass businesses to capture high-intent windshield replacements and ADAS calibrations.
+
+        <p class="agos-footer__desc">
+          The specialized search operating system designed for established auto glass businesses to capture high-intent windshield replacements and ADAS calibrations.
         </p>
-        <div class="pt-2 text-xs font-mono text-slate-400 space-y-1">
+
+        <div class="agos-footer__meta">
           <p>OPERATING ENTITY: {siteConfig.legalParent}</p>
           <p>FOUNDER: {siteConfig.founder}</p>
-          <p>STANDARDS: Clean HTML-First Crawlability · Zero Client-Only Data Walls</p>
           {isConfigured(siteConfig.placeholders.phone) && (
-            <p><a href={`tel:${siteConfig.placeholders.phone.replace(/[^\d+]/g, '')}`} data-analytics-event="phone_click" class="hover:text-blue-400">PHONE: {siteConfig.placeholders.phone}</a></p>
+            <p>
+              <a href={`tel:${siteConfig.placeholders.phone.replace(/[^\d+]/g, '')}`} data-analytics-event="phone_click" class="agos-footer__contact-link">
+                PHONE: {siteConfig.placeholders.phone}
+              </a>
+            </p>
           )}
           {isConfigured(siteConfig.placeholders.email) && (
-            <p><a href={`mailto:${siteConfig.placeholders.email}`} data-analytics-event="email_click" class="hover:text-blue-400">EMAIL: {siteConfig.placeholders.email}</a></p>
+            <p>
+              <a href={`mailto:${siteConfig.placeholders.email}`} data-analytics-event="email_click" class="agos-footer__contact-link">
+                EMAIL: {siteConfig.placeholders.email}
+              </a>
+            </p>
           )}
         </div>
       </div>
 
-      <!-- Col 3: Core Capabilities -->
-      <div>
-        <h4 class="text-xs font-mono uppercase tracking-wider text-white font-semibold mb-4">
-          Capabilities
-        </h4>
-        <ul class="space-y-2.5 text-sm">
-          <li><a href="/auto-glass-seo/" class="hover:text-blue-400 transition-colors">Auto Glass SEO</a></li>
-          <li><a href="/auto-glass-local-seo/" class="hover:text-blue-400 transition-colors">Local Maps & 3-Pack</a></li>
-          <li><a href="/ai-search-optimization/" class="hover:text-blue-400 transition-colors">AI Search & AEO</a></li>
-          <li><a href="/google-ads/" class="hover:text-blue-400 transition-colors">High-Intent Google Ads</a></li>
+      <!-- Col 2: Capabilities -->
+      <div class="agos-footer__col">
+        <p class="agos-footer__col-heading" aria-label="Capabilities">Capabilities</p>
+        <ul class="agos-footer__link-list" role="list">
+          <li><a href="/auto-glass-seo/" class="agos-footer__link">Auto Glass SEO</a></li>
+          <li><a href="/auto-glass-local-seo/" class="agos-footer__link">Local Maps &amp; 3-Pack</a></li>
+          <li><a href="/ai-search-optimization/" class="agos-footer__link">AI Search &amp; AEO</a></li>
+          <li><a href="/google-ads/" class="agos-footer__link">High-Intent Google Ads</a></li>
         </ul>
       </div>
 
-      <!-- Col 4: Search OS Framework -->
-      <div>
-        <h4 class="text-xs font-mono uppercase tracking-wider text-white font-semibold mb-4">
-          Search OS Architecture
-        </h4>
-        <ul class="space-y-2 text-sm font-mono text-xs">
-          <li class="text-slate-300">01. Found (Multi-Surface)</li>
-          <li class="text-slate-300">02. Trusted (Reputation & Proof)</li>
-          <li class="text-slate-300">03. Chosen (Call Conversion)</li>
-          <li class="text-slate-300">04. Measured (Booked Job Tickets)</li>
+      <!-- Col 3: Search OS Architecture -->
+      <div class="agos-footer__col">
+        <p class="agos-footer__col-heading">Search OS Architecture</p>
+        <ul class="agos-footer__stage-list" role="list">
+          <li class="agos-footer__stage-item">
+            <span class="agos-footer__stage-num">01.</span>
+            <span>Found — Multi-Surface</span>
+          </li>
+          <li class="agos-footer__stage-item">
+            <span class="agos-footer__stage-num">02.</span>
+            <span>Trusted — Reputation &amp; Proof</span>
+          </li>
+          <li class="agos-footer__stage-item">
+            <span class="agos-footer__stage-num">03.</span>
+            <span>Chosen — Call Conversion</span>
+          </li>
+          <li class="agos-footer__stage-item">
+            <span class="agos-footer__stage-num">04.</span>
+            <span>Measured — Booked Job Tickets</span>
+          </li>
         </ul>
       </div>
 
-      <!-- Col 5: Governance -->
-      <div>
-        <h4 class="text-xs font-mono uppercase tracking-wider text-white font-semibold mb-4">
-          Growth Diagnostics
-        </h4>
-        <p class="text-xs text-slate-400 mb-3 leading-relaxed">
+      <!-- Col 4: Growth Diagnostics -->
+      <div class="agos-footer__col">
+        <p class="agos-footer__col-heading">Growth Diagnostics</p>
+        <p class="agos-footer__col-desc">
           See which competitors are capturing emergency windshield replacements in your territory.
         </p>
         <a
           href="/visibility-analysis/"
           data-analytics-event="primary_cta_click"
-          class="inline-block text-xs font-medium text-blue-400 hover:underline font-mono"
+          class="agos-footer__cta-link"
         >
-          REQUEST VISIBILITY ANALYSIS →
+          Request Visibility Analysis
         </a>
-        <div class="mt-6 pt-4 border-t border-white/5 space-y-1.5 text-xs">
-          <a href="/about/" class="block hover:text-white">About Valentina Borda</a>
-          <a href="/privacy/" class="block hover:text-white">Privacy Policy</a>
+        <div class="agos-footer__secondary-links">
+          <a href="/about/" class="agos-footer__link">About Valentina Borda</a>
+          <a href="/privacy/" class="agos-footer__link">Privacy Policy</a>
         </div>
       </div>
 
     </div>
 
-    <!-- Bottom Legal Notice -->
-    <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-      <p>
-        © {new Date().getFullYear()} Auto Glass Search OS. All rights reserved. Auto Glass Search OS is an Aligned Growth Digital company.
+    <!-- Bottom bar -->
+    <div class="agos-footer__bottom">
+      <p class="agos-footer__legal">
+        &copy; {new Date().getFullYear()} Auto Glass Search OS. All rights reserved. Auto Glass Search OS is an Aligned Growth Digital company.
       </p>
-      <p class="font-mono text-[11px] text-slate-400">
-        Search Growth + AI Systems · Human Expertise + Governance
+      <p class="agos-footer__tagline">
+        Search Growth + AI Systems &middot; Human Expertise + Governance
       </p>
     </div>
+
   </div>
 </footer>
+
+<style>
+  .agos-footer {
+    background-color: var(--surface-00);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    color: var(--text-tertiary);
+  }
+
+  .agos-footer__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  @media (min-width: 640px) {
+    .agos-footer__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .agos-footer__grid {
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  /* Entity col */
+  .agos-footer__entity {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .agos-footer__wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+  }
+
+  .agos-footer__wordmark:hover { opacity: 0.8; }
+
+  .agos-footer__wordmark-text {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+  }
+
+  .agos-footer__wordmark-accent {
+    color: var(--blue);
+  }
+
+  .agos-footer__desc {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    line-height: 1.65;
+    max-width: 22rem;
+  }
+
+  .agos-footer__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+  }
+
+  .agos-footer__contact-link {
+    color: var(--text-tertiary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .agos-footer__contact-link:hover {
+    color: var(--blue);
+  }
+
+  /* Cols */
+  .agos-footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .agos-footer__col-heading {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .agos-footer__link-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .agos-footer__link {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .agos-footer__link:hover {
+    color: var(--blue);
+  }
+
+  .agos-footer__stage-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .agos-footer__stage-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .agos-footer__stage-num {
+    color: var(--blue);
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+
+  .agos-footer__col-desc {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .agos-footer__cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--blue);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .agos-footer__cta-link::after {
+    content: '→';
+  }
+
+  .agos-footer__cta-link:hover {
+    color: var(--blue-hover);
+    text-decoration: underline;
+  }
+
+  .agos-footer__secondary-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    margin-top: 0.5rem;
+  }
+
+  /* Bottom bar */
+  .agos-footer__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .agos-footer__bottom {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .agos-footer__legal {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    margin: 0;
+  }
+
+  .agos-footer__tagline {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    color: var(--text-tertiary);
+    margin: 0;
+  }
+</style>

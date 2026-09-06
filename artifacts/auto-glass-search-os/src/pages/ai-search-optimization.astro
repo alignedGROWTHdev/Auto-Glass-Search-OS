@@ -6,53 +6,166 @@ const pageDescription = "Improve the clarity and corroboration of your auto glas
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <section class="py-20 border-b border-white/10 bg-[#0A0E18]">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 text-left">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-blue-950/80 border border-blue-500/30 text-xs font-mono text-blue-400">
-        GENERATIVE ENGINE OPTIMIZATION (GEO / AEO)
-      </div>
-      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white font-heading">
-        AI SEARCH VISIBILITY: <br />
-        BUILD CLEARER SIGNALS FOR AI-ASSISTED DISCOVERY.
-      </h1>
-      <p class="text-lg text-slate-300 max-w-3xl leading-relaxed">
-        Drivers can now encounter auto glass companies through conversational search and AI-generated summaries as well as traditional results. We help operators improve the entity clarity, service information, and corroborating signals these systems may use.
-      </p>
-      <div class="pt-2">
-        <a
-          href="/visibility-analysis/"
-          data-analytics-event="primary_cta_click"
-          class="inline-flex items-center gap-2 px-6 py-3.5 rounded bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs uppercase tracking-wider transition-all"
-        >
-          <span>Assess Your AI Search Visibility</span>
-          <span>→</span>
-        </a>
+
+  <!-- Hero -->
+  <section class="page-hero" aria-labelledby="ai-search-heading">
+    <div class="container">
+      <div class="page-hero__content">
+        <span class="eyebrow">Generative Engine Optimization (GEO / AEO)</span>
+        <h1 id="ai-search-heading" class="text-balance">
+          AI Search Visibility: Build clearer signals for AI-assisted discovery.
+        </h1>
+        <p class="page-hero__lead">
+          Drivers can now encounter auto glass companies through conversational search and AI-generated summaries as well as traditional results. We help operators improve the entity clarity, service information, and corroborating signals these systems may use.
+        </p>
+        <div class="page-hero__cta">
+          <a
+            href="/visibility-analysis/"
+            data-analytics-event="primary_cta_click"
+            class="btn btn--primary btn--lg"
+          >
+            Assess Your AI Search Visibility
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="py-20 border-b border-white/10 bg-[#0C1220]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-        <div class="p-6 rounded-xl bg-[#0F1628] border border-white/10 space-y-4">
-          <h2 class="text-xl font-bold text-white font-heading">Entity Clarity & Knowledge Graphs</h2>
-          <p class="text-xs text-slate-300 leading-relaxed">
+  <!-- Capability cards -->
+  <section class="section section--alt" aria-labelledby="ai-capabilities-heading">
+    <div class="container">
+      <h2 id="ai-capabilities-heading" class="sr-only">AI Search Capabilities</h2>
+      <div class="cap-grid">
+
+        <article class="card">
+          <div class="card__top">
+            <span class="stage-badge" aria-hidden="true">01</span>
+            <h3 class="card__title">Entity Clarity &amp; Knowledge Graphs</h3>
+          </div>
+          <p class="card__body">
             AI systems need consistent, corroborated information about your business, services, locations, service areas, and documented qualifications where applicable.
           </p>
-        </div>
-        <div class="p-6 rounded-xl bg-[#0F1628] border border-white/10 space-y-4">
-          <h2 class="text-xl font-bold text-white font-heading">Structured Machine Readability</h2>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            Publishing clear, semantic HTML and rich schema markup detailing ADAS calibration capabilities, mobile dispatch policies, and OEM glass sourcing so crawlers don't have to guess.
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <span class="stage-badge" aria-hidden="true">02</span>
+            <h3 class="card__title">Structured Machine Readability</h3>
+          </div>
+          <p class="card__body">
+            Publishing clear, semantic HTML and rich schema markup detailing ADAS calibration capabilities, mobile dispatch policies, and OEM glass sourcing so crawlers do not have to guess.
           </p>
-        </div>
-        <div class="p-6 rounded-xl bg-[#0F1628] border border-white/10 space-y-4">
-          <h2 class="text-xl font-bold text-white font-heading">Third-Party Consensus & Proof</h2>
-          <p class="text-xs text-slate-300 leading-relaxed">
+        </article>
+
+        <article class="card">
+          <div class="card__top">
+            <span class="stage-badge" aria-hidden="true">03</span>
+            <h3 class="card__title">Third-Party Consensus &amp; Proof</h3>
+          </div>
+          <p class="card__body">
             Consistent information across your website and reputable third-party sources gives search and AI systems clearer evidence when they summarize relevant auto glass providers.
           </p>
-        </div>
+        </article>
+
       </div>
     </div>
   </section>
+
 </BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background-color: var(--surface-00);
+  }
+
+  .page-hero__content {
+    max-width: 52rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .page-hero__lead {
+    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.1875rem);
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 42rem;
+  }
+
+  .page-hero__cta {
+    padding-top: 0.5rem;
+  }
+
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background-color: var(--surface-00);
+  }
+
+  .section--alt {
+    background-color: var(--surface-01);
+  }
+
+  .cap-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .cap-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .card {
+    background-color: var(--surface-02);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-xl);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: border-color 200ms;
+  }
+
+  .card:hover {
+    border-color: rgba(49,130,246,0.3);
+  }
+
+  .card__top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+  }
+
+  .card__title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.35;
+    padding-top: 0.125rem;
+  }
+
+  .card__body {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>

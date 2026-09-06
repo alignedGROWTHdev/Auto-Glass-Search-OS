@@ -7,46 +7,106 @@ const pageDescription = "Privacy policy for Auto Glass Search OS B2B lead genera
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <div class="py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-left space-y-8">
-      <div>
-        <h1 class="text-3xl font-extrabold text-white font-heading">
-          Privacy Policy
-        </h1>
-        <p class="text-xs font-mono text-slate-400 mt-2">
-          Effective Date: {new Date().getFullYear()} · Operating Entity: {siteConfig.legalParent}
-        </p>
-      </div>
+  <section class="privacy" aria-labelledby="privacy-heading">
+    <div class="container">
+      <div class="privacy__inner">
 
-      <div class="space-y-6 text-sm text-slate-300 leading-relaxed border-t border-white/10 pt-6">
-        <section class="space-y-2">
-          <h2 class="text-lg font-bold text-white font-heading">1. Introduction</h2>
-          <p>
-            Auto Glass Search OS ("we", "us", or "our"), operated by {siteConfig.legalParent}, provides search acquisition and marketing systems for commercial auto glass operators. This Privacy Policy describes how we collect, use, and protect information submitted via our website and visibility analysis forms.
+        <header class="privacy__header">
+          <h1 id="privacy-heading">Privacy Policy</h1>
+          <p class="privacy__meta">
+            Effective Date: {new Date().getFullYear()} &middot; Operating Entity: {siteConfig.legalParent}
           </p>
-        </section>
+        </header>
 
-        <section class="space-y-2">
-          <h2 class="text-lg font-bold text-white font-heading">2. Information We Collect</h2>
-          <p>
-            We collect business contact information submitted voluntarily through our visibility analysis and contact forms, including name, business email address, direct phone number, company name, website URL, monthly marketing spend ranges, and primary market coverage.
-          </p>
-        </section>
+        <div class="privacy__body">
 
-        <section class="space-y-2">
-          <h2 class="text-lg font-bold text-white font-heading">3. How We Use Information</h2>
-          <p>
-            Submitted data is used exclusively to conduct manual search and competitive visibility diagnostics, communicate analysis findings, provide requested advisory services, and coordinate client engagements. We do not sell or rent commercial lead data to third parties.
-          </p>
-        </section>
+          <section aria-labelledby="privacy-s1">
+            <h2 id="privacy-s1">1. Introduction</h2>
+            <p>
+              Auto Glass Search OS ("we", "us", or "our"), operated by {siteConfig.legalParent}, provides search acquisition and marketing systems for commercial auto glass operators. This Privacy Policy describes how we collect, use, and protect information submitted via our website and visibility analysis forms.
+            </p>
+          </section>
 
-        <section class="space-y-2">
-          <h2 class="text-lg font-bold text-white font-heading">4. Contact</h2>
-          <p>
-            For inquiries regarding this privacy statement, please contact {siteConfig.placeholders.email}{isConfigured(siteConfig.placeholders.address) ? ` or write to our parent operating office at ${siteConfig.placeholders.address}` : ''}.
-          </p>
-        </section>
+          <section aria-labelledby="privacy-s2">
+            <h2 id="privacy-s2">2. Information We Collect</h2>
+            <p>
+              We collect business contact information submitted voluntarily through our visibility analysis and contact forms, including name, business email address, direct phone number, company name, website URL, monthly marketing spend ranges, and primary market coverage.
+            </p>
+          </section>
+
+          <section aria-labelledby="privacy-s3">
+            <h2 id="privacy-s3">3. How We Use Information</h2>
+            <p>
+              Submitted data is used exclusively to conduct manual search and competitive visibility diagnostics, communicate analysis findings, provide requested advisory services, and coordinate client engagements. We do not sell or rent commercial lead data to third parties.
+            </p>
+          </section>
+
+          <section aria-labelledby="privacy-s4">
+            <h2 id="privacy-s4">4. Contact</h2>
+            <p>
+              For inquiries regarding this privacy statement, please contact {siteConfig.placeholders.email}{isConfigured(siteConfig.placeholders.address) ? ` or write to our parent operating office at ${siteConfig.placeholders.address}` : ''}.
+            </p>
+          </section>
+
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .privacy {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--surface-00);
+  }
+
+  .privacy__inner {
+    max-width: var(--container-prose);
+  }
+
+  .privacy__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .privacy__meta {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.04em;
+    margin: 0;
+  }
+
+  .privacy__body {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .privacy__body section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .privacy__body h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .privacy__body p {
+    margin: 0;
+  }
+</style>

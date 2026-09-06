@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
 import { siteConfig, isConfigured } from '../data/siteData';
 
 const pageTitle = "Complimentary Search + AI Visibility Analysis | Auto Glass Search OS";
@@ -7,82 +8,64 @@ const pageDescription = "Find out who's winning the auto glass searches in your 
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <main class="py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        
-        <!-- Left Col: Offer Value Proposition -->
-        <div class="lg:col-span-5 space-y-6 text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-blue-950/80 border border-blue-500/30 text-xs font-mono text-blue-400">
-            COMPLIMENTARY EXECUTIVE ANALYSIS
-          </div>
+  <section class="analysis-page" aria-labelledby="analysis-heading">
+    <div class="container">
+      <div class="analysis-grid">
 
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white font-heading leading-tight">
-            FIND OUT WHO'S WINNING THE AUTO GLASS SEARCHES IN YOUR MARKET.
+        <!-- Left: Value prop -->
+        <div class="analysis-value">
+          <span class="eyebrow">Complimentary Executive Analysis</span>
+
+          <h1 id="analysis-heading" class="text-balance">
+            Find out who's winning the auto glass searches in your market.
           </h1>
 
-          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-            Get a complimentary analysis showing how your auto glass company appears across Google Search, Google Maps, and emerging AI search experiences—and where competitors may be capturing jobs you're missing.
+          <p class="analysis-value__lead">
+            Get a complimentary analysis showing how your auto glass company appears across Google Search, Google Maps, and emerging AI search experiences — and where competitors may be capturing jobs you're missing.
           </p>
 
-          <div class="p-5 rounded-xl bg-[#0D1424] border border-white/10 space-y-3">
-            <h2 class="text-xs font-mono uppercase tracking-wider text-blue-400 font-semibold">
-              What Your Analysis Examines:
-            </h2>
-            <ul class="text-xs space-y-2 text-slate-300 font-mono">
-              <li class="flex items-start gap-2">
-                <span class="text-emerald-400">✓</span>
-                <span>Google Maps 3-Pack rank across key local zip codes</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-emerald-400">✓</span>
-                <span>Organic visibility for windshield, repair, mobile service, and ADAS queries</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-emerald-400">✓</span>
-                <span>AI-assisted discovery signals across ChatGPT, Perplexity, and Google AI Overviews</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-emerald-400">✓</span>
-                <span>Competitor presence across priority services and local search surfaces</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-emerald-400">✓</span>
-                <span>Mobile landing page conversion friction review</span>
-              </li>
+          <div class="analysis-checklist" aria-label="What your analysis examines">
+            <p class="analysis-checklist__label eyebrow eyebrow--blue">What your analysis examines:</p>
+            <ul class="analysis-checklist__list" role="list">
+              <li class="check-item">Google Maps 3-Pack rank across key local zip codes</li>
+              <li class="check-item">Organic visibility for windshield, repair, mobile service, and ADAS queries</li>
+              <li class="check-item">AI-assisted discovery signals across ChatGPT, Perplexity, and Google AI Overviews</li>
+              <li class="check-item">Competitor presence across priority services and local search surfaces</li>
+              <li class="check-item">Mobile landing page conversion friction review</li>
             </ul>
           </div>
         </div>
 
-        <!-- Right Col: High-Converting Qualified Lead Form -->
-        <div class="lg:col-span-7">
-          <div class="p-6 sm:p-8 rounded-2xl bg-[#0C1220] border border-white/15 shadow-2xl relative">
-            <div class="pb-6 mb-6 border-b border-white/10 text-left">
-              <h2 class="text-xl font-bold text-white font-heading">
-                Request Your Market Visibility Analysis
-              </h2>
-              <p class="text-xs text-slate-400 mt-1">
+        <!-- Right: Form / contact -->
+        <div class="analysis-form-panel">
+          <div class="analysis-form-card">
+            <header class="analysis-form-card__header">
+              <h2 class="analysis-form-card__title">Request Your Market Visibility Analysis</h2>
+              <p class="analysis-form-card__note">
                 Online form delivery is not active yet. Request the analysis directly using the contact options below.
               </p>
-            </div>
-            <div class="space-y-4">
+            </header>
+
+            <div class="analysis-form-card__contacts">
               <a
                 href={`mailto:${siteConfig.placeholders.email}?subject=Search%20%2B%20AI%20Visibility%20Analysis`}
                 data-analytics-event="email_click"
-                class="flex w-full items-center justify-center rounded bg-blue-600 px-6 py-4 text-center text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-blue-500"
+                class="btn btn--primary btn--full btn--lg"
               >
-                Request Your Analysis by Email →
+                Request Your Analysis by Email
               </a>
+
               {isConfigured(siteConfig.placeholders.phone) && (
                 <a
                   href={`tel:${siteConfig.placeholders.phone.replace(/[^\d+]/g, '')}`}
                   data-analytics-event="phone_click"
-                  class="flex w-full items-center justify-center rounded border border-white/15 bg-[#0D1424] px-6 py-4 text-center text-xs font-bold uppercase tracking-wider text-slate-100 transition-colors hover:border-blue-500/50 hover:text-blue-300"
+                  class="btn btn--secondary btn--full btn--lg"
                 >
                   Call {siteConfig.placeholders.phone}
                 </a>
               )}
-              <p class="text-center text-xs font-mono text-slate-400">
+
+              <p class="analysis-form-card__meta">
                 The analysis is conducted manually. Scope and timing are confirmed directly before work begins.
               </p>
             </div>
@@ -91,5 +74,123 @@ const pageDescription = "Find out who's winning the auto glass searches in your 
 
       </div>
     </div>
-  </main>
+  </section>
 </BaseLayout>
+
+<style>
+  .analysis-page {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+    background-color: var(--surface-00);
+    min-height: 80dvh;
+  }
+
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .analysis-grid {
+      grid-template-columns: 5fr 7fr;
+      gap: 5rem;
+    }
+  }
+
+  /* Value col */
+  .analysis-value {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .analysis-value__lead {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .analysis-checklist {
+    background-color: var(--surface-02);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .analysis-checklist__label {
+    margin: 0;
+  }
+
+  .analysis-checklist__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  /* Form card */
+  .analysis-form-panel {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .analysis-form-card {
+    background-color: var(--surface-02);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-2xl);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  @media (min-width: 640px) {
+    .analysis-form-card { padding: 2.5rem; }
+  }
+
+  .analysis-form-card__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .analysis-form-card__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .analysis-form-card__note {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .analysis-form-card__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .analysis-form-card__meta {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.04em;
+    line-height: 1.7;
+    margin: 0;
+  }
+</style>

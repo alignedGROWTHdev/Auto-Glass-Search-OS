@@ -9,91 +9,102 @@ const { minimal = false } = Astro.props;
 <form
   method="POST"
   action="/visibility-analysis/"
-  class="space-y-6 text-left"
+  class="agos-form"
   data-lead-form
   data-analytics-event="visibility_analysis_form"
+  novalidate
 >
   <!-- Step 1: Contact & Company Profile -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <div>
-      <label for="fullName" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
-        Your Name <span class="text-blue-400">*</span>
+  <div class="agos-form__row">
+    <div class="agos-form__field">
+      <label for="fullName" class="form-label">
+        Your Name <span class="required" aria-label="required">*</span>
       </label>
       <input
         type="text"
         id="fullName"
         name="fullName"
         required
+        autocomplete="name"
         placeholder="e.g. Marcus Vance"
-        class="w-full bg-[#0D1424] border border-white/10 rounded px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+        class="form-input"
+        aria-required="true"
       />
     </div>
-    <div>
-      <label for="companyName" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
-        Company Name <span class="text-blue-400">*</span>
+    <div class="agos-form__field">
+      <label for="companyName" class="form-label">
+        Company Name <span class="required" aria-label="required">*</span>
       </label>
       <input
         type="text"
         id="companyName"
         name="companyName"
         required
-        placeholder="e.g. Apex Auto Glass & ADAS"
-        class="w-full bg-[#0D1424] border border-white/10 rounded px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+        autocomplete="organization"
+        placeholder="e.g. Apex Auto Glass &amp; ADAS"
+        class="form-input"
+        aria-required="true"
       />
     </div>
   </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <div>
-      <label for="website" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
-        Website URL <span class="text-blue-400">*</span>
+  <div class="agos-form__row">
+    <div class="agos-form__field">
+      <label for="website" class="form-label">
+        Website URL <span class="required" aria-label="required">*</span>
       </label>
       <input
         type="url"
         id="website"
         name="website"
         required
+        autocomplete="url"
         placeholder="https://yourglasscompany.com"
-        class="w-full bg-[#0D1424] border border-white/10 rounded px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+        class="form-input"
+        aria-required="true"
       />
     </div>
-    <div>
-      <label for="email" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
-        Business Email <span class="text-blue-400">*</span>
+    <div class="agos-form__field">
+      <label for="email" class="form-label">
+        Business Email <span class="required" aria-label="required">*</span>
       </label>
       <input
         type="email"
         id="email"
         name="email"
         required
+        autocomplete="email"
         placeholder="owner@yourglasscompany.com"
-        class="w-full bg-[#0D1424] border border-white/10 rounded px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+        class="form-input"
+        aria-required="true"
       />
     </div>
   </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <div>
-      <label for="phone" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
-        Direct Phone <span class="text-blue-400">*</span>
+  <div class="agos-form__row">
+    <div class="agos-form__field">
+      <label for="phone" class="form-label">
+        Direct Phone <span class="required" aria-label="required">*</span>
       </label>
       <input
         type="tel"
         id="phone"
         name="phone"
         required
+        autocomplete="tel"
         placeholder="(555) 000-0000"
-        class="w-full bg-[#0D1424] border border-white/10 rounded px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+        class="form-input"
+        aria-required="true"
       />
     </div>
-    <div>
-      <label for="locations" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+    <div class="agos-form__field">
+      <label for="locations" class="form-label">
         Number of Locations / Mobile Bases
       </label>
       <select
         id="locations"
         name="locations"
-        class="w-full bg-[#0D1424] border border-white/10 rounded px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+        class="form-select"
       >
         <option value="1">1 Facility / Mobile Hub</option>
         <option value="2-3">2 - 3 Locations</option>
@@ -103,44 +114,43 @@ const { minimal = false } = Astro.props;
     </div>
   </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-    <div>
-      <label for="interest" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+  <div class="agos-form__row">
+    <div class="agos-form__field">
+      <label for="interest" class="form-label">
         Engagement Interest
       </label>
       <select
         id="interest"
         name="interest"
-        class="w-full bg-[#0D1424] border border-white/10 rounded px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+        class="form-select"
       >
-        <option value="Managed Search OS">Managed Search OS (We run it for you)</option>
-        <option value="Search OS + Team">Search OS + Team (We build it with your team)</option>
+        <option value="Managed Search OS">Managed Search OS — We run it for you</option>
+        <option value="Search OS + Team">Search OS + Team — We build it with your team</option>
         <option value="Not sure">Not sure yet</option>
       </select>
     </div>
-    <div>
-      <label for="investment" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+    <div class="agos-form__field">
+      <label for="investment" class="form-label">
         Monthly Marketing Budget
       </label>
       <select
         id="investment"
         name="investment"
-        class="w-full bg-[#0D1424] border border-white/10 rounded px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+        class="form-select"
       >
         <option value="Under $3,000">Under $3,000 / month</option>
-        <option value="$3,000-$5,000" selected>$3,000 - $5,000 / month</option>
-        <option value="$5,000-$10,000">$5,000 - $10,000 / month</option>
-        <option value="$10,000-$25,000">$10,000 - $25,000 / month</option>
+        <option value="$3,000-$5,000" selected>$3,000 – $5,000 / month</option>
+        <option value="$5,000-$10,000">$5,000 – $10,000 / month</option>
+        <option value="$10,000-$25,000">$10,000 – $25,000 / month</option>
         <option value="$25,000+">$25,000+ / month</option>
       </select>
     </div>
   </div>
 
-  <!-- Step 3: Priority Services -->
   {!minimal && (
-    <div>
-      <label for="markets" class="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
-        Primary Service Areas / Metro Markets <span class="text-blue-400">*</span>
+    <div class="agos-form__field">
+      <label for="markets" class="form-label">
+        Primary Service Areas / Metro Markets <span class="required" aria-label="required">*</span>
       </label>
       <input
         type="text"
@@ -148,35 +158,105 @@ const { minimal = false } = Astro.props;
         name="markets"
         required
         placeholder="e.g. Phoenix Metro, Scottsdale, Mesa, Chandler"
-        class="w-full bg-[#0D1424] border border-white/10 rounded px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+        class="form-input"
+        aria-required="true"
       />
     </div>
   )}
 
-  <div class="pt-2">
+  <div class="agos-form__submit">
     <button
       type="submit"
       data-analytics-event="visibility_analysis_submit"
-      class="w-full py-3.5 px-6 rounded bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-blue-600/25 border border-blue-400/30 transition-all flex items-center justify-center gap-2"
+      class="btn btn--primary btn--full btn--lg"
     >
-      <span>Get Complimentary Visibility Analysis</span>
-      <span>→</span>
+      Get Complimentary Visibility Analysis
     </button>
-    <div class="text-center mt-3 text-xs text-slate-400 font-mono">
-      Manually reviewed · Confidential opportunity analysis
-    </div>
-    <p class="hidden text-center mt-3 text-xs text-amber-300" role="alert" tabindex="-1" data-integration-message>
-      Online delivery is not configured yet. Please email <a class="underline" href="mailto:valentina@alignedgrowthdigital.com?subject=Search%20%2B%20AI%20Visibility%20Analysis">valentina@alignedgrowthdigital.com</a> to request your analysis.
+    <p class="agos-form__note">
+      Manually reviewed &middot; Confidential opportunity analysis
+    </p>
+    <p
+      class="agos-form__integration-msg"
+      role="alert"
+      tabindex="-1"
+      data-integration-message
+      hidden
+    >
+      Online delivery is not configured yet. Please email
+      <a href="mailto:valentina@alignedgrowthdigital.com?subject=Search%20%2B%20AI%20Visibility%20Analysis">
+        valentina@alignedgrowthdigital.com
+      </a>
+      to request your analysis.
     </p>
   </div>
 </form>
+
+<style>
+  .agos-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .agos-form__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 560px) {
+    .agos-form__row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .agos-form__field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .agos-form__submit {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+  }
+
+  .agos-form__note {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--text-tertiary);
+    letter-spacing: 0.04em;
+    margin: 0;
+  }
+
+  .agos-form__integration-msg {
+    text-align: center;
+    font-size: 0.8125rem;
+    color: var(--blue-light);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .agos-form__integration-msg[hidden] {
+    display: none;
+  }
+
+  .agos-form__integration-msg a {
+    color: var(--blue-hover);
+    text-decoration: underline;
+  }
+</style>
 
 <script>
   const form = document.querySelector<HTMLFormElement>('[data-lead-form]');
   form?.addEventListener('submit', (event) => {
     event.preventDefault();
     const message = form.querySelector<HTMLElement>('[data-integration-message]');
-    message?.classList.remove('hidden');
-    message?.focus();
+    if (message) {
+      message.hidden = false;
+      message.focus();
+    }
   });
 </script>

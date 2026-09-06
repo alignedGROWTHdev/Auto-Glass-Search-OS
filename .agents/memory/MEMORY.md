@@ -1,0 +1,1 @@
+- [Astro previews on Replit](astro-preview-proxy.md) — allow Replit preview hosts explicitly; disable Astro’s dev toolbar if its proxied /@fs module returns 403.
