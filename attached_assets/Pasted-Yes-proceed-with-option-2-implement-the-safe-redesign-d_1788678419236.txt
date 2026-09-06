@@ -1,0 +1,28 @@
+Yes, proceed with option 2: implement the safe redesign direction that preserves the industrial visual intent while excluding unsupported claims.
+
+Here are the specific parameters to apply:
+
+1. Visual Styling & Brand System:
+- Apply the industrial telemetry aesthetic: Canvas in Obsidian Tinted Glass (#0B0F19), cards in Carbon Slate (#131B2E), accents in Laser Cyan (#00D2FF), buttons in Precision Cobalt (#1E40AF), and alert accents in Fleet Amber (#F59E0B).
+- Typography: Use Space Grotesk for bold architectural headings and Plus Jakarta Sans for ultra-clean body copy.
+- Containers: Replace flat gray borders with subtle glassmorphic borders (border-t-white/20 border-b-white/5 with backdrop-blur-md).
+- Logo: Update the header and footer with an inline SVG Optical Crosshair brand mark (windshield contour with a central laser calibration reticle) and the brand name "Auto Glass Search OS (An Aligned Growth Digital Company)".
+
+2. Hero & Architecture Section (Eliminating the 50% Empty Space):
+- Rebuild the hero into an asymmetric 60/40 layout.
+- Use our verified Auto Glass Search Ecosystem diagram (search_ecosystem_matrix.png) as the primary visual anchor in the hero / architecture section to illustrate the multi-surface search flow (Google Search -> Maps 3-Pack -> AI Answers -> Customer Call -> Service Dispatch).
+- Headline: "Turn Search Visibility Into Booked Auto Glass Jobs."
+- Subcopy: "The dedicated customer acquisition operating system for established auto glass enterprises. Win Google 3-Pack rankings, capture high-margin ADAS camera recalibrations, and eliminate TPA network steering."
+
+3. Keep Copy Grounded & Truthful (Zero Fabricated Claims):
+- Do not invent fake client logos, fabricated revenue figures, or unverified badges.
+- Ground all methodology in the real operational challenges of auto glass: 15-minute emergency call decisions, ADAS calibration margin capture, mobile dispatch route clustering, and Safelite/TPA anti-steering education.
+- Ground the About page in Valentina Borda's verified background: Founder of Auto Glass Search OS and Aligned Growth Digital, 10+ years digital growth and search experience, specialized auto glass search operations.
+
+4. Form Delivery & Conversion Fix (/visibility-analysis/):
+- REMOVE the disclaimer that says "This page does not yet have a form-delivery integration".
+- Render a clean, professional diagnostic intake form that captures: Fleet Size (Mobile Vans / Shop Bays), Primary Metros, ADAS In-House Setup, and Contact Info.
+- Set the form action to post cleanly to /thank-you/ where the operator sees immediate confirmation, next steps, and direct contact options to call (516) 521-1149 or email valentina@alignedgrowthdigital.com.
+
+5. Build & Test:
+- Run `npm run build` to verify zero Astro or TypeScript errors.
