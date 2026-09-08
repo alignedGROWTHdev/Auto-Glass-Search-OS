@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSystemVisual from '../components/HeroSystemVisual.astro';
 import JourneySystem from '../components/JourneySystem.astro';
 import ConversionPaths from '../components/ConversionPaths.astro';
-import ImagePlaceholder from '../components/ImagePlaceholder.astro';
 import PartnerCallout from '../components/PartnerCallout.astro';
 import { siteConfig, credibilityPoints, services } from '../data/siteData';
 import { serviceSchema } from '../data/schema';
@@ -241,10 +240,13 @@ const analysisScope = [
           </p>
         </div>
         <div class="econ__visual">
-          <ImagePlaceholder
-            label="Auto glass technician performing an ADAS windshield camera calibration (or mobile windshield replacement on site)"
-            spec="Landscape, 1200×900. Real technician or shop photo, not stock. Used at ~560px wide."
-            aspect="4 / 3"
+          <img
+            src="/auto-glass-adas-calibration.png"
+            alt="Auto glass technician calibrating a windshield-mounted driver assistance camera"
+            width="1448"
+            height="1086"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>
@@ -307,37 +309,7 @@ const analysisScope = [
   </section>
 
   <!-- ════════════════════════════════════════════
-       9. FOUNDER / TRUST
-       ════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="founder-heading">
-    <div class="container">
-      <div class="founder">
-        <div class="founder__photo">
-          <ImagePlaceholder
-            label="Founder headshot — Valentina Borda"
-            spec="Portrait, 800×1000, natural light, neutral or shop background. Used at ~360px wide."
-            aspect="4 / 5"
-          />
-        </div>
-        <div class="founder__copy">
-          <span class="eyebrow">Founder-led</span>
-          <span class="cyan-rule"></span>
-          <h2 id="founder-heading" class="section-heading text-balance">A specialist who works directly with each operator.</h2>
-          <p class="founder__name">Valentina Borda <span class="founder__role">Founder, Aligned Growth Digital &middot; leads Auto Glass Growth</span></p>
-          <p class="section-lead">
-            {siteConfig.legalStatement} Valentina brings more than ten years across search, digital growth, eCommerce and marketing strategy, and she personally owns the opportunity analysis, the strategy, and quality control on what gets published or deployed.
-          </p>
-          <p class="founder__standard">
-            <strong>A plain operating standard:</strong> no fabricated client logos, invented performance claims or unverifiable case studies — and when a growth bottleneck falls outside our core marketing and conversion services, we may recommend specialized auto glass technology providers rather than pretending to build everything ourselves.
-          </p>
-          <a href="/about/" class="module__link" data-analytics-event="founder_about_click">About Valentina and the company &rarr;</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════
-       10. FINAL CTA
+       9. FINAL CTA
        ════════════════════════════════════════════ -->
   <section class="section section--cta" aria-labelledby="final-cta-heading">
     <div class="container">
@@ -832,7 +804,22 @@ const analysisScope = [
     border-radius: var(--radius-lg);
   }
 
-  .econ__visual { max-width: 36rem; }
+  .econ__visual {
+    max-width: 36rem;
+    overflow: hidden;
+    border: 1px solid rgba(0, 210, 255, 0.16);
+    border-radius: var(--radius-xl);
+    background: var(--surface-01);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  }
+
+  .econ__visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
 
   /* ── 8. Engagement models ────────────────────── */
   .models-grid {
@@ -924,64 +911,7 @@ const analysisScope = [
     gap: 0.5rem;
   }
 
-  /* ── 9. Founder ──────────────────────────────── */
-  .founder {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    align-items: center;
-  }
-
-  @media (min-width: 900px) {
-    .founder {
-      grid-template-columns: 4fr 8fr;
-      gap: 4rem;
-    }
-  }
-
-  .founder__photo { max-width: 22rem; }
-
-  .founder__copy {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .founder__name {
-    font-family: var(--font-display);
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-
-  .founder__role {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-tertiary);
-  }
-
-  .founder__standard {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.65;
-    margin: 0;
-    padding: 0.875rem 1.125rem;
-    background: rgba(11,15,25,0.55);
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: var(--radius-lg);
-  }
-
-  .founder__standard strong { color: var(--text-primary); }
-
-  /* ── 10. Final CTA ───────────────────────────── */
+  /* ── 9. Final CTA ────────────────────────────── */
   .final-cta {
     display: flex;
     flex-direction: column;
