@@ -1,0 +1,551 @@
+From cd4f71a294eeb6a484700b13e913a7b0c72ff229 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 8 Sep 2026 18:36:14 +0000
+Subject: [PATCH 1/2] Launch QA: keyword H1, partner-boundary wording fixes,
+ softened claims, unified CTA system
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+- Homepage H1: 'Auto Glass Marketing That Turns More Customer Demand Into Booked Jobs.'
+- 'Conversion pathway optimization' replaces 'booking pathway coordination'
+- Websites/Google Ads/Lead Gen: no operational response/scheduling implied as our service
+- Softened ADAS, organic cost and Google Ads timing claims; AI retrieval wording made platform-agnostic
+- CTA system: 'Get My Free Growth Analysis' (header, footer, hero, final CTA) with page-specific
+  'Get My Free … Analysis/Audit' variants; form button 'Send Me My Free Growth Analysis'
+- Meta descriptions trimmed to <=160 chars; hero heading scale adjusted for the longer H1
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01YTqriFcoGbKf8UugCsc6PQ
+---
+ .../src/components/Footer.astro                |  2 +-
+ .../src/components/Header.astro                |  6 +++---
+ .../src/components/LeadForm.astro              |  2 +-
+ .../auto-glass-search-os/src/data/siteData.ts  |  2 +-
+ .../auto-glass-search-os/src/pages/about.astro |  4 ++--
+ .../src/pages/ai-search-optimization.astro     |  8 ++++----
+ .../src/pages/auto-glass-lead-generation.astro | 10 +++++-----
+ .../src/pages/auto-glass-local-seo.astro       |  4 ++--
+ .../src/pages/auto-glass-seo.astro             |  4 ++--
+ .../src/pages/auto-glass-websites.astro        |  8 ++++----
+ .../src/pages/google-ads.astro                 | 10 +++++-----
+ .../auto-glass-search-os/src/pages/index.astro | 18 +++++++++---------
+ .../src/pages/privacy.astro                    |  2 +-
+ .../src/pages/visibility-analysis.astro        |  2 +-
+ 14 files changed, 41 insertions(+), 41 deletions(-)
+
+diff --git a/artifacts/auto-glass-search-os/src/components/Footer.astro b/artifacts/auto-glass-search-os/src/components/Footer.astro
+index 5c47154..c8bc891 100644
+--- a/artifacts/auto-glass-search-os/src/components/Footer.astro
++++ b/artifacts/auto-glass-search-os/src/components/Footer.astro
+@@ -85,7 +85,7 @@ import BrandMark from './BrandMark.astro';
+           data-analytics-event="primary_cta_click"
+           class="agos-footer__cta-link"
+         >
+-          See Where You're Losing Jobs
++          {siteConfig.primaryCta}
+         </a>
+         <div class="agos-footer__secondary-links">
+           <a href="/about/" class="agos-footer__link">About Valentina Borda &amp; Auto Glass Growth</a>
+diff --git a/artifacts/auto-glass-search-os/src/components/Header.astro b/artifacts/auto-glass-search-os/src/components/Header.astro
+index d5dee00..bf3c97e 100644
+--- a/artifacts/auto-glass-search-os/src/components/Header.astro
++++ b/artifacts/auto-glass-search-os/src/components/Header.astro
+@@ -53,7 +53,7 @@ const pathname = Astro.url.pathname;
+           data-analytics-event="primary_cta_click"
+           class="btn btn--primary btn--sm"
+         >
+-          See Where You're Losing Jobs
++          {siteConfig.primaryCta}
+         </a>
+       </div>
+ 
+@@ -63,9 +63,9 @@ const pathname = Astro.url.pathname;
+           href="/visibility-analysis/"
+           data-analytics-event="primary_cta_click"
+           class="btn btn--primary btn--sm"
+-          aria-label="Get Visibility Analysis"
++          aria-label="Get My Free Growth Analysis"
+         >
+-          Analysis
++          Free Analysis
+         </a>
+       </div>
+ 
+diff --git a/artifacts/auto-glass-search-os/src/components/LeadForm.astro b/artifacts/auto-glass-search-os/src/components/LeadForm.astro
+index 115ae47..396a8ba 100644
+--- a/artifacts/auto-glass-search-os/src/components/LeadForm.astro
++++ b/artifacts/auto-glass-search-os/src/components/LeadForm.astro
+@@ -174,7 +174,7 @@ const { minimal = false } = Astro.props;
+       data-analytics-event="visibility_analysis_submit"
+       class="btn btn--primary btn--full btn--lg"
+     >
+-      Request My Complimentary Opportunity Analysis
++      Send Me My Free Growth Analysis
+     </button>
+     <p class="agos-form__delivery-note">
+       Submissions are securely delivered by FormSubmit, a trusted third-party form delivery provider. Your information is used only to conduct and deliver your analysis.
+diff --git a/artifacts/auto-glass-search-os/src/data/siteData.ts b/artifacts/auto-glass-search-os/src/data/siteData.ts
+index a63a981..6d1ba7c 100644
+--- a/artifacts/auto-glass-search-os/src/data/siteData.ts
++++ b/artifacts/auto-glass-search-os/src/data/siteData.ts
+@@ -6,7 +6,7 @@ export const siteConfig = {
+   description: "Auto Glass Growth is a specialized auto glass marketing, websites and lead generation company for established auto glass operators. We help capture high-intent demand through SEO, Google Maps, paid search and AI discovery — then turn more of it into qualified calls, quote requests and booked jobs.",
+   channelDescriptor: "SEO · Google Maps · Google Ads · Websites · CRO · AI Search · Measurement",
+   legalStatement: "Auto Glass Growth is a specialized auto glass growth initiative from Aligned Growth Digital.",
+-  primaryCta: "See Where You're Losing Jobs",
++  primaryCta: "Get My Free Growth Analysis",
+   primaryCtaOffer: "Complimentary Search + Customer Acquisition Analysis",
+   siteUrl: "https://autoglasssearchos.com",
+   entity: {
+diff --git a/artifacts/auto-glass-search-os/src/pages/about.astro b/artifacts/auto-glass-search-os/src/pages/about.astro
+index 6397d06..709d4f3 100644
+--- a/artifacts/auto-glass-search-os/src/pages/about.astro
++++ b/artifacts/auto-glass-search-os/src/pages/about.astro
+@@ -67,7 +67,7 @@ const systemPages = [
+           </h2>
+ 
+           <p>
+-            Auto glass demand behaves unlike most local services. It is urgent, it is decided on a phone within minutes, it is shaped by insurance rules that differ by state, and it has been changed by ADAS calibration requirements on nearly every new vehicle. A generic marketing agency treats an auto glass shop like any other local business. That is where operators lose demand: to the shop that showed up first in Google Maps, answered the insurance question on its website, or was the only one that clearly said it recalibrates cameras.
++            Auto glass demand behaves unlike most local services. It is urgent, it is decided on a phone within minutes, it is shaped by insurance rules that differ by state, and ADAS systems are increasingly common on newer vehicles, making calibration an important consideration after many windshield replacements. A generic marketing agency treats an auto glass shop like any other local business. That is where operators lose demand: to the shop that showed up first in Google Maps, answered the insurance question on its website, or was the only one that clearly said it recalibrates cameras.
+           </p>
+ 
+           <p>
+@@ -119,7 +119,7 @@ const systemPages = [
+ 
+           <div class="about-cta">
+             <a href="/visibility-analysis/" data-analytics-event="primary_cta_click" class="btn btn--primary">
+-              See Where You're Losing Jobs
++              {siteConfig.primaryCta}
+             </a>
+           </div>
+       </div>
+diff --git a/artifacts/auto-glass-search-os/src/pages/ai-search-optimization.astro b/artifacts/auto-glass-search-os/src/pages/ai-search-optimization.astro
+index 6e973d7..0267bfa 100644
+--- a/artifacts/auto-glass-search-os/src/pages/ai-search-optimization.astro
++++ b/artifacts/auto-glass-search-os/src/pages/ai-search-optimization.astro
+@@ -38,7 +38,7 @@ const faqs = [
+   },
+   {
+     question: "Is AI search optimization a replacement for SEO?",
+-    answer: "No. AI search optimization sits on top of good SEO and entity fundamentals. AI systems draw on live search results, your Google Business Profile, reviews, and your website. A shop with weak organic visibility, an inconsistent listing, or thin service pages has little for an AI system to find or trust. Auto glass SEO and local SEO come first; AI search optimization extends them.",
++    answer: "No. AI search optimization sits on top of good SEO and entity fundamentals. Depending on the platform and query, AI-assisted search experiences may use or surface information from websites, search indexes, business profiles, reviews and other third-party sources. A shop with weak organic visibility, an inconsistent listing, or thin service pages has little for an AI system to find or trust. Auto glass SEO and local SEO come first; AI search optimization extends them.",
+   },
+   {
+     question: "Why does ADAS calibration matter for AI search?",
+@@ -69,7 +69,7 @@ const extraSchema = [
+     eyebrow="AI Search Visibility"
+     heading="AI Search Visibility for Auto Glass Companies"
+     lead="Drivers are increasingly encountering businesses and recommendations through AI-assisted search. We help make your business, services, locations, and expertise easier for search and AI systems to understand and corroborate — as an extension of the SEO and Google Maps fundamentals that produce most auto glass leads today."
+-    ctaLabel="Assess My AI Search Visibility"
++    ctaLabel="Get My Free AI Visibility Analysis"
+     supportLine="Complimentary Search + Customer Acquisition Analysis"
+   />
+ 
+@@ -77,7 +77,7 @@ const extraSchema = [
+ 
+   <ProseSection id="ai-foundation" eyebrow="Built on fundamentals" heading="AI search optimization sits on top of good SEO">
+     <p>
+-      AI-assisted search experiences — Google AI Overviews, ChatGPT, Gemini, and others — do not keep a private directory of auto glass shops. When a driver asks which nearby shop can replace a windshield and recalibrate the camera, these systems draw on live search results, Google Business Profiles, reviews, directories, and the shop's own website, then summarize. A business that is hard to find or inconsistent in those sources has little chance of being described accurately, let alone recommended.
++      AI-assisted search experiences — Google AI Overviews, ChatGPT, Gemini, and others — do not keep a private directory of auto glass shops. When a driver asks which nearby shop can replace a windshield and recalibrate the camera, these systems — depending on the platform and query — may use or surface information from websites, search indexes, business profiles, reviews and other third-party sources, then summarize. A business that is hard to find or inconsistent in those sources has little chance of being described accurately, let alone recommended.
+     </p>
+     <p>
+       That is why this page is a differentiator rather than a starting point in the Auto Glass Growth OS. <a href="/auto-glass-seo/">Auto glass SEO</a> and <a href="/auto-glass-local-seo/">local SEO</a> build the visibility and business information AI systems rely on; AI search optimization makes that information clearer, more consistent, and better corroborated. Together they feed the same <a href="/auto-glass-lead-generation/">lead generation system</a>.
+@@ -128,7 +128,7 @@ const extraSchema = [
+     id="ai-cta"
+     heading="See how search and AI systems describe your shop today."
+     description="Request a complimentary, manually reviewed analysis covering AI search visibility alongside Google Maps gaps, organic search gaps, competitor coverage, paid search opportunity, and conversion friction."
+-    ctaLabel="Assess My AI Search Visibility"
++    ctaLabel="Get My Free AI Visibility Analysis"
+   />
+ 
+ </BaseLayout>
+diff --git a/artifacts/auto-glass-search-os/src/pages/auto-glass-lead-generation.astro b/artifacts/auto-glass-search-os/src/pages/auto-glass-lead-generation.astro
+index d0da1ce..4de5c7b 100644
+--- a/artifacts/auto-glass-search-os/src/pages/auto-glass-lead-generation.astro
++++ b/artifacts/auto-glass-search-os/src/pages/auto-glass-lead-generation.astro
+@@ -33,7 +33,7 @@ const faqs = [
+   },
+   {
+     question: "How quickly does auto glass lead generation produce results?",
+-    answer: "Google Ads can start producing qualified calls within days once campaigns, negative keywords, and call tracking are in place. Google Maps and organic SEO improvements usually take several months to compound, depending on your market, competition, and starting point. We do not promise lead counts; we report what each channel actually produced.",
++    answer: "Google Ads can begin capturing high-intent demand quickly after launch; lead volume and quality depend on market, budget, targeting and account conditions. Google Maps and organic SEO improvements usually take several months to compound, depending on your market, competition, and starting point. We do not promise lead counts; we report what each channel actually produced.",
+   },
+   {
+     question: "Do we need to be running Google Ads to work with you?",
+@@ -68,7 +68,7 @@ const extraSchema = [
+     eyebrow="Auto Glass Lead Generation"
+     heading="Build an Auto Glass Lead Generation System That Produces Qualified Calls"
+     lead="Auto Glass Growth helps established auto glass companies generate qualified inbound opportunities from drivers actively searching for windshield replacement, repair, mobile auto glass, and ADAS calibration. We connect Search, Maps, Google Ads, AI discovery, your website and conversion into one measurable customer acquisition system — the Auto Glass Growth OS."
+-    ctaLabel="Analyze My Lead Generation Opportunities"
++    ctaLabel="Get My Free Lead Generation Analysis"
+     supportLine="Complimentary Search + Customer Acquisition Analysis"
+   >
+     <div class="no-leads-banner" role="note">
+@@ -85,7 +85,7 @@ const extraSchema = [
+       <li><strong>Website</strong> Service, location, insurance, and ADAS pages that answer the driver's questions and make contact easy.</li>
+       <li><strong>Google Business Profile</strong> The listing drivers see in Maps and the local 3-pack when they search nearby.</li>
+       <li><strong>Organic search visibility</strong> Rankings for the windshield replacement, repair, and calibration searches in your markets.</li>
+-      <li><strong>Advertising</strong> Google Ads campaigns that capture high-intent searches and route calls to your shop.</li>
++      <li><strong>Advertising</strong> Google Ads campaigns that capture high-intent searches and drive calls directly to your shop.</li>
+       <li><strong>Brand</strong> Reviews, reputation, and repeat or referral demand that search then amplifies.</li>
+       <li><strong>Landing pages and conversion paths</strong> Click-to-call, quote requests, and scheduling that work on a phone in a parking lot.</li>
+     </ul>
+@@ -109,7 +109,7 @@ const extraSchema = [
+       Every channel reaches drivers at a different moment. Treating them as one system — rather than separate vendors and tactics — is what the Auto Glass Growth OS methodology is built around.
+     </p>
+     <ul class="prose-grid">
+-      <li><strong><a href="/auto-glass-seo/">Organic search</a></strong> Drivers searching "windshield replacement [city]" or "ADAS calibration near me" who click a service page. Slow to build, durable, and the lowest long-run cost per qualified lead.</li>
++      <li><strong><a href="/auto-glass-seo/">Organic search</a></strong> Drivers searching "windshield replacement [city]" or "ADAS calibration near me" who click a service page. Slow to build, durable, and typically the most cost-efficient channel over time once it compounds.</li>
+       <li><strong><a href="/auto-glass-local-seo/">Google Maps</a></strong> The 3-pack and Maps results for nearby, urgent searches. Driven by your Google Business Profile, proximity, reviews, and location clarity.</li>
+       <li><strong><a href="/google-ads/">Google Ads</a></strong> Immediate access to high-intent searches where the economics support it, with calls routed straight to your dispatchers.</li>
+       <li><strong><a href="/ai-search-optimization/">AI-assisted discovery</a></strong> Drivers asking ChatGPT, Google AI Overviews, or Gemini which nearby shop can replace a windshield and recalibrate the camera. An emerging channel that rewards clear, verifiable business information.</li>
+@@ -228,7 +228,7 @@ const extraSchema = [
+     id="leadgen-cta"
+     heading="Find Out Where Your Market Is Losing You Leads"
+     description="Request a complimentary, manually reviewed opportunity analysis. We examine Google Maps gaps, organic search gaps, competitor coverage, paid search opportunity, AI visibility, and conversion friction — and show you where qualified leads are going today."
+-    ctaLabel="Analyze My Lead Generation Opportunities"
++    ctaLabel="Get My Free Lead Generation Analysis"
+   />
+ 
+ </BaseLayout>
+diff --git a/artifacts/auto-glass-search-os/src/pages/auto-glass-local-seo.astro b/artifacts/auto-glass-search-os/src/pages/auto-glass-local-seo.astro
+index ba057dd..82fe69f 100644
+--- a/artifacts/auto-glass-search-os/src/pages/auto-glass-local-seo.astro
++++ b/artifacts/auto-glass-search-os/src/pages/auto-glass-local-seo.astro
+@@ -73,7 +73,7 @@ const extraSchema = [
+     eyebrow="Google Maps & Local Search"
+     heading="Auto Glass Local SEO That Generates More Nearby Opportunities"
+     lead="Drivers with urgent glass needs compare nearby businesses across Google Maps, reviews, service details, and websites before they call. We help your shop show up in the Map Pack for the locations and service areas you genuinely serve — and give drivers the reasons to choose you."
+-    ctaLabel="See My Local Search Gaps"
++    ctaLabel="Get My Free Maps & Local Analysis"
+     supportLine="Complimentary Search + Customer Acquisition Analysis"
+   />
+ 
+@@ -147,7 +147,7 @@ const extraSchema = [
+     id="local-cta"
+     heading="See which nearby searches are calling someone else."
+     description="Request a complimentary, manually reviewed analysis of your Google Maps and Map Pack visibility across the services and markets you serve — alongside organic search, paid search, AI visibility, and conversion friction."
+-    ctaLabel="See My Local Search Gaps"
++    ctaLabel="Get My Free Maps & Local Analysis"
+   />
+ 
+ </BaseLayout>
+diff --git a/artifacts/auto-glass-search-os/src/pages/auto-glass-seo.astro b/artifacts/auto-glass-search-os/src/pages/auto-glass-seo.astro
+index c84fc8e..86376a3 100644
+--- a/artifacts/auto-glass-search-os/src/pages/auto-glass-seo.astro
++++ b/artifacts/auto-glass-search-os/src/pages/auto-glass-seo.astro
+@@ -76,7 +76,7 @@ const extraSchema = [
+     eyebrow="Auto Glass SEO"
+     heading="Auto Glass SEO That Turns Search Demand Into Qualified Leads"
+     lead="We build organic search visibility for windshield replacement, windshield repair, rock chip repair, mobile auto glass, side and back glass, and ADAS recalibration — in the markets your company actually serves — and connect it to the calls and quote requests that become booked jobs."
+-    ctaLabel="Analyze My Organic Search Opportunities"
++    ctaLabel="Get My Free SEO Analysis"
+     supportLine="Complimentary Search + Customer Acquisition Analysis"
+   />
+ 
+@@ -174,7 +174,7 @@ const extraSchema = [
+     id="seo-cta"
+     heading="See which organic searches are sending jobs to competitors."
+     description="Request a complimentary, manually reviewed analysis of your organic search coverage for windshield replacement, repair, mobile service, and ADAS calibration — alongside Google Maps, paid search, AI visibility, and conversion friction."
+-    ctaLabel="Analyze My Organic Search Opportunities"
++    ctaLabel="Get My Free SEO Analysis"
+   />
+ 
+ </BaseLayout>
+diff --git a/artifacts/auto-glass-search-os/src/pages/auto-glass-websites.astro b/artifacts/auto-glass-search-os/src/pages/auto-glass-websites.astro
+index df5db5b..1665b7c 100644
+--- a/artifacts/auto-glass-search-os/src/pages/auto-glass-websites.astro
++++ b/artifacts/auto-glass-search-os/src/pages/auto-glass-websites.astro
+@@ -12,7 +12,7 @@ import { faqSchema, serviceSchema } from '../data/schema';
+ 
+ const pagePath = "/auto-glass-websites/";
+ const pageTitle = "Auto Glass Website Design | Websites Built to Rank & Convert";
+-const pageDescription = "Auto glass website design and conversion optimization. Websites built around search visibility, trust and conversion: service pages, technical SEO, mobile UX, calls and quotes.";
++const pageDescription = "Auto glass website design and conversion optimization: service and location pages, technical SEO, mobile UX and quote-request paths built to rank and convert.";
+ 
+ const capabilities = [
+   {
+@@ -78,7 +78,7 @@ const extraSchema = [
+     eyebrow="Auto Glass Websites & Conversion"
+     heading="Auto Glass Websites Built to Rank and Convert"
+     lead="Your website is where every channel — Google Search, Maps, Ads and AI discovery — turns into a call or a quote request, or doesn't. We build and optimize auto glass websites around search visibility, trust and conversion, not aesthetics alone."
+-    ctaLabel="Find Out Where My Website Loses Jobs"
++    ctaLabel="Get My Free Website Analysis"
+     supportLine="Complimentary Search + Customer Acquisition Analysis"
+   />
+ 
+@@ -122,7 +122,7 @@ const extraSchema = [
+ 
+   <ProseSection id="web-paths" eyebrow="The two paths" heading="Whether they click or call, the site gives them a path.">
+     <p>
+-      Every page is designed around the two ways a driver actually converts. Both paths are built, measured and optimized as Auto Glass Growth services.
++      Every page is designed around the two ways a driver actually converts. We build, optimize and measure the marketing and website touchpoints across both paths, while your team and the systems you choose handle operational response and scheduling.
+     </p>
+     <ConversionPaths />
+   </ProseSection>
+@@ -145,7 +145,7 @@ const extraSchema = [
+     id="web-cta"
+     heading="Find out where your website is losing jobs."
+     description="Request a complimentary, manually reviewed analysis of your website's UX, conversion friction, call and quote-request pathways and mobile experience — alongside Google Maps, organic search, paid search and AI visibility."
+-    ctaLabel="See Where You're Losing Jobs"
++    ctaLabel="Get My Free Website Analysis"
+   />
+ 
+ </BaseLayout>
+diff --git a/artifacts/auto-glass-search-os/src/pages/google-ads.astro b/artifacts/auto-glass-search-os/src/pages/google-ads.astro
+index 4a77309..60c2b05 100644
+--- a/artifacts/auto-glass-search-os/src/pages/google-ads.astro
++++ b/artifacts/auto-glass-search-os/src/pages/google-ads.astro
+@@ -12,7 +12,7 @@ import PartnerCallout from '../components/PartnerCallout.astro';
+ 
+ const pagePath = "/google-ads/";
+ const pageTitle = "Auto Glass Google Ads & PPC Agency | Qualified Lead Generation";
+-const pageDescription = "Auto glass PPC agency. Google Ads built around qualified leads, not clicks: campaign architecture, negative keyword control, call tracking, and cost per qualified lead.";
++const pageDescription = "Auto glass PPC agency. Google Ads built around qualified leads, not clicks: campaign architecture, negative keywords, call tracking and cost per qualified lead.";
+ 
+ const capabilities = [
+   {
+@@ -74,8 +74,8 @@ const extraSchema = [
+     id="google-ads"
+     eyebrow="Paid Search for Auto Glass"
+     heading="Google Ads for Auto Glass Companies Built Around Qualified Leads"
+-    lead="Auto glass searches overlap with general repair, residential glass, tint, parts, window regulators, and do-it-yourself research. We structure campaigns around the services and locations your company can actually serve, route calls straight to your shop, and measure spend against qualified leads and booked jobs — not clicks."
+-    ctaLabel="Audit My Auto Glass Google Ads"
++    lead="Auto glass searches overlap with general repair, residential glass, tint, parts, window regulators, and do-it-yourself research. We structure campaigns around the services and locations your company can actually serve, drive calls directly to your shop, and measure spend against qualified leads and booked jobs — not clicks."
++    ctaLabel="Get My Free Google Ads Audit"
+     supportLine="Complimentary Search + Customer Acquisition Analysis"
+   />
+ 
+@@ -116,7 +116,7 @@ const extraSchema = [
+     </p>
+   </ProseSection>
+ 
+-  <ProseSection id="ads-conversion-model" eyebrow="The conversion model" heading="Click → call → response → appointment. Or click → quote → availability → booking.">
++  <ProseSection id="ads-conversion-model" eyebrow="The conversion model" heading="Click → Call → Response → Booked Job. Or Click → Quote Request → Response → Booked Job.">
+     <p>
+       A paid click still needs a strong conversion pathway. Every campaign is designed around one of two paths, and the landing page, ad schedule and tracking follow from that. Auto Glass Growth builds and optimizes the landing experience and conversion path as part of the service — <a href="/auto-glass-websites/">website and CRO work</a> that makes every paid click worth more.
+     </p>
+@@ -151,7 +151,7 @@ const extraSchema = [
+     id="ads-cta"
+     heading="Find out what your ad spend is actually producing."
+     description="Request a complimentary, manually reviewed analysis of your paid search opportunity — including wasted spend on irrelevant searches — alongside Google Maps, organic search, AI visibility, and conversion friction."
+-    ctaLabel="Audit My Auto Glass Google Ads"
++    ctaLabel="Get My Free Google Ads Audit"
+   />
+ 
+ </BaseLayout>
+diff --git a/artifacts/auto-glass-search-os/src/pages/index.astro b/artifacts/auto-glass-search-os/src/pages/index.astro
+index 7831eab..eba2b65 100644
+--- a/artifacts/auto-glass-search-os/src/pages/index.astro
++++ b/artifacts/auto-glass-search-os/src/pages/index.astro
+@@ -9,7 +9,7 @@ import { siteConfig, credibilityPoints, services } from '../data/siteData';
+ import { serviceSchema } from '../data/schema';
+ 
+ const pageTitle = "Auto Glass Marketing Agency | Websites, SEO & Leads";
+-const pageDescription = "Auto Glass Growth: auto glass marketing, websites and lead generation for established auto glass companies. Turn more customer demand into calls, quotes and booked jobs.";
++const pageDescription = "Auto glass marketing, websites and lead generation for established auto glass companies. Turn more customer demand into qualified calls, quotes and booked jobs.";
+ 
+ const homeSchema = [
+   serviceSchema({
+@@ -63,8 +63,8 @@ const analysisScope = [
+           </span>
+ 
+           <h1 id="hero-heading" class="hero__heading text-balance">
+-            Turn More Customer Demand
+-            <span class="hero__heading-accent">Into Booked Jobs.</span>
++            Auto Glass Marketing That Turns
++            <span class="hero__heading-accent">More Customer Demand Into Booked Jobs.</span>
+           </h1>
+ 
+           <p class="hero__lead">
+@@ -80,12 +80,12 @@ const analysisScope = [
+               {siteConfig.primaryCta}
+             </a>
+             <a href="#journey" data-analytics-event="secondary_cta_click" class="btn btn--secondary btn--lg">
+-              See How the Growth OS Works
++              See How It Works
+             </a>
+           </div>
+ 
+           <p class="hero__qualifier">
+-            {siteConfig.primaryCtaOffer} &middot; Manually reviewed &middot; No obligation
++            See exactly where you're losing jobs to competitors &middot; Manually reviewed &middot; No obligation &middot; No cost
+           </p>
+         </div>
+ 
+@@ -275,7 +275,7 @@ const analysisScope = [
+           </p>
+           <ul class="model-card__list" role="list">
+             <li class="arrow-item">Strategy, execution and quality control</li>
+-            <li class="arrow-item">Conversion and booking pathway coordination</li>
++            <li class="arrow-item">Conversion pathway optimization</li>
+             <li class="arrow-item">Reporting on qualified leads, appointments and booked jobs</li>
+           </ul>
+           <a href="/visibility-analysis/" data-analytics-event="managed_search_os_interest" class="btn btn--primary">
+@@ -345,7 +345,7 @@ const analysisScope = [
+         <span class="eyebrow">{siteConfig.primaryCtaOffer}</span>
+         <span class="cyan-rule" style="margin: 0 auto;"></span>
+         <h2 id="final-cta-heading" class="final-cta__heading text-balance">
+-          See where your market is leaking opportunity.
++          See where you're losing jobs — and how to win them back.
+         </h2>
+         <p class="final-cta__desc">
+           A complimentary, manually reviewed analysis of your auto glass market. We look at who's winning the searches you should own, and where drivers who find you don't become jobs.
+@@ -470,11 +470,11 @@ const analysisScope = [
+     display: flex;
+     flex-direction: column;
+     gap: 1.5rem;
+-    max-width: 40rem;
++    max-width: 44rem;
+   }
+ 
+   .hero__heading {
+-    font-size: clamp(2.25rem, 4.5vw + 0.5rem, 3.75rem);
++    font-size: clamp(2.1rem, 3.6vw + 0.5rem, 3.25rem);
+     font-weight: 800;
+     line-height: 1.04;
+     letter-spacing: -0.03em;
+diff --git a/artifacts/auto-glass-search-os/src/pages/privacy.astro b/artifacts/auto-glass-search-os/src/pages/privacy.astro
+index 35030e5..ea55770 100644
+--- a/artifacts/auto-glass-search-os/src/pages/privacy.astro
++++ b/artifacts/auto-glass-search-os/src/pages/privacy.astro
+@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
+ import { siteConfig } from '../data/siteData';
+ 
+ const pageTitle = "Privacy Policy | Auto Glass Growth";
+-const pageDescription = "Privacy policy for Auto Glass Growth B2B lead generation and market visibility diagnostics.";
++const pageDescription = "Privacy policy for Auto Glass Growth, an auto glass marketing, websites and lead generation initiative from Aligned Growth Digital.";
+ ---
+ 
+ <BaseLayout title={pageTitle} description={pageDescription}>
+diff --git a/artifacts/auto-glass-search-os/src/pages/visibility-analysis.astro b/artifacts/auto-glass-search-os/src/pages/visibility-analysis.astro
+index 8d87601..b42ca50 100644
+--- a/artifacts/auto-glass-search-os/src/pages/visibility-analysis.astro
++++ b/artifacts/auto-glass-search-os/src/pages/visibility-analysis.astro
+@@ -4,7 +4,7 @@ import LeadForm from '../components/LeadForm.astro';
+ import BrandMark from '../components/BrandMark.astro';
+ 
+ const pageTitle = "Auto Glass Marketing Audit | Free Opportunity Analysis";
+-const pageDescription = "Find out who's winning the auto glass searches in your market. A complimentary, manually reviewed audit of Maps, organic, paid, and AI gaps — and where you lose leads.";
++const pageDescription = "Find out who's winning the auto glass searches in your market. A free, manually reviewed audit of Maps, organic, paid and AI search gaps — and where you lose leads.";
+ ---
+ 
+ <BaseLayout title={pageTitle} description={pageDescription} breadcrumbName="Opportunity Analysis">
+-- 
+2.43.0
+
+
+From 1a57799878c2cfcbd13a7cd91a1285b6b6b80e03 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 8 Sep 2026 18:57:16 +0000
+Subject: [PATCH 2/2] Contact details: (720) 600-2985 and
+ info@autoglassgrowth.com in footer, thank-you, privacy and Organization
+ schema
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01YTqriFcoGbKf8UugCsc6PQ
+---
+ .../auto-glass-search-os/src/components/Footer.astro   |  7 +++++++
+ artifacts/auto-glass-search-os/src/data/siteData.ts    |  3 ++-
+ .../auto-glass-search-os/src/layouts/BaseLayout.astro  | 10 ++++++++--
+ artifacts/auto-glass-search-os/src/pages/privacy.astro |  2 +-
+ .../auto-glass-search-os/src/pages/thank-you.astro     |  7 +++++++
+ 5 files changed, 25 insertions(+), 4 deletions(-)
+
+diff --git a/artifacts/auto-glass-search-os/src/components/Footer.astro b/artifacts/auto-glass-search-os/src/components/Footer.astro
+index c8bc891..d5e32ca 100644
+--- a/artifacts/auto-glass-search-os/src/components/Footer.astro
++++ b/artifacts/auto-glass-search-os/src/components/Footer.astro
+@@ -35,6 +35,13 @@ import BrandMark from './BrandMark.astro';
+               </a>
+             </p>
+           )}
++          {isConfigured(siteConfig.placeholders.email) && (
++            <p>
++              <a href={`mailto:${siteConfig.placeholders.email}`} data-analytics-event="email_click" class="agos-footer__contact-link">
++                EMAIL: {siteConfig.placeholders.email}
++              </a>
++            </p>
++          )}
+         </div>
+       </div>
+ 
+diff --git a/artifacts/auto-glass-search-os/src/data/siteData.ts b/artifacts/auto-glass-search-os/src/data/siteData.ts
+index 6d1ba7c..c34be82 100644
+--- a/artifacts/auto-glass-search-os/src/data/siteData.ts
++++ b/artifacts/auto-glass-search-os/src/data/siteData.ts
+@@ -27,7 +27,8 @@ export const siteConfig = {
+     { name: "About", href: "/about/" },
+   ],
+   placeholders: {
+-    phone: "(516) 521-1149",
++    phone: "(720) 600-2985",
++    email: "info@autoglassgrowth.com",
+     address: "[INSERT_OFFICE_ADDRESS]",
+     calendlyUrl: "[INSERT_CALENDLY_OR_SCHEDULING_URL]",
+     ga4Id: "[INSERT_GA4_MEASUREMENT_ID]",
+diff --git a/artifacts/auto-glass-search-os/src/layouts/BaseLayout.astro b/artifacts/auto-glass-search-os/src/layouts/BaseLayout.astro
+index b82ff68..48c4546 100644
+--- a/artifacts/auto-glass-search-os/src/layouts/BaseLayout.astro
++++ b/artifacts/auto-glass-search-os/src/layouts/BaseLayout.astro
+@@ -32,10 +32,14 @@ const isDevServer = import.meta.env.DEV;
+ const robotsNoindex = noindex || isDevServer;
+ const ogImage = new URL("/auto_glass_search_ecosystem_aligned.webp", siteConfig.siteUrl).href;
+ 
++const telE164 = "+1" + siteConfig.placeholders.phone.replace(/\D/g, "");
+ const contactPoint = isConfigured(siteConfig.placeholders.phone) ? {
+   "@type": "ContactPoint",
+-  "telephone": siteConfig.placeholders.phone,
+-  "contactType": "customer service"
++  "telephone": telE164,
++  "email": siteConfig.placeholders.email,
++  "contactType": "customer service",
++  "areaServed": "US",
++  "availableLanguage": "English"
+ } : undefined;
+ 
+ const breadcrumb = Astro.url.pathname !== "/" ? {
+@@ -84,6 +88,8 @@ const structuredData = {
+         "ADAS Calibration Search Demand",
+         "Conversion Tracking for Qualified Calls, Quote Requests, and Booked Jobs"
+       ],
++      "telephone": telE164,
++      "email": siteConfig.placeholders.email,
+       ...(contactPoint ? { "contactPoint": contactPoint } : {})
+     },
+     {
+diff --git a/artifacts/auto-glass-search-os/src/pages/privacy.astro b/artifacts/auto-glass-search-os/src/pages/privacy.astro
+index ea55770..9b43e27 100644
+--- a/artifacts/auto-glass-search-os/src/pages/privacy.astro
++++ b/artifacts/auto-glass-search-os/src/pages/privacy.astro
+@@ -44,7 +44,7 @@ const pageDescription = "Privacy policy for Auto Glass Growth, an auto glass mar
+           <section aria-labelledby="privacy-s4">
+             <h2 id="privacy-s4">4. Contact</h2>
+             <p>
+-              For inquiries regarding this privacy statement, please call Auto Glass Growth at <a href={`tel:${siteConfig.placeholders.phone.replace(/[^\d+]/g, '')}`} data-analytics-event="phone_click">{siteConfig.placeholders.phone}</a>.
++              For inquiries regarding this privacy statement, please call Auto Glass Growth at <a href={`tel:${siteConfig.placeholders.phone.replace(/[^\d+]/g, '')}`} data-analytics-event="phone_click">{siteConfig.placeholders.phone}</a> or email <a href={`mailto:${siteConfig.placeholders.email}`} data-analytics-event="email_click">{siteConfig.placeholders.email}</a>.
+             </p>
+           </section>
+ 
+diff --git a/artifacts/auto-glass-search-os/src/pages/thank-you.astro b/artifacts/auto-glass-search-os/src/pages/thank-you.astro
+index 1db2e2a..1a05316 100644
+--- a/artifacts/auto-glass-search-os/src/pages/thank-you.astro
++++ b/artifacts/auto-glass-search-os/src/pages/thank-you.astro
+@@ -70,6 +70,13 @@ const pageDescription = "Your auto glass opportunity analysis request has been r
+               </svg>
+               {siteConfig.placeholders.phone}
+             </a>
++            <a
++              href={`mailto:${siteConfig.placeholders.email}`}
++              data-analytics-event="email_click"
++              class="thankyou__contact-link"
++            >
++              {siteConfig.placeholders.email}
++            </a>
+           </div>
+         </div>
+ 
+-- 
+2.43.0
+

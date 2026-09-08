@@ -6,7 +6,7 @@ export const siteConfig = {
   description: "Auto Glass Growth is a specialized auto glass marketing, websites and lead generation company for established auto glass operators. We help capture high-intent demand through SEO, Google Maps, paid search and AI discovery — then turn more of it into qualified calls, quote requests and booked jobs.",
   channelDescriptor: "SEO · Google Maps · Google Ads · Websites · CRO · AI Search · Measurement",
   legalStatement: "Auto Glass Growth is a specialized auto glass growth initiative from Aligned Growth Digital.",
-  primaryCta: "See Where You're Losing Jobs",
+  primaryCta: "Get My Free Growth Analysis",
   primaryCtaOffer: "Complimentary Search + Customer Acquisition Analysis",
   siteUrl: "https://autoglasssearchos.com",
   entity: {
@@ -27,7 +27,8 @@ export const siteConfig = {
     { name: "About", href: "/about/" },
   ],
   placeholders: {
-    phone: "(516) 521-1149",
+    phone: "(720) 600-2985",
+    email: "info@autoglassgrowth.com",
     address: "[INSERT_OFFICE_ADDRESS]",
     calendlyUrl: "[INSERT_CALENDLY_OR_SCHEDULING_URL]",
     ga4Id: "[INSERT_GA4_MEASUREMENT_ID]",

@@ -34,6 +34,13 @@ import BrandMark from './BrandMark.astro';
               </a>
             </p>
           )}
+          {isConfigured(siteConfig.placeholders.email) && (
+            <p>
+              <a href={`mailto:${siteConfig.placeholders.email}`} data-analytics-event="email_click" class="agos-footer__contact-link">
+                EMAIL: {siteConfig.placeholders.email}
+              </a>
+            </p>
+          )}
         </div>
       </div>
 
@@ -84,7 +91,7 @@ import BrandMark from './BrandMark.astro';
           data-analytics-event="primary_cta_click"
           class="agos-footer__cta-link"
         >
-          See Where You're Losing Jobs
+          {siteConfig.primaryCta}
         </a>
         <div class="agos-footer__secondary-links">
           <a href="/about/" class="agos-footer__link">About Auto Glass Growth</a>

@@ -33,10 +33,14 @@ const robotsNoindex = noindex || isDevServer;
 const ogImage = new URL("/og-image.png", siteConfig.siteUrl).href;
 const logoUrl = new URL("/icon-512.png", siteConfig.siteUrl).href;
 
+const telE164 = "+1" + siteConfig.placeholders.phone.replace(/\D/g, "");
 const contactPoint = isConfigured(siteConfig.placeholders.phone) ? {
   "@type": "ContactPoint",
-  "telephone": siteConfig.placeholders.phone,
-  "contactType": "customer service"
+  "telephone": telE164,
+  "email": siteConfig.placeholders.email,
+  "contactType": "customer service",
+  "areaServed": "US",
+  "availableLanguage": "English"
 } : undefined;
 
 const breadcrumb = Astro.url.pathname !== "/" ? {
@@ -87,6 +91,8 @@ const structuredData = {
         "ADAS Calibration Search Demand",
         "Conversion Tracking for Qualified Calls, Quote Requests, and Booked Jobs"
       ],
+      "telephone": telE164,
+      "email": siteConfig.placeholders.email,
       ...(contactPoint ? { "contactPoint": contactPoint } : {})
     },
     {

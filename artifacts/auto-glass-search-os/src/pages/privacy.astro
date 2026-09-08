@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../data/siteData';
 
 const pageTitle = "Privacy Policy | Auto Glass Growth";
-const pageDescription = "Privacy policy for Auto Glass Growth B2B lead generation and market visibility diagnostics.";
+const pageDescription = "Privacy policy for Auto Glass Growth, an auto glass marketing, websites and lead generation initiative from Aligned Growth Digital.";
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -44,7 +44,7 @@ const pageDescription = "Privacy policy for Auto Glass Growth B2B lead generatio
           <section aria-labelledby="privacy-s4">
             <h2 id="privacy-s4">4. Contact</h2>
             <p>
-              For inquiries regarding this privacy statement, please call Auto Glass Growth at <a href={`tel:${siteConfig.placeholders.phone.replace(/[^\d+]/g, '')}`} data-analytics-event="phone_click">{siteConfig.placeholders.phone}</a>.
+              For inquiries regarding this privacy statement, please call Auto Glass Growth at <a href={`tel:${siteConfig.placeholders.phone.replace(/[^\d+]/g, '')}`} data-analytics-event="phone_click">{siteConfig.placeholders.phone}</a> or email <a href={`mailto:${siteConfig.placeholders.email}`} data-analytics-event="email_click">{siteConfig.placeholders.email}</a>.
             </p>
           </section>
 
