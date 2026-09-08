@@ -1,0 +1,24 @@
+Here's one prompt that does all of it in the right order. Upload plain-english-pass.tgz to attached_assets first, then paste this to the Replit Agent:
+
+Work only inside artifacts/auto-glass-search-os. Do these four steps in order, exactly as written, and do not redesign, rename, or "improve" anything beyond what each step says. Do not touch the logo files, src/components/Header.astro, src/components/Footer.astro, src/components/BrandMark.astro, src/styles/global.css, or anything in public/brand/.
+
+Step 1 — Fix the canonical domain. In src/data/siteData.ts, src/layouts/BaseLayout.astro, astro.config.mjs and public/robots.txt, replace every occurrence of autoglasssearchos.com with autoglassgrowth.com. Change nothing else in those files.
+
+Step 2 — Apply the content package. There is a file in attached_assets whose name starts with plain-english-pass and ends in .tgz. Extract it over the project root so its files overwrite the existing ones: tar -xzf <that file> -C artifacts/auto-glass-search-os. It contains 12 files: ten pages in src/pages/ (including a new free-growth-analysis.astro), src/data/siteData.ts, and src/components/HeroSystemVisual.astro. Overwrite them as-is; do not merge, edit, or reformat them. Then re-apply Step 1 to src/data/siteData.ts, since the package version of that file may still contain the old domain.
+
+Step 3 — Exclude the landing page from the sitemap. In astro.config.mjs, change the sitemap filter to:
+filter: (page) => !page.endsWith('/thank-you/') && !page.endsWith('/free-growth-analysis/'),
+
+Step 4 — Compress the homepage photo. Convert public/auto-glass-adas-calibration.png to WebP at the same pixel dimensions, quality 80, saved as public/auto-glass-adas-calibration.webp; it should be under 200 KB. In src/pages/index.astro, change the <img src="/auto-glass-adas-calibration.png" to .webp. Then delete the .png.
+
+Verify by running pnpm build in artifacts/auto-glass-search-os with zero errors, then confirm each of the following and report the results:
+
+View-source of the homepage shows <link rel="canonical" href="https://autoglassgrowth.com/"> and public/robots.txt shows Sitemap: https://autoglassgrowth.com/sitemap-index.xml.
+grep -r autoglasssearchos src astro.config.mjs public/robots.txt returns nothing.
+The homepage H2s, in order, are: "Get found. Get chosen. Get booked.", "Where auto glass shops lose jobs.", "See where you're losing jobs — and what to fix first.", "How a driver becomes your customer — and how we make sure it's you.", "What we actually do for auto glass companies.", "Whether they click or call, give them a clear path to book.", "Two ways to work with Auto Glass Growth.", "Questions owners ask before they fill out the form.", "See where you're losing jobs — and how to win them back."
+/free-growth-analysis/ loads, has no navigation links in the header, contains the form, has <meta name="robots" content="noindex, nofollow">, and does not appear in dist/public/sitemap-0.xml.
+/visibility-analysis/ shows the phone number (720) 600-2985 and the email info@autoglassgrowth.com, and nowhere on the site does (516) 521-1149 appear.
+The homepage photo loads from the .webp file and the file is under 200 KB.
+The header and footer logo are unchanged from before you started.
+
+Then commit with the message "Domain canonicals, plain-English content pass, paid landing page, photo compression" and republish.
