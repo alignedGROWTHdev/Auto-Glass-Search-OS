@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://autoglasssearchos.com',
+  site: 'https://autoglassgrowth.com',
   base: process.env.BASE_PATH || '/',
   outDir: 'dist/public',
   devToolbar: {

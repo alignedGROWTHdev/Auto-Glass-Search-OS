@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://autoglasssearchos.com/sitemap-index.xml
+Sitemap: https://autoglassgrowth.com/sitemap-index.xml

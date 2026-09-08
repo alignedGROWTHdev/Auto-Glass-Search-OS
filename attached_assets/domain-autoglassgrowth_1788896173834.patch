@@ -1,0 +1,82 @@
+From 4388f28bf51a291458727522ca893f3deaa3614f Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 8 Sep 2026 19:33:22 +0000
+Subject: [PATCH] Production domain: autoglassgrowth.com for canonicals,
+ sitemap, robots and schema @ids
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01YTqriFcoGbKf8UugCsc6PQ
+---
+ artifacts/auto-glass-search-os/astro.config.mjs             | 2 +-
+ artifacts/auto-glass-search-os/public/robots.txt            | 2 +-
+ artifacts/auto-glass-search-os/src/data/siteData.ts         | 6 +++---
+ artifacts/auto-glass-search-os/src/layouts/BaseLayout.astro | 4 ++--
+ 4 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/artifacts/auto-glass-search-os/astro.config.mjs b/artifacts/auto-glass-search-os/astro.config.mjs
+index 625706b..e4ffa8a 100644
+--- a/artifacts/auto-glass-search-os/astro.config.mjs
++++ b/artifacts/auto-glass-search-os/astro.config.mjs
+@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
+ import sitemap from '@astrojs/sitemap';
+ 
+ export default defineConfig({
+-  site: 'https://autoglasssearchos.com',
++  site: 'https://autoglassgrowth.com',
+   base: process.env.BASE_PATH || '/',
+   outDir: 'dist/public',
+   devToolbar: {
+diff --git a/artifacts/auto-glass-search-os/public/robots.txt b/artifacts/auto-glass-search-os/public/robots.txt
+index 2aabb0c..f6346f1 100644
+--- a/artifacts/auto-glass-search-os/public/robots.txt
++++ b/artifacts/auto-glass-search-os/public/robots.txt
+@@ -1,4 +1,4 @@
+ User-agent: *
+ Allow: /
+ 
+-Sitemap: https://autoglasssearchos.com/sitemap-index.xml
++Sitemap: https://autoglassgrowth.com/sitemap-index.xml
+diff --git a/artifacts/auto-glass-search-os/src/data/siteData.ts b/artifacts/auto-glass-search-os/src/data/siteData.ts
+index c34be82..b9d7230 100644
+--- a/artifacts/auto-glass-search-os/src/data/siteData.ts
++++ b/artifacts/auto-glass-search-os/src/data/siteData.ts
+@@ -8,14 +8,14 @@ export const siteConfig = {
+   legalStatement: "Auto Glass Growth is a specialized auto glass growth initiative from Aligned Growth Digital.",
+   primaryCta: "Get My Free Growth Analysis",
+   primaryCtaOffer: "Complimentary Search + Customer Acquisition Analysis",
+-  siteUrl: "https://autoglasssearchos.com",
++  siteUrl: "https://autoglassgrowth.com",
+   entity: {
+-    organizationId: "https://autoglasssearchos.com/#organization",
++    organizationId: "https://autoglassgrowth.com/#organization",
+     parentOrganizationName: "Aligned Growth Digital",
+     parentOrganizationUrl: "https://alignedgrowthdigital.com",
+     parentOrganizationId: "https://alignedgrowthdigital.com/#organization",
+     founderName: "Valentina Borda",
+-    founderId: "https://autoglasssearchos.com/about/#valentina-borda",
++    founderId: "https://autoglassgrowth.com/about/#valentina-borda",
+   },
+   navLinks: [
+     { name: "Lead Generation", href: "/auto-glass-lead-generation/" },
+diff --git a/artifacts/auto-glass-search-os/src/layouts/BaseLayout.astro b/artifacts/auto-glass-search-os/src/layouts/BaseLayout.astro
+index 48c4546..8b83f01 100644
+--- a/artifacts/auto-glass-search-os/src/layouts/BaseLayout.astro
++++ b/artifacts/auto-glass-search-os/src/layouts/BaseLayout.astro
+@@ -111,12 +111,12 @@ const structuredData = {
+     },
+     {
+       "@type": "WebSite",
+-      "@id": "https://autoglasssearchos.com/#website",
++      "@id": "https://autoglassgrowth.com/#website",
+       "url": siteConfig.siteUrl,
+       "name": siteConfig.name,
+       "description": siteConfig.tagline,
+       "publisher": {
+-        "@id": "https://autoglasssearchos.com/#organization"
++        "@id": "https://autoglassgrowth.com/#organization"
+       }
+     },
+     ...(breadcrumb ? [breadcrumb] : []),
+-- 
+2.43.0
+

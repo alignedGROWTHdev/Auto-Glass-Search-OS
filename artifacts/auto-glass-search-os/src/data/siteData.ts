@@ -8,14 +8,14 @@ export const siteConfig = {
   legalStatement: "Auto Glass Growth is a specialized auto glass growth initiative from Aligned Growth Digital.",
   primaryCta: "Get My Free Growth Analysis",
   primaryCtaOffer: "Complimentary Search + Customer Acquisition Analysis",
-  siteUrl: "https://autoglasssearchos.com",
+  siteUrl: "https://autoglassgrowth.com",
   entity: {
-    organizationId: "https://autoglasssearchos.com/#organization",
+    organizationId: "https://autoglassgrowth.com/#organization",
     parentOrganizationName: "Aligned Growth Digital",
     parentOrganizationUrl: "https://alignedgrowthdigital.com",
     parentOrganizationId: "https://alignedgrowthdigital.com/#organization",
     founderName: "Valentina Borda",
-    founderId: "https://autoglasssearchos.com/about/#valentina-borda",
+    founderId: "https://autoglassgrowth.com/about/#valentina-borda",
   },
   navLinks: [
     { name: "Lead Generation", href: "/auto-glass-lead-generation/" },
