@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+  --agg-navy: #0a1b3a;
+  --agg-blue: #149fe6;
+  --agg-cyan: #00d2ff;
+  --agg-white: #f0f4f8;
+}
+
+* { box-sizing: border-box; }
+
+.agg-board {
+  min-height: 100vh;
+  padding: 56px clamp(24px, 6vw, 96px) 28px;
+  color: var(--agg-white);
+  background: #0b0f19;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+}
+
+.agg-board__intro, .agg-section-label, .agg-primary__stage, .agg-favicon__samples,
+.agg-board__footer { max-width: 1180px; margin-inline: auto; }
+
+.agg-board__intro {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 40px;
+  padding-bottom: 48px; border-bottom: 1px solid rgba(240,244,248,.12);
+}
+.agg-kicker { margin: 0; color: var(--agg-cyan); font: 500 11px/1.2 "IBM Plex Mono", monospace; letter-spacing: .13em; text-transform: uppercase; }
+.agg-board h1 { margin: 12px 0 0; font-size: clamp(32px, 5vw, 58px); line-height: .98; letter-spacing: -.045em; }
+.agg-board__brief { max-width: 340px; color: #9dafc3; font: 400 14px/1.55 "IBM Plex Mono", monospace; }
+
+.agg-section-label { display:flex; gap: 16px; align-items:flex-start; padding: 56px 0 26px; }
+.agg-section-label > span { color: var(--agg-cyan); font: 500 12px "IBM Plex Mono", monospace; padding-top: 3px; }
+.agg-section-label h2 { margin: 8px 0 0; font-size: clamp(24px, 3vw, 37px); letter-spacing: -.04em; }
+
+.agg-primary { max-width: 1320px; margin: 0 auto; }
+.agg-primary__stage {
+  display:flex; align-items:center; gap: clamp(32px, 7vw, 110px);
+  min-height: 370px; padding: 42px clamp(24px, 6vw, 84px);
+  background: var(--agg-navy); border: 1px solid rgba(20,159,230,.22);
+  border-radius: 12px; position: relative; overflow: hidden;
+}
+.agg-primary__stage::after { content:""; position:absolute; inset:0; pointer-events:none; background: linear-gradient(90deg, rgba(0,210,255,.06), transparent 45%); }
+.agg-primary__mark { position:relative; z-index:1; flex:0 0 auto; }
+.agg-mark { display:block; }
+.agg-primary__type { position:relative; z-index:1; }
+.agg-wordmark { display:flex; flex-direction:column; line-height:.9; letter-spacing:.045em; }
+.agg-wordmark__top { color: var(--agg-white); font-size: clamp(30px, 5vw, 64px); font-weight:700; }
+.agg-wordmark__bottom { color:var(--agg-blue); font-size: clamp(34px, 5.4vw, 70px); font-weight:700; letter-spacing:.065em; }
+.agg-primary__type p { max-width: 330px; margin: 22px 0 0; color:#9dafc3; font: 400 13px/1.55 "IBM Plex Mono",monospace; }
+.agg-primary__annotation { display:flex; gap:16px; max-width: 470px; margin: 18px 0 0 auto; color:#9dafc3; font: 400 12px/1.5 "IBM Plex Mono",monospace; }
+.agg-rule { display:block; flex: 0 0 36px; height: 2px; margin-top: 8px; background:var(--agg-cyan); }
+
+.agg-browser { max-width:1180px; margin:0 auto; border:1px solid #253150; border-radius:10px; overflow:hidden; background:#131b2e; box-shadow:0 24px 70px rgba(0,0,0,.24); }
+.agg-browser__chrome { display:flex; align-items:center; gap:6px; height:30px; padding:0 14px; background:#1a2540; border-bottom:1px solid rgba(255,255,255,.06); }
+.agg-browser__chrome span { width:6px; height:6px; border-radius:50%; background:#5e768f; }
+.agg-browser__chrome small { margin-left:12px; color:#5e768f; font:400 10px "IBM Plex Mono",monospace; }
+.agg-browser__site-header { height:68px; display:flex; justify-content:space-between; align-items:center; padding:0 28px; background:#0b0f19; border-bottom:1px solid rgba(0,210,255,.12); }
+.agg-lockup { display:flex; align-items:center; gap:11px; }
+.agg-lockup--header .agg-wordmark__top { font-size:11px; letter-spacing:.04em; }
+.agg-lockup--header .agg-wordmark__bottom { font-size:12px; letter-spacing:.06em; }
+.agg-browser__site-header nav { display:flex; align-items:center; gap:24px; color:#9dafc3; font:400 11px "IBM Plex Mono",monospace; }
+.agg-browser__site-header nav b { padding:9px 13px; color:#fff; background:#1e40af; border-radius:4px; font-weight:500; }
+.agg-browser__site-header nav i { color:var(--agg-cyan); font-style:normal; }
+.agg-browser__page { min-height:200px; padding:38px 46px; background:#131b2e; }
+.agg-browser__page h3 { margin:12px 0 0; font-size:clamp(25px,4vw,48px); line-height:1; letter-spacing:-.045em; }
+
+.agg-favicon { max-width:1320px; margin: 0 auto; }
+.agg-favicon__samples { display:flex; gap:14px; align-items:stretch; }
+.agg-scale-card { display:flex; align-items:center; gap:16px; min-width:190px; padding:18px; background:#131b2e; border:1px solid rgba(255,255,255,.08); border-radius:8px; }
+.agg-favicon__tile { display:flex; align-items:center; justify-content:center; background:var(--agg-navy); border-radius:5px; }
+.agg-favicon__tile--32 { width:56px; height:56px; }
+.agg-favicon__tile--16 { width:56px; height:56px; }
+.agg-scale-card p { display:flex; flex-direction:column; gap:5px; margin:0; }
+.agg-scale-card strong { font:500 12px "IBM Plex Mono",monospace; color:var(--agg-white); }
+.agg-scale-card p span { color:#5e768f; font:400 10px/1.3 "IBM Plex Mono",monospace; }
+.agg-scale-card--note { flex:1; border-color:rgba(0,210,255,.2); }
+.agg-note-dot { width:8px; height:8px; flex:0 0 auto; border-radius:50%; background:var(--agg-cyan); box-shadow:0 0 12px rgba(0,210,255,.8); }
+
+.agg-board__footer { display:flex; justify-content:space-between; margin-top:64px; padding-top:16px; border-top:1px solid rgba(240,244,248,.12); color:#5e768f; font:400 10px "IBM Plex Mono",monospace; letter-spacing:.1em; }
+
+@media (max-width: 720px) {
+  .agg-board { padding:32px 18px 22px; }
+  .agg-board__intro { display:block; }
+  .agg-board__brief { margin-top:20px; }
+  .agg-primary__stage { flex-direction:column; align-items:flex-start; min-height:0; padding:36px 24px; }
+  .agg-primary__mark .agg-mark { width:150px; height:150px; }
+  .agg-browser__site-header { padding:0 14px; }
+  .agg-browser__site-header nav { display:none; }
+  .agg-browser__page { padding:30px 20px; }
+  .agg-favicon__samples { flex-wrap:wrap; }
+  .agg-scale-card--note { min-width:100%; }
+  .agg-board__footer { display:block; line-height:2; }
+}
