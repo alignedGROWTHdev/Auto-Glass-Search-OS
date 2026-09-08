@@ -30,7 +30,8 @@ const {
 // The Astro dev server (used by the Replit preview) is additionally marked noindex.
 const isDevServer = import.meta.env.DEV;
 const robotsNoindex = noindex || isDevServer;
-const ogImage = new URL("/auto_glass_search_ecosystem_aligned.webp", siteConfig.siteUrl).href;
+const ogImage = new URL("/og-image.png", siteConfig.siteUrl).href;
+const logoUrl = new URL("/brand/auto-glass-growth-logo.png", siteConfig.siteUrl).href;
 
 const contactPoint = isConfigured(siteConfig.placeholders.phone) ? {
   "@type": "ContactPoint",
@@ -64,6 +65,8 @@ const structuredData = {
       "@id": siteConfig.entity.organizationId,
       "name": siteConfig.name,
       "alternateName": "Auto Glass Growth by Aligned Growth Digital",
+      "logo": logoUrl,
+      "image": logoUrl,
       "slogan": siteConfig.tagline,
       "url": siteConfig.siteUrl,
       "description": siteConfig.description,
@@ -125,6 +128,11 @@ const structuredData = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0B0F19" />
     <link
       rel="preload"
       href="/fonts/space-grotesk-latin-700-normal.woff2"
@@ -185,7 +193,9 @@ const structuredData = {
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={siteConfig.name} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content="The Auto Glass Growth OS: search, Maps, Google Ads and AI discovery connected to qualified calls and booked jobs" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Auto Glass Growth — auto glass marketing, websites and lead generation. Turn more customer demand into booked jobs." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:title" content={title} />
