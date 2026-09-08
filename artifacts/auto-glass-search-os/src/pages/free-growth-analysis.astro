@@ -1,0 +1,275 @@
+---
+/**
+ * Paid-traffic landing page for the Free Growth Analysis.
+ * - noindex: this is the Google Ads / paid-social destination, not the organic page (/visibility-analysis/)
+ * - Header navigation and footer columns are hidden so the only exits are the form and the phone number
+ * - Form first on mobile, promise + proof beside it on desktop
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { siteConfig } from '../data/siteData';
+
+const pageTitle = "Free Growth Analysis for Auto Glass Shops | Auto Glass Growth";
+const pageDescription = "See who's winning the auto glass searches in your market and what it takes to win more booked jobs. Free, manually reviewed, findings by email.";
+
+const proof = [
+  "Which competitors show up instead of you, and for which searches",
+  "Whether you're in the top three map results — and who is",
+  "Where drivers drop off before calling or requesting a quote",
+  "The three or four fixes most likely to create more booked jobs",
+];
+
+const faqs = [
+  { q: "Is this really free?", a: "Yes. There is no charge and no obligation. You get written findings by email. A call happens only if you want one." },
+  { q: "Do you sell leads?", a: "No. We don't sell leads or software. We build and run the marketing, website and conversion system for your shop — your site, your listing, your ads, your calls." },
+  { q: "How long does it take?", a: "A person reviews every request. You'll hear back within two business days with a date for your findings, usually within the week." },
+  { q: "Who is this for?", a: "Established auto glass shops — one location or many, in-shop or mobile — that want more of the right jobs and want to know which marketing is producing them." },
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} noindex={true} breadcrumbName="Free Growth Analysis">
+  <section class="lp" aria-labelledby="lp-heading">
+    <div class="container">
+      <div class="lp__grid">
+
+        <div class="lp__copy">
+          <span class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Free Growth Analysis for auto glass shops</span>
+          <h1 id="lp-heading" class="lp__heading text-balance">
+            See who's winning the auto glass searches in your market — <span class="lp__accent">and how to win more booked jobs.</span>
+          </h1>
+          <p class="lp__lead">
+            We review your market by hand and send you the findings. No sales call required.
+          </p>
+
+          <ul class="lp__proof" role="list" aria-label="What you get">
+            {proof.map((p) => <li class="check-item">{p}</li>)}
+          </ul>
+
+          <ul class="lp__trust" role="list">
+            <li>Auto glass only</li>
+            <li>Manually reviewed</li>
+            <li>Confidential</li>
+            <li>No obligation</li>
+          </ul>
+
+          <div class="lp__contact">
+            <span class="lp__contact-label">Prefer to talk?</span>
+            <a href={`tel:${siteConfig.placeholders.phone.replace(/[^\d+]/g, '')}`} data-analytics-event="phone_click" class="lp__contact-link">{siteConfig.placeholders.phone}</a>
+          </div>
+        </div>
+
+        <div class="lp__form">
+          <div class="lp__card">
+            <h2 class="lp__card-title">Request your free analysis</h2>
+            <p class="lp__card-sub">Takes about a minute. A person reads every one.</p>
+            <LeadForm />
+          </div>
+        </div>
+
+      </div>
+
+      <div class="lp__faq" aria-label="Common questions">
+        {faqs.map((f) => (
+          <details class="lp__faq-item">
+            <summary class="lp__faq-q">{f.q}</summary>
+            <p class="lp__faq-a">{f.a}</p>
+          </details>
+        ))}
+      </div>
+
+      <p class="lp__legal">{siteConfig.legalStatement} &middot; <a href="/privacy/">Privacy</a></p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  /* Landing page: remove navigation exits. Logo, mobile CTA and legal line remain. */
+  body:has(.lp) .agos-header__bar,
+  body:has(.lp) .agos-nav,
+  body:has(.lp) .agos-header__cta,
+  body:has(.lp) .agos-header__mobile-cta,
+  body:has(.lp) .agos-footer__grid { display: none !important; }
+  body:has(.lp) .agos-footer { padding-top: 1.5rem; }
+</style>
+
+<style>
+  .lp {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    background-color: var(--obsidian);
+    background-image: radial-gradient(ellipse at 20% 0%, rgba(30,64,175,0.16) 0%, transparent 55%);
+    min-height: 80dvh;
+  }
+
+  .lp__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .lp__grid { grid-template-columns: 6fr 5fr; gap: 4rem; }
+  }
+
+  /* Mobile: form directly under the headline */
+  .lp__copy { display: contents; }
+  @media (min-width: 1024px) {
+    .lp__copy { display: flex; flex-direction: column; gap: 1.25rem; }
+  }
+
+  .lp__heading {
+    font-size: clamp(1.75rem, 3vw + 0.5rem, 2.75rem);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .lp__accent { color: var(--laser-cyan); }
+
+  .lp__lead {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .lp__form { order: 1; }
+  @media (min-width: 1024px) { .lp__form { order: 0; } }
+
+  .lp__proof {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    order: 2;
+  }
+
+  .lp__proof .check-item {
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .lp__trust {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    order: 3;
+  }
+
+  .lp__trust li {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    padding: 0.35rem 0.625rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius);
+  }
+
+  .lp__contact {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    order: 4;
+  }
+
+  .lp__contact-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+
+  .lp__contact-link {
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--laser-cyan);
+    text-decoration: none;
+  }
+
+  .lp__card {
+    padding: 1.5rem;
+    background: var(--carbon-slate);
+    border: 1px solid rgba(0,210,255,0.18);
+    border-radius: var(--radius-xl);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 1024px) { .lp__card { position: sticky; top: 5.5rem; } }
+
+  .lp__card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .lp__card-sub {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin: 0 0 0.75rem;
+  }
+
+  .lp__faq {
+    margin-top: 3rem;
+    max-width: 44rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .lp__faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+  .lp__faq-q {
+    cursor: pointer;
+    list-style: none;
+    padding: 1rem 2rem 1rem 0;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    position: relative;
+  }
+
+  .lp__faq-q::-webkit-details-marker { display: none; }
+
+  .lp__faq-q::after {
+    content: '+';
+    position: absolute;
+    right: 0.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--laser-cyan);
+    font-weight: 400;
+  }
+
+  .lp__faq-item[open] .lp__faq-q::after { content: '−'; }
+
+  .lp__faq-a {
+    margin: 0;
+    padding: 0 0 1rem;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .lp__legal {
+    margin: 2rem 0 0;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+  }
+
+  .lp__legal a { color: var(--text-tertiary); }
+</style>

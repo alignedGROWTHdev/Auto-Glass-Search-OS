@@ -4,11 +4,41 @@ import HeroSystemVisual from '../components/HeroSystemVisual.astro';
 import JourneySystem from '../components/JourneySystem.astro';
 import ConversionPaths from '../components/ConversionPaths.astro';
 import PartnerCallout from '../components/PartnerCallout.astro';
-import { siteConfig, credibilityPoints, services } from '../data/siteData';
-import { serviceSchema } from '../data/schema';
+import { siteConfig, trustStrip, services } from '../data/siteData';
+import { serviceSchema, faqSchema } from '../data/schema';
 
 const pageTitle = "Auto Glass Marketing Agency | Websites, SEO & Leads";
 const pageDescription = "Auto glass marketing, websites and lead generation for established auto glass companies. Turn more customer demand into qualified calls, quotes and booked jobs.";
+
+// Three things an owner needs to understand in the first screen.
+const outcomes = [
+  { title: "Get found", body: "Show up in the top map results, on page one, in Google Ads and in AI answers when a driver in your area needs windshield repair, replacement, mobile service or ADAS calibration.", how: "Auto Glass SEO · Local SEO & Map Pack · Google Ads · AI search" },
+  { title: "Get chosen", body: "Give that driver a reason to pick you over the shop above or below you: a fast site, strong reviews, and clear answers on insurance and warranty.", how: "Websites · Reviews · Trust signals" },
+  { title: "Get booked — and know what worked", body: "One tap to call, a short quote form, and every call and quote tracked back to the channel that produced it, so you know what's creating jobs.", how: "Conversion optimization · Call & form tracking · Reporting" },
+];
+
+// Where shops lose jobs — four points, in plain terms.
+const leaks = [
+  { tag: "They never see you", body: "A competitor holds the top three map results and page one for windshield replacement or ADAS calibration in your market. The driver calls them." },
+  { tag: "They see you and pick someone else", body: "Fewer reviews, a slow or dated website, no clear answer on insurance or warranty. The decision takes thirty seconds." },
+  { tag: "They want you but can't reach you", body: "Three taps to find a phone number, a long form, no hours or service area on the page. Or the call goes to voicemail and they move on." },
+  { tag: "You can't tell what's working", body: "Money goes out to marketing every month, but nobody can say which channel produced the jobs on this week's schedule." },
+];
+
+// Seven services grouped under three pillars an owner would use.
+const pillars = [
+  { title: "Capture the demand you want", body: "Be visible when local drivers need the services you can profitably deliver.", services: services.filter(x => ["01","02","03","06"].includes(x.num)) },
+  { title: "Turn attention into calls and quotes", body: "Give drivers clear reasons to choose you and a simple next step.", services: services.filter(x => ["04","05"].includes(x.num)) },
+  { title: "Know what becomes booked work", body: "Connect marketing to calls, quotes, appointments and jobs — and what each cost.", services: services.filter(x => ["07"].includes(x.num)) },
+];
+
+// Homepage FAQ — the questions owners ask before they fill out the form.
+const faqs = [
+  { question: "Does Auto Glass Growth sell leads?", answer: "No. We don't sell leads and we don't sell software. We build and run the marketing, website and conversion system that brings drivers to your business — your website, your Google listing, your ads. Every call and quote request is yours." },
+  { question: "Do you provide online quoting, scheduling or AI call answering?", answer: "No. Those are specialized technologies provided and supported separately by third-party auto glass technology providers. If we find that a bottleneck is operational — customers can't get a quote or a timely response — we can point you to a provider, but that technology is not part of our services." },
+  { question: "What is the Auto Glass Growth OS?", answer: "It's the name for how we work, not software you have to learn: get found, get chosen, get booked, and measure what worked. The same four steps organize everything we do across SEO, Google Maps, Google Ads, your website and reporting." },
+  { question: "What does the free Growth Analysis include?", answer: "A manual review of your market: who holds the top map results and page one for your core searches, how your reviews and website compare with the shops beating you, whether you appear in AI answers, and where drivers who find you drop off before calling or requesting a quote. You get written findings, not a sales call." },
+];
 
 const homeSchema = [
   serviceSchema({
@@ -18,31 +48,7 @@ const homeSchema = [
     description: pageDescription,
     alternateName: ["Auto Glass Marketing Agency", "Auto Glass Digital Marketing", "Marketing for Auto Glass Companies"],
   }),
-];
-
-// Where qualified demand gets lost — the problem section.
-const leaks = [
-  { tag: "Not found", body: "Competitors appear first in Search or Maps for windshield replacement, mobile service or ADAS calibration in your market." },
-  { tag: "Not trusted", body: "The driver finds you, but chooses someone else — better reviews, a stronger website, clearer insurance, warranty and ADAS answers." },
-  { tag: "Conversion friction", body: "The website or landing experience makes the next step unnecessarily difficult, especially on a phone: no obvious call button, a long form, missing service information." },
-  { tag: "Response / process friction", body: "The business generates demand, but operational response — after hours, overflow, quoting, scheduling — creates a bottleneck and the driver moves on." },
-  { tag: "No measurement", body: "Marketing produces activity, but you can't determine which channels create qualified opportunities or booked jobs, or what each costs." },
-];
-
-// Business economics factors.
-const economics = [
-  "Service area and mobile radius",
-  "Mobile vs. in-shop mix",
-  "Windshield replacement vs. repair",
-  "ADAS calibration capability",
-  "Insurance vs. cash-pay mix",
-  "Operational capacity",
-  "Scheduling availability",
-  "Market competition",
-];
-
-const analysisScope = [
-  "Search", "Maps", "Competitors", "Ads", "AI visibility", "Website UX", "Conversion friction", "Call pathway", "Quote-request pathway", "Mobile conversion", "Measurement",
+  faqSchema(faqs, "/"),
 ];
 ---
 
@@ -67,18 +73,18 @@ const analysisScope = [
           </h1>
 
           <p class="hero__lead">
-            Auto Glass Growth helps established auto glass companies capture high-intent demand through SEO, Google Maps, paid search and AI discovery — then turn more of that demand into qualified calls, quote requests and measurable business opportunities.
+            We help auto glass shops show up when drivers need windshield repair, replacement, mobile service or ADAS calibration — and turn more of those searches into calls, quote requests and booked work.
           </p>
 
           <p class="hero__mechanism">
-            <strong>The Auto Glass Growth OS</strong> is our auto glass marketing methodology — a framework for connecting discovery, trust, conversion and measurement, not software. <span class="hero__descriptor">{siteConfig.channelDescriptor}</span>
+            <strong>The Auto Glass Growth OS</strong> is simply how we do it: get found, get chosen, get booked, and know what worked. A method, not software you have to learn. <span class="hero__descriptor">{siteConfig.channelDescriptor}</span>
           </p>
 
           <div class="hero__actions fade-up fade-up--delay-1">
             <a href="/visibility-analysis/" data-analytics-event="primary_cta_click" class="btn btn--primary btn--lg">
               {siteConfig.primaryCta}
             </a>
-            <a href="#journey" data-analytics-event="secondary_cta_click" class="btn btn--secondary btn--lg">
+            <a href="#how-it-works" data-analytics-event="secondary_cta_click" class="btn btn--secondary btn--lg">
               See How It Works
             </a>
           </div>
@@ -97,12 +103,12 @@ const analysisScope = [
   </section>
 
   <!-- ════════════════════════════════════════════
-       2. CREDIBILITY / SPECIALIZATION STRIP
+       2. TRUST STRIP (three points)
        ════════════════════════════════════════════ -->
   <section class="cred" aria-label="Why Auto Glass Growth">
     <div class="container">
       <ul class="cred__list" role="list">
-        {credibilityPoints.map((c) => (
+        {trustStrip.map((c) => (
           <li class="cred__item">
             <span class="cred__label">{c.label}</span>
             <span class="cred__detail">{c.detail}</span>
@@ -113,7 +119,32 @@ const analysisScope = [
   </section>
 
   <!-- ════════════════════════════════════════════
-       3. WHERE QUALIFIED DEMAND GETS LOST
+       3. THREE OUTCOMES
+       ════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="outcomes-heading">
+    <div class="container">
+      <div class="section-header section-header--center">
+        <span class="eyebrow">What you get</span>
+        <span class="cyan-rule" style="margin: 0 auto;"></span>
+        <h2 id="outcomes-heading" class="section-heading text-balance">Get found. Get chosen. Get booked.</h2>
+        <p class="section-lead">
+          The demand in your market is already there. Drivers are searching today. Our job is to make sure more of them find you, pick you and reach you — and that you can see it happening.
+        </p>
+      </div>
+      <ol class="outcomes" role="list">
+        {outcomes.map((o, i) => (
+          <li class="outcome" role="listitem">
+            <span class="outcome__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+            <h3 class="outcome__title">{o.title}</h3>
+            <p class="outcome__body">{o.body}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       4. WHERE SHOPS LOSE JOBS
        ════════════════════════════════════════════ -->
   <section class="section section--alt" aria-labelledby="leaks-heading">
     <div class="container">
@@ -121,13 +152,14 @@ const analysisScope = [
         <div class="leaks__intro">
           <span class="eyebrow eyebrow--amber">The problem</span>
           <span class="cyan-rule"></span>
-          <h2 id="leaks-heading" class="section-heading text-balance">Where auto glass companies lose customer demand.</h2>
+          <h2 id="leaks-heading" class="section-heading text-balance">Where auto glass shops lose jobs.</h2>
           <p class="section-lead">
-            Drivers with a cracked windshield decide in minutes, on a phone. The demand in your market is already there. Most of it is lost at one of five points — usually more than one.
+            A driver catches a rock on the highway at 7:40 a.m. In the parking lot at work she searches "windshield replacement near me." Three shops show up on the map. She taps the one with the most reviews and calls. If that isn't you, that job was gone before you knew it existed.
           </p>
-          <p class="leaks__note">
-            Auto Glass Growth directly addresses the marketing and conversion issues. For operational or technology bottlenecks outside our services, we may recommend specialized third-party providers.
+          <p class="section-lead">
+            Most shops lose jobs at one of four points. Usually more than one.
           </p>
+          <a href="/visibility-analysis/" class="leaks__cta" data-analytics-event="leaks_cta_click">Find out which ones are costing you jobs &rarr;</a>
         </div>
         <ol class="leaks__grid" role="list">
           {leaks.map((l, i) => (
@@ -143,16 +175,43 @@ const analysisScope = [
   </section>
 
   <!-- ════════════════════════════════════════════
-       4. THE GROWTH OS METHODOLOGY (FOUND → TRUSTED → CHOSEN → MEASURED)
+       5. MID-PAGE CTA — what the analysis shows you
        ════════════════════════════════════════════ -->
-  <section id="journey" class="section section--journey" aria-labelledby="journey-heading">
+  <section class="section section--midcta" aria-labelledby="midcta-heading">
+    <div class="container">
+      <div class="midcta">
+        <div class="midcta__copy">
+          <span class="eyebrow">Free Growth Analysis</span>
+          <span class="cyan-rule"></span>
+          <h2 id="midcta-heading" class="section-heading text-balance">See where you're losing jobs — and what to fix first.</h2>
+          <p class="section-lead">We look at your market by hand and send you the findings. No sales call required to get them.</p>
+        </div>
+        <div class="midcta__panel">
+          <ul class="midcta__list" role="list" aria-label="What the analysis tells you">
+            <li class="check-item">Which competitors show up instead of you, and for which searches</li>
+            <li class="check-item">Where drivers drop off before calling or requesting a quote</li>
+            <li class="check-item">The three or four fixes most likely to create more booked jobs</li>
+          </ul>
+          <a href="/visibility-analysis/" data-analytics-event="primary_cta_click" class="btn btn--primary btn--lg btn--full">
+            {siteConfig.primaryCta}
+          </a>
+          <p class="midcta__note">Manually reviewed &middot; Confidential &middot; No obligation &middot; <a href="/visibility-analysis/#scope">See everything we review</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       6. HOW IT WORKS — the Growth OS, once
+       ════════════════════════════════════════════ -->
+  <section id="how-it-works" class="section section--journey" aria-labelledby="journey-heading">
     <div class="container">
       <div class="section-header section-header--wide">
-        <span class="eyebrow">The Auto Glass Growth OS &middot; our methodology</span>
+        <span class="eyebrow">The Auto Glass Growth OS &middot; how we work</span>
         <span class="cyan-rule"></span>
-        <h2 id="journey-heading" class="section-heading text-balance">One methodology across the whole customer journey.</h2>
+        <h2 id="journey-heading" class="section-heading text-balance">How a driver becomes your customer — and how we make sure it's you.</h2>
         <p class="section-lead">
-          Found &rarr; Trusted &rarr; Chosen &rarr; Measured. The Growth OS is how we connect marketing, conversion and measurement — a framework, not a platform you log into — built around the moments where a driver becomes your customer or someone else's.
+          Found &rarr; Trusted &rarr; Chosen &rarr; Measured. Four steps, in the order a driver actually goes through them. Every service we offer fits one of these steps, so nothing is done for its own sake.
         </p>
       </div>
       <JourneySystem />
@@ -160,59 +219,57 @@ const analysisScope = [
   </section>
 
   <!-- ════════════════════════════════════════════
-       5. AUTO GLASS GROWTH SERVICES
+       7. THREE PILLARS (seven services)
        ════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="modules-heading">
+  <section class="section section--alt" aria-labelledby="pillars-heading">
     <div class="container">
-      <div class="modules">
-        <div class="modules__intro">
-          <span class="eyebrow">Auto Glass Growth services</span>
-          <span class="cyan-rule"></span>
-          <h2 id="modules-heading" class="section-heading text-balance">What we actually do for auto glass companies.</h2>
-          <p class="section-lead">
-            Seven services, run as one methodology. The pages built for SEO become the landing pages for Ads, the business information that wins Maps is what AI search corroborates, and every channel converts on a website we build or optimize to rank and convert.
-          </p>
-          <a href="/auto-glass-lead-generation/" data-analytics-event="leadgen_learn_more" class="btn btn--secondary">
-            How it generates leads you own &rarr;
-          </a>
-        </div>
-        <ol class="modules__list" role="list">
-          {services.map((m) => (
-            <li class="module" role="listitem">
-              <span class="module__num" aria-hidden="true">{m.num}</span>
-              <div class="module__body">
-                <h3 class="module__title">{m.title}</h3>
-                <p class="module__desc">{m.body}</p>
-                <a href={m.href} class="module__link" data-analytics-event="module_link_click">{m.cta} &rarr;</a>
-              </div>
-            </li>
-          ))}
-        </ol>
+      <div class="section-header section-header--center">
+        <span class="eyebrow">Auto Glass Growth services</span>
+        <span class="cyan-rule" style="margin: 0 auto;"></span>
+        <h2 id="pillars-heading" class="section-heading text-balance">What we actually do for auto glass companies.</h2>
+        <p class="section-lead">
+          Seven services, three jobs. The pages we build for search become the landing pages for your ads. The business information that wins the Map Pack is what AI answers repeat. It all lands on one website built to turn a visit into a call.
+        </p>
+      </div>
+      <div class="pillars">
+        {pillars.map((p) => (
+          <article class="pillar card">
+            <h3 class="pillar__title">{p.title}</h3>
+            <p class="pillar__body">{p.body}</p>
+            <ul class="pillar__services" role="list">
+              {p.services.map((m) => (
+                <li>
+                  <a href={m.href} class="pillar__service" data-analytics-event="module_link_click">
+                    <span class="pillar__service-name">{m.title} &rarr;</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+      <div class="pillars__foot">
+        <a href="/auto-glass-lead-generation/" data-analytics-event="leadgen_learn_more" class="btn btn--secondary">
+          How it all works together as lead generation &rarr;
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════
-       6. CONVERSION: CLICK OR CALL
+       8. CLICK OR CALL — how it turns into work
        ════════════════════════════════════════════ -->
   <section class="section section--paths" aria-labelledby="paths-heading">
     <div class="container">
       <div class="section-header section-header--center">
-        <span class="eyebrow eyebrow--amber">Chosen &middot; conversion optimization</span>
+        <span class="eyebrow eyebrow--amber">How it turns into work for your shop</span>
         <span class="cyan-rule" style="margin: 0 auto;"></span>
         <h2 id="paths-heading" class="section-heading text-balance">Whether they click or call, give them a clear path to book.</h2>
         <p class="section-lead">
-          Visibility is wasted if the driver hits a dead end. Our conversion work shapes both paths: landing pages, click-to-call, quote-request UX, service and insurance information, and the customer journey from first tap to scheduled job.
+          Showing up is wasted if the driver hits a dead end. We build both paths — the page they land on, the call button, the short quote form — and track each one to a booked job. Your team and the systems you choose handle the response and scheduling.
         </p>
       </div>
       <ConversionPaths />
-      <ul class="paths-caps" role="list" aria-label="Auto Glass Growth conversion services">
-        <li class="check-item">Website CRO</li>
-        <li class="check-item">Landing pages</li>
-        <li class="check-item">Call pathways &amp; click-to-call</li>
-        <li class="check-item">Quote-request UX</li>
-        <li class="check-item">Customer journey optimization</li>
-      </ul>
       <div class="paths-partner">
         <PartnerCallout compact />
       </div>
@@ -220,48 +277,15 @@ const analysisScope = [
   </section>
 
   <!-- ════════════════════════════════════════════
-       7. BUSINESS ECONOMICS
+       9. ENGAGEMENT MODELS
        ════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="economics-heading">
-    <div class="container">
-      <div class="econ">
-        <div class="econ__copy">
-          <span class="eyebrow">Built around your operation</span>
-          <span class="cyan-rule"></span>
-          <h2 id="economics-heading" class="section-heading text-balance">The goal isn't maximum traffic. It's the right demand your operation can profitably serve.</h2>
-          <p class="section-lead">
-            A rock chip repair, a same-day replacement with ADAS calibration, and a fleet account are different jobs with different margins. Growth OS strategy starts with how your business actually runs, then shapes which searches, services and markets to capture — and which to leave alone.
-          </p>
-          <ul class="econ__factors" role="list" aria-label="Factors the strategy considers">
-            {economics.map((f) => <li>{f}</li>)}
-          </ul>
-          <p class="econ__note">
-            We don't sell leads, and we don't sell software. We build the marketing, website and conversion system — your site, Maps listing, ads and brand — that generates inquiries, so every one of them belongs to you.
-          </p>
-        </div>
-        <div class="econ__visual">
-          <img
-            src="/auto-glass-adas-calibration.png"
-            alt="Auto glass technician calibrating a windshield-mounted driver assistance camera"
-            width="1448"
-            height="1086"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════
-       8. ENGAGEMENT MODELS
-       ════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="engagement-models-heading">
+  <section class="section section--alt" aria-labelledby="engagement-models-heading">
     <div class="container">
       <div class="section-header section-header--center">
-        <span class="eyebrow">Engagement models</span>
+        <span class="eyebrow">Two ways to work together</span>
         <span class="cyan-rule" style="margin: 0 auto;"></span>
         <h2 id="engagement-models-heading" class="section-heading text-balance">Two ways to work with Auto Glass Growth.</h2>
+        <p class="section-lead">The goal isn't maximum traffic. It's the right demand your operation can profitably serve.</p>
       </div>
       <div class="models-grid">
         <article class="card model-card model-card--primary">
@@ -273,11 +297,10 @@ const analysisScope = [
             <span class="model-card__mode eyebrow eyebrow--blue">We run it for you.</span>
           </header>
           <p class="model-card__body">
-            A specialized external team runs customer acquisition across SEO, Google Maps, Google Ads, your website, conversion and measurement — while your dispatchers stay focused on booking jobs.
+            We run your search, Maps, ads, website, conversion and reporting as your outside marketing team. Your people stay focused on answering the phone and booking jobs.
           </p>
           <ul class="model-card__list" role="list">
             <li class="arrow-item">Strategy, execution and quality control</li>
-            <li class="arrow-item">Conversion pathway optimization</li>
             <li class="arrow-item">Reporting on qualified leads, appointments and booked jobs</li>
           </ul>
           <a href="/visibility-analysis/" data-analytics-event="managed_search_os_interest" class="btn btn--primary">
@@ -293,11 +316,10 @@ const analysisScope = [
             <span class="model-card__mode eyebrow">We build it with your team.</span>
           </header>
           <p class="model-card__body">
-            For operators who want stronger in-house capability: we build the Growth OS workflows with your team, then provide ongoing strategy, quality control and support as your markets grow.
+            Have someone in-house who handles marketing? We set up the system with them, then stay on for strategy, quality control and support as you add markets.
           </p>
           <ul class="model-card__list" role="list">
             <li class="arrow-item">Search systems and reusable workflows your team operates</li>
-            <li class="arrow-item">Ongoing strategy and quality control</li>
             <li class="arrow-item">The same measurement model, run internally</li>
           </ul>
           <a href="/visibility-analysis/" data-analytics-event="search_os_team_interest" class="btn btn--secondary">
@@ -309,27 +331,57 @@ const analysisScope = [
   </section>
 
   <!-- ════════════════════════════════════════════
-       9. FINAL CTA
+       11. FAQ
+       ════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="home-faq-heading">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Common questions</span>
+        <span class="cyan-rule"></span>
+        <h2 id="home-faq-heading" class="section-heading text-balance">Questions owners ask before they fill out the form.</h2>
+      </div>
+      <div class="home-faq__layout">
+        <div class="home-faq">
+          {faqs.map((f) => (
+            <details class="home-faq__item">
+              <summary class="home-faq__q">{f.question}</summary>
+              <p class="home-faq__a">{f.answer}</p>
+            </details>
+          ))}
+        </div>
+        <div class="home-faq__photo">
+            <img
+              src="/auto-glass-adas-calibration.png"
+              alt="Auto glass technician calibrating a windshield-mounted driver assistance camera"
+              width="1448"
+              height="1086"
+              loading="lazy"
+              decoding="async"
+            />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       12. FINAL CTA
        ════════════════════════════════════════════ -->
   <section class="section section--cta" aria-labelledby="final-cta-heading">
     <div class="container">
       <div class="final-cta">
-        <span class="eyebrow">{siteConfig.primaryCtaOffer}</span>
+        <span class="eyebrow">Free Growth Analysis</span>
         <span class="cyan-rule" style="margin: 0 auto;"></span>
         <h2 id="final-cta-heading" class="final-cta__heading text-balance">
           See where you're losing jobs — and how to win them back.
         </h2>
         <p class="final-cta__desc">
-          A complimentary, manually reviewed analysis of your auto glass market. We look at who's winning the searches you should own, and where drivers who find you don't become jobs.
+          We review your market by hand: who's winning the searches you should own, where drivers who find you don't become jobs, and what to fix first. You get written findings by email. No sales call required.
         </p>
-        <ul class="final-cta__scope" role="list" aria-label="What the analysis covers">
-          {analysisScope.map((s) => <li>{s}</li>)}
-        </ul>
         <a href="/visibility-analysis/" data-analytics-event="primary_cta_click" class="btn btn--primary btn--lg">
           {siteConfig.primaryCta}
         </a>
         <p class="final-cta__note">
-          Manually reviewed &middot; Confidential &middot; No obligation
+          Manually reviewed &middot; Confidential &middot; No obligation &middot; <a href="/visibility-analysis/#scope">See everything we review</a>
         </p>
       </div>
     </div>
@@ -480,6 +532,10 @@ const analysisScope = [
 
   .hero__mechanism strong { color: var(--text-primary); }
 
+  @media (max-width: 767px) {
+    .hero__mechanism { display: none; }
+  }
+
   .hero__descriptor {
     display: block;
     margin-top: 0.375rem;
@@ -530,7 +586,7 @@ const analysisScope = [
   }
 
   @media (min-width: 1024px) {
-    .cred__list { grid-template-columns: repeat(5, 1fr); }
+    .cred__list { grid-template-columns: repeat(3, 1fr); }
   }
 
   .cred__item {
@@ -579,14 +635,6 @@ const analysisScope = [
 
   @media (min-width: 1024px) {
     .leaks__intro { position: sticky; top: 6rem; }
-  }
-
-  .leaks__note {
-    font-size: 0.8125rem;
-    color: var(--text-tertiary);
-    line-height: 1.6;
-    margin: 0;
-    padding-top: 0.25rem;
   }
 
   .leaks__grid {
@@ -639,186 +687,10 @@ const analysisScope = [
     margin: 0;
   }
 
-  /* ── 5. Modules ──────────────────────────────── */
-  .modules {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  @media (min-width: 1024px) {
-    .modules {
-      grid-template-columns: 5fr 7fr;
-      gap: 4rem;
-      align-items: start;
-    }
-  }
-
-  .modules__intro {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  @media (min-width: 1024px) {
-    .modules__intro { position: sticky; top: 6rem; }
-  }
-
-  .modules__intro .btn { margin-top: 0.5rem; }
-
-  .modules__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .module {
-    display: grid;
-    grid-template-columns: 2.5rem 1fr;
-    gap: 0.75rem;
-    padding: 1.375rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .module__num {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--laser-cyan);
-    padding-top: 0.2rem;
-  }
-
-  .module__body {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-  }
-
-  .module__title {
-    font-family: var(--font-display);
-    font-size: 1.1875rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0;
-    line-height: 1.25;
-  }
-
-  .module__desc {
-    font-size: 0.9375rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  .module__link {
-    display: inline-block;
-    margin-top: 0.25rem;
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--laser-cyan);
-    text-decoration: none;
-    transition: opacity 150ms;
-  }
-
-  .module__link:hover { opacity: 0.8; }
-
   /* ── 6. Paths ────────────────────────────────── */
-  .paths-caps {
-    list-style: none;
-    margin: 1.75rem auto 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem 1.75rem;
-    max-width: 60rem;
-  }
-
   .paths-partner {
     max-width: 44rem;
     margin: 2rem auto 0;
-  }
-
-  /* ── 7. Economics ────────────────────────────── */
-  .econ {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    align-items: center;
-  }
-
-  @media (min-width: 1024px) {
-    .econ {
-      grid-template-columns: 7fr 5fr;
-      gap: 4.5rem;
-    }
-  }
-
-  .econ__copy {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .econ__factors {
-    list-style: none;
-    margin: 0.5rem 0 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem 1.25rem;
-  }
-
-  .econ__factors li {
-    font-size: 0.875rem;
-    color: var(--text-primary);
-    padding-left: 1rem;
-    position: relative;
-    line-height: 1.5;
-  }
-
-  .econ__factors li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.55rem;
-    width: 0.375rem;
-    height: 0.375rem;
-    border-radius: 50%;
-    background: var(--laser-cyan);
-  }
-
-  .econ__note {
-    margin: 0.75rem 0 0;
-    padding: 0.875rem 1.125rem;
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    background: var(--fleet-amber-dim);
-    border: 1px solid var(--fleet-amber-border);
-    border-radius: var(--radius-lg);
-  }
-
-  .econ__visual {
-    max-width: 36rem;
-    overflow: hidden;
-    border: 1px solid rgba(0, 210, 255, 0.16);
-    border-radius: var(--radius-xl);
-    background: var(--surface-01);
-    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
-  }
-
-  .econ__visual img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
   }
 
   /* ── 8. Engagement models ────────────────────── */
@@ -911,7 +783,7 @@ const analysisScope = [
     gap: 0.5rem;
   }
 
-  /* ── 9. Final CTA ────────────────────────────── */
+  /* ── 10. Final CTA ───────────────────────────── */
   .final-cta {
     display: flex;
     flex-direction: column;
@@ -939,33 +811,277 @@ const analysisScope = [
     margin: 0;
   }
 
-  .final-cta__scope {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-    max-width: 40rem;
-  }
-
-  .final-cta__scope li {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-secondary);
-    padding: 0.35rem 0.625rem;
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: var(--radius);
-  }
-
   .final-cta__note {
     font-family: var(--font-mono);
     font-size: 0.625rem;
     color: var(--text-tertiary);
     letter-spacing: 0.08em;
     margin: 0;
+  }
+
+  /* ── 3. Outcomes ─────────────────────────────── */
+  .outcomes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  @media (min-width: 900px) {
+    .outcomes { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+  }
+
+  .outcome {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    padding: 1.5rem;
+    background: var(--carbon-slate);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-top: 3px solid var(--laser-cyan);
+    border-radius: var(--radius-lg);
+  }
+
+  .outcome__num {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: var(--laser-cyan);
+    letter-spacing: 0.12em;
+  }
+
+  .outcome__title {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .outcome__body {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .leaks__cta {
+    display: inline-block;
+    margin-top: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--laser-cyan);
+    text-decoration: none;
+  }
+
+  .leaks__cta:hover { opacity: 0.8; }
+
+  /* ── 5. Mid-page CTA ─────────────────────────── */
+  .section--midcta {
+    background-color: var(--obsidian);
+    background-image: radial-gradient(ellipse at 20% 50%, rgba(30,64,175,0.18) 0%, transparent 60%);
+  }
+
+  .midcta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .midcta { grid-template-columns: 6fr 5fr; gap: 4rem; }
+  }
+
+  .midcta__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .midcta__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1.5rem;
+    background: var(--carbon-slate);
+    border: 1px solid rgba(0,210,255,0.18);
+    border-radius: var(--radius-xl);
+  }
+
+  .midcta__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .midcta__list .check-item {
+    font-size: 0.9375rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .midcta__note {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+    margin: 0;
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  .midcta__note a,
+  .final-cta__note a {
+    color: var(--laser-cyan);
+    text-decoration: none;
+  }
+
+  /* ── 7. Pillars ──────────────────────────────── */
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 900px) {
+    .pillars { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .pillar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .pillar__title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .pillar__body {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 0.5rem;
+  }
+
+  .pillar__services {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .pillar__service {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    text-decoration: none;
+    transition: opacity 150ms;
+  }
+
+  .pillar__service:hover { opacity: 0.85; }
+
+  .pillar__service-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--laser-cyan);
+  }
+
+  .pillars__foot {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  /* ── 11. FAQ ─────────────────────────────────── */
+  .home-faq__layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 1024px) {
+    .home-faq__layout { grid-template-columns: 7fr 5fr; gap: 4rem; }
+  }
+
+  .home-faq {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .home-faq__photo {
+    overflow: hidden;
+    border: 1px solid rgba(0, 210, 255, 0.16);
+    border-radius: var(--radius-xl);
+    background: var(--surface-01);
+  }
+
+  @media (min-width: 1024px) { .home-faq__photo { position: sticky; top: 6rem; } }
+
+  .home-faq__photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .home-faq__item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .home-faq__q {
+    cursor: pointer;
+    list-style: none;
+    padding: 1.125rem 2rem 1.125rem 0;
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    position: relative;
+  }
+
+  .home-faq__q::-webkit-details-marker { display: none; }
+
+  .home-faq__q::after {
+    content: '+';
+    position: absolute;
+    right: 0.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--laser-cyan);
+    font-weight: 400;
+    font-size: 1.25rem;
+  }
+
+  .home-faq__item[open] .home-faq__q::after { content: '−'; }
+
+  .home-faq__a {
+    margin: 0;
+    padding: 0 0 1.25rem;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 46rem;
   }
 </style>

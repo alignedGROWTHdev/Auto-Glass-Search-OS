@@ -49,34 +49,34 @@ export const methodologyStages = [
     id: "found",
     step: "01",
     title: "FOUND",
-    subtitle: "Capture high-intent demand.",
-    description: "Show up where drivers are already looking for windshield replacement, repair, mobile service, and ADAS calibration: Google Search, Google Maps, Google Ads, and AI-assisted discovery.",
+    subtitle: "Show up when drivers are looking.",
+    description: "Be in the top map results and on page one when a driver searches for windshield replacement, repair, mobile service or ADAS calibration — on Google, in the Map Pack, in Google Ads, and in AI answers.",
     signals: [
-      "SEO",
-      "Google Maps",
+      "Google Search",
+      "Map Pack (top 3)",
       "Google Ads",
-      "AI search visibility"
+      "AI answers"
     ]
   },
   {
     id: "trusted",
     step: "02",
     title: "TRUSTED",
-    subtitle: "Give customers reasons to choose the operator.",
-    description: "Strengthen what drivers use to decide in minutes: the website itself, reviews and reputation, authority, service clarity, and insurance, warranty and ADAS information where relevant.",
+    subtitle: "Give drivers a reason to pick you.",
+    description: "Drivers decide in minutes, on a phone. Your website, reviews, and clear answers about insurance and warranty are what make them pick you over the shop above or below you.",
     signals: [
       "Website",
       "Reviews",
-      "Authority",
-      "Service information"
+      "Insurance answers",
+      "Warranty answers"
     ]
   },
   {
     id: "chosen",
     step: "03",
     title: "CHOSEN",
-    subtitle: "Reduce friction between customer intent and action.",
-    description: "Make it simple for a driver who found you to call or request a quote — through website CRO, landing pages, click-to-call and quote-request UX, and customer-journey optimization.",
+    subtitle: "Make it easy to call or get a quote.",
+    description: "One tap to call. A short quote form. Hours and service area where they can see them. We build and tune the path so a driver who found you actually reaches you.",
     signals: [
       "Call",
       "Quote request",
@@ -87,8 +87,8 @@ export const methodologyStages = [
     id: "measured",
     step: "04",
     title: "MEASURED",
-    subtitle: "Understand what marketing activity creates business.",
-    description: "Connect marketing activity to qualified leads, quotes, appointments, booked jobs and acquisition cost — through analytics, conversion tracking and call tracking, whenever reliable data is available.",
+    subtitle: "Know which marketing turned into jobs.",
+    description: "Every call and quote request is tracked back to where it came from, so you can see which channels produce booked jobs and what each one costs — with real numbers, not guesses.",
     signals: [
       "Qualified lead",
       "Quote",
@@ -106,6 +106,13 @@ export const partnerTech = {
   role: "We can help identify the gap and, where appropriate, connect you with third-party providers offering solutions such as online quoting, scheduling and AI-assisted call handling.",
   disclosure: "Third-party technology is provided and supported separately by the applicable provider.",
 };
+
+// Short trust strip for the homepage (three points, owner language).
+export const trustStrip = [
+  { label: "Auto glass only", detail: "We work with auto glass shops. Nothing else." },
+  { label: "You own the inquiries", detail: "We don't sell leads or software. Your site, your listing, your ads, your calls." },
+  { label: "Measured in booked jobs", detail: "Not clicks or rankings. Calls, quotes and jobs on the schedule." },
+];
 
 // Verified credibility points (no invented metrics).
 export const credibilityPoints = [
@@ -128,13 +135,13 @@ export const acquisitionFlow = [
 
 // Auto Glass Growth services (the company's own services — not third-party technology).
 export const services = [
-  { num: "01", title: "Auto Glass SEO", body: "Organic search strategy designed around qualified customer demand for windshield replacement, repair, mobile service and ADAS calibration.", href: "/auto-glass-seo/", cta: "Auto glass SEO" },
-  { num: "02", title: "Local SEO + Google Maps", body: "Improve visibility when nearby customers are actively looking for auto glass service — Google Business Profile, Map Pack, reviews and service areas.", href: "/auto-glass-local-seo/", cta: "Local SEO & Maps" },
-  { num: "03", title: "Google Ads / PPC", body: "Capture high-intent paid search demand with stronger targeting, negative-keyword control, landing pages and measurement.", href: "/google-ads/", cta: "Google Ads" },
-  { num: "04", title: "Auto Glass Websites", body: "Build websites around search visibility, trust and conversion — not aesthetics alone.", href: "/auto-glass-websites/", cta: "Auto glass websites" },
-  { num: "05", title: "Conversion Optimization", body: "Improve the path between landing on the site and becoming a qualified opportunity: CTAs, click-to-call, forms, quote-request UX, mobile.", href: "/auto-glass-websites/#cro-heading", cta: "Conversion optimization" },
-  { num: "06", title: "AI Search Visibility", body: "Improve entity, service and location clarity for emerging AI-assisted discovery.", href: "/ai-search-optimization/", cta: "AI search visibility" },
-  { num: "07", title: "Analytics + Measurement", body: "Connect marketing activity with meaningful conversion outcomes: qualified leads, appointments, booked jobs and acquisition cost.", href: "/auto-glass-lead-generation/#measure-heading", cta: "Measurement" },
+  { num: "01", title: "Auto Glass SEO", body: "Show up on page one when drivers search for windshield replacement, repair, mobile service or ADAS calibration in your area.", href: "/auto-glass-seo/", cta: "Auto glass SEO" },
+  { num: "02", title: "Local SEO + Google Maps", body: "Get into the top three map results. Your Google Business Profile, reviews and service areas, done right.", href: "/auto-glass-local-seo/", cta: "Local SEO & Maps" },
+  { num: "03", title: "Google Ads / PPC", body: "Paid ads that reach drivers who need glass now — without paying for shower doors, tint or parts searches.", href: "/google-ads/", cta: "Google Ads" },
+  { num: "04", title: "Auto Glass Websites", body: "A site built to rank, answer the questions drivers ask, and get them to call or request a quote from a phone.", href: "/auto-glass-websites/", cta: "Auto glass websites" },
+  { num: "05", title: "Conversion Optimization", body: "Make it easier for drivers who land on your site to call or get a quote: buttons, forms, mobile layout, trust signals.", href: "/auto-glass-websites/#cro-heading", cta: "Conversion optimization" },
+  { num: "06", title: "AI Search Visibility", body: "Be the shop Google's AI answers and ChatGPT mention when someone asks for auto glass help nearby.", href: "/ai-search-optimization/", cta: "AI search visibility" },
+  { num: "07", title: "Analytics + Measurement", body: "See which channels produce calls, quotes and booked jobs, and what each one costs you.", href: "/auto-glass-lead-generation/#measure-heading", cta: "Measurement" },
 ];
 
 // Channel pages that make up the customer-acquisition system (used for cross-linking).

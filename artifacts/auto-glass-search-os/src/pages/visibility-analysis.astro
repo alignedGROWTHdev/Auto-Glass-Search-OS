@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LeadForm from '../components/LeadForm.astro';
 import BrandMark from '../components/BrandMark.astro';
+import { siteConfig } from '../data/siteData';
 
 const pageTitle = "Auto Glass Marketing Audit | Free Opportunity Analysis";
 const pageDescription = "Find out who's winning the auto glass searches in your market. A free, manually reviewed audit of Maps, organic, paid and AI search gaps — and where you lose leads.";
@@ -18,32 +19,32 @@ const pageDescription = "Find out who's winning the auto glass searches in your 
             <span class="agos-brandmark" aria-hidden="true">
               <BrandMark size={26} />
             </span>
-            <span class="eyebrow">Search + Customer Acquisition Opportunity Analysis</span>
+            <span class="eyebrow">Free Growth Analysis</span>
           </div>
 
           <h1 id="analysis-heading" class="text-balance">
-            Find out who's winning the auto glass searches in your market.
+            See who's winning the auto glass searches in your market — and what it takes to win more booked jobs.
           </h1>
 
           <p class="analysis-value__lead">
-            Get a complimentary, manually reviewed analysis of how your auto glass company appears across Google Search, Google Maps, paid search, and AI-assisted search — where competitors are capturing the windshield replacement, repair, and ADAS calibration demand you are missing, and what it would take to turn that demand into qualified leads.
+            We review your market by hand: who holds the top map results and page one for windshield replacement, repair and ADAS calibration, how your reviews and website compare with the shops beating you, whether you show up in AI answers, and where drivers who find you drop off before calling. You get written findings by email. No sales call required.
           </p>
 
-          <div class="analysis-checklist" aria-label="What your analysis examines">
-            <p class="analysis-checklist__label eyebrow eyebrow--blue">What your analysis evaluates:</p>
+          <div id="scope" class="analysis-checklist" aria-label="What your analysis examines">
+            <p class="analysis-checklist__label eyebrow eyebrow--blue">Everything we review:</p>
             <ul class="analysis-checklist__list" role="list">
-              <li class="check-item">Search visibility — organic gaps for windshield replacement, repair, mobile service and ADAS calibration</li>
-              <li class="check-item">Google Maps visibility — where the Map Pack shows competitors instead of you</li>
-              <li class="check-item">Competitor visibility across your priority services and markets</li>
-              <li class="check-item">Paid search opportunity, including wasted spend on irrelevant searches where an account exists</li>
-              <li class="check-item">AI visibility across relevant AI-assisted search experiences</li>
-              <li class="check-item">Website UX and conversion friction — the reasons a driver who found you did not act</li>
-              <li class="check-item">Call pathway and quote-request pathway — click-to-call accessibility and whether a driver can request a quote without unnecessary back-and-forth</li>
-              <li class="check-item">Mobile conversion — speed, layout and tap targets on the device most auto glass searches happen on</li>
-              <li class="check-item">Measurement — whether calls, forms and booked jobs can be attributed to channels today</li>
+              <li class="check-item">Google search — where you rank for windshield replacement, repair, mobile service and ADAS calibration, and who ranks above you</li>
+              <li class="check-item">Google Maps — whether you are in the top three map results, and who is there instead</li>
+              <li class="check-item">Competitors — which shops are winning your services and markets, and why</li>
+              <li class="check-item">Google Ads — the opportunity, and wasted spend on searches that aren't auto glass if you already run ads</li>
+              <li class="check-item">AI answers — whether Google's AI and ChatGPT mention your shop when a driver asks</li>
+              <li class="check-item">Your website — the reasons a driver who found you didn't call or request a quote</li>
+              <li class="check-item">Call and quote paths — how many taps to reach you, and whether a driver can get a quote without a runaround</li>
+              <li class="check-item">Mobile — speed and layout on the phone, where most auto glass searches happen</li>
+              <li class="check-item">Tracking — whether you can tell today which channel produced each call, form and booked job</li>
             </ul>
             <p class="analysis-checklist__note">
-              Where operational or technology limitations appear to create conversion friction, recommendations may include specialized third-party technology. The analysis does not include or sell that technology.
+              If the bottleneck is operational — quoting, scheduling or call handling — we may point you to specialized third-party technology. The analysis does not include or sell that technology.
             </p>
           </div>
 
@@ -70,18 +71,21 @@ const pageDescription = "Find out who's winning the auto glass searches in your 
                   <path d="M2 7l3.5 3.5L12 3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </span>
-              <span>No obligation — scope confirmed before any engagement</span>
+              <span>No obligation — findings first, a call only if you want one</span>
             </div>
           </div>
 
           <div class="analysis-value__contact">
             <p class="contact-label eyebrow">Prefer to reach us directly?</p>
             <div class="contact-links">
-              <a href="tel:+17206002985" data-analytics-event="phone_click" class="contact-link">
+              <a href={`tel:${siteConfig.placeholders.phone.replace(/[^\d+]/g, '')}`} data-analytics-event="phone_click" class="contact-link">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M3 1h3l1.5 3.5-2 1.5A8 8 0 0 0 9 9.5l1.5-2L14 9v3a1 1 0 0 1-1 1A11 11 0 0 1 2 2a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                (720) 600-2985
+                {siteConfig.placeholders.phone}
+              </a>
+              <a href={`mailto:${siteConfig.placeholders.email}`} data-analytics-event="email_click" class="contact-link">
+                {siteConfig.placeholders.email}
               </a>
             </div>
           </div>
@@ -92,9 +96,9 @@ const pageDescription = "Find out who's winning the auto glass searches in your 
         <div class="analysis-form-panel">
           <div class="analysis-form-card">
             <header class="analysis-form-card__header">
-              <h2 class="analysis-form-card__title">Request Your Opportunity Analysis</h2>
+              <h2 class="analysis-form-card__title">Request Your Free Growth Analysis</h2>
               <p class="analysis-form-card__subtitle">
-                Tell us about your operation and markets. Every analysis is reviewed manually by Valentina Borda and the Auto Glass Growth team — not generated automatically.
+                Tell us about your shop and markets. A person reviews every request. You'll hear back within two business days with a date for your findings.
               </p>
             </header>
 
