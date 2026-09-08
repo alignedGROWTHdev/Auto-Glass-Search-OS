@@ -22,7 +22,7 @@ const pathname = Astro.url.pathname;
       <!-- Wordmark with crosshair brand mark -->
       <a href="/" class="agos-wordmark" aria-label={`${siteConfig.name} — Home`}>
         <span class="agos-brandmark" aria-hidden="true">
-          <BrandMark size={28} />
+          <BrandMark size={44} />
         </span>
         <span class="agos-wordmark__text">
           <span class="agos-wordmark__primary">AUTO GLASS</span>
@@ -129,7 +129,7 @@ const pathname = Astro.url.pathname;
   .agos-wordmark {
     display: flex;
     align-items: center;
-    gap: 0.625rem;
+    gap: 0.75rem;
     text-decoration: none;
     flex-shrink: 0;
     transition: opacity var(--transition-fast);
@@ -137,11 +137,6 @@ const pathname = Astro.url.pathname;
 
   .agos-wordmark:hover {
     opacity: 0.85;
-  }
-
-  .agos-wordmark:hover .agos-brandmark {
-    border-color: rgba(0, 210, 255, 0.45);
-    box-shadow: 0 0 16px rgba(0, 210, 255, 0.12);
   }
 
   .agos-wordmark__text {
@@ -153,18 +148,18 @@ const pathname = Astro.url.pathname;
 
   .agos-wordmark__primary {
     font-family: var(--font-display);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
+    font-size: 0.9375rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
     color: var(--text-primary);
   }
 
   .agos-wordmark__accent {
     font-family: var(--font-display);
-    font-size: 0.8125rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--laser-cyan);
+    font-size: 0.9375rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--brand-blue);
   }
 
   /* ── Desktop nav ──────────────────────────────────────── */

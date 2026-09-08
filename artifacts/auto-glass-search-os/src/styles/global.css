@@ -97,6 +97,8 @@
   --carbon-slate-2: #1A2540;    /* surface 02 / cards */
   --carbon-slate-3: #1F2D4A;    /* elevated / hover */
   --laser-cyan:     #00D2FF;    /* accent highlights */
+  --brand-blue:     #149FE6;    /* logo blue — wordmark accent */
+  --brand-navy:     #0A1B3A;    /* logo navy */
   --laser-cyan-dim: rgba(0, 210, 255, 0.12);
   --laser-cyan-border: rgba(0, 210, 255, 0.22);
   --cobalt:         #1E40AF;    /* primary actions */
@@ -591,25 +593,16 @@ img, video, svg {
 
 /* ─── 11. BRAND MARK (crosshair) ─────────────────────────────────────────────── */
 
+/* Brand mark wrapper — unboxed; the AG mark carries its own shape */
 .agos-brandmark {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: var(--radius-md);
-  background-color: rgba(0, 210, 255, 0.06);
-  border: 1px solid rgba(0, 210, 255, 0.22);
   flex-shrink: 0;
-  overflow: visible;
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  line-height: 0;
 }
 
-.agos-brandmark:hover {
-  border-color: rgba(0, 210, 255, 0.45);
-  box-shadow: 0 0 16px rgba(0, 210, 255, 0.12);
-}
-
+.agos-brandmark img,
 .agos-brandmark svg { display: block; }
 
 /* ─── 12. SECTION DIVIDERS ───────────────────────────────────────────────────── */
