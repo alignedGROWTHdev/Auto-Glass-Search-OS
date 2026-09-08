@@ -1,6 +1,5 @@
 ---
 import { siteConfig, isConfigured } from '../data/siteData';
-import BrandMark from './BrandMark.astro';
 ---
 
 <footer class="agos-footer" role="contentinfo">
@@ -12,12 +11,16 @@ import BrandMark from './BrandMark.astro';
       <!-- Col 1: Entity -->
       <div class="agos-footer__entity">
         <a href="/" class="agos-footer__wordmark" aria-label={`${siteConfig.name} — Home`}>
-          <span class="agos-brandmark" aria-hidden="true">
-            <BrandMark size={36} />
-          </span>
-          <span class="agos-footer__wordmark-text">
-            AUTO GLASS <span class="agos-footer__wordmark-accent">GROWTH</span>
-          </span>
+          <img
+            src="/brand/auto-glass-growth-logo-white.svg"
+            width="1320"
+            height="320"
+            alt=""
+            aria-hidden="true"
+            class="agos-footer__logo"
+            loading="lazy"
+            decoding="async"
+          />
         </a>
 
         <p class="agos-footer__desc">
@@ -148,23 +151,16 @@ import BrandMark from './BrandMark.astro';
   .agos-footer__wordmark {
     display: inline-flex;
     align-items: center;
-    gap: 0.625rem;
     text-decoration: none;
     transition: opacity var(--transition-fast);
   }
 
   .agos-footer__wordmark:hover { opacity: 0.8; }
 
-  .agos-footer__wordmark-text {
-    font-family: var(--font-display);
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    color: var(--text-primary);
-  }
-
-  .agos-footer__wordmark-accent {
-    color: var(--brand-blue);
+  .agos-footer__logo {
+    display: block;
+    width: auto;
+    height: 2.5rem;
   }
 
   .agos-footer__desc {

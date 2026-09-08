@@ -1,6 +1,5 @@
 ---
 import { siteConfig } from '../data/siteData';
-import BrandMark from './BrandMark.astro';
 const pathname = Astro.url.pathname;
 ---
 
@@ -19,15 +18,17 @@ const pathname = Astro.url.pathname;
   <div class="agos-header__primary">
     <div class="agos-header__inner container">
 
-      <!-- Wordmark with crosshair brand mark -->
+      <!-- Official brand-kit logo lockup -->
       <a href="/" class="agos-wordmark" aria-label={`${siteConfig.name} — Home`}>
-        <span class="agos-brandmark" aria-hidden="true">
-          <BrandMark size={44} />
-        </span>
-        <span class="agos-wordmark__text">
-          <span class="agos-wordmark__primary">AUTO GLASS</span>
-          <span class="agos-wordmark__accent">GROWTH</span>
-        </span>
+        <img
+          src="/brand/auto-glass-growth-logo-white.svg"
+          width="1320"
+          height="320"
+          alt=""
+          aria-hidden="true"
+          class="agos-wordmark__logo"
+          decoding="async"
+        />
       </a>
 
       <!-- Desktop nav -->
@@ -129,7 +130,6 @@ const pathname = Astro.url.pathname;
   .agos-wordmark {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
     text-decoration: none;
     flex-shrink: 0;
     transition: opacity var(--transition-fast);
@@ -139,27 +139,10 @@ const pathname = Astro.url.pathname;
     opacity: 0.85;
   }
 
-  .agos-wordmark__text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-    gap: 0.1rem;
-  }
-
-  .agos-wordmark__primary {
-    font-family: var(--font-display);
-    font-size: 0.9375rem;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    color: var(--text-primary);
-  }
-
-  .agos-wordmark__accent {
-    font-family: var(--font-display);
-    font-size: 0.9375rem;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    color: var(--brand-blue);
+  .agos-wordmark__logo {
+    display: block;
+    width: auto;
+    height: 2.25rem;
   }
 
   /* ── Desktop nav ──────────────────────────────────────── */
