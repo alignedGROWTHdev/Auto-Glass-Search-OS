@@ -1,0 +1,165 @@
+---
+/**
+ * ConversionPaths — two paths from search to a booked job:
+ * A) Digital: search → landing page → online quote → availability → book
+ * B) Phone:   search → call → human / AI-assisted response → schedule → book
+ * Includes the partner-technology disclosure.
+ */
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+
+const paths = [
+  {
+    key: "digital",
+    label: "Path A · Digital",
+    icon: "click",
+    steps: ["Search", "Landing page", "Online quote", "Availability", "Book"],
+  },
+  {
+    key: "phone",
+    label: "Path B · Phone",
+    icon: "phone",
+    steps: ["Search", "Call", "Human or AI-assisted response", "Schedule", "Book"],
+  },
+];
+---
+
+<div class:list={["paths", { "paths--compact": compact }]}>
+  {paths.map((p) => (
+    <div class:list={["path", `path--${p.key}`]}>
+      <div class="path__label">
+        <span class="path__icon" aria-hidden="true">
+          {p.icon === "phone" ? (
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 1h3l1.5 3.5-2 1.5A8 8 0 0 0 9 9.5l1.5-2L14 9v3a1 1 0 0 1-1 1A11 11 0 0 1 2 2a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          ) : (
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 2l8 4-3.5 1L6 10.5 3 2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          )}
+        </span>
+        <span>{p.label}</span>
+      </div>
+      <ol class="path__steps" aria-label={p.label}>
+        {p.steps.map((s, i) => (
+          <li class:list={["path__step", { "path__step--final": i === p.steps.length - 1 }]}>
+            <span class="path__step-text">{s}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  ))}
+  <p class="paths__disclosure">
+    Specialized quoting, scheduling and AI Voice capabilities available through our auto glass technology partner. Auto Glass Search OS owns the strategy, conversion analysis, implementation coordination and measurement; the partner provides the underlying technology, where supported and depending on implementation.
+  </p>
+</div>
+
+<style>
+  .paths {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .path {
+    background: rgba(19, 27, 46, 0.75);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-xl);
+    padding: 1.25rem 1.375rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .path--digital { border-color: rgba(0,210,255,0.22); }
+  .path--phone { border-color: rgba(30,64,175,0.45); }
+
+  .path__label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--laser-cyan);
+  }
+
+  .path--phone .path__label { color: var(--cobalt-hover); }
+
+  .path__icon { display: inline-flex; }
+
+  .path__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .path__step {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0.625rem 0.875rem;
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-lg);
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .path__step:not(:last-child)::after {
+    content: '↓';
+    position: absolute;
+    left: 50%;
+    bottom: -0.95rem;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    line-height: 1;
+  }
+
+  .path__step--final {
+    background: rgba(245,158,11,0.1);
+    border-color: rgba(245,158,11,0.4);
+    color: var(--fleet-amber);
+    font-weight: 600;
+  }
+
+  .path__step--final::before { content: '✓ '; margin-right: 0.35rem; }
+
+  .paths__disclosure {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+    margin: 0.25rem 0 0;
+    padding: 0.875rem 1rem;
+    border-left: 2px solid rgba(255,255,255,0.12);
+  }
+
+  @media (min-width: 720px) {
+    .path__steps {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.25rem;
+    }
+
+    .path__step {
+      justify-content: center;
+      text-align: center;
+      padding: 0.75rem 0.5rem;
+      font-size: 0.8125rem;
+    }
+
+    .path__step:not(:last-child)::after {
+      content: '→';
+      left: auto;
+      right: -1.05rem;
+      top: 50%;
+      bottom: auto;
+      transform: translateY(-50%);
+    }
+  }
+</style>

@@ -21,7 +21,10 @@ import BrandMark from './BrandMark.astro';
         </a>
 
         <p class="agos-footer__desc">
-          Search visibility and customer acquisition for established auto glass companies across Google Search, Google Maps, AI search, paid search, and website conversion.
+          Auto glass marketing and lead generation for established auto glass companies. We help operators capture more of the customer demand already happening in their markets and turn it into qualified calls, quote requests, and booked jobs.
+        </p>
+        <p class="agos-footer__desc agos-footer__desc--mono">
+          {siteConfig.channelDescriptor}
         </p>
 
         <div class="agos-footer__meta">
@@ -39,10 +42,11 @@ import BrandMark from './BrandMark.astro';
       <div class="agos-footer__col">
         <p class="agos-footer__col-heading" aria-label="Capabilities">Capabilities</p>
         <ul class="agos-footer__link-list" role="list">
+          <li><a href="/auto-glass-lead-generation/" class="agos-footer__link">Auto Glass Lead Generation</a></li>
           <li><a href="/auto-glass-seo/" class="agos-footer__link">Auto Glass SEO</a></li>
-          <li><a href="/auto-glass-local-seo/" class="agos-footer__link">Local Maps &amp; 3-Pack</a></li>
-          <li><a href="/ai-search-optimization/" class="agos-footer__link">AI Search &amp; AEO</a></li>
-          <li><a href="/google-ads/" class="agos-footer__link">High-Intent Google Ads</a></li>
+          <li><a href="/auto-glass-local-seo/" class="agos-footer__link">Local SEO &amp; Google Maps</a></li>
+          <li><a href="/google-ads/" class="agos-footer__link">Google Ads for Auto Glass</a></li>
+          <li><a href="/ai-search-optimization/" class="agos-footer__link">AI Search Optimization</a></li>
         </ul>
       </div>
 
@@ -52,38 +56,38 @@ import BrandMark from './BrandMark.astro';
         <ul class="agos-footer__stage-list" role="list">
           <li class="agos-footer__stage-item">
             <span class="agos-footer__stage-num">01.</span>
-            <span>Found — Easier to find</span>
+            <span>Found — Capture high-intent demand</span>
           </li>
           <li class="agos-footer__stage-item">
             <span class="agos-footer__stage-num">02.</span>
-            <span>Trusted — Reasons to trust</span>
+            <span>Trusted — Reasons to choose you</span>
           </li>
           <li class="agos-footer__stage-item">
             <span class="agos-footer__stage-num">03.</span>
-            <span>Chosen — Easy to contact</span>
+            <span>Chosen — Qualified calls &amp; quotes</span>
           </li>
           <li class="agos-footer__stage-item">
             <span class="agos-footer__stage-num">04.</span>
-            <span>Measured — Trackable outcomes</span>
+            <span>Measured — Booked jobs &amp; cost</span>
           </li>
         </ul>
       </div>
 
       <!-- Col 4: Visibility Analysis -->
       <div class="agos-footer__col">
-        <p class="agos-footer__col-heading">Visibility Analysis</p>
+        <p class="agos-footer__col-heading">Opportunity Analysis</p>
         <p class="agos-footer__col-desc">
-          See where competitors are more visible in your auto glass market.
+          See where competitors are capturing auto glass leads you're missing.
         </p>
         <a
           href="/visibility-analysis/"
           data-analytics-event="primary_cta_click"
           class="agos-footer__cta-link"
         >
-          Request Visibility Analysis
+          See Where You're Losing Jobs
         </a>
         <div class="agos-footer__secondary-links">
-          <a href="/about/" class="agos-footer__link">About Auto Glass Search OS</a>
+          <a href="/about/" class="agos-footer__link">About Valentina Borda &amp; Auto Glass Search OS</a>
           <a href="/privacy/" class="agos-footer__link">Privacy Policy</a>
         </div>
       </div>
@@ -93,7 +97,7 @@ import BrandMark from './BrandMark.astro';
     <!-- Bottom bar -->
     <div class="agos-footer__bottom">
       <p class="agos-footer__legal">
-        &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+        &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved. {siteConfig.name} is a specialized auto glass offering of {siteConfig.entity.parentOrganizationName}.
       </p>
       <p class="agos-footer__tagline">
         Search strategy &middot; AI-enabled systems &middot; Human expertise
@@ -172,6 +176,14 @@ import BrandMark from './BrandMark.astro';
     color: var(--text-tertiary);
     line-height: 1.65;
     max-width: 22rem;
+  }
+
+  .agos-footer__desc--mono {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
   }
 
   .agos-footer__meta {

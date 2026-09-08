@@ -1,16 +1,25 @@
 export const siteConfig = {
   name: "Auto Glass Search OS",
-  tagline: "Turn Search Visibility Into Booked Auto Glass Jobs",
-  description: "Search visibility and customer acquisition for established auto glass companies across Google Search, Google Maps, AI search, paid search, and website conversion.",
-  primaryCta: "Get Your Visibility Analysis",
-  primaryCtaOffer: "Complimentary Search + AI Visibility Analysis",
+  tagline: "Auto Glass Marketing That Turns Search Into Booked Jobs",
+  description: "Auto glass marketing and lead generation for established auto glass companies. We help operators capture more of the customer demand already happening in their markets — across Google Search, Google Maps, Google Ads, and AI search — and turn it into qualified calls, quote requests, and booked jobs.",
+  channelDescriptor: "SEO · Google Maps · Google Ads · AI Search · Conversion",
+  primaryCta: "See Where You're Losing Jobs",
+  primaryCtaOffer: "Complimentary Search + Customer Acquisition Analysis",
   siteUrl: "https://autoglasssearchos.com",
+  entity: {
+    organizationId: "https://autoglasssearchos.com/#organization",
+    parentOrganizationName: "Aligned Growth Digital",
+    parentOrganizationUrl: "https://alignedgrowthdigital.com",
+    parentOrganizationId: "https://alignedgrowthdigital.com/#organization",
+    founderName: "Valentina Borda",
+    founderId: "https://autoglasssearchos.com/about/#valentina-borda",
+  },
   navLinks: [
-    { name: "Overview", href: "/" },
+    { name: "Lead Generation", href: "/auto-glass-lead-generation/" },
     { name: "Auto Glass SEO", href: "/auto-glass-seo/" },
     { name: "Local SEO & Maps", href: "/auto-glass-local-seo/" },
-    { name: "AI Search / AEO", href: "/ai-search-optimization/" },
     { name: "Google Ads", href: "/google-ads/" },
+    { name: "AI Search", href: "/ai-search-optimization/" },
     { name: "About", href: "/about/" },
   ],
   placeholders: {
@@ -35,56 +44,108 @@ export const methodologyStages = [
     id: "found",
     step: "01",
     title: "FOUND",
-    subtitle: "Be easier to find",
-    description: "Help customers find your company across Google Search, Google Maps, local searches, and AI-assisted search.",
+    subtitle: "Capture high-intent demand.",
+    description: "Show up where drivers are already looking for windshield replacement, repair, mobile service, and ADAS calibration: Google Search, Google Maps, Google Ads, and AI-assisted discovery.",
     signals: [
-      "Google Search visibility",
-      "Google Maps visibility",
-      "Service-area coverage",
-      "Clear service information",
-      "Windshield repair and replacement searches"
+      "Search",
+      "Maps",
+      "Ads",
+      "AI"
     ]
   },
   {
     id: "trusted",
     step: "02",
     title: "TRUSTED",
-    subtitle: "Give customers reasons to trust you",
-    description: "Strengthen the information customers use to decide: reviews, services, locations, warranties, insurance information, and business credibility.",
+    subtitle: "Give drivers reasons to choose the operator.",
+    description: "Strengthen the information drivers use to decide in minutes: reviews, insurance information, warranty terms, ADAS credibility, and clear location and service-area details.",
     signals: [
-      "Recent customer reviews",
-      "Clear insurance information",
-      "ADAS recalibration details",
-      "Accurate location details",
-      "Consistent business information"
+      "Reviews",
+      "Insurance",
+      "Warranty",
+      "ADAS credibility"
     ]
   },
   {
     id: "chosen",
     step: "03",
     title: "CHOSEN",
-    subtitle: "Make it simple to contact you",
-    description: "Make it easy for prospective customers to call, request a quote, or schedule the service your business offers.",
+    subtitle: "Make it easy to call, quote and book.",
+    description: "Make it simple for a driver who found you to call, get a quote, or book — from any device, with a response path that does not depend on who happens to be free.",
     signals: [
-      "Qualified phone calls",
-      "Quote requests",
-      "Clear mobile contact options",
-      "Service and scheduling details"
+      "Call",
+      "Online quote",
+      "Scheduling",
+      "AI-assisted response"
     ]
   },
   {
     id: "measured",
     step: "04",
     title: "MEASURED",
-    subtitle: "See what is producing opportunities",
-    description: "Connect marketing activity with qualified calls, quote requests, and booked jobs whenever reliable tracking data is available.",
+    subtitle: "Understand what becomes business.",
+    description: "Connect marketing activity to qualified leads, quotes, appointments, booked jobs, and acquisition cost — moving beyond traffic and rankings whenever reliable operational data is available.",
     signals: [
-      "Qualified calls",
-      "Quote requests",
-      "Booked jobs",
-      "Customer acquisition cost"
+      "Qualified lead",
+      "Quote",
+      "Appointment",
+      "Booked job"
     ]
   }
+];
+
+// Partner-powered conversion technology. Auto Glass Search OS does not own this software.
+export const partnerTech = {
+  label: "Partner-powered conversion technology",
+  disclosure: "Specialized quoting, scheduling and AI Voice capabilities available through our auto glass technology partner.",
+  capabilities: [
+    "Partner-powered AI Voice CSR for after-hours, overflow and missed-call risk",
+    "Online auto glass quote estimation, where supported",
+    "Availability-based scheduling and booking, depending on implementation",
+  ],
+};
+
+// Verified credibility points (no invented metrics).
+export const credibilityPoints = [
+  { label: "Auto glass only", detail: "Built for established auto glass companies, not general local businesses" },
+  { label: "Search · Maps · Ads · AI", detail: "One connected system across every channel drivers use" },
+  { label: "Conversion-focused", detail: "Measured in qualified calls, quotes and booked jobs" },
+  { label: "10+ years digital growth", detail: "Founder-led experience across search, digital growth, eCommerce and marketing strategy" },
+  { label: "We don't sell leads", detail: "Your website, Maps listing, ads and brand generate the inquiries — and they're yours" },
+];
+
+// Owned customer-acquisition flow shown on the homepage and lead generation page.
+export const acquisitionFlow = [
+  { label: "Customer demand", detail: "A driver needs windshield replacement, repair, mobile service, or ADAS calibration" },
+  { label: "Search + Maps + Ads + AI", detail: "They look on Google Search, Google Maps, Google Ads, or an AI assistant" },
+  { label: "Website / landing experience", detail: "Your site answers their questions and makes contact easy" },
+  { label: "Qualified call or quote", detail: "They call your shop, or get a quote and see available times" },
+  { label: "Booked job", detail: "The appointment is scheduled" },
+  { label: "Measurement", detail: "You know which channels produced it and what it cost" },
+];
+
+// Channel pages that make up the customer-acquisition system (used for cross-linking).
+export const channelPages = [
+  {
+    href: "/auto-glass-seo/",
+    title: "Auto Glass SEO",
+    description: "Organic search visibility for the services and markets that drive windshield replacement demand.",
+  },
+  {
+    href: "/auto-glass-local-seo/",
+    title: "Auto Glass Local SEO & Google Maps",
+    description: "Google Business Profile, Map Pack, service areas, and reviews for nearby customers.",
+  },
+  {
+    href: "/google-ads/",
+    title: "Google Ads for Auto Glass",
+    description: "Call-focused paid search built around qualified leads, not clicks.",
+  },
+  {
+    href: "/ai-search-optimization/",
+    title: "AI Search Optimization",
+    description: "Clear, verifiable business information for AI-assisted discovery.",
+  },
 ];
 
 export const searchIntentMatrix = [

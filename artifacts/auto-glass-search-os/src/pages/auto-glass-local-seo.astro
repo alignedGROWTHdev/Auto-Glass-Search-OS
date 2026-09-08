@@ -1,171 +1,153 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CapabilityGrid from '../components/CapabilityGrid.astro';
+import ProseSection from '../components/ProseSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import ClosingCta from '../components/ClosingCta.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
 
-const pageTitle = "Auto Glass Local SEO | Google Maps SEO for Windshield Replacement";
-const pageDescription = "Improve Google Maps and local search visibility for windshield replacement, repair, ADAS recalibration, shop locations, and mobile service areas.";
+const pagePath = "/auto-glass-local-seo/";
+const pageTitle = "Auto Glass Local SEO | Google Maps & Map Pack Growth";
+const pageDescription = "Auto glass local SEO for Google Maps and the Map Pack. Google Business Profile, service areas, and reviews that turn nearby windshield searches into calls.";
+
+const capabilities = [
+  {
+    title: "Google Business Profile Alignment",
+    body: "Keep your categories, services, hours, contact details, and photos accurate so customers have the information they need to contact your business.",
+  },
+  {
+    title: "Reviews That Build Trust",
+    body: "Build an ethical review-request process that helps real customers describe the service they received in their own words, while your team monitors recurring trust and service themes.",
+  },
+  {
+    title: "Locations & Service Areas",
+    body: "Coordinate location and service-area pages with the markets you genuinely serve, without creating thin or repetitive local content.",
+  },
+];
+
+const faqs = [
+  {
+    question: "What is auto glass local SEO?",
+    answer: "Auto glass local SEO is the work of making your shop visible in Google Maps and the local 3-pack — the map results Google shows for nearby searches like windshield replacement near me — and making the listing convincing enough that the driver calls. It centers on your Google Business Profile, reviews, location and service-area accuracy, and consistency between your listing and your website.",
+  },
+  {
+    question: "Can you guarantee a spot in the Google Maps 3-pack?",
+    answer: "No, and no one honestly can. Map Pack results change with the searcher's location, the query, and Google's ranking systems. What we can do is fix the factors within your control — categories, services, business information, reviews, location clarity, and the website the profile links to — and measure the calls and direction requests the listing produces.",
+  },
+  {
+    question: "We are mostly mobile. Does local SEO still apply?",
+    answer: "Yes, with a different setup. A mobile or mobile-heavy operation uses a service-area business profile, defined service areas rather than a storefront address, and service-area pages on the website that describe the markets you cover. Proximity still matters, so where your business is based and how you describe your radius affect which searches you appear for.",
+  },
+  {
+    question: "How do multiple locations work in Google Maps?",
+    answer: "Each physical location needs its own verified Google Business Profile with accurate hours, phone, and services, tied to a matching location page on your website. The goal is for Google to understand which location serves which market so a driver in each city sees the right shop. Inconsistent names, phone numbers, or addresses across listings are one of the most common problems we find.",
+  },
+  {
+    question: "Do reviews affect Google Maps visibility?",
+    answer: "Reviews influence both visibility and whether the driver picks you. Recent reviews that mention specific services — windshield replacement, mobile service, ADAS calibration — help on both counts. We set up an ethical request process for real customers and monitor recurring themes; we never fabricate, buy, or gate reviews.",
+  },
+  {
+    question: "How is local SEO different from auto glass SEO?",
+    answer: "Local SEO focuses on Google Maps and the local 3-pack, driven by your Google Business Profile and location signals. Auto glass SEO focuses on organic rankings for your website's service and location pages. They share business information, reviews, and the website itself, so we run them as two halves of one lead generation system rather than separate projects.",
+  },
+];
+
+const extraSchema = [
+  serviceSchema({
+    pagePath,
+    name: "Auto Glass Local SEO",
+    serviceType: "Local SEO and Google Maps optimization for auto glass companies",
+    description: pageDescription,
+    alternateName: ["Google Maps SEO for Auto Glass", "Auto Glass Map Pack Optimization"],
+  }),
+  faqSchema(faqs, pagePath),
+];
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
+<BaseLayout title={pageTitle} description={pageDescription} breadcrumbName="Auto Glass Local SEO" extraSchema={extraSchema}>
 
-  <!-- Hero -->
-  <section class="page-hero" aria-labelledby="local-seo-heading">
-    <div class="container">
-      <div class="page-hero__content">
-        <span class="eyebrow">Google Maps &amp; Local Search</span>
-        <h1 id="local-seo-heading" class="text-balance">
-          Local SEO &amp; Google Maps: Help nearby customers find you.
-        </h1>
-        <p class="page-hero__lead">
-          Drivers with urgent glass needs compare nearby businesses across Google Maps, reviews, service details, and company websites before they call. We help make your business easier to find in the locations and service areas you genuinely serve.
-        </p>
-        <div class="page-hero__cta">
-          <a
-            href="/visibility-analysis/"
-            data-analytics-event="primary_cta_click"
-            class="btn btn--primary btn--lg"
-          >
-            Get Your Local Visibility Analysis
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    id="local-seo"
+    eyebrow="Google Maps & Local Search"
+    heading="Auto Glass Local SEO That Generates More Nearby Opportunities"
+    lead="Drivers with urgent glass needs compare nearby businesses across Google Maps, reviews, service details, and websites before they call. We help your shop show up in the Map Pack for the locations and service areas you genuinely serve — and give drivers the reasons to choose you."
+    ctaLabel="See My Local Search Gaps"
+    supportLine="Complimentary Search + Customer Acquisition Analysis"
+  />
 
-  <!-- Capability cards -->
-  <section class="section section--alt" aria-labelledby="local-capabilities-heading">
-    <div class="container">
-      <h2 id="local-capabilities-heading" class="sr-only">Local SEO Capabilities</h2>
-      <div class="cap-grid">
+  <CapabilityGrid id="local-capabilities" heading="What auto glass local SEO covers" eyebrow="Core capabilities" cards={capabilities} />
 
-        <article class="card">
-          <div class="card__top">
-            <span class="stage-badge" aria-hidden="true">01</span>
-            <h3 class="card__title">Google Business Profile Alignment</h3>
-          </div>
-          <p class="card__body">
-            Keep your categories, services, hours, contact details, and photos accurate so customers have the information they need to contact your business.
-          </p>
-        </article>
+  <ProseSection id="why-maps" eyebrow="Why Maps matters" heading="For urgent auto glass searches, Google Maps is often the whole decision">
+    <p>
+      When a driver searches "windshield replacement near me" on a phone, Google usually shows three Maps results before anything else. Many drivers call from that list without ever visiting a website. That makes your Google Business Profile — its categories, services, hours, photos, reviews, and how close you appear to the driver — one of the highest-leverage assets in <a href="/auto-glass-lead-generation/">auto glass lead generation</a>.
+    </p>
+    <p>
+      Local SEO is the work of earning that placement in the markets you serve and making the listing convincing enough to win the call. It sits alongside <a href="/auto-glass-seo/">auto glass SEO</a> for the website and <a href="/google-ads/">Google Ads</a> for immediate demand, and all three depend on the same accurate business information.
+    </p>
+  </ProseSection>
 
-        <article class="card">
-          <div class="card__top">
-            <span class="stage-badge" aria-hidden="true">02</span>
-            <h3 class="card__title">Reviews That Build Trust</h3>
-          </div>
-          <p class="card__body">
-            Build an ethical review-request process that helps real customers describe the service they received in their own words, while your team monitors recurring trust and service themes.
-          </p>
-        </article>
+  <ProseSection id="gbp" eyebrow="Google Business Profile" heading="The Google Business Profile, done properly" alt>
+    <p>
+      Most of what drivers see in Maps comes from your profile. The details that matter for an auto glass business:
+    </p>
+    <ul class="prose-grid">
+      <li><strong>Primary and secondary categories</strong> The right auto glass categories so Google matches you to glass searches rather than general repair.</li>
+      <li><strong>Services</strong> Windshield replacement, repair, mobile service, side and back glass, and ADAS calibration listed explicitly so they appear in relevant searches.</li>
+      <li><strong>Business information</strong> Name, phone, address or service area, and hours that exactly match your website and other listings.</li>
+      <li><strong>Photos</strong> Real photos of the shop, mobile units, calibration equipment, and completed work — not stock images.</li>
+      <li><strong>Reviews and responses</strong> Recent, specific reviews from real customers, with responses that show a human is paying attention.</li>
+      <li><strong>Website link and landing page</strong> A link to the page that matches the location and services, with tap-to-call visible immediately.</li>
+    </ul>
+  </ProseSection>
 
-        <article class="card">
-          <div class="card__top">
-            <span class="stage-badge" aria-hidden="true">03</span>
-            <h3 class="card__title">Locations &amp; Service Areas</h3>
-          </div>
-          <p class="card__body">
-            Coordinate location and service-area pages with the markets you genuinely serve, without creating thin or repetitive local content.
-          </p>
-        </article>
+  <ProseSection id="proximity" eyebrow="Location, radius, and routing" heading="Proximity, service areas, and how your operation actually works">
+    <p>
+      Maps visibility is tied to where the driver is searching from, where your business is located, and the service areas you declare. How you set this up should mirror how you operate:
+    </p>
+    <ul>
+      <li><strong>Physical shop locations</strong> — each shop gets its own verified profile and location page; proximity to the searcher strongly influences which shop appears.</li>
+      <li><strong>Mobile-only or mobile-heavy businesses</strong> — a service-area profile with defined coverage areas, plus service-area pages on the website that describe those markets with real detail.</li>
+      <li><strong>Multi-location operations</strong> — consistent information across every listing, with each profile linked to the right location page so Google and drivers know which shop serves which market.</li>
+      <li><strong>Mobile routing and ADAS capability</strong> — if calibration is done at a specific shop, or mobile service covers a wider radius than the shop draws, the profile, service list, and website should say so; drivers and insurers searching for calibration need to know where it happens.</li>
+    </ul>
+    <p>
+      The goal is not to appear everywhere. It is to appear for the searches you can actually serve, and to avoid the thin, repetitive location pages that Google tends to discount.
+    </p>
+  </ProseSection>
 
-      </div>
-    </div>
-  </section>
+  <ProseSection id="local-authority" eyebrow="Local authority" heading="Reviews, citations, and consistency" alt>
+    <p>
+      Beyond the profile, Google looks for signals that your business is real, established, and consistent. Reviews are the most visible: recent ones that mention specific services help both ranking and conversion, and an ethical request process for real customers keeps them coming. Citations — your business information on relevant directories and industry sites — matter where they are accurate; a mismatched phone number or old address on a third-party site can undermine your listing. Location consistency across your website, profile, and citations is the quiet foundation of all of it.
+    </p>
+  </ProseSection>
+
+  <ProseSection id="local-measurement" eyebrow="Measurement" heading="Tracking local calls and inquiries">
+    <p>
+      Google Business Profile reports calls, direction requests, and website clicks, but those numbers alone do not tell you which were qualified. We pair profile data with call tracking on the website and, where appropriate, on the listing itself, so local calls can be reviewed for quality and attributed by location. Combined with organic and paid tracking, that gives a clear view of what Maps is producing in qualified leads and, where your shop shares booking data, booked jobs.
+    </p>
+  </ProseSection>
+
+  <RelatedLinks
+    id="local-related"
+    heading="Local SEO is one part of the system."
+    links={[
+      { href: "/auto-glass-lead-generation/", title: "Auto Glass Lead Generation", description: "How Maps, SEO, Ads, AI search, and conversion connect into one owned acquisition system." },
+      { href: "/auto-glass-seo/", title: "Auto Glass SEO", description: "The service and location pages your Google Business Profile links to." },
+      { href: "/google-ads/", title: "Google Ads for Auto Glass", description: "Immediate access to high-intent nearby searches while Maps visibility builds." },
+      { href: "/visibility-analysis/", title: "Opportunity Analysis", description: "See which Map Pack searches in your market you are missing today." },
+    ]}
+    alt
+  />
+
+  <FaqSection id="local-faq" heading="Auto glass local SEO questions" items={faqs} />
+
+  <ClosingCta
+    id="local-cta"
+    heading="See which nearby searches are calling someone else."
+    description="Request a complimentary, manually reviewed analysis of your Google Maps and Map Pack visibility across the services and markets you serve — alongside organic search, paid search, AI visibility, and conversion friction."
+    ctaLabel="See My Local Search Gaps"
+  />
 
 </BaseLayout>
-
-<style>
-  .page-hero {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    background-color: var(--surface-00);
-  }
-
-  .page-hero__content {
-    max-width: 52rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .page-hero__lead {
-    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.1875rem);
-    color: var(--text-secondary);
-    line-height: 1.65;
-    max-width: 42rem;
-  }
-
-  .page-hero__cta {
-    padding-top: 0.5rem;
-  }
-
-  .section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    background-color: var(--surface-00);
-  }
-
-  .section--alt {
-    background-color: var(--surface-01);
-  }
-
-  .cap-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  @media (min-width: 768px) {
-    .cap-grid { grid-template-columns: repeat(3, 1fr); }
-  }
-
-  .card {
-    background-color: var(--surface-02);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--radius-xl);
-    padding: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    transition: border-color 200ms;
-  }
-
-  .card:hover {
-    border-color: rgba(49,130,246,0.3);
-  }
-
-  .card__top {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.875rem;
-  }
-
-  .card__title {
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0;
-    line-height: 1.35;
-    padding-top: 0.125rem;
-  }
-
-  .card__body {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-</style>

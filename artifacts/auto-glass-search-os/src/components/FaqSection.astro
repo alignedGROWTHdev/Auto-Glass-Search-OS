@@ -1,0 +1,162 @@
+---
+/**
+ * FaqSection — visible FAQ using native <details>. The FAQPage JSON-LD is
+ * generated from the same `items` array, so visible text and schema always match.
+ */
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  id?: string;
+  heading?: string;
+  eyebrow?: string;
+  items: FaqItem[];
+  alt?: boolean;
+}
+
+const {
+  id = "faq",
+  heading = "Frequently asked questions",
+  eyebrow = "FAQ",
+  items,
+  alt = false
+} = Astro.props;
+---
+
+<section class:list={["faq-section", { "faq-section--alt": alt }]} aria-labelledby={`${id}-heading`}>
+  <div class="container">
+    <div class="faq-section__inner">
+      <header class="faq-section__header">
+        <span class="eyebrow">{eyebrow}</span>
+        <span class="cyan-rule"></span>
+        <h2 id={`${id}-heading`} class="faq-section__heading text-balance">{heading}</h2>
+      </header>
+
+      <div class="faq-list">
+        {items.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-item__summary">
+              <h3 class="faq-item__question">{item.question}</h3>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </summary>
+            <div class="faq-item__answer">
+              <p>{item.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background-color: var(--surface-00);
+  }
+
+  .faq-section--alt {
+    background-color: var(--surface-01);
+  }
+
+  .faq-section__inner {
+    max-width: 52rem;
+  }
+
+  .faq-section__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .faq-section__heading {
+    font-size: clamp(1.5rem, 2.2vw + 0.5rem, 2.125rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .faq-item__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.125rem 0;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq-item__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__question {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .faq-item__icon {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  .faq-item__icon::before,
+  .faq-item__icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: var(--laser-cyan);
+    transform: translate(-50%, -50%);
+    transition: transform 200ms;
+  }
+
+  .faq-item__icon::before {
+    width: 1rem;
+    height: 2px;
+  }
+
+  .faq-item__icon::after {
+    width: 2px;
+    height: 1rem;
+  }
+
+  .faq-item[open] .faq-item__icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .faq-item__answer {
+    padding: 0 0 1.25rem;
+    max-width: 46rem;
+  }
+
+  .faq-item__answer p {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+</style>

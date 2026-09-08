@@ -1,0 +1,225 @@
+---
+/**
+ * JourneySystem — the Search OS framework rendered as one connected system:
+ * CUSTOMER DEMAND → FOUND → TRUSTED → CHOSEN → MEASURED.
+ * Horizontal rail on desktop, vertical rail on mobile.
+ */
+import { methodologyStages } from '../data/siteData';
+---
+
+<div class="journey" role="list" aria-label="The Search OS customer acquisition journey">
+  <div class="journey__origin" role="listitem">
+    <span class="journey__origin-label">Customer demand</span>
+    <span class="journey__origin-desc">A driver needs windshield replacement, repair, mobile service, or ADAS calibration — and searches.</span>
+  </div>
+
+  {methodologyStages.map((stage, i) => (
+    <article class:list={["journey__stage", { "journey__stage--final": i === methodologyStages.length - 1 }]} role="listitem" aria-labelledby={`journey-${stage.id}`}>
+      <div class="journey__node" aria-hidden="true">
+        <span class="journey__node-num">{stage.step}</span>
+      </div>
+      <h3 id={`journey-${stage.id}`} class="journey__title">{stage.title}</h3>
+      <p class="journey__subtitle">{stage.subtitle}</p>
+      <ul class="journey__signals" role="list">
+        {stage.signals.map((s) => <li>{s}</li>)}
+      </ul>
+    </article>
+  ))}
+</div>
+
+<style>
+  .journey {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  /* ── Origin block ── */
+  .journey__origin {
+    position: relative;
+    padding: 0 0 1.5rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .journey__origin::before {
+    content: '';
+    position: absolute;
+    left: 0.6875rem;
+    top: 0.5rem;
+    bottom: 0;
+    width: 2px;
+    background: rgba(0,210,255,0.28);
+  }
+
+  .journey__origin::after {
+    content: '';
+    position: absolute;
+    left: 0.375rem;
+    top: 0.25rem;
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 50%;
+    background: var(--fleet-amber);
+    box-shadow: 0 0 0 4px rgba(245,158,11,0.18);
+  }
+
+  .journey__origin-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--fleet-amber);
+  }
+
+  .journey__origin-desc {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 34rem;
+  }
+
+  /* ── Stage blocks (mobile: vertical rail) ── */
+  .journey__stage {
+    position: relative;
+    padding: 0 0 2rem 2.25rem;
+  }
+
+  .journey__stage::before {
+    content: '';
+    position: absolute;
+    left: 0.6875rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(0,210,255,0.28);
+  }
+
+  .journey__stage--final::before {
+    bottom: auto;
+    height: 1.5rem;
+  }
+
+  .journey__node {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.625rem;
+    height: 1.625rem;
+    border-radius: 50%;
+    background: var(--carbon-slate);
+    border: 2px solid var(--laser-cyan);
+    box-shadow: 0 0 0 4px rgba(0,210,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .journey__stage--final .journey__node {
+    border-color: var(--fleet-amber);
+    box-shadow: 0 0 0 4px rgba(245,158,11,0.16);
+  }
+
+  .journey__node-num {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .journey__title {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+    margin: -0.1rem 0 0.25rem;
+    line-height: 1.2;
+  }
+
+  .journey__stage--final .journey__title { color: var(--fleet-amber); }
+
+  .journey__subtitle {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin: 0 0 0.875rem;
+  }
+
+  .journey__signals {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+
+  .journey__signals li {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    padding: 0.3rem 0.625rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: var(--radius);
+    line-height: 1.2;
+  }
+
+  .journey__stage--final .journey__signals li {
+    border-color: rgba(245,158,11,0.3);
+    color: var(--text-primary);
+  }
+
+  /* ── Desktop: horizontal rail ── */
+  @media (min-width: 1024px) {
+    .journey {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 1.5rem;
+      row-gap: 2.5rem;
+    }
+
+    .journey__origin {
+      grid-column: 1 / -1;
+      padding: 0 0 0 2.25rem;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .journey__origin::before {
+      top: 1.25rem;
+      bottom: -2.5rem;
+      left: 0.6875rem;
+    }
+
+    .journey__stage {
+      padding: 2rem 0 0 0;
+    }
+
+    /* horizontal rail across the top of the stages */
+    .journey__stage::before {
+      left: 0.8125rem;
+      right: -1.5rem;
+      top: 0.75rem;
+      bottom: auto;
+      height: 2px;
+      width: auto;
+    }
+
+    .journey__stage--final::before {
+      right: 0;
+      height: 2px;
+    }
+
+    .journey__node {
+      top: -0.0625rem;
+    }
+
+    .journey__title {
+      margin-top: 0.25rem;
+    }
+  }
+</style>

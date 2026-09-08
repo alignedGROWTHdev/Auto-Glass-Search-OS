@@ -1,0 +1,142 @@
+---
+/**
+ * CapabilityGrid — the numbered three-card capability block used on service pages.
+ */
+interface Card {
+  title: string;
+  body: string;
+  items?: string[];
+}
+
+interface Props {
+  id: string;
+  heading: string;
+  eyebrow?: string;
+  cards: Card[];
+  alt?: boolean;
+  visuallyHideHeading?: boolean;
+}
+
+const { id, heading, eyebrow, cards, alt = true, visuallyHideHeading = false } = Astro.props;
+---
+
+<section class:list={["cap-section", { "cap-section--alt": alt }]} aria-labelledby={`${id}-heading`}>
+  <div class="container">
+    {visuallyHideHeading ? (
+      <h2 id={`${id}-heading`} class="sr-only">{heading}</h2>
+    ) : (
+      <header class="cap-section__header">
+        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+        <span class="cyan-rule"></span>
+        <h2 id={`${id}-heading`} class="cap-section__heading text-balance">{heading}</h2>
+      </header>
+    )}
+    <div class="cap-grid">
+      {cards.map((card, i) => (
+        <article class="card cap-card">
+          <div class="cap-card__top">
+            <span class="stage-badge" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+            <h3 class="cap-card__title">{card.title}</h3>
+          </div>
+          <p class="cap-card__body">{card.body}</p>
+          {card.items && (
+            <ul class="cap-card__list" role="list">
+              {card.items.map((item) => <li class="check-item">{item}</li>)}
+            </ul>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cap-section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background-color: var(--surface-00);
+  }
+
+  .cap-section--alt {
+    background-color: var(--surface-01);
+  }
+
+  .cap-section__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin-bottom: 2rem;
+    max-width: 52rem;
+  }
+
+  .cap-section__heading {
+    font-size: clamp(1.5rem, 2.2vw + 0.5rem, 2.125rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .cap-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .cap-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .cap-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.75rem;
+  }
+
+  .cap-card__top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+  }
+
+  .cap-card__title {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.35;
+    padding-top: 0.125rem;
+  }
+
+  .cap-card__body {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .cap-card__list {
+    list-style: none;
+    padding: 0.875rem 0 0;
+    margin: 0.25rem 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>

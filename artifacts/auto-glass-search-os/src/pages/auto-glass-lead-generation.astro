@@ -1,0 +1,259 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ProseSection from '../components/ProseSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import ClosingCta from '../components/ClosingCta.astro';
+import { channelPages, partnerTech } from '../data/siteData';
+import ConversionPaths from '../components/ConversionPaths.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const pagePath = "/auto-glass-lead-generation/";
+const pageTitle = "Auto Glass Lead Generation | Generate More Qualified Leads";
+const pageDescription = "Build an auto glass lead generation system you own. SEO, Google Maps, Google Ads, AI search, and conversion connected to produce qualified calls and booked jobs.";
+
+const faqs = [
+  {
+    question: "Do you sell auto glass leads?",
+    answer: "No. Auto Glass Search OS does not sell leads, resell shared consumer inquiries, or operate a lead marketplace. We help auto glass companies build their own inbound lead generation system, so the calls and quote requests come from your website, your Google Business Profile, your ads, and your brand — and belong to you.",
+  },
+  {
+    question: "How is owned lead generation different from buying auto glass leads?",
+    answer: "Purchased leads are typically shared with several shops, priced per lead, and disappear when you stop paying. Owned lead generation builds visibility and conversion paths tied to your own business. It takes longer to build, but it compounds, it is not shared with competitors, and it lowers your cost per qualified lead over time. Third-party lead sources can still have a place in an acquisition mix; an owned search presence is the asset underneath it.",
+  },
+  {
+    question: "What counts as a qualified auto glass lead?",
+    answer: "A qualified lead is an inquiry from a driver who needs a service you provide, in an area you serve, for a vehicle you can handle, within a timeframe you can meet, who can be reached to schedule. Insurance versus cash-pay context and vehicle or ADAS compatibility also matter. The exact definition is agreed with each operator so reporting reflects your business, not a generic template.",
+  },
+  {
+    question: "Where do auto glass leads actually come from?",
+    answer: "For most established shops, from a mix of organic Google Search, Google Maps, Google Ads, AI-assisted search, and brand or referral demand. Each channel reaches drivers at a different moment, and the website or landing page is where every one of them turns into a call or quote request — which is why we treat them as one system rather than separate tactics.",
+  },
+  {
+    question: "How quickly does auto glass lead generation produce results?",
+    answer: "Google Ads can start producing qualified calls within days once campaigns, negative keywords, and call tracking are in place. Google Maps and organic SEO improvements usually take several months to compound, depending on your market, competition, and starting point. We do not promise lead counts; we report what each channel actually produced.",
+  },
+  {
+    question: "Do we need to be running Google Ads to work with you?",
+    answer: "No. Some operators start with organic search and Google Maps, add paid search once the site converts well, and use AI search optimization as a differentiator. The right mix depends on your markets, capacity, margins, and how much demand already exists that you are not capturing. The opportunity analysis shows where the gaps are before anything is recommended.",
+  },
+  {
+    question: "Do you provide online quoting, scheduling, or AI call handling?",
+    answer: "Through a specialized auto glass technology partner, where supported and depending on implementation. Auto Glass Search OS does not own that software; we own the strategy, conversion analysis, implementation coordination and measurement around it. The goal is conversion — giving a driver who found you a path to a quote and an appointment whether they click or call — not replacing your team.",
+  },
+  {
+    question: "How do you measure lead quality instead of just traffic?",
+    answer: "We separate traffic, raw conversions, qualified leads, and booked jobs. Call tracking, form tracking, and call review identify which inquiries were real service requests. Where your shop can share booking or invoice data reliably, reporting moves toward booked jobs and cost per booked job rather than stopping at calls.",
+  },
+];
+
+const extraSchema = [
+  serviceSchema({
+    pagePath,
+    name: "Auto Glass Lead Generation",
+    serviceType: "Auto glass marketing and lead generation",
+    description: pageDescription,
+    alternateName: ["Auto Glass Marketing", "Owned Inbound Customer Acquisition for Auto Glass Companies"],
+  }),
+  faqSchema(faqs, pagePath),
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} breadcrumbName="Auto Glass Lead Generation" extraSchema={extraSchema}>
+
+  <PageHero
+    id="leadgen"
+    eyebrow="Auto Glass Lead Generation"
+    heading="Build an Auto Glass Lead Generation System That Produces Qualified Calls"
+    lead="Auto Glass Search OS helps established auto glass companies generate qualified inbound opportunities from drivers actively searching for windshield replacement, repair, mobile auto glass, and ADAS calibration. We connect Search, Maps, Google Ads, AI discovery, and conversion into one measurable customer acquisition system."
+    ctaLabel="Analyze My Lead Generation Opportunities"
+    supportLine="Complimentary Search + Customer Acquisition Analysis"
+  >
+    <div class="no-leads-banner" role="note">
+      <span class="no-leads-banner__label">We don't sell leads.</span>
+      <span class="no-leads-banner__text">We build the system that generates them.</span>
+    </div>
+  </PageHero>
+
+  <ProseSection id="owned" eyebrow="Owned, not rented" heading="Your website, your Maps listing, your ads, your brand — your leads." alt>
+    <p>
+      We do not resell shared inquiries or consumer lead lists. Instead, the customer opportunities come from assets the operator owns:
+    </p>
+    <ul class="prose-grid">
+      <li><strong>Website</strong> Service, location, insurance, and ADAS pages that answer the driver's questions and make contact easy.</li>
+      <li><strong>Google Business Profile</strong> The listing drivers see in Maps and the local 3-pack when they search nearby.</li>
+      <li><strong>Organic search visibility</strong> Rankings for the windshield replacement, repair, and calibration searches in your markets.</li>
+      <li><strong>Advertising</strong> Google Ads campaigns that capture high-intent searches and route calls to your shop.</li>
+      <li><strong>Brand</strong> Reviews, reputation, and repeat or referral demand that search then amplifies.</li>
+      <li><strong>Landing pages and conversion paths</strong> Click-to-call, quote requests, and scheduling that work on a phone in a parking lot.</li>
+    </ul>
+    <div class="callout">
+      <span class="callout__label">Why this matters</span>
+      <p>Third-party lead sources can have a place in an acquisition mix. But an owned search presence creates a customer-acquisition asset tied directly to your brand — one that compounds over time, is not shared with the shop down the road, and keeps producing after any single campaign ends.</p>
+    </div>
+  </ProseSection>
+
+  <ProseSection id="what-is" eyebrow="01" heading="What is auto glass lead generation?">
+    <p>
+      Auto glass lead generation is the process of producing qualified inbound opportunities — phone calls, quote requests, and bookings — from drivers who actually need the services your company provides, in the areas you serve. It is not traffic, impressions, or rankings. Those are inputs. The output is a driver with a cracked windshield in your service area who calls your shop.
+    </p>
+    <p>
+      Most auto glass demand is urgent and local. A driver notices damage, searches on a phone, compares two or three options across Google Maps, reviews, and websites, and calls within minutes. Lead generation for an auto glass company means being one of those options, giving the driver reasons to choose you, and making the call or quote request effortless.
+    </p>
+  </ProseSection>
+
+  <ProseSection id="sources" eyebrow="02" heading="Where auto glass leads come from" alt>
+    <p>
+      Every channel reaches drivers at a different moment. Treating them as one system — rather than separate vendors and tactics — is what Auto Glass Search OS is built around.
+    </p>
+    <ul class="prose-grid">
+      <li><strong><a href="/auto-glass-seo/">Organic search</a></strong> Drivers searching "windshield replacement [city]" or "ADAS calibration near me" who click a service page. Slow to build, durable, and the lowest long-run cost per qualified lead.</li>
+      <li><strong><a href="/auto-glass-local-seo/">Google Maps</a></strong> The 3-pack and Maps results for nearby, urgent searches. Driven by your Google Business Profile, proximity, reviews, and location clarity.</li>
+      <li><strong><a href="/google-ads/">Google Ads</a></strong> Immediate access to high-intent searches where the economics support it, with calls routed straight to your dispatchers.</li>
+      <li><strong><a href="/ai-search-optimization/">AI-assisted discovery</a></strong> Drivers asking ChatGPT, Google AI Overviews, or Gemini which nearby shop can replace a windshield and recalibrate the camera. An emerging channel that rewards clear, verifiable business information.</li>
+      <li><strong>Website and landing-page conversion</strong> The step every other channel depends on. A driver who found you but could not find your hours, service area, or a click-to-call button is a lead you paid for and lost.</li>
+      <li><strong>Brand and referral demand</strong> Repeat customers, insurance-network referrals, and word of mouth — which search then captures when the driver looks you up by name.</li>
+    </ul>
+  </ProseSection>
+
+  <ProseSection id="demand" eyebrow="03" heading="High-intent auto glass demand">
+    <p>
+      Not every search or inquiry has the same value. A rock chip repair, a same-day windshield replacement with ADAS recalibration, and a fleet account produce very different jobs. Lead generation works best when it is built around the demand that matters most to your operation:
+    </p>
+    <ul>
+      <li><strong>Windshield replacement</strong> — the highest-volume, highest-urgency search category and usually the core of the system.</li>
+      <li><strong>Windshield repair and rock chip repair</strong> — lower ticket, but often the first contact with a customer who will need a replacement later.</li>
+      <li><strong>Mobile auto glass</strong> — "mobile windshield replacement near me" and similar searches from drivers who cannot or will not come to the shop.</li>
+      <li><strong>Side and back glass</strong> — break-in and accident demand that many competitors under-serve online.</li>
+      <li><strong>ADAS calibration</strong> — a growing category as drivers and insurers look for shops that can recalibrate cameras after a replacement.</li>
+      <li><strong>Insurance-related glass queries</strong> — "does insurance cover windshield replacement," deductible questions, and zero-deductible glass states.</li>
+    </ul>
+    <p>
+      The opportunity analysis maps which of these searches exist in your markets, who is capturing them today, and where you are absent.
+    </p>
+  </ProseSection>
+
+  <ProseSection id="capture" eyebrow="04" heading="Capture demand" alt>
+    <p>
+      <a href="/auto-glass-seo/">Auto glass SEO</a> and <a href="/auto-glass-local-seo/">local SEO</a> make your operation discoverable when demand exists. Clear service pages for each service you offer, location and service-area pages for the markets you genuinely cover, and a well-maintained Google Business Profile are the foundation. They are also what Google Ads and AI search draw on — a shop with a strong organic and Maps presence gets more out of every other channel.
+    </p>
+  </ProseSection>
+
+  <ProseSection id="accelerate" eyebrow="05" heading="Accelerate demand capture">
+    <p>
+      <a href="/google-ads/">Google Ads</a> provides immediate access to high-intent searches where the economics support it. Advertising does not create windshield demand — the driver already has the crack. What paid search does is put your shop in front of that existing intent today, in the specific services and locations you choose, while organic and Maps visibility build. Tight negative-keyword control matters in auto glass because "glass" searches overlap with residential glass, tint, parts, and DIY research; every irrelevant click raises your cost per qualified lead.
+    </p>
+  </ProseSection>
+
+  <ProseSection id="convert" eyebrow="06" heading="Convert demand" alt>
+    <p>
+      Visibility only becomes a lead when the driver can act. Most of the leads an auto glass company loses are lost here — on the website, after the search:
+    </p>
+    <ul class="prose-grid">
+      <li><strong>Clear service information</strong> What you do, for which vehicles, in-shop or mobile, with pricing guidance where appropriate.</li>
+      <li><strong>Mobile experience</strong> Fast pages that work on a phone in a parking lot, with tap-to-call above the fold.</li>
+      <li><strong>Call paths</strong> A visible phone number, hours, and what happens when someone calls after hours.</li>
+      <li><strong>Quote pathways</strong> A short form for drivers who prefer not to call, with a realistic response time.</li>
+      <li><strong>Trust and reviews</strong> Recent reviews, warranty terms, and certifications where the driver is deciding.</li>
+      <li><strong>Insurance clarity</strong> Which carriers you work with, how claims and deductibles work, and whether you bill insurance directly.</li>
+      <li><strong>ADAS clarity</strong> Whether you recalibrate, which types, and whether it is done in-house or by a partner.</li>
+      <li><strong>Speed and accessibility</strong> How fast you answer, how quickly you can schedule, and how easy it is to reach a human.</li>
+    </ul>
+    <h3>Quote, call and booking pathways</h3>
+    <p>
+      Two drivers with the same cracked windshield will choose differently: one wants to call and talk to a person right now, the other wants a price and an appointment time without a phone call. A lead generation system has to serve both. Where supported and depending on implementation, we can connect the conversion path to online auto glass quote estimation, availability-based scheduling, and AI-assisted call handling for after-hours, overflow and missed-call risk — capabilities available through our specialized auto glass technology partner. Auto Glass Search OS owns the strategy, conversion analysis, implementation coordination and measurement; the partner provides the underlying technology.
+    </p>
+    <ConversionPaths />
+  </ProseSection>
+
+  <ProseSection id="measure" eyebrow="07" heading="Measure lead quality, not just volume">
+    <p>
+      Reporting that stops at traffic or form fills hides what is actually happening. We distinguish four levels and report on each where the data exists:
+    </p>
+    <ol>
+      <li><strong>Traffic</strong> — visits from each channel. Necessary, but not a business result.</li>
+      <li><strong>Raw conversions</strong> — every call, form, and click-to-call, including wrong numbers, vendors, and out-of-area requests.</li>
+      <li><strong>Qualified leads</strong> — inquiries that match a service you provide, an area you serve, and a driver you can reach.</li>
+      <li><strong>Booked jobs</strong> — qualified leads your team scheduled, and what each channel cost per booked job.</li>
+    </ol>
+    <p>
+      Reporting should move toward booked outcomes whenever reliable operational data — call recordings, scheduling, or invoicing — is available. When it is not, we say so rather than inferring results.
+    </p>
+  </ProseSection>
+
+  <ProseSection id="qualified" eyebrow="08" heading="What counts as a qualified auto glass lead?" alt>
+    <p>
+      The definition should reflect your operation, not a generic template. Factors that usually matter:
+    </p>
+    <ul>
+      <li><strong>Service needed</strong> — is it something you actually perform (replacement, repair, calibration, side glass, fleet)?</li>
+      <li><strong>Geographic serviceability</strong> — is the driver within your shop's draw or your mobile service radius?</li>
+      <li><strong>Vehicle and service compatibility</strong> — can you source the glass and handle the ADAS requirements for that vehicle?</li>
+      <li><strong>Timing</strong> — does the driver's need match your capacity, and are they ready to schedule?</li>
+      <li><strong>Customer intent</strong> — a driver requesting service versus a parts inquiry, a vendor, or a job seeker.</li>
+      <li><strong>Ability to contact</strong> — a working phone number or email, and a driver who answers.</li>
+      <li><strong>Insurance or cash-pay context</strong> — whether the job is a claim, a network referral, or a direct-pay customer.</li>
+    </ul>
+    <p>
+      A lead does not have to satisfy every factor to be valuable. The point is to agree on a working definition so that "leads" in a report mean opportunities your dispatchers would recognize.
+    </p>
+  </ProseSection>
+
+  <ProseSection id="channels" eyebrow="09" heading="SEO vs. Google Ads vs. Google Maps — which one generates auto glass leads?">
+    <p>
+      All three, and they work better together than apart. Google Ads captures demand immediately but stops when spend stops. SEO builds durable visibility but takes months. Google Maps drives the urgent, nearby calls that make up much of an auto glass shop's volume, and it depends on the same business information, reviews, and location clarity that organic and AI search rely on. Forcing an either/or choice usually means leaving one kind of demand to a competitor.
+    </p>
+    <p>
+      What changes from shop to shop is the sequence and the weighting. A single-location shop in a mid-sized market, a mobile-heavy operation covering a metro, and a multi-location group each need a different mix — which is why the engagement starts with an analysis of where your market is losing you leads, not a package.
+    </p>
+  </ProseSection>
+
+  <RelatedLinks
+    id="leadgen-channels"
+    eyebrow="The acquisition channels"
+    heading="Each channel, in detail."
+    links={channelPages}
+    alt
+  />
+
+  <FaqSection id="leadgen-faq" heading="Auto glass lead generation questions" items={faqs} />
+
+  <ClosingCta
+    id="leadgen-cta"
+    heading="Find Out Where Your Market Is Losing You Leads"
+    description="Request a complimentary, manually reviewed opportunity analysis. We examine Google Maps gaps, organic search gaps, competitor coverage, paid search opportunity, AI visibility, and conversion friction — and show you where qualified leads are going today."
+    ctaLabel="Analyze My Lead Generation Opportunities"
+  />
+
+</BaseLayout>
+
+<style>
+  .no-leads-banner {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 0.75rem;
+    padding: 0.875rem 1.125rem;
+    background: var(--fleet-amber-dim);
+    border: 1px solid var(--fleet-amber-border);
+    border-radius: var(--radius-lg);
+    max-width: 44rem;
+  }
+
+  .no-leads-banner__label {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fleet-amber);
+  }
+
+  .no-leads-banner__text {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+</style>

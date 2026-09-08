@@ -1,0 +1,188 @@
+---
+/**
+ * ProseSection — a readable long-form content block used on service pages.
+ * Keeps typography consistent so page files only carry copy.
+ */
+interface Props {
+  id: string;
+  heading: string;
+  eyebrow?: string;
+  alt?: boolean;
+  lead?: string;
+}
+
+const { id, heading, eyebrow, alt = false, lead } = Astro.props;
+---
+
+<section class:list={["prose-section", { "prose-section--alt": alt }]} aria-labelledby={`${id}-heading`}>
+  <div class="container">
+    <div class="prose-section__inner">
+      <header class="prose-section__header">
+        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+        <span class="cyan-rule"></span>
+        <h2 id={`${id}-heading`} class="prose-section__heading text-balance">{heading}</h2>
+        {lead && <p class="prose-section__lead">{lead}</p>}
+      </header>
+      <div class="prose">
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .prose-section {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    background-color: var(--surface-00);
+  }
+
+  .prose-section--alt {
+    background-color: var(--surface-01);
+  }
+
+  .prose-section__inner {
+    max-width: 52rem;
+  }
+
+  .prose-section__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .prose-section__heading {
+    font-size: clamp(1.5rem, 2.2vw + 0.5rem, 2.125rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .prose-section__lead {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* Long-form typography */
+  .prose > :global(p),
+  .prose > :global(.callout) :global(p) {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin: 0 0 1.125rem;
+  }
+
+  .prose > :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .prose :global(strong) {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .prose :global(a) {
+    color: var(--laser-cyan);
+    text-decoration: underline;
+    text-decoration-color: rgba(0,210,255,0.35);
+    text-underline-offset: 0.15em;
+    transition: text-decoration-color 150ms;
+  }
+
+  .prose :global(a:hover) {
+    text-decoration-color: var(--laser-cyan);
+  }
+
+  .prose :global(h3) {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 2rem 0 0.625rem;
+    line-height: 1.35;
+  }
+
+  .prose > :global(ul),
+  .prose > :global(ol) {
+    margin: 0 0 1.25rem;
+    padding-left: 1.375rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .prose > :global(ul) > :global(li),
+  .prose > :global(ol) > :global(li) {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .prose > :global(ul) > :global(li::marker),
+  .prose > :global(ol) > :global(li::marker) {
+    color: var(--laser-cyan);
+  }
+
+  .prose :global(.prose-grid) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (min-width: 720px) {
+    .prose :global(.prose-grid) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .prose :global(.prose-grid > li) {
+    background-color: var(--surface-02);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius-lg);
+    padding: 1.125rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+
+  .prose :global(.prose-grid > li strong) {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .prose :global(.callout) {
+    background-color: var(--surface-02);
+    border: 1px solid var(--laser-cyan-border);
+    border-left: 3px solid var(--laser-cyan);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .prose :global(.callout p) {
+    margin: 0;
+    color: var(--text-primary);
+  }
+
+  .prose :global(.callout p + p) {
+    margin-top: 0.75rem;
+    color: var(--text-secondary);
+  }
+
+  .prose :global(.callout__label) {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--laser-cyan);
+    margin-bottom: 0.5rem;
+  }
+</style>

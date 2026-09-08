@@ -1,198 +1,180 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CapabilityGrid from '../components/CapabilityGrid.astro';
+import ProseSection from '../components/ProseSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import ClosingCta from '../components/ClosingCta.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
 
-const pageTitle = "Auto Glass SEO | Organic Search Infrastructure for Auto Glass Companies";
-const pageDescription = "Service and market-level organic search systems for auto glass companies covering windshield replacement, repair, mobile service, and ADAS recalibration.";
+const pagePath = "/auto-glass-seo/";
+const pageTitle = "Auto Glass SEO Agency | Generate More Organic Leads";
+const pageDescription = "Auto glass SEO built for lead generation, not just rankings. Service pages, locations, technical SEO, and ADAS content that turn search demand into qualified calls.";
+
+const capabilities = [
+  {
+    title: "Clear Service Pages",
+    body: "Create clear, useful pages for the services customers search for, from windshield replacement and rock chip repair to side glass and ADAS recalibration.",
+    items: ["Windshield replacement and repair pages", "ADAS recalibration information", "Rock chip repair and other glass services"],
+  },
+  {
+    title: "Clean Site Structure & Technical SEO",
+    body: "Keep site structure, internal links, headings, and technical SEO clear so search engines can find and understand your services, locations, and business information.",
+    items: ["Crawlable service and location pages", "Relevant structured data where useful", "Clear internal linking and heading structure"],
+  },
+  {
+    title: "Helpful Insurance & Warranty Information",
+    body: "Drivers may have questions about insurance claims, deductibles, glass options, workmanship, and warranty terms. Accurate, state-appropriate explanations can reduce uncertainty before a call or quote request.",
+    items: ["Clear insurance claim information", "Workmanship and warranty details", "Fleet and commercial service guides"],
+  },
+];
+
+const faqs = [
+  {
+    question: "What is auto glass SEO?",
+    answer: "Auto glass SEO is the work of making an auto glass company visible in organic Google results for the searches drivers actually use — windshield replacement, windshield repair, rock chip repair, mobile auto glass, side and back glass, and ADAS calibration — in the cities and service areas the company serves, and then turning that visibility into calls and quote requests.",
+  },
+  {
+    question: "How is auto glass SEO different from generic SEO?",
+    answer: "Auto glass demand is urgent, local, and service-specific. A generic SEO agency tends to optimize a homepage and publish blog posts. Auto glass SEO is built around service pages per service, location or service-area pages per market, ADAS and insurance content that answers real driver questions, and conversion paths that work on a phone. It also has to coexist with Google Maps, because much of the demand converts from the local 3-pack rather than the organic list.",
+  },
+  {
+    question: "How long does auto glass SEO take to generate leads?",
+    answer: "It depends on your starting point, market, and competition. Technical fixes and improved service pages can begin to show within weeks; durable rankings for competitive windshield replacement searches in a metro market typically build over several months. We do not promise rankings or lead counts — we report the organic calls and quote requests the work actually produced.",
+  },
+  {
+    question: "Do we need a page for every city we serve?",
+    answer: "You need pages for the markets you genuinely serve, written with real local detail — not dozens of near-duplicate pages with the city name swapped. For a mobile-heavy operation that usually means a smaller number of substantive service-area pages; for a multi-location group, a page per location plus service pages for each. Thin, repetitive local pages tend to hurt more than help.",
+  },
+  {
+    question: "Should our site have ADAS calibration content?",
+    answer: "If you perform or coordinate ADAS recalibration, yes. Drivers, insurers, and AI assistants increasingly ask whether a shop can recalibrate the camera after a windshield replacement. A clear page explaining which calibration types you handle, for which vehicles, and whether it is done in-house or by a partner captures that demand and builds trust for the replacement job itself.",
+  },
+  {
+    question: "How does auto glass SEO fit with Google Maps and Google Ads?",
+    answer: "They reinforce each other. The service and location pages built for SEO are the landing pages for Google Ads and the website Google Business Profile links to. Strong organic visibility lowers your dependence on paid clicks over time, while Google Ads captures demand immediately during the months SEO takes to build. Google Maps drives the urgent nearby calls that both depend on.",
+  },
+];
+
+const extraSchema = [
+  serviceSchema({
+    pagePath,
+    name: "Auto Glass SEO",
+    serviceType: "Search engine optimization for auto glass companies",
+    description: pageDescription,
+    alternateName: ["SEO for Auto Glass Companies", "Glass Company SEO Service"],
+  }),
+  faqSchema(faqs, pagePath),
+];
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
+<BaseLayout title={pageTitle} description={pageDescription} breadcrumbName="Auto Glass SEO" extraSchema={extraSchema}>
 
-  <!-- Hero -->
-  <section class="page-hero" aria-labelledby="seo-heading">
-    <div class="container">
-      <div class="page-hero__content">
-        <span class="eyebrow">Auto Glass SEO</span>
-        <h1 id="seo-heading" class="text-balance">
-          Auto Glass SEO for the services and markets that drive demand.
-        </h1>
-        <p class="page-hero__lead">
-          We build organic visibility for windshield replacement, windshield repair, rock chip repair, mobile auto glass, ADAS recalibration, and other services your company provides.
-        </p>
-        <div class="page-hero__cta">
-          <a
-            href="/visibility-analysis/"
-            data-analytics-event="primary_cta_click"
-            class="btn btn--primary btn--lg"
-          >
-            Analyze Your Organic Search Footprint
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    id="seo"
+    eyebrow="Auto Glass SEO"
+    heading="Auto Glass SEO That Turns Search Demand Into Qualified Leads"
+    lead="We build organic search visibility for windshield replacement, windshield repair, rock chip repair, mobile auto glass, side and back glass, and ADAS recalibration — in the markets your company actually serves — and connect it to the calls and quote requests that become booked jobs."
+    ctaLabel="Analyze My Organic Search Opportunities"
+    supportLine="Complimentary Search + Customer Acquisition Analysis"
+  />
 
-  <!-- Capability cards -->
-  <section class="section section--alt" aria-labelledby="seo-capabilities-heading">
-    <div class="container">
-      <h2 id="seo-capabilities-heading" class="sr-only">SEO Capabilities</h2>
-      <div class="cap-grid">
+  <CapabilityGrid id="seo-capabilities" heading="What auto glass SEO covers" eyebrow="Core capabilities" cards={capabilities} />
 
-        <article class="card">
-          <div class="card__top">
-            <span class="stage-badge" aria-hidden="true">01</span>
-            <h3 class="card__title">Clear Service Pages</h3>
-          </div>
-          <p class="card__body">
-            Create clear, useful pages for the services customers search for, from windshield replacement and rock chip repair to side glass and ADAS recalibration.
-          </p>
-          <ul class="cap-list" role="list">
-            <li class="check-item">Windshield replacement and repair pages</li>
-            <li class="check-item">ADAS recalibration information</li>
-            <li class="check-item">Rock chip repair and other glass services</li>
-          </ul>
-        </article>
+  <ProseSection id="what-is-seo" eyebrow="Definition" heading="What is auto glass SEO?">
+    <p>
+      Auto glass SEO is the work of making your company visible in organic Google results for the searches drivers use when they need glass work — and turning that visibility into calls, quote requests, and booked jobs. It is one part of <a href="/auto-glass-lead-generation/">auto glass lead generation</a>, alongside Google Maps, Google Ads, AI search, and website conversion.
+    </p>
+    <p>
+      The searches that matter are specific and local: "windshield replacement [city]," "mobile windshield repair near me," "ADAS calibration after windshield replacement," "does insurance cover a cracked windshield." Each one is a driver with a problem, usually on a phone, usually deciding within minutes. Auto glass SEO means being on that page with an answer and an obvious way to contact you.
+    </p>
+  </ProseSection>
 
-        <article class="card">
-          <div class="card__top">
-            <span class="stage-badge" aria-hidden="true">02</span>
-            <h3 class="card__title">Clean Site Structure &amp; Technical SEO</h3>
-          </div>
-          <p class="card__body">
-            Keep site structure, internal links, headings, and technical SEO clear so search engines can find and understand your services, locations, and business information.
-          </p>
-          <ul class="cap-list" role="list">
-            <li class="check-item">Crawlable service and location pages</li>
-            <li class="check-item">Relevant structured data where useful</li>
-            <li class="check-item">Clear internal linking and heading structure</li>
-          </ul>
-        </article>
+  <ProseSection id="why-different" eyebrow="Why generic SEO underperforms" heading="Why auto glass SEO is different from generic SEO" alt>
+    <p>
+      Most SEO agencies were built for informational content and national brands. Auto glass demand behaves differently, and the work has to follow:
+    </p>
+    <ul class="prose-grid">
+      <li><strong>Urgent and local</strong> Drivers search after damage, not before. Proximity, hours, and mobile availability decide the call as much as rankings do.</li>
+      <li><strong>Service-specific</strong> Replacement, repair, rock chip, side glass, and ADAS calibration are different searches with different values. A single "services" page captures none of them well.</li>
+      <li><strong>Maps-dependent</strong> Much of the demand converts from the Google Maps 3-pack. Organic work that ignores the <a href="/auto-glass-local-seo/">Google Business Profile and local signals</a> leaves the most urgent calls on the table.</li>
+      <li><strong>Insurance-shaped</strong> Deductibles, zero-deductible glass states, direct billing, and network referrals shape what drivers ask and whom they trust.</li>
+      <li><strong>Phone-first conversion</strong> The result of a good ranking is a phone call, so page speed, tap-to-call, and clear service information matter as much as the content itself.</li>
+      <li><strong>Measured in booked jobs</strong> Rankings and traffic are inputs. The output is qualified organic calls and quote requests, tracked by service and market.</li>
+    </ul>
+  </ProseSection>
 
-        <article class="card">
-          <div class="card__top">
-            <span class="stage-badge" aria-hidden="true">03</span>
-            <h3 class="card__title">Helpful Insurance &amp; Warranty Information</h3>
-          </div>
-          <p class="card__body">
-            Drivers may have questions about insurance claims, deductibles, glass options, workmanship, and warranty terms. Accurate, state-appropriate explanations can reduce uncertainty before a call or quote request.
-          </p>
-          <ul class="cap-list" role="list">
-            <li class="check-item">Clear insurance claim information</li>
-            <li class="check-item">Workmanship and warranty details</li>
-            <li class="check-item">Fleet &amp; Commercial Service Guides</li>
-          </ul>
-        </article>
+  <ProseSection id="service-architecture" eyebrow="Service architecture" heading="Pages for the services drivers actually search for">
+    <p>
+      The core of an auto glass site is a dedicated, substantive page for each service you provide. Each page answers the driver's real questions — what it costs or how pricing works, how long it takes, whether it can be done mobile, what the insurance and warranty situation is — and gives them a way to call or request a quote without hunting.
+    </p>
+    <ul>
+      <li><strong>Windshield replacement</strong> — the highest-value page on most sites: glass options (OEM vs. aftermarket), ADAS implications, mobile vs. in-shop, insurance and cash pricing guidance, turnaround.</li>
+      <li><strong>Windshield repair and rock chip repair</strong> — when repair is possible versus replacement, timing before a chip spreads, and insurance coverage for repairs.</li>
+      <li><strong>Mobile auto glass</strong> — service radius, scheduling, what the driver needs to provide (a covered space, power), and which services can be done on-site.</li>
+      <li><strong>Side and back glass</strong> — break-in and accident demand, tempered vs. laminated glass, cleanup, and same-day availability.</li>
+      <li><strong>ADAS recalibration</strong> — static and dynamic calibration, which makes and systems you handle, in-house bay vs. partner, and why it matters after a replacement.</li>
+      <li><strong>Insurance content</strong> — how claims work with the carriers you accept, deductibles, state-specific glass coverage, and direct billing.</li>
+    </ul>
+  </ProseSection>
 
-      </div>
-    </div>
-  </section>
+  <ProseSection id="locations" eyebrow="Location architecture" heading="Locations, service areas, and multi-market SEO" alt>
+    <p>
+      How you structure locations depends on how you operate. A shop with physical locations needs a page per location with its own address, hours, photos, services, and reviews, tied to the matching Google Business Profile. A mobile-heavy operation needs service-area pages for the markets it genuinely covers, with real local detail rather than a template with the city name swapped.
+    </p>
+    <p>
+      Multi-location groups add a layer: consistent business information across every location, service pages that route drivers to the right shop, and internal linking that lets Google understand which location serves which market. Done well, this is what lets a regional operator compete with national chains in every one of its cities. Done as thin duplicate pages, it tends to suppress the whole site.
+    </p>
+  </ProseSection>
+
+  <ProseSection id="technical" eyebrow="Technical SEO" heading="Technical SEO, internal linking, and structured data">
+    <p>
+      Technical work is not glamorous, but it determines whether the pages above get crawled, indexed, and trusted. For auto glass sites the priorities are consistent:
+    </p>
+    <ul>
+      <li><strong>Crawlability and indexation</strong> — every service and location page reachable, indexable, and free of duplicate or orphaned URLs.</li>
+      <li><strong>Page speed on mobile</strong> — most auto glass searches happen on a phone; a slow page loses the call before it loads.</li>
+      <li><strong>Internal linking</strong> — services link to locations, locations link to services, and the insurance and ADAS pages support both, so authority and drivers flow to the pages that convert.</li>
+      <li><strong>Structured data</strong> — organization, local business, service, and FAQ markup where it accurately describes your business, so search engines and AI systems can read what you do and where.</li>
+      <li><strong>Clean headings and metadata</strong> — one clear H1 per page, descriptive titles, and metadata that matches the driver's search.</li>
+    </ul>
+  </ProseSection>
+
+  <ProseSection id="seo-maps" eyebrow="Relationship with Google Maps" heading="How auto glass SEO works with Google Maps" alt>
+    <p>
+      For urgent, nearby searches, Google shows the Maps 3-pack above the organic results, and many drivers never scroll past it. Your website still matters there: the Google Business Profile links to it, the services and categories on the profile should match the pages on the site, and the reviews, hours, and location details on both need to agree. We treat <a href="/auto-glass-local-seo/">local SEO and Google Maps</a> as the other half of the same job rather than a separate service.
+    </p>
+  </ProseSection>
+
+  <ProseSection id="seo-conversion" eyebrow="Conversion and measurement" heading="From organic visitor to qualified lead — and how we measure it">
+    <p>
+      A ranking is only useful if the driver who lands on the page calls. Every service and location page is built as a landing page: the phone number and a quote request are visible without scrolling, hours and service area are obvious, and the insurance and ADAS questions that stall a decision are answered on the page. The same pages then serve as landing pages for <a href="/google-ads/">Google Ads</a>, so the conversion work pays off twice.
+    </p>
+    <p>
+      Measurement follows the driver, not the ranking report. Call tracking and form tracking attribute organic calls and quote requests by page, service, and market; call review separates qualified leads from wrong numbers and vendors; and where your shop can share scheduling data, reporting moves to booked jobs and cost per booked job. That is how organic search earns its place in the <a href="/auto-glass-lead-generation/">lead generation system</a> — as a channel with a measurable cost per qualified lead, not a vanity metric.
+    </p>
+  </ProseSection>
+
+  <RelatedLinks
+    id="seo-related"
+    heading="Auto glass SEO is one part of the system."
+    links={[
+      { href: "/auto-glass-lead-generation/", title: "Auto Glass Lead Generation", description: "How SEO, Maps, Ads, AI search, and conversion connect into one owned acquisition system." },
+      { href: "/auto-glass-local-seo/", title: "Auto Glass Local SEO & Google Maps", description: "The 3-pack, Google Business Profile, service areas, and reviews for nearby demand." },
+      { href: "/ai-search-optimization/", title: "AI Search Optimization", description: "Clear, verifiable business information for AI-assisted discovery, built on the SEO foundation." },
+      { href: "/visibility-analysis/", title: "Opportunity Analysis", description: "See which windshield searches in your market you are missing today." },
+    ]}
+    alt
+  />
+
+  <FaqSection id="seo-faq" heading="Auto glass SEO questions" items={faqs} />
+
+  <ClosingCta
+    id="seo-cta"
+    heading="See which organic searches are sending jobs to competitors."
+    description="Request a complimentary, manually reviewed analysis of your organic search coverage for windshield replacement, repair, mobile service, and ADAS calibration — alongside Google Maps, paid search, AI visibility, and conversion friction."
+    ctaLabel="Analyze My Organic Search Opportunities"
+  />
 
 </BaseLayout>
-
-<style>
-  .page-hero {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    background-color: var(--surface-00);
-  }
-
-  .page-hero__content {
-    max-width: 52rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .page-hero__lead {
-    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.1875rem);
-    color: var(--text-secondary);
-    line-height: 1.65;
-    max-width: 42rem;
-  }
-
-  .page-hero__cta {
-    padding-top: 0.5rem;
-  }
-
-  .section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    background-color: var(--surface-00);
-  }
-
-  .section--alt {
-    background-color: var(--surface-01);
-  }
-
-  .cap-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  @media (min-width: 768px) {
-    .cap-grid { grid-template-columns: repeat(3, 1fr); }
-  }
-
-  .card {
-    background-color: var(--surface-02);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--radius-xl);
-    padding: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    transition: border-color 200ms;
-  }
-
-  .card:hover {
-    border-color: rgba(49,130,246,0.3);
-  }
-
-  .card__top {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.875rem;
-  }
-
-  .card__title {
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0;
-    line-height: 1.35;
-    padding-top: 0.125rem;
-  }
-
-  .card__body {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  .cap-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding-top: 0.875rem;
-    margin-top: 0.25rem;
-  }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-</style>

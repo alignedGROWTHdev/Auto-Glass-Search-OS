@@ -1,127 +1,105 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { methodologyStages, searchIntentMatrix } from '../data/siteData';
+import HeroSystemVisual from '../components/HeroSystemVisual.astro';
+import JourneySystem from '../components/JourneySystem.astro';
+import ConversionPaths from '../components/ConversionPaths.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import { siteConfig, credibilityPoints, partnerTech } from '../data/siteData';
+import { serviceSchema } from '../data/schema';
 
-const pageTitle = "Auto Glass Search OS | Search & Customer Acquisition for Auto Glass Companies";
-const pageDescription = "Turn search visibility into booked auto glass jobs. Auto Glass Search OS helps established auto glass companies win customer demand across Google Search, Google Maps, and AI-powered discovery.";
+const pageTitle = "Auto Glass Marketing Agency | Leads, SEO & Google Ads";
+const pageDescription = "Auto glass marketing and lead generation for established auto glass companies. Turn search demand across Google, Maps, Ads, and AI into qualified calls and booked jobs.";
+
+const homeSchema = [
+  serviceSchema({
+    pagePath: "/",
+    name: "Auto Glass Marketing & Lead Generation",
+    serviceType: "Auto glass marketing agency services: SEO, Google Maps, Google Ads, AI search optimization, and conversion",
+    description: pageDescription,
+    alternateName: ["Auto Glass Marketing Agency", "Auto Glass Digital Marketing", "Marketing for Auto Glass Companies"],
+  }),
+];
+
+// Where qualified demand gets lost — the problem section.
+const leaks = [
+  { tag: "Not found", body: "Competitors appear first in Search or Maps for windshield replacement, mobile service, or ADAS calibration in your market." },
+  { tag: "Not trusted", body: "The driver finds you, but another shop looks more credible — better reviews, clearer insurance and warranty answers, visible ADAS capability." },
+  { tag: "Conversion friction", body: "The driver can't quickly get the information or quote they need to move forward, especially on a phone." },
+  { tag: "Missed response", body: "The driver calls, but response capacity — after hours, overflow, a busy counter — creates friction and they call the next result." },
+  { tag: "Booking friction", body: "The driver is ready, but scheduling takes unnecessary back-and-forth instead of a clear path to an appointment." },
+  { tag: "No attribution", body: "Marketing reports leads, but you can't see which channels created qualified opportunities or booked jobs — or what each cost." },
+];
+
+// What Search OS builds — the system's modules, linked to their pages.
+const modules = [
+  { num: "01", title: "Auto Glass SEO", body: "Capture organic demand for high-value services: windshield replacement, repair, mobile, side glass, ADAS.", href: "/auto-glass-seo/", cta: "Auto glass SEO" },
+  { num: "02", title: "Local SEO + Google Maps", body: "Win more nearby discovery through your Google Business Profile, Map Pack presence, reviews, and service areas.", href: "/auto-glass-local-seo/", cta: "Local SEO & Maps" },
+  { num: "03", title: "Google Ads", body: "Capture high-intent paid demand with call-focused campaigns and tight control over irrelevant glass searches.", href: "/google-ads/", cta: "Google Ads" },
+  { num: "04", title: "AI Search Visibility", body: "Help search and answer systems understand and corroborate your business, services, and locations.", href: "/ai-search-optimization/", cta: "AI search optimization" },
+  { num: "05", title: "Conversion + Booking", body: "Reduce friction between a driver's intent and an appointment: calls, online quotes, scheduling, and response coverage.", href: "/auto-glass-lead-generation/#convert-heading", cta: "How conversion works" },
+];
+
+// Business economics factors.
+const economics = [
+  "Service area and mobile radius",
+  "Mobile vs. in-shop mix",
+  "Windshield replacement vs. repair",
+  "ADAS calibration capability",
+  "Insurance vs. cash-pay mix",
+  "Operational capacity",
+  "Scheduling availability",
+  "Market competition",
+];
+
+const analysisScope = [
+  "Search", "Maps", "Competitors", "Ads", "AI visibility", "Website conversion", "Quote pathway", "Booking friction", "Response bottlenecks",
+];
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
+<BaseLayout title={pageTitle} description={pageDescription} extraSchema={homeSchema}>
 
   <!-- ════════════════════════════════════════════
-       HERO — 60/40 split
+       1. HERO
        ════════════════════════════════════════════ -->
   <section class="hero" aria-labelledby="hero-heading">
     <div class="container">
       <div class="hero__layout">
 
-        <!-- Left 60 -->
         <div class="hero__content fade-up">
-
-          <span class="eyebrow" aria-label="Specialized Auto Glass Search and Customer Acquisition">
+          <span class="eyebrow" aria-label="Auto Glass Marketing and Lead Generation">
             <span class="status-dot" aria-hidden="true"></span>
-            Specialized Auto Glass Search &amp; Customer Acquisition
+            Auto Glass Marketing &amp; Lead Generation
           </span>
 
           <h1 id="hero-heading" class="hero__heading text-balance">
-            Turn Search Visibility Into<br />
-            <span class="hero__heading-accent">Booked Auto Glass Jobs.</span>
+            Auto Glass Marketing That Turns
+            <span class="hero__heading-accent">Search Into Booked Jobs</span>
           </h1>
 
           <p class="hero__lead">
-            Auto Glass Search OS helps established auto glass operators convert high-intent paid search and organic local search into qualified calls, quote requests, and booked jobs — with calls routing directly to shop dispatchers and optional AI Voice CSR technology for after-hours and overflow.
+            We help established auto glass companies capture more high-intent demand across Google Search, Maps, Ads and emerging AI discovery — then turn it into qualified calls, quote requests and booked jobs.
           </p>
 
-          <div class="hero__signals" role="list" aria-label="Core service signals">
-            <div class="hero__signal" role="listitem">
-              <span class="hero__signal-dot" aria-hidden="true"></span>
-              <span>High-intent paid search + organic local SEO</span>
-            </div>
-            <div class="hero__signal" role="listitem">
-              <span class="hero__signal-dot" aria-hidden="true"></span>
-              <span>Calls routed directly to shop dispatchers</span>
-            </div>
-            <div class="hero__signal" role="listitem">
-              <span class="hero__signal-dot" aria-hidden="true"></span>
-              <span>Optional AI Voice CSR for after-hours &amp; overflow</span>
-            </div>
-            <div class="hero__signal" role="listitem">
-              <span class="hero__signal-dot" aria-hidden="true"></span>
-              <span>Mobile route clustering + in-shop ADAS calibration bays</span>
-            </div>
-          </div>
+          <p class="hero__mechanism">
+            <strong>The Auto Glass Search OS</strong> is the system that does it: one connected approach across <span class="hero__descriptor">{siteConfig.channelDescriptor}</span>
+          </p>
 
           <div class="hero__actions fade-up fade-up--delay-1">
-            <a
-              href="/visibility-analysis/"
-              data-analytics-event="primary_cta_click"
-              class="btn btn--primary btn--lg"
-            >
-              Get Your Visibility Analysis
+            <a href="/visibility-analysis/" data-analytics-event="primary_cta_click" class="btn btn--primary btn--lg">
+              {siteConfig.primaryCta}
             </a>
-            <a
-              href="#search-methodology"
-              data-analytics-event="secondary_cta_click"
-              class="btn btn--secondary btn--lg"
-            >
-              See How It Works
+            <a href="#journey" data-analytics-event="secondary_cta_click" class="btn btn--secondary btn--lg">
+              See How the System Works
             </a>
           </div>
 
           <p class="hero__qualifier">
-            Built for established auto glass companies investing seriously in growth.
+            {siteConfig.primaryCtaOffer} &middot; Manually reviewed &middot; No obligation
           </p>
-
         </div>
 
-        <!-- Right 40 — ecosystem visual -->
-        <div class="hero__visual fade-up fade-up--delay-2" aria-hidden="true">
-          <div class="hero__img-frame">
-            <div class="hero__img-hud hero__img-hud--tl" aria-hidden="true">
-              <span class="hud-label">SEARCH OS</span>
-              <span class="hud-dot"></span>
-            </div>
-            <div class="hero__img-hud hero__img-hud--br" aria-hidden="true">
-              <span class="hud-dot hud-dot--amber"></span>
-              <span class="hud-label hud-label--amber">ACTIVE</span>
-            </div>
-            <!-- Corner calibration marks -->
-            <svg class="hero__corner hero__corner--tl" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <path d="M1 9 L1 1 L9 1" stroke="rgba(0,210,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <svg class="hero__corner hero__corner--tr" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <path d="M17 9 L17 1 L9 1" stroke="rgba(0,210,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <svg class="hero__corner hero__corner--bl" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <path d="M1 9 L1 17 L9 17" stroke="rgba(0,210,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <svg class="hero__corner hero__corner--br" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-              <path d="M17 9 L17 17 L9 17" stroke="rgba(0,210,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <img
-              src="/auto_glass_search_ecosystem_aligned.webp"
-              alt="The Auto Glass Search Ecosystem"
-              class="hero__img"
-              width="960"
-              height="540"
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-          <p class="hero__visual-note">
-            Conceptual ecosystem illustration. Interface figures are illustrative, not client performance claims.
-          </p>
-
-          <!-- Flow labels below image -->
-          <div class="hero__flow" aria-label="Service flow">
-            <span class="hero__flow-step">Search</span>
-            <span class="hero__flow-arrow" aria-hidden="true">→</span>
-            <span class="hero__flow-step">Call</span>
-            <span class="hero__flow-arrow" aria-hidden="true">→</span>
-            <span class="hero__flow-step">Dispatch</span>
-            <span class="hero__flow-arrow" aria-hidden="true">→</span>
-            <span class="hero__flow-step hero__flow-step--accent">Booked Job</span>
-          </div>
+        <div class="hero__visual fade-up fade-up--delay-2">
+          <HeroSystemVisual />
         </div>
 
       </div>
@@ -129,179 +107,160 @@ const pageDescription = "Turn search visibility into booked auto glass jobs. Aut
   </section>
 
   <!-- ════════════════════════════════════════════
-       CUSTOMER SEARCH PROBLEM
+       2. CREDIBILITY / SPECIALIZATION STRIP
        ════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="search-reality-heading">
+  <section class="cred" aria-label="Why Auto Glass Search OS">
     <div class="container">
-
-      <div class="section__header section__header--center">
-        <span class="eyebrow">The Customer Search Reality</span>
-        <span class="cyan-rule" style="margin: 0 auto;"></span>
-        <h2 id="search-reality-heading" class="text-balance">
-          Your customers are searching right now.
-        </h2>
-        <p class="section__lead">
-          Auto glass is often an urgent purchase. After windshield damage, drivers move quickly across search results, Maps, reviews, websites, insurance information, and phone calls — deciding whom to trust in minutes.
-        </p>
-      </div>
-
-      <div class="grid-3">
-        <article class="card">
-          <div class="card__top">
-            <div class="stage-badge" aria-label="Point 01">01</div>
-            <h3 class="card__title">The Urgent Local Query</h3>
-          </div>
-          <p class="card__body">
-            Drivers query "windshield replacement near me same day" or "mobile auto glass repair [city]." High-intent paid search and optimized local listings help more of that demand reach your dispatchers.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card__top">
-            <div class="stage-badge" aria-label="Point 02">02</div>
-            <h3 class="card__title">AI-Assisted Discovery</h3>
-          </div>
-          <p class="card__body">
-            Drivers ask AI search: "Which nearby auto glass shops provide ADAS recalibration?" Clear, structured business and service information — including in-shop calibration bay details — gives these systems better information to understand your operation.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="card__top">
-            <div class="stage-badge" aria-label="Point 03">03</div>
-            <h3 class="card__title">The Dispatch Decision</h3>
-          </div>
-          <p class="card__body">
-            Urgent auto glass decisions move to a phone call fast. Calls route directly to your shop dispatchers, with optional specialized AI Voice CSR technology supporting after-hours, overflow, and weekend intake.
-          </p>
-        </article>
-      </div>
-
+      <ul class="cred__list" role="list">
+        {credibilityPoints.map((c) => (
+          <li class="cred__item">
+            <span class="cred__label">{c.label}</span>
+            <span class="cred__detail">{c.detail}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════
-       SERVICE FLOW / ECOSYSTEM
+       3. WHERE QUALIFIED DEMAND GETS LOST
        ════════════════════════════════════════════ -->
-  <section class="section" aria-labelledby="ecosystem-heading">
+  <section class="section section--alt" aria-labelledby="leaks-heading">
     <div class="container">
+      <div class="leaks">
+        <div class="leaks__intro">
+          <span class="eyebrow eyebrow--amber">The problem</span>
+          <span class="cyan-rule"></span>
+          <h2 id="leaks-heading" class="section-heading text-balance">Where qualified auto glass demand gets lost.</h2>
+          <p class="section-lead">
+            Drivers with a cracked windshield decide in minutes, on a phone. The demand in your market is already there. Most of it is lost at one of six points — usually more than one.
+          </p>
+        </div>
+        <ol class="leaks__grid" role="list">
+          {leaks.map((l, i) => (
+            <li class="leak" role="listitem">
+              <span class="leak__num" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+              <span class="leak__tag">{l.tag}</span>
+              <p class="leak__body">{l.body}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
 
-      <div class="section__header">
-        <span class="eyebrow">The Search-to-Job Pipeline</span>
+  <!-- ════════════════════════════════════════════
+       4. THE SEARCH OS JOURNEY (FOUND → TRUSTED → CHOSEN → MEASURED)
+       ════════════════════════════════════════════ -->
+  <section id="journey" class="section section--journey" aria-labelledby="journey-heading">
+    <div class="container">
+      <div class="section-header section-header--wide">
+        <span class="eyebrow">The Auto Glass Search OS</span>
         <span class="cyan-rule"></span>
-        <h2 id="ecosystem-heading" class="text-balance">
-          Connect search signals to customer calls and booked jobs.
-        </h2>
-        <p class="section__sub">
-          High-intent search &rarr; local Maps visibility &rarr; AI discovery &rarr; call routing &rarr; mobile dispatch &rarr; ADAS calibration &rarr; measured outcomes.
+        <h2 id="journey-heading" class="section-heading text-balance">One system across the whole customer journey.</h2>
+        <p class="section-lead">
+          Found &rarr; Trusted &rarr; Chosen &rarr; Measured. Every part of the Search OS is built around the moments where a driver either becomes your customer or someone else's.
         </p>
       </div>
-
-      <div class="pipeline" role="list" aria-label="Service pipeline">
-
-        <div class="pipeline__step" role="listitem">
-          <div class="pipeline__icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M10 7v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="pipeline__content">
-            <span class="pipeline__label eyebrow">01. Organic + Paid</span>
-            <span class="pipeline__name">High-Intent Search</span>
-            <span class="pipeline__desc">Google Ads and call-focused campaigns can use a 5,000+ negative-keyword control library when account scope warrants, alongside organic local search</span>
-          </div>
-        </div>
-
-        <div class="pipeline__connector" aria-hidden="true"></div>
-
-        <div class="pipeline__step" role="listitem">
-          <div class="pipeline__icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 10a7 7 0 1 1 14 0 7 7 0 0 1-14 0z" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M10 6v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="pipeline__content">
-            <span class="pipeline__label eyebrow">02. Maps</span>
-            <span class="pipeline__name">Local Maps &amp; 3-Pack</span>
-            <span class="pipeline__desc">Visibility for nearby customers searching for immediate service</span>
-          </div>
-        </div>
-
-        <div class="pipeline__connector" aria-hidden="true"></div>
-
-        <div class="pipeline__step" role="listitem">
-          <div class="pipeline__icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="3" y="5" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M7 9h6M7 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="pipeline__content">
-            <span class="pipeline__label eyebrow">03. AI Search</span>
-            <span class="pipeline__name">AI Discovery</span>
-            <span class="pipeline__desc">Structured service and ADAS calibration data for AI-assisted search results</span>
-          </div>
-        </div>
-
-        <div class="pipeline__connector" aria-hidden="true"></div>
-
-        <div class="pipeline__step" role="listitem">
-          <div class="pipeline__icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 4h10l1 5H4L5 4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-              <circle cx="7.5" cy="15.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
-              <circle cx="13.5" cy="15.5" r="1.5" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M4 9v4h12V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="pipeline__content">
-            <span class="pipeline__label eyebrow">04. Call + Dispatch</span>
-            <span class="pipeline__name">Direct Dispatcher Routing</span>
-            <span class="pipeline__desc">Calls route to your shop dispatchers; AI Voice CSR covers after-hours &amp; overflow</span>
-          </div>
-        </div>
-
-        <div class="pipeline__connector" aria-hidden="true"></div>
-
-        <div class="pipeline__step pipeline__step--final" role="listitem">
-          <div class="pipeline__icon pipeline__icon--accent" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 10l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="pipeline__content">
-            <span class="pipeline__label eyebrow eyebrow--amber">05. Measured</span>
-            <span class="pipeline__name pipeline__name--accent">Booked Jobs</span>
-            <span class="pipeline__desc">Qualified calls, quote requests, and booked jobs — tracked where data allows</span>
-          </div>
-        </div>
-
-      </div>
-
+      <JourneySystem />
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════
-       TWO ENGAGEMENT MODELS
+       5. WHAT SEARCH OS BUILDS
        ════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="engagement-models-heading">
+  <section class="section section--alt" aria-labelledby="modules-heading">
     <div class="container">
+      <div class="modules">
+        <div class="modules__intro">
+          <span class="eyebrow">What the Search OS builds</span>
+          <span class="cyan-rule"></span>
+          <h2 id="modules-heading" class="section-heading text-balance">Five components. One customer-acquisition system.</h2>
+          <p class="section-lead">
+            These are not separate agency services. Each one feeds the others — the pages built for SEO become the landing pages for Ads, the business information that wins Maps is what AI search corroborates, and every channel converts on the same site.
+          </p>
+          <a href="/auto-glass-lead-generation/" data-analytics-event="leadgen_learn_more" class="btn btn--secondary">
+            How it generates leads you own &rarr;
+          </a>
+        </div>
+        <ol class="modules__list" role="list">
+          {modules.map((m) => (
+            <li class="module" role="listitem">
+              <span class="module__num" aria-hidden="true">{m.num}</span>
+              <div class="module__body">
+                <h3 class="module__title">{m.title}</h3>
+                <p class="module__desc">{m.body}</p>
+                <a href={m.href} class="module__link" data-analytics-event="module_link_click">{m.cta} &rarr;</a>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
 
-      <div class="section__header section__header--center">
-        <span class="eyebrow">Engagement Models</span>
+  <!-- ════════════════════════════════════════════
+       6. CONVERSION: CLICK OR CALL
+       ════════════════════════════════════════════ -->
+  <section class="section section--paths" aria-labelledby="paths-heading">
+    <div class="container">
+      <div class="section-header section-header--center">
+        <span class="eyebrow eyebrow--amber">{partnerTech.label}</span>
         <span class="cyan-rule" style="margin: 0 auto;"></span>
-        <h2 id="engagement-models-heading" class="text-balance">
-          Two ways to work with us.
-        </h2>
-        <p class="section__lead">
-          Choose managed execution or work with us to build the search systems and workflows your team can use long-term.
+        <h2 id="paths-heading" class="section-heading text-balance">Whether they click or call, give them a path to book.</h2>
+        <p class="section-lead">
+          Visibility is wasted if the driver hits a dead end. The Search OS designs both paths to an appointment — and, where supported, connects them to online quote estimation, availability-based scheduling, and AI-assisted call handling from our specialized auto glass technology partner.
         </p>
       </div>
+      <ConversionPaths />
+      <ul class="paths-caps" role="list" aria-label="Partner-powered capabilities">
+        {partnerTech.capabilities.map((c) => <li class="check-item">{c}</li>)}
+      </ul>
+    </div>
+  </section>
 
+  <!-- ════════════════════════════════════════════
+       7. BUSINESS ECONOMICS
+       ════════════════════════════════════════════ -->
+  <section class="section section--alt" aria-labelledby="economics-heading">
+    <div class="container">
+      <div class="econ">
+        <div class="econ__copy">
+          <span class="eyebrow">Built around your operation</span>
+          <span class="cyan-rule"></span>
+          <h2 id="economics-heading" class="section-heading text-balance">The goal isn't maximum traffic. It's the right demand your operation can profitably serve.</h2>
+          <p class="section-lead">
+            A rock chip repair, a same-day replacement with ADAS calibration, and a fleet account are different jobs with different margins. Search OS strategy starts with how your business actually runs, then shapes which searches, services and markets to capture — and which to leave alone.
+          </p>
+          <ul class="econ__factors" role="list" aria-label="Factors the strategy considers">
+            {economics.map((f) => <li>{f}</li>)}
+          </ul>
+          <p class="econ__note">
+            We don't sell leads. We build the system — your website, Maps listing, ads and brand — that generates them, so every inquiry belongs to you.
+          </p>
+        </div>
+        <div class="econ__visual">
+          <ImagePlaceholder
+            label="Auto glass technician performing an ADAS windshield camera calibration (or mobile windshield replacement on site)"
+            spec="Landscape, 1200×900. Real technician or shop photo, not stock. Used at ~560px wide."
+            aspect="4 / 3"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════
+       8. ENGAGEMENT MODELS
+       ════════════════════════════════════════════ -->
+  <section class="section" aria-labelledby="engagement-models-heading">
+    <div class="container">
+      <div class="section-header section-header--center">
+        <span class="eyebrow">Engagement models</span>
+        <span class="cyan-rule" style="margin: 0 auto;"></span>
+        <h2 id="engagement-models-heading" class="section-heading text-balance">Two ways to run the Search OS.</h2>
+      </div>
       <div class="models-grid">
-        <!-- Managed Search OS -->
         <article class="card model-card model-card--primary">
           <header class="model-card__header">
             <div class="model-card__header-top">
@@ -310,208 +269,94 @@ const pageDescription = "Turn search visibility into booked auto glass jobs. Aut
             </div>
             <span class="model-card__mode eyebrow eyebrow--blue">We run it for you.</span>
           </header>
-          <p class="card__body">
-            For established auto glass companies that want a specialized external team leading strategy and execution across search, Maps, AI search, paid search, and conversion — while your dispatchers stay focused on booking jobs.
+          <p class="model-card__body">
+            A specialized external team runs customer acquisition across SEO, Google Maps, Google Ads, AI search and conversion — while your dispatchers stay focused on booking jobs.
           </p>
           <ul class="model-card__list" role="list">
-            <li class="arrow-item">High-intent paid search and organic local SEO</li>
-            <li class="arrow-item">Google Maps management and local signals</li>
-            <li class="arrow-item">AI search optimization and structured data</li>
-            <li class="arrow-item">Call routing strategy and dispatch coordination</li>
-            <li class="arrow-item">Measurement tied to qualified leads and booked jobs</li>
+            <li class="arrow-item">Strategy, execution and quality control</li>
+            <li class="arrow-item">Conversion and booking pathway coordination</li>
+            <li class="arrow-item">Reporting on qualified leads, appointments and booked jobs</li>
           </ul>
           <a href="/visibility-analysis/" data-analytics-event="managed_search_os_interest" class="btn btn--primary">
-            Get Your Visibility Analysis &rarr;
+            {siteConfig.primaryCta} &rarr;
           </a>
         </article>
 
-        <!-- Search OS + Team -->
         <article class="card model-card">
           <header class="model-card__header">
             <div class="model-card__header-top">
-              <h3 class="model-card__title">Search OS + Team</h3>
+              <h3 class="model-card__title">Search OS + Your Team</h3>
             </div>
             <span class="model-card__mode eyebrow">We build it with your team.</span>
           </header>
-          <p class="card__body">
-            For companies that want to build stronger internal search capability. We create practical workflows and AI-enabled systems with your team, then provide ongoing strategy, quality control, and support as your markets grow.
+          <p class="model-card__body">
+            For operators who want stronger in-house capability: we build the workflows and AI-enabled systems with your team, then provide ongoing strategy, quality control and support as your markets grow.
           </p>
           <ul class="model-card__list" role="list">
-            <li class="arrow-item">Search systems and reusable workflows</li>
-            <li class="arrow-item">AI-enabled processes your team operates</li>
-            <li class="arrow-item">Mobile route clustering and fleet coordination frameworks</li>
-            <li class="arrow-item">Ongoing strategy, quality control, and support</li>
+            <li class="arrow-item">Search systems and reusable workflows your team operates</li>
+            <li class="arrow-item">Ongoing strategy and quality control</li>
+            <li class="arrow-item">The same measurement model, run internally</li>
           </ul>
           <a href="/visibility-analysis/" data-analytics-event="search_os_team_interest" class="btn btn--secondary">
-            Get Your Visibility Analysis &rarr;
+            Start With an Analysis &rarr;
           </a>
         </article>
       </div>
-
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════
-       METHODOLOGY: FOUND → TRUSTED → CHOSEN → MEASURED
+       9. FOUNDER / TRUST
        ════════════════════════════════════════════ -->
-  <section id="search-methodology" class="section" aria-labelledby="methodology-heading">
+  <section class="section section--alt" aria-labelledby="founder-heading">
     <div class="container">
-
-      <div class="section__header section__header--center">
-        <span class="eyebrow">How We Work</span>
-        <span class="cyan-rule" style="margin: 0 auto;"></span>
-        <h2 id="methodology-heading" class="text-balance">
-          Found &rarr; Trusted &rarr; Chosen &rarr; Measured
-        </h2>
-        <p class="section__lead">
-          A four-stage discipline that connects search activity with qualified calls, booked jobs, and trackable outcomes.
-        </p>
-      </div>
-
-      <div class="grid-4" role="list" aria-label="Methodology stages">
-        {methodologyStages.map((stage) => (
-          <article class="card stage-card" role="listitem">
-            <header class="stage-card__header">
-              <span class="stage-card__title">{stage.title}</span>
-              <span class="stage-tag" aria-label={`Stage ${stage.step}`}>
-                {stage.step}
-              </span>
-            </header>
-            <span class="eyebrow eyebrow--blue stage-card__subtitle">{stage.subtitle}</span>
-            <p class="card__body">{stage.description}</p>
-            <div class="stage-card__metrics">
-              <span class="stage-card__metrics-label">Focus areas</span>
-              <ul class="stage-card__metrics-list" role="list">
-                {stage.signals.map((s) => (
-                  <li class="check-item">{s}</li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════
-       SEARCH INTENT MATRIX
-       ════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="intent-matrix-heading">
-    <div class="container">
-
-      <div class="section__header">
-        <span class="eyebrow">Customer Search Needs</span>
-        <span class="cyan-rule"></span>
-        <h2 id="intent-matrix-heading" class="text-balance">
-          Different searches. Different information needs.
-        </h2>
-        <p class="section__sub">
-          Search behavior changes based on the driver's urgency, service need, and insurance question.
-        </p>
-      </div>
-
-      <div class="table-scroll" role="region" aria-label="Search intent matrix" tabindex="0">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th scope="col">Customer Query Intent</th>
-              <th scope="col">Sample Driver Search</th>
-              <th scope="col">Primary Discovery Surface</th>
-              <th scope="col">How They Contact You</th>
-              <th scope="col">Likely Service Need</th>
-            </tr>
-          </thead>
-          <tbody>
-            {searchIntentMatrix.map((item) => (
-              <tr>
-                <td class="intent-cell--primary">{item.queryType}</td>
-                <td class="intent-cell--query">{item.sampleQuery}</td>
-                <td>{item.primarySurface}</td>
-                <td class="intent-cell--muted">{item.conversionMechanism}</td>
-                <td class="intent-cell--value">{item.targetValue}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════
-       MEASUREMENT
-       ════════════════════════════════════════════ -->
-  <section class="section section--measure" aria-labelledby="measurement-heading">
-    <div class="container">
-      <div class="measure-inner">
-        <span class="eyebrow">Revenue Accountability</span>
-        <span class="cyan-rule" style="margin: 0 auto;"></span>
-        <h2 id="measurement-heading" class="text-balance">
-          Measure booked jobs, not just rankings.
-        </h2>
-        <p class="measure-body">
-          Where reliable call, quote, booking, and revenue data are available, measurement connects search activity with qualified inquiries and booked jobs — not just rankings or traffic numbers. Operational clarity starts with knowing which searches are producing revenue.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════════════════════════════════════
-       IDEAL CLIENT PROFILE
-       ════════════════════════════════════════════ -->
-  <section class="section section--alt" aria-labelledby="icp-heading">
-    <div class="container">
-      <div class="icp-card">
-        <div class="icp-card__content">
-          <div class="icp-card__left">
-            <span class="eyebrow">Partnership Profile</span>
-            <span class="cyan-rule"></span>
-            <h2 id="icp-heading" class="text-balance">
-              Built for auto glass operators ready to scale.
-            </h2>
-            <p class="icp-card__desc">
-              Auto Glass Search OS is designed for established companies that want to improve how they are found online and how search converts into qualified customer inquiries — across in-shop service, mobile dispatch, and ADAS calibration bays.
-            </p>
-          </div>
-          <div class="icp-card__right">
-            <ul class="icp-card__list" role="list">
-              <li class="check-item">Established auto glass business with a track record</li>
-              <li class="check-item">In-shop service, mobile fleet, or both</li>
-              <li class="check-item">In-house ADAS calibration capability or partnership</li>
-              <li class="check-item">Clear services and geographic markets to grow</li>
-              <li class="check-item">A team ready to improve search performance</li>
-              <li class="check-item">Seriously investing in sustainable customer acquisition</li>
-            </ul>
-          </div>
+      <div class="founder">
+        <div class="founder__photo">
+          <ImagePlaceholder
+            label="Founder headshot — Valentina Borda"
+            spec="Portrait, 800×1000, natural light, neutral or shop background. Used at ~360px wide."
+            aspect="4 / 5"
+          />
+        </div>
+        <div class="founder__copy">
+          <span class="eyebrow">Founder-led</span>
+          <span class="cyan-rule"></span>
+          <h2 id="founder-heading" class="section-heading text-balance">A specialist who works directly with each operator.</h2>
+          <p class="founder__name">Valentina Borda <span class="founder__role">Founder, Aligned Growth Digital &middot; leads Auto Glass Search OS</span></p>
+          <p class="section-lead">
+            Auto Glass Search OS is a specialized auto glass initiative operated under Aligned Growth Digital. Valentina brings more than ten years across search, digital growth, eCommerce and marketing strategy, and she personally owns the opportunity analysis, the strategy, and quality control on what gets published or deployed — with AI-enabled systems handling research, monitoring and execution at scale.
+          </p>
+          <p class="founder__standard">
+            <strong>A plain operating standard:</strong> no fabricated client logos, invented performance claims, or unverifiable case studies. Scope is confirmed directly with every operator before an engagement begins.
+          </p>
+          <a href="/about/" class="module__link" data-analytics-event="founder_about_click">About Valentina and the company &rarr;</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ════════════════════════════════════════════
-       FINAL CTA
+       10. FINAL CTA
        ════════════════════════════════════════════ -->
   <section class="section section--cta" aria-labelledby="final-cta-heading">
     <div class="container">
       <div class="final-cta">
-        <span class="eyebrow">Opportunity Diagnostic</span>
+        <span class="eyebrow">{siteConfig.primaryCtaOffer}</span>
         <span class="cyan-rule" style="margin: 0 auto;"></span>
         <h2 id="final-cta-heading" class="final-cta__heading text-balance">
-          See where competitors are capturing jobs you're missing.
+          See where your market is leaking opportunity.
         </h2>
         <p class="final-cta__desc">
-          Request a complimentary, manually reviewed visibility analysis for your auto glass operation. We examine Google Maps visibility, organic search coverage, AI search presence, competitive positioning, paid search opportunities, and website conversion friction.
+          A complimentary, manually reviewed analysis of your auto glass market. We look at who's winning the searches you should own, and where drivers who find you don't become jobs.
         </p>
-        <a
-          href="/visibility-analysis/"
-          data-analytics-event="primary_cta_click"
-          class="btn btn--primary btn--lg"
-        >
-          Get Your Search + AI Visibility Analysis
+        <ul class="final-cta__scope" role="list" aria-label="What the analysis covers">
+          {analysisScope.map((s) => <li>{s}</li>)}
+        </ul>
+        <a href="/visibility-analysis/" data-analytics-event="primary_cta_click" class="btn btn--primary btn--lg">
+          {siteConfig.primaryCta}
         </a>
         <p class="final-cta__note">
-          Manually reviewed &middot; Confidential opportunity analysis &middot; No obligation
+          Manually reviewed &middot; Confidential &middot; No obligation
         </p>
       </div>
     </div>
@@ -520,17 +365,76 @@ const pageDescription = "Turn search visibility into booked auto glass jobs. Aut
 </BaseLayout>
 
 <style>
-  /* ── Hero ─────────────────────────────────────── */
+  /* ── Shared section scaffolding ─────────────── */
+  .section {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background-color: var(--obsidian);
+  }
+
+  .section--alt {
+    background-color: var(--carbon-slate);
+  }
+
+  .section--journey {
+    background-color: var(--obsidian);
+    background-image: radial-gradient(ellipse at 50% 0%, rgba(0,210,255,0.06) 0%, transparent 55%);
+  }
+
+  .section--paths {
+    background-color: var(--obsidian);
+    background-image: radial-gradient(ellipse at 85% 20%, rgba(245,158,11,0.07) 0%, transparent 55%);
+  }
+
+  .section--cta {
+    background-color: var(--obsidian);
+    background-image: radial-gradient(ellipse at 50% 100%, rgba(30,64,175,0.22) 0%, transparent 60%);
+    text-align: center;
+  }
+
+  .section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    max-width: 46rem;
+  }
+
+  .section-header--wide { max-width: 52rem; }
+
+  .section-header--center {
+    margin-inline: auto;
+    text-align: center;
+    align-items: center;
+  }
+
+  .section-heading {
+    font-size: clamp(1.75rem, 2.8vw + 0.5rem, 2.625rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .section-lead {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ── 1. Hero ─────────────────────────────────── */
   .hero {
     padding-top: 4.5rem;
-    padding-bottom: 5rem;
+    padding-bottom: 4.5rem;
     border-bottom: 1px solid rgba(0,210,255,0.08);
     background-color: var(--obsidian);
     position: relative;
     overflow: hidden;
   }
 
-  /* Subtle radial glow behind hero */
   .hero::before {
     content: '';
     position: absolute;
@@ -538,7 +442,7 @@ const pageDescription = "Turn search visibility into booked auto glass jobs. Aut
     right: 0;
     width: 60%;
     height: 100%;
-    background: radial-gradient(ellipse at 70% 30%, rgba(30,64,175,0.12) 0%, transparent 65%);
+    background: radial-gradient(ellipse at 70% 30%, rgba(30,64,175,0.14) 0%, transparent 65%);
     pointer-events: none;
   }
 
@@ -552,24 +456,29 @@ const pageDescription = "Turn search visibility into booked auto glass jobs. Aut
 
   @media (min-width: 1024px) {
     .hero__layout {
-      grid-template-columns: 58fr 42fr;
+      grid-template-columns: 56fr 44fr;
       gap: 4rem;
     }
+  }
+
+  .hero__layout > * {
+    min-width: 0;
   }
 
   .hero__content {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-width: 56rem;
+    max-width: 40rem;
   }
 
   .hero__heading {
-    font-size: clamp(2.5rem, 5.5vw + 0.5rem, 4.25rem);
+    font-size: clamp(2.25rem, 4.5vw + 0.5rem, 3.75rem);
     font-weight: 800;
-    line-height: 1.02;
+    line-height: 1.04;
     letter-spacing: -0.03em;
     color: var(--text-primary);
+    margin: 0;
   }
 
   .hero__heading-accent {
@@ -582,401 +491,336 @@ const pageDescription = "Turn search visibility into booked auto glass jobs. Aut
     font-size: clamp(1rem, 1.25vw + 0.5rem, 1.1875rem);
     color: var(--text-secondary);
     line-height: 1.7;
-    max-width: 46rem;
+    margin: 0;
   }
 
-  /* Service signals */
-  .hero__signals {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 1.25rem 1.5rem;
-    background: rgba(19, 27, 46, 0.7);
-    border: 1px solid rgba(0, 210, 255, 0.12);
-    border-radius: var(--radius-xl);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
-  .hero__signal {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+  .hero__mechanism {
+    font-size: 0.9375rem;
     color: var(--text-secondary);
-    letter-spacing: 0.02em;
-    line-height: 1.5;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0.875rem 1.125rem;
+    border-left: 2px solid var(--laser-cyan);
+    background: rgba(0,210,255,0.04);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   }
 
-  .hero__signal-dot {
-    width: 0.3125rem;
-    height: 0.3125rem;
-    border-radius: 50%;
-    background-color: var(--laser-cyan);
-    flex-shrink: 0;
-    opacity: 0.7;
+  .hero__mechanism strong { color: var(--text-primary); }
+
+  .hero__descriptor {
+    display: block;
+    margin-top: 0.375rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--laser-cyan);
   }
 
   .hero__actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.875rem;
-    align-items: center;
-    padding-top: 0.25rem;
   }
 
   .hero__qualifier {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
-    color: var(--text-tertiary);
     letter-spacing: 0.06em;
-    border-top: 1px solid rgba(255,255,255,0.06);
-    padding-top: 1.25rem;
-    margin-top: 0;
-  }
-
-  /* Hero visual */
-  .hero__visual {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .hero__img-frame {
-    position: relative;
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    border: 1px solid rgba(0, 210, 255, 0.2);
-    box-shadow:
-      0 0 0 1px rgba(0, 210, 255, 0.08),
-      0 24px 64px rgba(0, 0, 0, 0.5),
-      0 0 48px rgba(0, 210, 255, 0.06);
-    background: var(--carbon-slate);
-  }
-
-  .hero__img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.6s cubic-bezier(0.25, 0, 0, 1);
-  }
-
-  .hero__img-frame:hover .hero__img {
-    transform: scale(1.01);
-  }
-
-  .hero__visual-note {
+    color: var(--text-tertiary);
     margin: 0;
-    max-width: 40rem;
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    line-height: 1.5;
-    color: var(--text-tertiary);
-    letter-spacing: 0.04em;
-    text-align: center;
-  }
-
-  /* HUD overlays */
-  .hero__img-hud {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-    font-family: var(--font-mono);
-    font-size: 0.5625rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    z-index: 2;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    background: rgba(11, 15, 25, 0.75);
-    border: 1px solid rgba(0, 210, 255, 0.2);
-    border-radius: var(--radius);
-    padding: 0.25rem 0.5rem;
-  }
-
-  .hero__img-hud--tl { top: 0.75rem; left: 0.75rem; }
-  .hero__img-hud--br { bottom: 0.75rem; right: 0.75rem; }
-
-  .hud-label { color: var(--laser-cyan); }
-  .hud-label--amber { color: var(--fleet-amber); }
-
-  .hud-dot {
-    width: 0.3125rem;
-    height: 0.3125rem;
-    border-radius: 50%;
-    background-color: var(--laser-cyan);
-    box-shadow: 0 0 4px var(--laser-cyan);
-    animation: pulse-dot 2.5s ease-in-out infinite;
-  }
-
-  .hud-dot--amber {
-    background-color: var(--fleet-amber);
-    box-shadow: 0 0 4px var(--fleet-amber);
-  }
-
-  /* Corner calibration marks */
-  .hero__corner {
-    position: absolute;
-    z-index: 2;
-  }
-  .hero__corner--tl { top: 0.375rem; left: 0.375rem; }
-  .hero__corner--tr { top: 0.375rem; right: 0.375rem; }
-  .hero__corner--bl { bottom: 0.375rem; left: 0.375rem; }
-  .hero__corner--br { bottom: 0.375rem; right: 0.375rem; }
-
-  /* Flow labels */
-  .hero__flow {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .hero__flow-step {
-    color: var(--text-tertiary);
-  }
-
-  .hero__flow-step--accent {
-    color: var(--laser-cyan);
-    font-weight: 500;
-  }
-
-  .hero__flow-arrow {
-    color: var(--text-tertiary);
-    font-size: 0.625rem;
-  }
-
-  /* ── Section base ─────────────────────────────── */
-  .section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    background-color: var(--obsidian);
-  }
-
-  .section--alt {
-    background-color: var(--carbon-slate);
-  }
-
-  .section--measure {
-    background-color: var(--carbon-slate);
-    text-align: center;
-  }
-
-  .section--cta {
-    background-color: var(--obsidian);
-    text-align: center;
-  }
-
-  .section__header {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-bottom: 3.5rem;
-    max-width: 50rem;
-  }
-
-  .section__header--center {
-    margin-inline: auto;
-    text-align: center;
-    align-items: center;
-  }
-
-  .section__lead {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    max-width: 46rem;
-  }
-
-  .section__sub {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
-    letter-spacing: 0.04em;
     line-height: 1.6;
   }
 
-  /* ── Grids ────────────────────────────────────── */
-  .grid-3 {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
+  .hero__visual {
+    position: relative;
   }
 
-  @media (min-width: 768px) {
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+  /* ── 2. Credibility strip ────────────────────── */
+  .cred {
+    background-color: var(--carbon-slate);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 1.5rem 0;
   }
 
-  .grid-4 {
+  .cred__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1rem 2rem;
   }
 
   @media (min-width: 640px) {
-    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .cred__list { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (min-width: 1024px) {
-    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .cred__list { grid-template-columns: repeat(5, 1fr); }
   }
 
-  /* ── Cards ────────────────────────────────────── */
-  .card__top {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.875rem;
-    margin-bottom: 0.875rem;
-  }
-
-  .card__title {
-    font-family: var(--font-display);
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0;
-    line-height: 1.3;
-  }
-
-  .card__body {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.72;
-    margin: 0;
-  }
-
-  /* ── Pipeline flow ────────────────────────────── */
-  .pipeline {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    max-width: 58rem;
-    margin-inline: auto;
-  }
-
-  @media (min-width: 768px) {
-    .pipeline {
-      flex-direction: row;
-      align-items: stretch;
-    }
-  }
-
-  .pipeline__step {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    padding: 1.5rem;
-    background: var(--carbon-slate-2);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: var(--radius-xl);
-    flex: 1;
-    transition: border-color var(--transition-base), box-shadow var(--transition-base);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .pipeline__step::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(0,210,255,0.03) 0%, transparent 50%);
-    pointer-events: none;
-    border-radius: inherit;
-  }
-
-  .pipeline__step:hover {
-    border-color: rgba(0, 210, 255, 0.2);
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.05);
-  }
-
-  .pipeline__step--final {
-    background: rgba(30, 64, 175, 0.1);
-    border-color: rgba(30, 64, 175, 0.3);
-  }
-
-  .pipeline__step--final:hover {
-    border-color: rgba(30, 64, 175, 0.5);
-    box-shadow: 0 0 24px rgba(30, 64, 175, 0.15);
-  }
-
-  .pipeline__connector {
-    display: none;
-  }
-
-  @media (min-width: 768px) {
-    .pipeline__connector {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 2rem;
-      flex-shrink: 0;
-      color: var(--laser-cyan);
-      font-size: 0.75rem;
-      opacity: 0.5;
-      position: relative;
-    }
-
-    .pipeline__connector::after {
-      content: '→';
-    }
-  }
-
-  .pipeline__icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.25rem;
-    height: 2.25rem;
-    border-radius: var(--radius-md);
-    background: rgba(0, 210, 255, 0.08);
-    border: 1px solid rgba(0, 210, 255, 0.18);
-    color: var(--laser-cyan);
-    flex-shrink: 0;
-  }
-
-  .pipeline__icon--accent {
-    background: rgba(30, 64, 175, 0.2);
-    border-color: rgba(30, 64, 175, 0.4);
-    color: var(--cobalt-hover);
-  }
-
-  .pipeline__content {
+  .cred__item {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    padding-left: 0.875rem;
+    border-left: 2px solid var(--laser-cyan-border);
   }
 
-  .pipeline__label {
-    font-size: 0.5625rem;
-  }
-
-  .pipeline__name {
-    font-family: var(--font-display);
-    font-size: 0.9375rem;
-    font-weight: 600;
+  .cred__label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     color: var(--text-primary);
-    line-height: 1.3;
   }
 
-  .pipeline__name--accent {
-    color: var(--laser-cyan);
+  .cred__detail {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    line-height: 1.5;
   }
 
-  .pipeline__desc {
-    font-size: 0.75rem;
+  /* ── 3. Leaks ────────────────────────────────── */
+  .leaks {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .leaks {
+      grid-template-columns: 5fr 7fr;
+      gap: 4rem;
+      align-items: start;
+    }
+  }
+
+  .leaks__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    .leaks__intro { position: sticky; top: 6rem; }
+  }
+
+  .leaks__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+
+  @media (min-width: 640px) {
+    .leaks__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .leak {
+    position: relative;
+    padding: 1.25rem;
+    background: rgba(11,15,25,0.55);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-left: 3px solid var(--fleet-amber);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .leak__num {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: var(--text-tertiary);
+  }
+
+  .leak__tag {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fleet-amber);
+  }
+
+  .leak__body {
+    font-size: 0.875rem;
     color: var(--text-secondary);
-    line-height: 1.55;
+    line-height: 1.6;
+    margin: 0;
   }
 
-  /* ── Engagement Models ────────────────────────── */
+  /* ── 5. Modules ──────────────────────────────── */
+  .modules {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .modules {
+      grid-template-columns: 5fr 7fr;
+      gap: 4rem;
+      align-items: start;
+    }
+  }
+
+  .modules__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 1024px) {
+    .modules__intro { position: sticky; top: 6rem; }
+  }
+
+  .modules__intro .btn { margin-top: 0.5rem; }
+
+  .modules__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .module {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.75rem;
+    padding: 1.375rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .module__num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--laser-cyan);
+    padding-top: 0.2rem;
+  }
+
+  .module__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;
+  }
+
+  .module__title {
+    font-family: var(--font-display);
+    font-size: 1.1875rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .module__desc {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .module__link {
+    display: inline-block;
+    margin-top: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--laser-cyan);
+    text-decoration: none;
+    transition: opacity 150ms;
+  }
+
+  .module__link:hover { opacity: 0.8; }
+
+  /* ── 6. Paths ────────────────────────────────── */
+  .paths-caps {
+    list-style: none;
+    margin: 1.75rem auto 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.75rem;
+    max-width: 60rem;
+  }
+
+  /* ── 7. Economics ────────────────────────────── */
+  .econ {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .econ {
+      grid-template-columns: 7fr 5fr;
+      gap: 4.5rem;
+    }
+  }
+
+  .econ__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .econ__factors {
+    list-style: none;
+    margin: 0.5rem 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1.25rem;
+  }
+
+  .econ__factors li {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .econ__factors li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 50%;
+    background: var(--laser-cyan);
+  }
+
+  .econ__note {
+    margin: 0.75rem 0 0;
+    padding: 0.875rem 1.125rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    background: var(--fleet-amber-dim);
+    border: 1px solid var(--fleet-amber-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .econ__visual { max-width: 36rem; }
+
+  /* ── 8. Engagement models ────────────────────── */
   .models-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -1050,6 +894,13 @@ const pageDescription = "Turn search visibility into booked auto glass jobs. Aut
     font-size: 0.625rem;
   }
 
+  .model-card__body {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 0;
+  }
+
   .model-card__list {
     list-style: none;
     padding: 0;
@@ -1059,182 +910,64 @@ const pageDescription = "Turn search visibility into booked auto glass jobs. Aut
     gap: 0.5rem;
   }
 
-  /* ── Stage cards ──────────────────────────────── */
-  .stage-card {
+  /* ── 9. Founder ──────────────────────────────── */
+  .founder {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 900px) {
+    .founder {
+      grid-template-columns: 4fr 8fr;
+      gap: 4rem;
+    }
+  }
+
+  .founder__photo { max-width: 22rem; }
+
+  .founder__copy {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    align-items: flex-start;
   }
 
-  .stage-card__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding-bottom: 0.875rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .stage-card__title {
+  .founder__name {
     font-family: var(--font-display);
-    font-size: 1.1875rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    color: var(--laser-cyan);
-    text-shadow: 0 0 20px rgba(0, 210, 255, 0.25);
-  }
-
-  .stage-card__subtitle {
-    font-size: 0.625rem;
-  }
-
-  .stage-tag {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
+    font-size: 1.125rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
-    padding: 0.2rem 0.5rem;
-    border-radius: var(--radius);
-    background-color: rgba(0, 210, 255, 0.08);
-    border: 1px solid rgba(0, 210, 255, 0.18);
-    color: var(--laser-cyan);
-    white-space: nowrap;
-  }
-
-  .stage-card__metrics {
-    padding-top: 0.875rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-primary);
+    margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin-top: auto;
+    gap: 0.2rem;
   }
 
-  .stage-card__metrics-label {
+  .founder__role {
     font-family: var(--font-mono);
-    font-size: 0.5625rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--text-tertiary);
   }
 
-  .stage-card__metrics-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-  }
-
-  /* ── Intent matrix table ──────────────────────── */
-  .table-scroll {
-    overflow-x: auto;
-    border-radius: var(--radius-xl);
-    border: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .intent-cell--primary {
-    font-family: var(--font-display);
-    font-weight: 600;
-    color: var(--text-primary);
-  }
-
-  .intent-cell--query {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--laser-cyan);
-  }
-
-  .intent-cell--muted {
-    color: var(--text-tertiary);
-    font-size: 0.8125rem;
-  }
-
-  .intent-cell--value {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--fleet-amber);
-    font-weight: 500;
-    white-space: nowrap;
-  }
-
-  /* ── Measurement section ──────────────────────── */
-  .measure-inner {
-    max-width: 46rem;
-    margin-inline: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    align-items: center;
-  }
-
-  .measure-body {
-    font-size: 1.0625rem;
+  .founder__standard {
+    font-size: 0.875rem;
     color: var(--text-secondary);
-    line-height: 1.72;
-    max-width: 38rem;
-    text-align: center;
-  }
-
-  /* ── ICP card ─────────────────────────────────── */
-  .icp-card {
-    border-radius: var(--radius-2xl);
-    border: 1px solid rgba(0, 210, 255, 0.1);
-    background-color: var(--carbon-slate-2);
-    padding: 3rem;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-
-  @media (max-width: 639px) {
-    .icp-card { padding: 2rem 1.5rem; }
-  }
-
-  .icp-card__content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    align-items: start;
-  }
-
-  @media (min-width: 768px) {
-    .icp-card__content {
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-  }
-
-  .icp-card__left {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .icp-card__desc {
-    font-size: 0.9375rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-
-  .icp-card__right {
-    display: flex;
-    align-items: center;
-  }
-
-  .icp-card__list {
-    list-style: none;
-    padding: 0;
+    line-height: 1.65;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-    width: 100%;
+    padding: 0.875rem 1.125rem;
+    background: rgba(11,15,25,0.55);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius-lg);
   }
 
-  /* ── Final CTA ────────────────────────────────── */
+  .founder__standard strong { color: var(--text-primary); }
+
+  /* ── 10. Final CTA ───────────────────────────── */
   .final-cta {
     display: flex;
     flex-direction: column;
@@ -1250,6 +983,7 @@ const pageDescription = "Turn search visibility into booked auto glass jobs. Aut
     letter-spacing: -0.025em;
     line-height: 1.06;
     color: var(--text-primary);
+    margin: 0;
   }
 
   .final-cta__desc {
@@ -1258,6 +992,29 @@ const pageDescription = "Turn search visibility into booked auto glass jobs. Aut
     line-height: 1.7;
     max-width: 38rem;
     text-align: center;
+    margin: 0;
+  }
+
+  .final-cta__scope {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: 40rem;
+  }
+
+  .final-cta__scope li {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    padding: 0.35rem 0.625rem;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius);
   }
 
   .final-cta__note {

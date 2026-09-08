@@ -1,171 +1,134 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CapabilityGrid from '../components/CapabilityGrid.astro';
+import ProseSection from '../components/ProseSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import ClosingCta from '../components/ClosingCta.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
 
-const pageTitle = "AI Search Visibility for Auto Glass | AEO & GEO";
-const pageDescription = "Improve the clarity and corroboration of your auto glass business across AI-assisted discovery, Google AI Overviews, and conversational search.";
+const pagePath = "/ai-search-optimization/";
+const pageTitle = "AI Search Optimization for Auto Glass | AEO & GEO";
+const pageDescription = "AI search optimization (AEO/GEO) for auto glass companies. Clear business information, structured data, and corroboration for AI-assisted discovery, built on SEO.";
+
+const capabilities = [
+  {
+    title: "Clear Business Information",
+    body: "Keep information about your business, services, locations, service areas, and qualifications consistent and easy to verify.",
+  },
+  {
+    title: "Clear Website Content",
+    body: "Use clear website content and relevant structured data to explain services such as ADAS recalibration, mobile service, and OEM or aftermarket glass when offered.",
+  },
+  {
+    title: "Consistent Information & Proof",
+    body: "Consistent information across your website and reputable third-party sources gives search and AI systems clearer evidence when they summarize relevant auto glass providers.",
+  },
+];
+
+const faqs = [
+  {
+    question: "What is AI search optimization for auto glass companies?",
+    answer: "AI search optimization — sometimes called answer engine optimization (AEO) or generative engine optimization (GEO) — is the work of making your business, services, locations, and credentials clear and consistent enough that AI-assisted search systems such as Google AI Overviews, ChatGPT, and Gemini can understand and corroborate them when a driver asks for an auto glass shop nearby.",
+  },
+  {
+    question: "Can you get our shop recommended by ChatGPT or included in Google AI Overviews?",
+    answer: "No one can guarantee that, and we do not. AI systems change frequently and their outputs are not controlled by any business or agency. What we can do is improve the clarity, consistency, and third-party corroboration of your business information — the inputs those systems rely on — and measure how your visibility changes over time.",
+  },
+  {
+    question: "Is AI search optimization a replacement for SEO?",
+    answer: "No. AI search optimization sits on top of good SEO and entity fundamentals. AI systems draw on live search results, your Google Business Profile, reviews, and your website. A shop with weak organic visibility, an inconsistent listing, or thin service pages has little for an AI system to find or trust. Auto glass SEO and local SEO come first; AI search optimization extends them.",
+  },
+  {
+    question: "Why does ADAS calibration matter for AI search?",
+    answer: "Drivers and insurers increasingly ask AI assistants whether a shop can recalibrate the camera after a windshield replacement. If your website and listings clearly state which calibration types you handle, for which vehicles, and whether it is done in-house or by a partner, AI systems have something concrete to cite. Vague or missing calibration information usually means being left out of the answer.",
+  },
+  {
+    question: "How do you measure AI search visibility?",
+    answer: "We run a consistent set of driver-style questions across AI-assisted search experiences on a schedule and record whether your business appears, how it is described, and which competitors appear instead. It is a directional measure rather than a precise ranking, and we report it as such alongside organic, Maps, and paid search results.",
+  },
+];
+
+const extraSchema = [
+  serviceSchema({
+    pagePath,
+    name: "AI Search Optimization for Auto Glass Companies",
+    serviceType: "AI search visibility and answer engine optimization for auto glass companies",
+    description: pageDescription,
+    alternateName: ["Auto Glass AEO", "Auto Glass GEO", "AI Visibility for Auto Glass"],
+  }),
+  faqSchema(faqs, pagePath),
+];
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
+<BaseLayout title={pageTitle} description={pageDescription} breadcrumbName="AI Search Optimization" extraSchema={extraSchema}>
 
-  <!-- Hero -->
-  <section class="page-hero" aria-labelledby="ai-search-heading">
-    <div class="container">
-      <div class="page-hero__content">
-        <span class="eyebrow">AI Search Visibility</span>
-        <h1 id="ai-search-heading" class="text-balance">
-          AI Search Visibility for Auto Glass Companies.
-        </h1>
-        <p class="page-hero__lead">
-          Customers are increasingly encountering businesses and recommendations through AI-assisted search. We help make your business, services, locations, and expertise easier for search and AI systems to understand and corroborate.
-        </p>
-        <div class="page-hero__cta">
-          <a
-            href="/visibility-analysis/"
-            data-analytics-event="primary_cta_click"
-            class="btn btn--primary btn--lg"
-          >
-            Assess Your AI Search Visibility
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    id="ai-search"
+    eyebrow="AI Search Visibility"
+    heading="AI Search Visibility for Auto Glass Companies"
+    lead="Drivers are increasingly encountering businesses and recommendations through AI-assisted search. We help make your business, services, locations, and expertise easier for search and AI systems to understand and corroborate — as an extension of the SEO and Google Maps fundamentals that produce most auto glass leads today."
+    ctaLabel="Assess My AI Search Visibility"
+    supportLine="Complimentary Search + Customer Acquisition Analysis"
+  />
 
-  <!-- Capability cards -->
-  <section class="section section--alt" aria-labelledby="ai-capabilities-heading">
-    <div class="container">
-      <h2 id="ai-capabilities-heading" class="sr-only">AI Search Capabilities</h2>
-      <div class="cap-grid">
+  <CapabilityGrid id="ai-capabilities" heading="What AI search optimization covers" eyebrow="Core capabilities" cards={capabilities} />
 
-        <article class="card">
-          <div class="card__top">
-            <span class="stage-badge" aria-hidden="true">01</span>
-            <h3 class="card__title">Clear Business Information</h3>
-          </div>
-          <p class="card__body">
-            Keep information about your business, services, locations, service areas, and qualifications consistent and easy to verify.
-          </p>
-        </article>
+  <ProseSection id="ai-foundation" eyebrow="Built on fundamentals" heading="AI search optimization sits on top of good SEO">
+    <p>
+      AI-assisted search experiences — Google AI Overviews, ChatGPT, Gemini, and others — do not keep a private directory of auto glass shops. When a driver asks which nearby shop can replace a windshield and recalibrate the camera, these systems draw on live search results, Google Business Profiles, reviews, directories, and the shop's own website, then summarize. A business that is hard to find or inconsistent in those sources has little chance of being described accurately, let alone recommended.
+    </p>
+    <p>
+      That is why this page is a differentiator rather than a starting point. <a href="/auto-glass-seo/">Auto glass SEO</a> and <a href="/auto-glass-local-seo/">local SEO</a> build the visibility and business information AI systems rely on; AI search optimization makes that information clearer, more consistent, and better corroborated. Together they feed the same <a href="/auto-glass-lead-generation/">lead generation system</a>.
+    </p>
+  </ProseSection>
 
-        <article class="card">
-          <div class="card__top">
-            <span class="stage-badge" aria-hidden="true">02</span>
-            <h3 class="card__title">Clear Website Content</h3>
-          </div>
-          <p class="card__body">
-            Use clear website content and relevant structured data to explain services such as ADAS recalibration, mobile service, and OEM or aftermarket glass when offered.
-          </p>
-        </article>
+  <ProseSection id="ai-inputs" eyebrow="What AI systems look for" heading="Clear entity, service, and location information" alt>
+    <p>
+      The work is practical, and most of it is also good SEO:
+    </p>
+    <ul class="prose-grid">
+      <li><strong>Entity clarity</strong> One consistent business name, phone, address or service area, and description everywhere your business appears.</li>
+      <li><strong>Service clarity</strong> Explicit pages and listings for windshield replacement, repair, mobile service, side and back glass, and ADAS calibration — with specifics a system can quote.</li>
+      <li><strong>Location clarity</strong> Which shop serves which market, mobile radius, and where calibration happens.</li>
+      <li><strong>Structured data</strong> Organization, local business, service, and FAQ markup that accurately describes the business so it is machine-readable as well as human-readable.</li>
+      <li><strong>Helpful, answerable content</strong> Pages that directly answer the questions drivers ask — insurance, deductibles, OEM vs. aftermarket glass, calibration — in plain language.</li>
+      <li><strong>Third-party corroboration</strong> Reviews, citations, mentions, and certifications on reputable sources that back up what your site says.</li>
+    </ul>
+  </ProseSection>
 
-        <article class="card">
-          <div class="card__top">
-            <span class="stage-badge" aria-hidden="true">03</span>
-            <h3 class="card__title">Consistent Information &amp; Proof</h3>
-          </div>
-          <p class="card__body">
-            Consistent information across your website and reputable third-party sources gives search and AI systems clearer evidence when they summarize relevant auto glass providers.
-          </p>
-        </article>
+  <ProseSection id="ai-vs-voice" eyebrow="Not to be confused with" heading="AI search visibility is not AI call handling" alt>
+    <p>
+      Two different things share the word "AI" on this site. <strong>AI search optimization</strong> — this page — is about discovery: helping AI-assisted search systems understand and corroborate your business so drivers find you. <strong>AI Voice CSR</strong> is a conversion capability: AI-assisted call handling for after-hours, overflow and missed-call risk, available through our specialized auto glass technology partner and described on the <a href="/auto-glass-lead-generation/">lead generation page</a>. One helps drivers find you; the other helps you answer when they do.
+    </p>
+  </ProseSection>
 
-      </div>
-    </div>
-  </section>
+  <ProseSection id="ai-measurement" eyebrow="Measurement and expectations" heading="What we measure, and what we do not promise">
+    <p>
+      We do not guarantee ChatGPT recommendations, inclusion in Google AI Overviews or Perplexity, or any ranking within AI answers. Those systems change often and no business controls their outputs. What we do is track a consistent set of driver-style questions across AI-assisted search on a schedule, record whether and how your business appears, and report the trend alongside your organic, Google Maps, and paid search results. The goal is a directional view of AI visibility that informs the rest of the system — not a promise.
+    </p>
+  </ProseSection>
+
+  <RelatedLinks
+    id="ai-related"
+    heading="AI search is one part of the system."
+    links={[
+      { href: "/auto-glass-seo/", title: "Auto Glass SEO", description: "The organic foundation AI search optimization builds on — start here." },
+      { href: "/auto-glass-lead-generation/", title: "Auto Glass Lead Generation", description: "How SEO, Maps, Ads, AI search, and conversion connect into one owned acquisition system." },
+      { href: "/auto-glass-local-seo/", title: "Auto Glass Local SEO & Google Maps", description: "The Google Business Profile and reviews AI systems draw on." },
+      { href: "/visibility-analysis/", title: "Opportunity Analysis", description: "See how your business appears across search, Maps, and AI today." },
+    ]}
+    alt
+  />
+
+  <FaqSection id="ai-faq" heading="AI search optimization questions" items={faqs} />
+
+  <ClosingCta
+    id="ai-cta"
+    heading="See how search and AI systems describe your shop today."
+    description="Request a complimentary, manually reviewed analysis covering AI search visibility alongside Google Maps gaps, organic search gaps, competitor coverage, paid search opportunity, and conversion friction."
+    ctaLabel="Assess My AI Search Visibility"
+  />
 
 </BaseLayout>
-
-<style>
-  .page-hero {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    background-color: var(--surface-00);
-  }
-
-  .page-hero__content {
-    max-width: 52rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .page-hero__lead {
-    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.1875rem);
-    color: var(--text-secondary);
-    line-height: 1.65;
-    max-width: 42rem;
-  }
-
-  .page-hero__cta {
-    padding-top: 0.5rem;
-  }
-
-  .section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    background-color: var(--surface-00);
-  }
-
-  .section--alt {
-    background-color: var(--surface-01);
-  }
-
-  .cap-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  @media (min-width: 768px) {
-    .cap-grid { grid-template-columns: repeat(3, 1fr); }
-  }
-
-  .card {
-    background-color: var(--surface-02);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--radius-xl);
-    padding: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    transition: border-color 200ms;
-  }
-
-  .card:hover {
-    border-color: rgba(49,130,246,0.3);
-  }
-
-  .card__top {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.875rem;
-  }
-
-  .card__title {
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0;
-    line-height: 1.35;
-    padding-top: 0.125rem;
-  }
-
-  .card__body {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-</style>

@@ -1,171 +1,152 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CapabilityGrid from '../components/CapabilityGrid.astro';
+import ProseSection from '../components/ProseSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import ClosingCta from '../components/ClosingCta.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+import ConversionPaths from '../components/ConversionPaths.astro';
 
-const pageTitle = "Auto Glass Google Ads | Paid Search for Glass Companies";
-const pageDescription = "Paid search strategy and management for auto glass companies focused on relevant replacement, repair, recalibration, and mobile-service demand.";
+const pagePath = "/google-ads/";
+const pageTitle = "Auto Glass Google Ads & PPC Agency | Qualified Lead Generation";
+const pageDescription = "Auto glass PPC agency. Google Ads built around qualified leads, not clicks: campaign architecture, negative keyword control, call tracking, and cost per qualified lead.";
+
+const capabilities = [
+  {
+    title: "Relevant Search Terms",
+    body: "Use search terms and negative keywords to reduce spend on irrelevant categories such as general repair, residential glass, tinting, parts, window regulators, and do-it-yourself research.",
+  },
+  {
+    title: "Calls & Quote Requests",
+    body: "Make it easy for urgent customers to call or request a quote, with ads and landing pages aligned to your hours, service availability, and preferred contact path.",
+  },
+  {
+    title: "Cost Per Qualified Lead",
+    body: "Where reliable tracking data is available, reporting connects ad spend with qualified calls, quote requests, booked jobs, and cost per qualified lead — not just clicks and impressions.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Does Google Ads work for auto glass companies?",
+    answer: "Yes, when campaigns are built around real service demand and measured on qualified calls rather than clicks. Auto glass searches are urgent and high-intent, which is good for paid search, but they also overlap with residential glass, tint, parts, and DIY research, so negative keyword control and call tracking decide whether the account produces booked jobs or wasted spend.",
+  },
+  {
+    question: "How much should an auto glass shop spend on Google Ads?",
+    answer: "It depends on your markets, the services you want to grow, competition, and your capacity to answer calls. Rather than a fixed number, we work back from what a qualified lead and a booked job are worth to your shop and what the account is actually producing per dollar. Budgets are scaled up where the cost per qualified lead supports it and pulled back where it does not.",
+  },
+  {
+    question: "What is a good cost per lead for auto glass Google Ads?",
+    answer: "There is no universal benchmark, because a rock chip repair lead and a windshield replacement with ADAS calibration lead are worth very different amounts. What matters is your cost per qualified lead by service and market, and where booking data is available, your cost per booked job. We report those numbers rather than quoting an industry average.",
+  },
+  {
+    question: "Why do we get calls for house windows and window regulators?",
+    answer: "Because Google matches auto glass ads to a wide range of glass and window searches unless the account actively excludes them. Residential glass, shower doors, tint, window regulators, parts, and DIY searches are common leaks. A well-maintained negative keyword list and tight match types stop most of it; ongoing search term review catches the rest.",
+  },
+  {
+    question: "Should we run ads only during business hours?",
+    answer: "Usually calls should be scheduled around when someone can answer, because an unanswered urgent call is a lead lost to the next result. If you have after-hours coverage — a dispatcher, an answering service, or an online quote path that gets a fast response — ads can run wider. We align schedules and campaign types with how your shop actually handles intake.",
+  },
+  {
+    question: "How does Google Ads fit with SEO and Google Maps?",
+    answer: "Google Ads captures existing demand immediately while organic and Maps visibility build, and it lets you target specific services and markets precisely. The landing pages built for SEO make paid clicks convert better, and strong organic and Maps presence lowers your dependence on paid over time. We manage them as one lead generation system with a shared view of cost per qualified lead.",
+  },
+];
+
+const extraSchema = [
+  serviceSchema({
+    pagePath,
+    name: "Google Ads for Auto Glass Companies",
+    serviceType: "Paid search (PPC) management for auto glass companies",
+    description: pageDescription,
+    alternateName: ["Auto Glass PPC Agency", "Auto Glass Advertising"],
+  }),
+  faqSchema(faqs, pagePath),
+];
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
+<BaseLayout title={pageTitle} description={pageDescription} breadcrumbName="Google Ads for Auto Glass" extraSchema={extraSchema}>
 
-  <!-- Hero -->
-  <section class="page-hero" aria-labelledby="google-ads-heading">
-    <div class="container">
-      <div class="page-hero__content">
-        <span class="eyebrow">Paid Search for Auto Glass</span>
-        <h1 id="google-ads-heading" class="text-balance">
-          Google Ads for high-intent auto glass searches.
-        </h1>
-        <p class="page-hero__lead">
-          Auto glass searches can overlap with general repair, tinting, residential glass, parts, and do-it-yourself research. We structure campaigns around the services and locations your company can support.
-        </p>
-        <div class="page-hero__cta">
-          <a
-            href="/visibility-analysis/"
-            data-analytics-event="primary_cta_click"
-            class="btn btn--primary btn--lg"
-          >
-            Audit Your Current Paid Search Campaigns
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
+  <PageHero
+    id="google-ads"
+    eyebrow="Paid Search for Auto Glass"
+    heading="Google Ads for Auto Glass Companies Built Around Qualified Leads"
+    lead="Auto glass searches overlap with general repair, residential glass, tint, parts, window regulators, and do-it-yourself research. We structure campaigns around the services and locations your company can actually serve, route calls straight to your shop, and measure spend against qualified leads and booked jobs — not clicks."
+    ctaLabel="Audit My Auto Glass Google Ads"
+    supportLine="Complimentary Search + Customer Acquisition Analysis"
+  />
 
-  <!-- Capability cards -->
-  <section class="section section--alt" aria-labelledby="ads-capabilities-heading">
-    <div class="container">
-      <h2 id="ads-capabilities-heading" class="sr-only">Google Ads Capabilities</h2>
-      <div class="cap-grid">
+  <CapabilityGrid id="ads-capabilities" heading="What auto glass Google Ads management covers" eyebrow="Core capabilities" cards={capabilities} />
 
-        <article class="card">
-          <div class="card__top">
-            <span class="stage-badge" aria-hidden="true">01</span>
-            <h3 class="card__title">Relevant Search Terms</h3>
-          </div>
-          <p class="card__body">
-            Use search terms and negative keywords to reduce spend on irrelevant categories such as detailing, window regulators, home glass, tinting, parts, and do-it-yourself research.
-          </p>
-        </article>
+  <ProseSection id="ads-objective" eyebrow="The objective" heading="Clicks are not the business objective. Qualified customer opportunities are.">
+    <p>
+      A Google Ads account can look healthy — high click-through rates, low cost per click, plenty of conversions — while producing calls from people looking for shower doors, tint, or a window regulator part. For an auto glass shop, the only numbers that matter are qualified calls, quote requests, booked jobs, and what each cost. Everything in the account is built and judged against those.
+    </p>
+    <p>
+      Paid search does not create windshield demand; the driver already has the crack. What it does is put your shop in front of that existing intent today, in the exact services and markets you choose, while <a href="/auto-glass-seo/">organic search</a> and <a href="/auto-glass-local-seo/">Google Maps</a> visibility build. That makes it the fastest lever in <a href="/auto-glass-lead-generation/">auto glass lead generation</a>, and the easiest one to waste.
+    </p>
+  </ProseSection>
 
-        <article class="card">
-          <div class="card__top">
-            <span class="stage-badge" aria-hidden="true">02</span>
-            <h3 class="card__title">Calls &amp; Quote Requests</h3>
-          </div>
-          <p class="card__body">
-            Make it easy for urgent customers to call or request a quote, with ads and landing pages aligned to your hours, service availability, and preferred contact path.
-          </p>
-        </article>
+  <ProseSection id="campaign-architecture" eyebrow="Campaign architecture" heading="Campaigns built around how auto glass demand actually breaks down" alt>
+    <p>
+      Lumping every glass search into one campaign hides where the money goes. We separate demand so budget, bids, and messaging can follow value:
+    </p>
+    <ul class="prose-grid">
+      <li><strong>Windshield replacement</strong> The core campaign, usually with the highest value per lead and its own ad copy and landing page.</li>
+      <li><strong>Windshield and rock chip repair</strong> Lower ticket, high volume; often worth running with a controlled budget and repair-specific messaging.</li>
+      <li><strong>Mobile auto glass</strong> "Mobile" and "come to me" searches with their own landing page explaining radius and scheduling.</li>
+      <li><strong>ADAS calibration</strong> Growing demand from drivers and insurers, with messaging that states clearly what you calibrate and where.</li>
+      <li><strong>Brand vs. non-brand</strong> Searches for your shop by name kept separate from generic searches, so reporting shows what paid search actually added.</li>
+      <li><strong>Geographic targeting</strong> Campaigns or ad groups per market, matched to shop draw and mobile radius, so a driver two hours away is not clicking your ad.</li>
+    </ul>
+  </ProseSection>
 
-        <article class="card">
-          <div class="card__top">
-            <span class="stage-badge" aria-hidden="true">03</span>
-            <h3 class="card__title">Cost Per Acquisition</h3>
-          </div>
-          <p class="card__body">
-            Where reliable tracking data are available, reporting can connect ad spend with qualified calls, quote requests, booked jobs, and cost per acquisition—not just clicks and impressions.
-          </p>
-        </article>
+  <ProseSection id="negative-keywords" eyebrow="Negative keyword control" heading="Keeping spend on real auto glass demand">
+    <p>
+      The word "glass" leaks. Without active control, auto glass campaigns attract residential glass, shower and table glass, tint, headlight and mirror parts, window regulators, glass repair kits, and job seekers. We maintain negative keyword lists built specifically for auto glass, use match types deliberately, and review search terms on a schedule so new leaks are caught before they compound. The result is a lower cost per qualified lead without necessarily lowering spend.
+    </p>
+  </ProseSection>
 
-      </div>
-    </div>
-  </section>
+  <ProseSection id="call-campaigns" eyebrow="Calls, hours, and landing pages" heading="Call-focused campaigns, operating hours, and landing pages that convert on a phone" alt>
+    <p>
+      Most auto glass leads from paid search are phone calls. Campaigns are built for that: call-focused ad formats where appropriate, ad schedules aligned with when your dispatchers can answer, and after-hours handling that matches how your shop actually covers intake. Landing pages are the other half — a fast, mobile-first page for the specific service with tap-to-call above the fold, service area and hours visible, insurance and ADAS questions answered, and a short quote request for drivers who prefer not to call.
+    </p>
+  </ProseSection>
+
+  <ProseSection id="ads-conversion-model" eyebrow="The conversion model" heading="Click → call → response → appointment. Or click → quote → availability → booking.">
+    <p>
+      A click is the start of the job, not the result. Every campaign is designed around one of two conversion paths, and the landing page, ad schedule and tracking follow from that. Where supported and depending on implementation, the digital path can connect to online quote estimation and availability-based scheduling, and the phone path to AI-assisted call handling for after-hours and overflow — capabilities available through our specialized auto glass technology partner, with Auto Glass Search OS owning the strategy, coordination and measurement.
+    </p>
+    <ConversionPaths />
+  </ProseSection>
+
+  <ProseSection id="ads-tracking" eyebrow="Conversion tracking and measurement" alt heading="Cost per qualified lead, and booked jobs where the data exists">
+    <p>
+      Every campaign is tracked to calls, quote requests, and click-to-call taps, with call tracking that records duration and, where you allow, recordings for quality review. That lets us separate qualified leads from wrong numbers and vendors and report a real cost per qualified lead by service and market. Where your shop can share scheduling or invoice data, reporting extends to booked jobs and cost per booked job, and budgets are adjusted on that basis. Where it cannot, we say so rather than inferring results from clicks.
+    </p>
+  </ProseSection>
+
+  <RelatedLinks
+    id="ads-related"
+    heading="Google Ads is one part of the system."
+    links={[
+      { href: "/auto-glass-lead-generation/", title: "Auto Glass Lead Generation", description: "How Ads, SEO, Maps, AI search, and conversion connect into one owned acquisition system." },
+      { href: "/auto-glass-seo/", title: "Auto Glass SEO", description: "The service pages that double as high-converting paid search landing pages." },
+      { href: "/auto-glass-local-seo/", title: "Auto Glass Local SEO & Google Maps", description: "The Map Pack presence that urgent nearby searches convert from." },
+      { href: "/visibility-analysis/", title: "Opportunity Analysis", description: "See where paid search could capture demand you are missing today." },
+    ]}
+    alt
+  />
+
+  <FaqSection id="ads-faq" heading="Auto glass Google Ads questions" items={faqs} />
+
+  <ClosingCta
+    id="ads-cta"
+    heading="Find out what your ad spend is actually producing."
+    description="Request a complimentary, manually reviewed analysis of your paid search opportunity — including wasted spend on irrelevant searches — alongside Google Maps, organic search, AI visibility, and conversion friction."
+    ctaLabel="Audit My Auto Glass Google Ads"
+  />
 
 </BaseLayout>
-
-<style>
-  .page-hero {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    background-color: var(--surface-00);
-  }
-
-  .page-hero__content {
-    max-width: 52rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .page-hero__lead {
-    font-size: clamp(1rem, 1.5vw + 0.25rem, 1.1875rem);
-    color: var(--text-secondary);
-    line-height: 1.65;
-    max-width: 42rem;
-  }
-
-  .page-hero__cta {
-    padding-top: 0.5rem;
-  }
-
-  .section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-    background-color: var(--surface-00);
-  }
-
-  .section--alt {
-    background-color: var(--surface-01);
-  }
-
-  .cap-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  @media (min-width: 768px) {
-    .cap-grid { grid-template-columns: repeat(3, 1fr); }
-  }
-
-  .card {
-    background-color: var(--surface-02);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: var(--radius-xl);
-    padding: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    transition: border-color 200ms;
-  }
-
-  .card:hover {
-    border-color: rgba(49,130,246,0.3);
-  }
-
-  .card__top {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.875rem;
-  }
-
-  .card__title {
-    font-size: 1.0625rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin: 0;
-    line-height: 1.35;
-    padding-top: 0.125rem;
-  }
-
-  .card__body {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0;
-  }
-
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    white-space: nowrap;
-    border-width: 0;
-  }
-</style>

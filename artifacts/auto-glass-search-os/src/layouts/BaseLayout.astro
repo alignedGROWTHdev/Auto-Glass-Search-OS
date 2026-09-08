@@ -9,15 +9,28 @@ interface Props {
   canonical?: string;
   ogType?: string;
   noindex?: boolean;
+  /** Short name used for the breadcrumb (defaults to the part of the title before "|") */
+  breadcrumbName?: string;
+  /** Additional schema.org nodes merged into the page @graph (Service, FAQPage, etc.) */
+  extraSchema?: Record<string, unknown>[];
 }
 
-const { 
-  title, 
-  description, 
+const {
+  title,
+  description,
   canonical = new URL(Astro.url.pathname, siteConfig.siteUrl).href,
   ogType = "website",
-  noindex = false
+  noindex = false,
+  breadcrumbName,
+  extraSchema = []
 } = Astro.props;
+
+// Canonical/OG URLs always resolve against siteConfig.siteUrl (the production domain),
+// never the host serving the page, so Replit preview/staging hosts cannot leak into metadata.
+// The Astro dev server (used by the Replit preview) is additionally marked noindex.
+const isDevServer = import.meta.env.DEV;
+const robotsNoindex = noindex || isDevServer;
+const ogImage = new URL("/auto_glass_search_ecosystem_aligned.webp", siteConfig.siteUrl).href;
 
 const contactPoint = isConfigured(siteConfig.placeholders.phone) ? {
   "@type": "ContactPoint",
@@ -37,7 +50,7 @@ const breadcrumb = Astro.url.pathname !== "/" ? {
     {
       "@type": "ListItem",
       "position": 2,
-      "name": title.split("|")[0].trim(),
+      "name": breadcrumbName || title.split("|")[0].trim(),
       "item": canonical
     }
   ]
@@ -48,25 +61,44 @@ const structuredData = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://autoglasssearchos.com/#organization",
+      "@id": siteConfig.entity.organizationId,
       "name": siteConfig.name,
-      "alternateName": "Auto Glass Search OS",
       "url": siteConfig.siteUrl,
       "description": siteConfig.description,
+      "parentOrganization": { "@id": siteConfig.entity.parentOrganizationId },
+      "founder": { "@id": siteConfig.entity.founderId },
       "areaServed": {
         "@type": "Country",
         "name": "United States"
       },
       "knowsAbout": [
-        "Auto Glass Search Strategy",
-        "Windshield Replacement SEO",
-        "Google Maps 3-Pack Optimization",
-        "ADAS Camera Recalibration Visibility",
-        "Auto Glass Paid Search and Google Ads",
-        "AI-Assisted Search Operations",
-        "Search Workflow Design and Governance"
+        "Auto Glass Marketing",
+        "Auto Glass Lead Generation",
+        "Auto Glass SEO",
+        "Google Maps and Local SEO for Auto Glass Companies",
+        "Google Ads for Auto Glass Companies",
+        "AI Search Optimization (AEO / GEO) for Auto Glass",
+        "ADAS Calibration Search Demand",
+        "Conversion Tracking for Qualified Calls, Quote Requests, and Booked Jobs"
       ],
       ...(contactPoint ? { "contactPoint": contactPoint } : {})
+    },
+    {
+      "@type": "Organization",
+      "@id": siteConfig.entity.parentOrganizationId,
+      "name": siteConfig.entity.parentOrganizationName,
+      "url": siteConfig.entity.parentOrganizationUrl,
+      "subOrganization": { "@id": siteConfig.entity.organizationId },
+      "founder": { "@id": siteConfig.entity.founderId }
+    },
+    {
+      "@type": "Person",
+      "@id": siteConfig.entity.founderId,
+      "name": siteConfig.entity.founderName,
+      "jobTitle": "Founder",
+      "url": new URL("/about/", siteConfig.siteUrl).href,
+      "worksFor": { "@id": siteConfig.entity.organizationId },
+      "affiliation": { "@id": siteConfig.entity.parentOrganizationId }
     },
     {
       "@type": "WebSite",
@@ -78,7 +110,8 @@ const structuredData = {
         "@id": "https://autoglasssearchos.com/#organization"
       }
     },
-    ...(breadcrumb ? [breadcrumb] : [])
+    ...(breadcrumb ? [breadcrumb] : []),
+    ...extraSchema
   ]
 };
 ---
@@ -140,7 +173,7 @@ const structuredData = {
     />
     <title>{title}</title>
     <meta name="description" content={description} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {robotsNoindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
 
     <meta property="og:title" content={title} />
@@ -148,7 +181,10 @@ const structuredData = {
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={siteConfig.name} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="The Auto Glass Search OS ecosystem: search, Maps, Google Ads, and AI discovery connected to qualified calls and booked jobs" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 

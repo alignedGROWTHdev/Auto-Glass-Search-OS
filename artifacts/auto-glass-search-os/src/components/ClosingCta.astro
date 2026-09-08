@@ -1,0 +1,81 @@
+---
+/**
+ * ClosingCta — the end-of-page conversion block pointing to /visibility-analysis/.
+ */
+interface Props {
+  id?: string;
+  eyebrow?: string;
+  heading: string;
+  description: string;
+  ctaLabel: string;
+  href?: string;
+  analyticsEvent?: string;
+}
+
+const {
+  id = "closing-cta",
+  eyebrow = "Complimentary Opportunity Analysis",
+  heading,
+  description,
+  ctaLabel,
+  href = "/visibility-analysis/",
+  analyticsEvent = "primary_cta_click"
+} = Astro.props;
+---
+
+<section class="closing-cta" aria-labelledby={`${id}-heading`}>
+  <div class="container">
+    <div class="closing-cta__inner">
+      <span class="eyebrow">{eyebrow}</span>
+      <span class="cyan-rule" style="margin: 0 auto;"></span>
+      <h2 id={`${id}-heading`} class="closing-cta__heading text-balance">{heading}</h2>
+      <p class="closing-cta__desc">{description}</p>
+      <a href={href} data-analytics-event={analyticsEvent} class="btn btn--primary btn--lg">{ctaLabel}</a>
+      <p class="closing-cta__note">Manually reviewed &middot; Confidential &middot; No obligation</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .closing-cta {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--obsidian);
+    background-image: radial-gradient(ellipse at 50% 100%, rgba(30,64,175,0.18) 0%, transparent 60%);
+  }
+
+  .closing-cta__inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .closing-cta__heading {
+    font-size: clamp(1.625rem, 2.6vw + 0.5rem, 2.5rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .closing-cta__desc {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0 0 0.5rem;
+  }
+
+  .closing-cta__note {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin: 0.25rem 0 0;
+  }
+</style>

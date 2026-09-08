@@ -1,12 +1,34 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BrandMark from '../components/BrandMark.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { siteConfig, channelPages } from '../data/siteData';
 
-const pageTitle = "About Auto Glass Search OS | Search Strategy for Auto Glass";
-const pageDescription = "Learn how Auto Glass Search OS helps established auto glass operators turn search visibility into qualified leads and booked jobs.";
+const pageTitle = "About Auto Glass Search OS & Valentina Borda";
+const pageDescription = "Auto Glass Search OS is a specialized auto glass marketing and lead generation offering of Aligned Growth Digital, led by founder Valentina Borda.";
+
+const aboutSchema = [
+  {
+    "@type": "AboutPage",
+    "@id": new URL("/about/", siteConfig.siteUrl).href + "#aboutpage",
+    "url": new URL("/about/", siteConfig.siteUrl).href,
+    "name": pageTitle,
+    "about": { "@id": siteConfig.entity.organizationId },
+    "mainEntity": { "@id": siteConfig.entity.founderId },
+  },
+];
+
+const systemPages = [
+  {
+    href: "/auto-glass-lead-generation/",
+    title: "Auto Glass Lead Generation",
+    description: "How the channels connect into one owned customer-acquisition system.",
+  },
+  ...channelPages,
+];
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
+<BaseLayout title={pageTitle} description={pageDescription} breadcrumbName="About" extraSchema={aboutSchema}>
 
   <!-- Hero -->
   <section class="page-hero" aria-labelledby="about-heading">
@@ -16,13 +38,13 @@ const pageDescription = "Learn how Auto Glass Search OS helps established auto g
           <span class="agos-brandmark" aria-hidden="true">
             <BrandMark size={20} />
           </span>
-          <span class="eyebrow">Search Strategy for Auto Glass Operators</span>
+          <span class="eyebrow">Auto Glass Marketing &amp; Lead Generation</span>
         </div>
         <h1 id="about-heading" class="text-balance">
-          About Auto Glass Search OS.
+          About Auto Glass Search OS and Valentina Borda
         </h1>
         <p class="page-hero__lead">
-          Auto Glass Search OS is a specialized search and customer-acquisition company built for established auto glass operators.
+          Auto Glass Search OS is a specialized auto glass marketing and lead generation offering operated by Aligned Growth Digital, and led by its founder, Valentina Borda. It exists to help established auto glass companies capture more of the customer demand already happening in their markets and turn it into qualified calls, quote requests, and booked jobs.
         </p>
       </div>
     </div>
@@ -33,23 +55,39 @@ const pageDescription = "Learn how Auto Glass Search OS helps established auto g
     <div class="container">
       <div class="about-body">
           <h2 id="why-ded-heading">
-            Specialized search. Built for auto glass.
+            Why a search and lead generation practice built only around auto glass
           </h2>
 
           <p>
-            Our team brings 10+ years of experience across search, digital growth, eCommerce, and marketing strategy.
+            Auto glass demand behaves unlike most local services. It is urgent, it is decided on a phone within minutes, it is shaped by insurance rules that differ by state, and it has been changed by ADAS calibration requirements on nearly every new vehicle. A generic marketing agency treats an auto glass shop like any other local business. That is where operators lose demand: to the shop that showed up first in Google Maps, answered the insurance question on its website, or was the only one that clearly said it recalibrates cameras.
           </p>
 
           <p>
-            We work from an operating perspective: customer acquisition is not a collection of disconnected channels. Organic local search, Google Maps, paid search, AI-assisted search, call routing, and measurement all need to support the same outcome—qualified leads and booked auto glass jobs.
+            Auto Glass Search OS was created as a dedicated vertical for that problem. It is a specialized offering of Aligned Growth Digital rather than a separate agency, which means the auto glass work draws on a broader search and digital growth practice while staying focused on one industry's customers, searches, and economics.
+          </p>
+
+          <h2 id="founder-heading">
+            <span id="valentina-borda">Valentina Borda, founder</span>
+          </h2>
+
+          <p>
+            Valentina Borda founded Aligned Growth Digital and leads Auto Glass Search OS. Her background spans more than ten years across search, digital growth, eCommerce, and marketing strategy. She works directly with each operator: the opportunity analysis, the strategy, and the quality control on what gets published or deployed are hers, with AI-enabled systems handling research, monitoring, and execution at scale.
           </p>
 
           <p>
-            For established auto glass operators, Auto Glass Search OS connects those elements around that clear objective. Our approach covers high-intent paid search, organic local search, Google Maps, AI-assisted search, call routing to shop dispatchers, optional AI Voice CSR technology for after-hours and overflow coverage, and measurement tied to operational outcomes.
+            Her operating view is simple: customer acquisition is not a collection of disconnected channels. Organic search, Google Maps, Google Ads, AI-assisted search, website conversion, and measurement all have to support the same outcome — qualified leads and booked auto glass jobs — or they end up competing for budget and hiding what actually works.
+          </p>
+
+          <h2 id="system-heading">
+            Why connecting the channels beats running them separately
+          </h2>
+
+          <p>
+            Each channel reaches a driver at a different moment, and every one of them converts on the same website. When SEO, Local SEO, Google Ads, AI search, and conversion are handled by different vendors or treated as isolated tactics, the service pages built for organic never become the paid landing pages, the Google Business Profile drifts out of sync with the site, and no one can say what a qualified lead costs across the whole system. Connecting them means one set of business facts, one set of landing pages, one measurement model from search to booked job — and a lower cost per qualified lead than any channel produces alone. That connected system is what we call the Auto Glass Search OS. Where an operator wants online quoting, availability-based scheduling, or AI-assisted call handling, those capabilities come from a specialized auto glass technology partner; Auto Glass Search OS owns the strategy, conversion analysis, implementation coordination and measurement, not the software.
           </p>
 
           <p>
-            AI now lets marketing teams accomplish more internally—but operators still need strategy, specialized systems, quality control, and domain expertise. Our engagement model supports both fully managed execution and team-enabled search systems, so your team can run the operation with ongoing strategic support.
+            AI now lets marketing teams accomplish more internally, but operators still need strategy, specialized systems, quality control, and domain expertise. The engagement model supports both fully managed execution and building the system with your team so your people can run it with ongoing strategic support.
           </p>
 
           <div class="about-standards" role="note">
@@ -61,12 +99,19 @@ const pageDescription = "Learn how Auto Glass Search OS helps established auto g
 
           <div class="about-cta">
             <a href="/visibility-analysis/" data-analytics-event="primary_cta_click" class="btn btn--primary">
-              Request a Visibility Analysis
+              See Where You're Losing Jobs
             </a>
           </div>
       </div>
     </div>
   </section>
+
+  <RelatedLinks
+    id="about-system"
+    eyebrow="What we do"
+    heading="Auto glass lead generation and the channels that feed it."
+    links={systemPages}
+  />
 
 </BaseLayout>
 
@@ -137,7 +182,14 @@ const pageDescription = "Learn how Auto Glass Search OS helps established auto g
   .about-body h2 {
     color: var(--text-primary);
     margin-bottom: 0.25rem;
+    margin-top: 0.75rem;
     font-family: var(--font-display);
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .about-body h2:first-child {
+    margin-top: 0;
   }
 
   .about-standards {

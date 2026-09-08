@@ -1,0 +1,346 @@
+---
+/**
+ * HeroSystemVisual — a product-style visualization of the Search OS journey:
+ * customer search → FOUND → TRUSTED → CHOSEN (call / quote → book) → MEASURED.
+ * Pure CSS/HTML, no performance numbers, works stacked on mobile.
+ */
+---
+
+<div class="sysvis" aria-label="How the Auto Glass Search OS turns a customer search into a booked job">
+  <div class="sysvis__chrome" aria-hidden="true">
+    <span class="sysvis__chrome-dot"></span>
+    <span class="sysvis__chrome-label">Auto Glass Search OS</span>
+    <span class="sysvis__chrome-status"><span class="sysvis__pulse"></span>Journey view</span>
+  </div>
+
+  <!-- Customer search -->
+  <div class="sysvis__search">
+    <span class="sysvis__search-icon" aria-hidden="true">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="M9.5 9.5L13 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </span>
+    <span class="sysvis__search-text">windshield replacement near me</span>
+    <span class="sysvis__search-loc">Your market</span>
+  </div>
+
+  <ol class="sysvis__stages">
+    <li class="sysvis__stage">
+      <div class="sysvis__stage-head">
+        <span class="sysvis__stage-num">01</span>
+        <span class="sysvis__stage-name">Found</span>
+      </div>
+      <ul class="sysvis__chips" aria-label="Where the customer finds you">
+        <li>Google</li><li>Maps</li><li>Ads</li><li>AI search</li>
+      </ul>
+    </li>
+
+    <li class="sysvis__stage">
+      <div class="sysvis__stage-head">
+        <span class="sysvis__stage-num">02</span>
+        <span class="sysvis__stage-name">Trusted</span>
+      </div>
+      <ul class="sysvis__chips" aria-label="Why the customer chooses you">
+        <li>Reviews</li><li>Insurance</li><li>Warranty</li><li>ADAS</li>
+      </ul>
+    </li>
+
+    <li class="sysvis__stage sysvis__stage--chosen">
+      <div class="sysvis__stage-head">
+        <span class="sysvis__stage-num">03</span>
+        <span class="sysvis__stage-name">Chosen</span>
+      </div>
+      <div class="sysvis__paths">
+        <div class="sysvis__path">
+          <span class="sysvis__path-btn sysvis__path-btn--call">
+            <svg width="11" height="11" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 1h3l1.5 3.5-2 1.5A8 8 0 0 0 9 9.5l1.5-2L14 9v3a1 1 0 0 1-1 1A11 11 0 0 1 2 2a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            Call
+          </span>
+          <span class="sysvis__path-steps"><span>Answered</span><span>Scheduled</span></span>
+        </div>
+        <span class="sysvis__path-or" aria-hidden="true">or</span>
+        <div class="sysvis__path">
+          <span class="sysvis__path-btn">Get quote</span>
+          <span class="sysvis__path-steps"><span>Estimate</span><span>Available times</span><span>Book</span></span>
+        </div>
+      </div>
+    </li>
+
+    <li class="sysvis__stage sysvis__stage--measured">
+      <div class="sysvis__stage-head">
+        <span class="sysvis__stage-num">04</span>
+        <span class="sysvis__stage-name">Measured</span>
+      </div>
+      <ul class="sysvis__chips sysvis__chips--outcome" aria-label="What gets measured">
+        <li>Qualified opportunity</li><li>Appointment</li><li class="sysvis__chip--win">Booked job</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+
+<style>
+  .sysvis {
+    --rail: rgba(0, 210, 255, 0.28);
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    max-width: 30rem;
+    margin-inline: auto;
+    background: linear-gradient(180deg, rgba(26,37,64,0.92) 0%, rgba(19,27,46,0.96) 100%);
+    border: 1px solid rgba(0, 210, 255, 0.16);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.02) inset;
+    overflow: hidden;
+    font-family: var(--font-sans);
+  }
+
+  .sysvis__chrome {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.625rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    background: rgba(11,15,25,0.6);
+  }
+
+  .sysvis__chrome-dot {
+    width: 0.5rem; height: 0.5rem; border-radius: 50%;
+    background: var(--laser-cyan);
+    box-shadow: 0 0 8px rgba(0,210,255,0.6);
+  }
+
+  .sysvis__chrome-label,
+  .sysvis__chrome-status {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+
+  .sysvis__chrome-status {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--fleet-amber);
+  }
+
+  .sysvis__pulse {
+    width: 0.375rem; height: 0.375rem; border-radius: 50%;
+    background: var(--fleet-amber);
+    animation: sysvis-pulse 2.2s ease-in-out infinite;
+  }
+
+  /* Customer search bar */
+  .sysvis__search {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin: 1rem 1rem 0;
+    padding: 0.625rem 0.875rem;
+    background: var(--obsidian);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-lg);
+  }
+
+  .sysvis__search-icon { color: var(--text-tertiary); display: inline-flex; }
+
+  .sysvis__search-text {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sysvis__search-loc {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--laser-cyan);
+    padding: 0.2rem 0.45rem;
+    border: 1px solid var(--laser-cyan-border);
+    border-radius: var(--radius);
+    white-space: nowrap;
+  }
+
+  /* Stages with a connecting rail */
+  .sysvis__stages {
+    list-style: none;
+    margin: 0;
+    padding: 0.75rem 1rem 1.125rem 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .sysvis__stage {
+    position: relative;
+    padding: 0.75rem 0 0.75rem 1.75rem;
+  }
+
+  /* rail line */
+  .sysvis__stage::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--rail);
+  }
+
+  .sysvis__stage:first-child::before { top: 1.1rem; }
+  .sysvis__stage:last-child::before { bottom: auto; height: 1.1rem; }
+
+  /* rail node */
+  .sysvis__stage::after {
+    content: '';
+    position: absolute;
+    left: calc(0.5rem - 4px);
+    top: 1.05rem;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--carbon-slate);
+    border: 2px solid var(--laser-cyan);
+    box-shadow: 0 0 0 3px rgba(0,210,255,0.12);
+  }
+
+  .sysvis__stage--measured::after {
+    background: var(--fleet-amber);
+    border-color: var(--fleet-amber);
+    box-shadow: 0 0 0 3px rgba(245,158,11,0.18);
+  }
+
+  .sysvis__stage-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .sysvis__stage-num {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.12em;
+    color: var(--text-tertiary);
+  }
+
+  .sysvis__stage-name {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--laser-cyan);
+  }
+
+  .sysvis__stage--measured .sysvis__stage-name { color: var(--fleet-amber); }
+
+  .sysvis__chips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+
+  .sysvis__chips li {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    padding: 0.3rem 0.6rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: var(--radius);
+    line-height: 1.2;
+  }
+
+  .sysvis__chips--outcome li {
+    color: var(--text-primary);
+  }
+
+  .sysvis__chip--win {
+    background: rgba(245,158,11,0.12) !important;
+    border-color: rgba(245,158,11,0.4) !important;
+    color: var(--fleet-amber) !important;
+    font-weight: 600;
+  }
+
+  .sysvis__chip--win::before {
+    content: '✓ ';
+  }
+
+  /* Chosen: two paths */
+  .sysvis__paths {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sysvis__path {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .sysvis__path-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--cobalt);
+    padding: 0.35rem 0.7rem;
+    border-radius: var(--radius);
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .sysvis__path-btn--call {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+
+  .sysvis__path-steps {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+
+  .sysvis__path-steps span + span::before {
+    content: '→';
+    margin-right: 0.25rem;
+    color: var(--laser-cyan);
+  }
+
+  .sysvis__path-or {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    padding-left: 0.125rem;
+  }
+
+  @keyframes sysvis-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.7); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sysvis__pulse { animation: none; }
+  }
+</style>
