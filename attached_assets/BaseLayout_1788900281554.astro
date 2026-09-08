@@ -9,7 +9,6 @@ interface Props {
   canonical?: string;
   ogType?: string;
   noindex?: boolean;
-  hideHeader?: boolean;
   /** Short name used for the breadcrumb (defaults to the part of the title before "|") */
   breadcrumbName?: string;
   /** Additional schema.org nodes merged into the page @graph (Service, FAQPage, etc.) */
@@ -22,7 +21,6 @@ const {
   canonical = new URL(Astro.url.pathname, siteConfig.siteUrl).href,
   ogType = "website",
   noindex = false,
-  hideHeader = false,
   breadcrumbName,
   extraSchema = []
 } = Astro.props;
@@ -252,7 +250,7 @@ const structuredData = {
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] btn btn--primary btn--sm">
       Skip to main content
     </a>
-    {!hideHeader && <Header />}
+    <Header />
     <main id="main-content" class="flex-1">
       <slot />
     </main>
