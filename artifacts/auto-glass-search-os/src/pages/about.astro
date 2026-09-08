@@ -4,8 +4,8 @@ import BrandMark from '../components/BrandMark.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import { siteConfig, channelPages } from '../data/siteData';
 
-const pageTitle = "About Auto Glass Search OS & Valentina Borda";
-const pageDescription = "Auto Glass Search OS is a specialized auto glass marketing and lead generation offering of Aligned Growth Digital, led by founder Valentina Borda.";
+const pageTitle = "About Auto Glass Growth & Valentina Borda";
+const pageDescription = "Auto Glass Growth is a specialized auto glass marketing, websites and lead generation initiative from Aligned Growth Digital, led by founder Valentina Borda.";
 
 const aboutSchema = [
   {
@@ -38,13 +38,13 @@ const systemPages = [
           <span class="agos-brandmark" aria-hidden="true">
             <BrandMark size={20} />
           </span>
-          <span class="eyebrow">Auto Glass Marketing &amp; Lead Generation</span>
+          <span class="eyebrow">{siteConfig.category}</span>
         </div>
         <h1 id="about-heading" class="text-balance">
-          About Auto Glass Search OS and Valentina Borda
+          About Auto Glass Growth and Valentina Borda
         </h1>
         <p class="page-hero__lead">
-          Auto Glass Search OS is a specialized auto glass marketing and lead generation offering operated by Aligned Growth Digital, and led by its founder, Valentina Borda. It exists to help established auto glass companies capture more of the customer demand already happening in their markets and turn it into qualified calls, quote requests, and booked jobs.
+          {siteConfig.legalStatement} Led by founder Valentina Borda, it exists to help established auto glass companies capture more of the customer demand already happening in their markets and turn it into qualified calls, quote requests and booked jobs.
         </p>
       </div>
     </div>
@@ -54,8 +54,16 @@ const systemPages = [
   <section class="section section--alt" aria-labelledby="why-ded-heading">
     <div class="container">
       <div class="about-body">
+          <h2 id="principle-heading">
+            A simple principle
+          </h2>
+
+          <p>
+            Auto Glass Growth is built around one idea: <strong>more traffic isn't the goal. More of the right customer demand turning into business is.</strong> Rankings, impressions and clicks are inputs. A driver with a cracked windshield in your service area who calls or requests a quote — and becomes a booked job — is the output everything is measured against.
+          </p>
+
           <h2 id="why-ded-heading">
-            Why a search and lead generation practice built only around auto glass
+            Why a marketing practice built only around auto glass
           </h2>
 
           <p>
@@ -63,7 +71,7 @@ const systemPages = [
           </p>
 
           <p>
-            Auto Glass Search OS was created as a dedicated vertical for that problem. It is a specialized offering of Aligned Growth Digital rather than a separate agency, which means the auto glass work draws on a broader search and digital growth practice while staying focused on one industry's customers, searches, and economics.
+            Auto Glass Growth was created as a dedicated initiative for that problem. It is a specialized auto glass growth initiative from Aligned Growth Digital rather than a separate agency, which means the auto glass work draws on a broader search and digital growth practice while staying focused on one industry's customers, searches and economics. The services are auto glass SEO, local SEO and Google Maps, Google Ads, websites, conversion optimization, AI search visibility, and analytics and measurement.
           </p>
 
           <h2 id="founder-heading">
@@ -71,7 +79,7 @@ const systemPages = [
           </h2>
 
           <p>
-            Valentina Borda founded Aligned Growth Digital and leads Auto Glass Search OS. Her background spans more than ten years across search, digital growth, eCommerce, and marketing strategy. She works directly with each operator: the opportunity analysis, the strategy, and the quality control on what gets published or deployed are hers, with AI-enabled systems handling research, monitoring, and execution at scale.
+            Valentina Borda founded Aligned Growth Digital and leads Auto Glass Growth. Her background spans more than ten years across search, digital growth, eCommerce and marketing strategy. She works directly with each operator: the opportunity analysis, the strategy, and the quality control on what gets published or deployed are hers.
           </p>
 
           <p>
@@ -79,15 +87,27 @@ const systemPages = [
           </p>
 
           <h2 id="system-heading">
-            Why connecting the channels beats running them separately
+            The Auto Glass Growth OS
           </h2>
 
           <p>
-            Each channel reaches a driver at a different moment, and every one of them converts on the same website. When SEO, Local SEO, Google Ads, AI search, and conversion are handled by different vendors or treated as isolated tactics, the service pages built for organic never become the paid landing pages, the Google Business Profile drifts out of sync with the site, and no one can say what a qualified lead costs across the whole system. Connecting them means one set of business facts, one set of landing pages, one measurement model from search to booked job — and a lower cost per qualified lead than any channel produces alone. That connected system is what we call the Auto Glass Search OS. Where an operator wants online quoting, availability-based scheduling, or AI-assisted call handling, those capabilities come from a specialized auto glass technology partner; Auto Glass Search OS owns the strategy, conversion analysis, implementation coordination and measurement, not the software.
+            The Growth OS is our methodology — not software, not a platform, nothing a customer logs into. It is the framework we use to connect marketing, conversion and measurement into one customer-acquisition system: <strong>Found</strong> (capture high-intent demand through SEO, Google Maps, Google Ads and AI search visibility), <strong>Trusted</strong> (give customers reasons to choose you through the website, reviews, authority and clear service information), <strong>Chosen</strong> (reduce friction between intent and action through website CRO, landing pages, call pathways and quote-request UX), and <strong>Measured</strong> (understand which marketing activity creates qualified leads, appointments and booked jobs).
           </p>
 
           <p>
-            AI now lets marketing teams accomplish more internally, but operators still need strategy, specialized systems, quality control, and domain expertise. The engagement model supports both fully managed execution and building the system with your team so your people can run it with ongoing strategic support.
+            Each channel reaches a driver at a different moment, and every one of them converts on the same website. When SEO, Local SEO, Google Ads, the website and conversion are handled by different vendors or treated as isolated tactics, the service pages built for organic never become the paid landing pages, the Google Business Profile drifts out of sync with the site, and no one can say what a qualified lead costs across the whole system. Connecting them means one set of business facts, one set of landing pages, one measurement model from search to booked job.
+          </p>
+
+          <h2 id="partners-heading">
+            Where we recommend partners instead
+          </h2>
+
+          <p>
+            When a growth bottleneck falls outside our core marketing and conversion services — for example, customers can't easily get a quote, find availability or receive a timely response — we may recommend specialized auto glass technology providers rather than pretending to build everything ourselves. Online quoting, scheduling and AI-assisted call handling are provided and supported separately by those third-party providers; we don't sell, own or operate them. Knowing when that kind of technology makes sense, and when the problem is really the website or the marketing, is part of understanding the auto glass customer-acquisition ecosystem.
+          </p>
+
+          <p>
+            AI now lets marketing teams accomplish more internally, but operators still need strategy, quality control and domain expertise. The engagement model supports both fully managed execution and building the Growth OS with your team so your people can run it with ongoing strategic support.
           </p>
 
           <div class="about-standards" role="note">
@@ -108,8 +128,8 @@ const systemPages = [
 
   <RelatedLinks
     id="about-system"
-    eyebrow="What we do"
-    heading="Auto glass lead generation and the channels that feed it."
+    eyebrow="Auto Glass Growth services"
+    heading="Auto glass lead generation and the services that feed it."
     links={systemPages}
   />
 

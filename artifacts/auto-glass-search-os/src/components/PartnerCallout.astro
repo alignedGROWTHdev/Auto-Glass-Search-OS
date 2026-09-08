@@ -1,0 +1,61 @@
+---
+/**
+ * PartnerCallout — SECONDARY content. Explains that Auto Glass Growth can identify a
+ * conversion bottleneck and, where appropriate, connect a client with third-party
+ * auto glass technology providers. Auto Glass Growth does not sell, own, develop or
+ * operate that technology; it is never presented as an included service.
+ */
+import { partnerTech } from '../data/siteData';
+
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<aside class:list={["partner-note", { "partner-note--compact": compact }]} aria-labelledby="partner-note-heading">
+  <span id="partner-note-heading" class="partner-note__label">{partnerTech.label}</span>
+  {!compact && <p class="partner-note__text">{partnerTech.intro}</p>}
+  <p class="partner-note__text">{partnerTech.role}</p>
+  <p class="partner-note__disclosure">{partnerTech.disclosure}</p>
+</aside>
+
+<style>
+  .partner-note {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    padding: 1.125rem 1.25rem;
+    background: rgba(11,15,25,0.5);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-left: 2px solid rgba(255,255,255,0.22);
+    border-radius: var(--radius-lg);
+    max-width: 44rem;
+  }
+
+  .partner-note__label {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+
+  .partner-note__text {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .partner-note__disclosure {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    line-height: 1.5;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .partner-note--compact { padding: 0.875rem 1rem; }
+</style>

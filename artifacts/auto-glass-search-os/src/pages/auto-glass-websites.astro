@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CapabilityGrid from '../components/CapabilityGrid.astro';
+import ProseSection from '../components/ProseSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import ClosingCta from '../components/ClosingCta.astro';
+import ConversionPaths from '../components/ConversionPaths.astro';
+import PartnerCallout from '../components/PartnerCallout.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const pagePath = "/auto-glass-websites/";
+const pageTitle = "Auto Glass Website Design | Websites Built to Rank & Convert";
+const pageDescription = "Auto glass website design and conversion optimization. Websites built around search visibility, trust and conversion: service pages, technical SEO, mobile UX, calls and quotes.";
+
+const capabilities = [
+  {
+    title: "Built to Rank",
+    body: "Service and location architecture, technical SEO, schema and clean internal linking so windshield replacement, repair, mobile and ADAS pages can actually be found.",
+    items: ["Service page per service", "Location / service-area pages", "Technical SEO, speed and schema"],
+  },
+  {
+    title: "Built to Be Trusted",
+    body: "Reviews, insurance and warranty answers, ADAS capability and real shop photos placed where a driver is deciding — not buried on an about page.",
+    items: ["Trust placement", "Insurance, warranty and ADAS clarity", "Service information drivers actually ask for"],
+  },
+  {
+    title: "Built to Convert",
+    body: "Mobile-first pages with tap-to-call above the fold, a short quote-request form, obvious hours and service area, and analytics on every call and form.",
+    items: ["Click-to-call and quote-request UX", "Mobile conversion", "Call and form tracking"],
+  },
+];
+
+const faqs = [
+  {
+    question: "What makes an auto glass website different from a normal small-business website?",
+    answer: "Auto glass demand is urgent, local and service-specific, and most of it arrives on a phone. An auto glass website needs a dedicated page for each service and each market you serve, insurance and ADAS answers where the driver is deciding, tap-to-call and a short quote form above the fold, fast mobile load times, and tracking on every call and form. A generic template with a services list and a contact page captures very little of that demand.",
+  },
+  {
+    question: "Do we need a new website, or can you improve the one we have?",
+    answer: "It depends on the foundation. If the current site is fast, crawlable and structurally sound, conversion optimization and new service or location pages are usually the better investment. If it is slow, built on a template that fights the architecture, or impossible to track, a rebuild is often cheaper than patching. The opportunity analysis looks at your current site before we recommend either.",
+  },
+  {
+    question: "What is conversion rate optimization for an auto glass website?",
+    answer: "CRO is the work of improving the path between a driver landing on your site and becoming a qualified opportunity: CTA clarity, click-to-call placement, form length, quote-request UX, landing pages, mobile experience, trust placement, service information, navigation and the overall customer journey. It is an Auto Glass Growth service. It does not mean we provide every technology involved in conversion — where a bottleneck needs specialized software, we can recommend third-party providers.",
+  },
+  {
+    question: "Will the website work with our Google Ads and Google Business Profile?",
+    answer: "That is the point of building it this way. The service and location pages double as Google Ads landing pages, the Google Business Profile links to the matching location page, and the same business information runs through the site, the profile and the schema so search and AI systems see one consistent company. One site serves every channel.",
+  },
+  {
+    question: "Do you provide online quoting or booking software on the website?",
+    answer: "No. Auto Glass Growth builds and optimizes the website, including quote-request forms and call pathways. Online quote estimation, availability-based scheduling and AI-assisted call handling are specialized technologies provided separately by third-party auto glass technology providers. Where that kind of software would solve a real bottleneck, we can help identify the need and connect you with a provider.",
+  },
+  {
+    question: "Who owns the website?",
+    answer: "You do. The site, its content, its analytics and its domain belong to your business. We build and optimize it; we do not hold it hostage.",
+  },
+];
+
+const extraSchema = [
+  serviceSchema({
+    pagePath,
+    name: "Auto Glass Website Design & Conversion Optimization",
+    serviceType: "Website design, development and conversion rate optimization for auto glass companies",
+    description: pageDescription,
+    alternateName: ["Auto Glass Websites", "Auto Glass Web Design", "Auto Glass CRO"],
+  }),
+  faqSchema(faqs, pagePath),
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} breadcrumbName="Auto Glass Websites" extraSchema={extraSchema}>
+
+  <PageHero
+    id="websites"
+    eyebrow="Auto Glass Websites & Conversion"
+    heading="Auto Glass Websites Built to Rank and Convert"
+    lead="Your website is where every channel — Google Search, Maps, Ads and AI discovery — turns into a call or a quote request, or doesn't. We build and optimize auto glass websites around search visibility, trust and conversion, not aesthetics alone."
+    ctaLabel="Find Out Where My Website Loses Jobs"
+    supportLine="Complimentary Search + Customer Acquisition Analysis"
+  />
+
+  <CapabilityGrid id="web-capabilities" heading="What an auto glass website has to do" eyebrow="Three jobs, one site" cards={capabilities} />
+
+  <ProseSection id="web-strategy" eyebrow="Website strategy" heading="What we build the site around">
+    <p>
+      An auto glass website is a customer-acquisition asset, so the strategy comes before the design. Every build or rebuild accounts for:
+    </p>
+    <ul class="prose-grid">
+      <li><strong>SEO architecture</strong> A structure search engines can crawl and understand, with one clear page for each thing drivers search for.</li>
+      <li><strong>Service architecture</strong> Windshield replacement, repair, rock chip, mobile service, side and back glass, ADAS calibration, insurance — each with its own substantive page.</li>
+      <li><strong>Location architecture</strong> Location pages for physical shops, service-area pages for mobile coverage, and internal links that tell Google which location serves which market.</li>
+      <li><strong>Technical SEO and speed</strong> Fast, mobile-first pages, clean headings and metadata, indexable URLs, no template bloat.</li>
+      <li><strong>Mobile UX</strong> Designed for a driver in a parking lot: tap-to-call above the fold, hours and service area obvious, forms short.</li>
+      <li><strong>Conversion pathways</strong> Calls and quote requests as first-class paths, with the insurance and ADAS questions that stall decisions answered on the page.</li>
+      <li><strong>Analytics</strong> Call tracking, form tracking and analytics events on every conversion so you can see which channels and pages produce qualified opportunities.</li>
+      <li><strong>Schema and AI/search accessibility</strong> Organization, service, location and FAQ structured data so search engines and AI-assisted discovery can read what you do and where.</li>
+    </ul>
+  </ProseSection>
+
+  <ProseSection id="cro" eyebrow="Conversion optimization" heading="Conversion optimization for the site you already have" alt>
+    <p>
+      If your website is structurally sound, the fastest gains usually come from conversion optimization — improving the path between landing on the site and becoming a qualified opportunity. CRO is an Auto Glass Growth service, and it covers:
+    </p>
+    <ul class="prose-grid">
+      <li><strong>CTA clarity</strong> One obvious next step on every page, not five competing buttons.</li>
+      <li><strong>Click-to-call</strong> Visible, tappable, tracked — and shown before the driver has to scroll.</li>
+      <li><strong>Forms and quote-request UX</strong> Short forms that ask only what you need to respond, with a realistic response promise.</li>
+      <li><strong>Landing pages</strong> Service- and market-specific pages that match the search and the ad.</li>
+      <li><strong>Mobile conversion</strong> Speed, layout and tap targets on the device most auto glass searches happen on.</li>
+      <li><strong>Trust placement</strong> Reviews, warranty, insurance and ADAS information where the decision is made.</li>
+      <li><strong>Service information and navigation</strong> Drivers find what you do and where in seconds.</li>
+      <li><strong>Customer journey</strong> The full path from first tap to scheduled job, measured end to end.</li>
+    </ul>
+    <p>
+      CRO does not mean we provide every technology used in the conversion process. Sometimes the bottleneck is operational rather than on the page:
+    </p>
+    <PartnerCallout />
+  </ProseSection>
+
+  <ProseSection id="web-paths" eyebrow="The two paths" heading="Whether they click or call, the site gives them a path.">
+    <p>
+      Every page is designed around the two ways a driver actually converts. Both paths are built, measured and optimized as Auto Glass Growth services.
+    </p>
+    <ConversionPaths />
+  </ProseSection>
+
+  <RelatedLinks
+    id="web-related"
+    heading="The website is where every channel converts."
+    links={[
+      { href: "/auto-glass-seo/", title: "Auto Glass SEO", description: "The service and location pages the site is built around." },
+      { href: "/google-ads/", title: "Google Ads for Auto Glass", description: "Paid search that lands on the pages built to convert." },
+      { href: "/auto-glass-local-seo/", title: "Auto Glass Local SEO & Google Maps", description: "The Google Business Profile that links to the right location page." },
+      { href: "/auto-glass-lead-generation/", title: "Auto Glass Lead Generation", description: "How the website fits the full customer-acquisition system." },
+    ]}
+    alt
+  />
+
+  <FaqSection id="web-faq" heading="Auto glass website questions" items={faqs} />
+
+  <ClosingCta
+    id="web-cta"
+    heading="Find out where your website is losing jobs."
+    description="Request a complimentary, manually reviewed analysis of your website's UX, conversion friction, call and quote-request pathways and mobile experience — alongside Google Maps, organic search, paid search and AI visibility."
+    ctaLabel="See Where You're Losing Jobs"
+  />
+
+</BaseLayout>

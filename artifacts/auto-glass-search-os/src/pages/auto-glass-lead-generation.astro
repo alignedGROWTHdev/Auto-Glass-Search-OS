@@ -5,8 +5,9 @@ import ProseSection from '../components/ProseSection.astro';
 import FaqSection from '../components/FaqSection.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import ClosingCta from '../components/ClosingCta.astro';
-import { channelPages, partnerTech } from '../data/siteData';
+import { channelPages } from '../data/siteData';
 import ConversionPaths from '../components/ConversionPaths.astro';
+import PartnerCallout from '../components/PartnerCallout.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 
 const pagePath = "/auto-glass-lead-generation/";
@@ -16,7 +17,7 @@ const pageDescription = "Build an auto glass lead generation system you own. SEO
 const faqs = [
   {
     question: "Do you sell auto glass leads?",
-    answer: "No. Auto Glass Search OS does not sell leads, resell shared consumer inquiries, or operate a lead marketplace. We help auto glass companies build their own inbound lead generation system, so the calls and quote requests come from your website, your Google Business Profile, your ads, and your brand — and belong to you.",
+    answer: "No. Auto Glass Growth does not sell leads, resell shared consumer inquiries, or operate a lead marketplace. We help auto glass companies build their own inbound lead generation system, so the calls and quote requests come from your website, your Google Business Profile, your ads, and your brand — and belong to you.",
   },
   {
     question: "How is owned lead generation different from buying auto glass leads?",
@@ -40,7 +41,7 @@ const faqs = [
   },
   {
     question: "Do you provide online quoting, scheduling, or AI call handling?",
-    answer: "Through a specialized auto glass technology partner, where supported and depending on implementation. Auto Glass Search OS does not own that software; we own the strategy, conversion analysis, implementation coordination and measurement around it. The goal is conversion — giving a driver who found you a path to a quote and an appointment whether they click or call — not replacing your team.",
+    answer: "No. Those are specialized technologies provided separately by third-party auto glass technology providers. Auto Glass Growth's services are marketing, websites, conversion optimization and measurement. What we can do is identify when a conversion bottleneck is operational rather than marketing — customers can't easily get a quote, find availability or get a timely response — and, where appropriate, connect you with a relevant provider.",
   },
   {
     question: "How do you measure lead quality instead of just traffic?",
@@ -66,7 +67,7 @@ const extraSchema = [
     id="leadgen"
     eyebrow="Auto Glass Lead Generation"
     heading="Build an Auto Glass Lead Generation System That Produces Qualified Calls"
-    lead="Auto Glass Search OS helps established auto glass companies generate qualified inbound opportunities from drivers actively searching for windshield replacement, repair, mobile auto glass, and ADAS calibration. We connect Search, Maps, Google Ads, AI discovery, and conversion into one measurable customer acquisition system."
+    lead="Auto Glass Growth helps established auto glass companies generate qualified inbound opportunities from drivers actively searching for windshield replacement, repair, mobile auto glass, and ADAS calibration. We connect Search, Maps, Google Ads, AI discovery, your website and conversion into one measurable customer acquisition system — the Auto Glass Growth OS."
     ctaLabel="Analyze My Lead Generation Opportunities"
     supportLine="Complimentary Search + Customer Acquisition Analysis"
   >
@@ -105,7 +106,7 @@ const extraSchema = [
 
   <ProseSection id="sources" eyebrow="02" heading="Where auto glass leads come from" alt>
     <p>
-      Every channel reaches drivers at a different moment. Treating them as one system — rather than separate vendors and tactics — is what Auto Glass Search OS is built around.
+      Every channel reaches drivers at a different moment. Treating them as one system — rather than separate vendors and tactics — is what the Auto Glass Growth OS methodology is built around.
     </p>
     <ul class="prose-grid">
       <li><strong><a href="/auto-glass-seo/">Organic search</a></strong> Drivers searching "windshield replacement [city]" or "ADAS calibration near me" who click a service page. Slow to build, durable, and the lowest long-run cost per qualified lead.</li>
@@ -160,11 +161,15 @@ const extraSchema = [
       <li><strong>ADAS clarity</strong> Whether you recalibrate, which types, and whether it is done in-house or by a partner.</li>
       <li><strong>Speed and accessibility</strong> How fast you answer, how quickly you can schedule, and how easy it is to reach a human.</li>
     </ul>
-    <h3>Quote, call and booking pathways</h3>
+    <h3>Call and quote-request pathways</h3>
     <p>
-      Two drivers with the same cracked windshield will choose differently: one wants to call and talk to a person right now, the other wants a price and an appointment time without a phone call. A lead generation system has to serve both. Where supported and depending on implementation, we can connect the conversion path to online auto glass quote estimation, availability-based scheduling, and AI-assisted call handling for after-hours, overflow and missed-call risk — capabilities available through our specialized auto glass technology partner. Auto Glass Search OS owns the strategy, conversion analysis, implementation coordination and measurement; the partner provides the underlying technology.
+      Two drivers with the same cracked windshield will choose differently: one wants to call and talk to a person right now, the other wants to send a quote request without a phone call. A lead generation system has to serve both, and our <a href="/auto-glass-websites/">website and conversion optimization</a> work builds and measures both paths.
     </p>
     <ConversionPaths />
+    <p>
+      Sometimes the bottleneck is operational rather than on the page:
+    </p>
+    <PartnerCallout />
   </ProseSection>
 
   <ProseSection id="measure" eyebrow="07" heading="Measure lead quality, not just volume">

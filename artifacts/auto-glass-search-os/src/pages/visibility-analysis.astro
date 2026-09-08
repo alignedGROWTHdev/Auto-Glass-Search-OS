@@ -30,18 +30,21 @@ const pageDescription = "Find out who's winning the auto glass searches in your 
           </p>
 
           <div class="analysis-checklist" aria-label="What your analysis examines">
-            <p class="analysis-checklist__label eyebrow eyebrow--blue">What your analysis identifies:</p>
+            <p class="analysis-checklist__label eyebrow eyebrow--blue">What your analysis evaluates:</p>
             <ul class="analysis-checklist__list" role="list">
-              <li class="check-item">Google Maps gaps — where the Map Pack shows competitors instead of you</li>
-              <li class="check-item">Organic search gaps for windshield replacement, repair, mobile service, and ADAS calibration</li>
-              <li class="check-item">Competitor coverage across your priority services and markets</li>
+              <li class="check-item">Search visibility — organic gaps for windshield replacement, repair, mobile service and ADAS calibration</li>
+              <li class="check-item">Google Maps visibility — where the Map Pack shows competitors instead of you</li>
+              <li class="check-item">Competitor visibility across your priority services and markets</li>
               <li class="check-item">Paid search opportunity, including wasted spend on irrelevant searches where an account exists</li>
               <li class="check-item">AI visibility across relevant AI-assisted search experiences</li>
-              <li class="check-item">Website conversion friction — click-to-call accessibility, mobile experience, and the reasons a driver who found you did not act</li>
-              <li class="check-item">Quote and scheduling pathways — whether a driver can get a price and an appointment without unnecessary back-and-forth</li>
-              <li class="check-item">Potential response and handoff bottlenecks, based on what your site, listings and hours make visible (we don't claim to know missed-call rates without your call data)</li>
-              <li class="check-item">Customer acquisition opportunities, prioritized by likely impact on qualified calls and booked jobs</li>
+              <li class="check-item">Website UX and conversion friction — the reasons a driver who found you did not act</li>
+              <li class="check-item">Call pathway and quote-request pathway — click-to-call accessibility and whether a driver can request a quote without unnecessary back-and-forth</li>
+              <li class="check-item">Mobile conversion — speed, layout and tap targets on the device most auto glass searches happen on</li>
+              <li class="check-item">Measurement — whether calls, forms and booked jobs can be attributed to channels today</li>
             </ul>
+            <p class="analysis-checklist__note">
+              Where operational or technology limitations appear to create conversion friction, recommendations may include specialized third-party technology. The analysis does not include or sell that technology.
+            </p>
           </div>
 
           <div class="analysis-value__promise">
@@ -91,7 +94,7 @@ const pageDescription = "Find out who's winning the auto glass searches in your 
             <header class="analysis-form-card__header">
               <h2 class="analysis-form-card__title">Request Your Opportunity Analysis</h2>
               <p class="analysis-form-card__subtitle">
-                Tell us about your operation and markets. Every analysis is reviewed manually by Valentina Borda and the Auto Glass Search OS team — not generated automatically.
+                Tell us about your operation and markets. Every analysis is reviewed manually by Valentina Borda and the Auto Glass Growth team — not generated automatically.
               </p>
             </header>
 
@@ -172,6 +175,13 @@ const pageDescription = "Find out who's winning the auto glass searches in your 
 
   .analysis-checklist__label {
     margin: 0;
+  }
+
+  .analysis-checklist__note {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    line-height: 1.55;
+    margin: 0.875rem 0 0;
   }
 
   .analysis-checklist__list {

@@ -8,6 +8,7 @@ import RelatedLinks from '../components/RelatedLinks.astro';
 import ClosingCta from '../components/ClosingCta.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 import ConversionPaths from '../components/ConversionPaths.astro';
+import PartnerCallout from '../components/PartnerCallout.astro';
 
 const pagePath = "/google-ads/";
 const pageTitle = "Auto Glass Google Ads & PPC Agency | Qualified Lead Generation";
@@ -117,9 +118,13 @@ const extraSchema = [
 
   <ProseSection id="ads-conversion-model" eyebrow="The conversion model" heading="Click → call → response → appointment. Or click → quote → availability → booking.">
     <p>
-      A click is the start of the job, not the result. Every campaign is designed around one of two conversion paths, and the landing page, ad schedule and tracking follow from that. Where supported and depending on implementation, the digital path can connect to online quote estimation and availability-based scheduling, and the phone path to AI-assisted call handling for after-hours and overflow — capabilities available through our specialized auto glass technology partner, with Auto Glass Search OS owning the strategy, coordination and measurement.
+      A paid click still needs a strong conversion pathway. Every campaign is designed around one of two paths, and the landing page, ad schedule and tracking follow from that. Auto Glass Growth builds and optimizes the landing experience and conversion path as part of the service — <a href="/auto-glass-websites/">website and CRO work</a> that makes every paid click worth more.
     </p>
     <ConversionPaths />
+    <p>
+      If the bottleneck behind the click is operational — quoting, scheduling or call handling — rather than the page, we may recommend a third-party solution. That technology is not part of the Google Ads service.
+    </p>
+    <PartnerCallout compact />
   </ProseSection>
 
   <ProseSection id="ads-tracking" eyebrow="Conversion tracking and measurement" alt heading="Cost per qualified lead, and booked jobs where the data exists">

@@ -4,17 +4,18 @@ import HeroSystemVisual from '../components/HeroSystemVisual.astro';
 import JourneySystem from '../components/JourneySystem.astro';
 import ConversionPaths from '../components/ConversionPaths.astro';
 import ImagePlaceholder from '../components/ImagePlaceholder.astro';
-import { siteConfig, credibilityPoints, partnerTech } from '../data/siteData';
+import PartnerCallout from '../components/PartnerCallout.astro';
+import { siteConfig, credibilityPoints, services } from '../data/siteData';
 import { serviceSchema } from '../data/schema';
 
-const pageTitle = "Auto Glass Marketing Agency | Leads, SEO & Google Ads";
-const pageDescription = "Auto glass marketing and lead generation for established auto glass companies. Turn search demand across Google, Maps, Ads, and AI into qualified calls and booked jobs.";
+const pageTitle = "Auto Glass Marketing Agency | Websites, SEO & Leads";
+const pageDescription = "Auto Glass Growth: auto glass marketing, websites and lead generation for established auto glass companies. Turn more customer demand into calls, quotes and booked jobs.";
 
 const homeSchema = [
   serviceSchema({
     pagePath: "/",
-    name: "Auto Glass Marketing & Lead Generation",
-    serviceType: "Auto glass marketing agency services: SEO, Google Maps, Google Ads, AI search optimization, and conversion",
+    name: "Auto Glass Marketing, Websites & Lead Generation",
+    serviceType: "Auto glass marketing agency services: SEO, Google Maps, Google Ads, website design, conversion optimization, AI search visibility, analytics and measurement",
     description: pageDescription,
     alternateName: ["Auto Glass Marketing Agency", "Auto Glass Digital Marketing", "Marketing for Auto Glass Companies"],
   }),
@@ -22,21 +23,11 @@ const homeSchema = [
 
 // Where qualified demand gets lost — the problem section.
 const leaks = [
-  { tag: "Not found", body: "Competitors appear first in Search or Maps for windshield replacement, mobile service, or ADAS calibration in your market." },
-  { tag: "Not trusted", body: "The driver finds you, but another shop looks more credible — better reviews, clearer insurance and warranty answers, visible ADAS capability." },
-  { tag: "Conversion friction", body: "The driver can't quickly get the information or quote they need to move forward, especially on a phone." },
-  { tag: "Missed response", body: "The driver calls, but response capacity — after hours, overflow, a busy counter — creates friction and they call the next result." },
-  { tag: "Booking friction", body: "The driver is ready, but scheduling takes unnecessary back-and-forth instead of a clear path to an appointment." },
-  { tag: "No attribution", body: "Marketing reports leads, but you can't see which channels created qualified opportunities or booked jobs — or what each cost." },
-];
-
-// What Search OS builds — the system's modules, linked to their pages.
-const modules = [
-  { num: "01", title: "Auto Glass SEO", body: "Capture organic demand for high-value services: windshield replacement, repair, mobile, side glass, ADAS.", href: "/auto-glass-seo/", cta: "Auto glass SEO" },
-  { num: "02", title: "Local SEO + Google Maps", body: "Win more nearby discovery through your Google Business Profile, Map Pack presence, reviews, and service areas.", href: "/auto-glass-local-seo/", cta: "Local SEO & Maps" },
-  { num: "03", title: "Google Ads", body: "Capture high-intent paid demand with call-focused campaigns and tight control over irrelevant glass searches.", href: "/google-ads/", cta: "Google Ads" },
-  { num: "04", title: "AI Search Visibility", body: "Help search and answer systems understand and corroborate your business, services, and locations.", href: "/ai-search-optimization/", cta: "AI search optimization" },
-  { num: "05", title: "Conversion + Booking", body: "Reduce friction between a driver's intent and an appointment: calls, online quotes, scheduling, and response coverage.", href: "/auto-glass-lead-generation/#convert-heading", cta: "How conversion works" },
+  { tag: "Not found", body: "Competitors appear first in Search or Maps for windshield replacement, mobile service or ADAS calibration in your market." },
+  { tag: "Not trusted", body: "The driver finds you, but chooses someone else — better reviews, a stronger website, clearer insurance, warranty and ADAS answers." },
+  { tag: "Conversion friction", body: "The website or landing experience makes the next step unnecessarily difficult, especially on a phone: no obvious call button, a long form, missing service information." },
+  { tag: "Response / process friction", body: "The business generates demand, but operational response — after hours, overflow, quoting, scheduling — creates a bottleneck and the driver moves on." },
+  { tag: "No measurement", body: "Marketing produces activity, but you can't determine which channels create qualified opportunities or booked jobs, or what each costs." },
 ];
 
 // Business economics factors.
@@ -52,7 +43,7 @@ const economics = [
 ];
 
 const analysisScope = [
-  "Search", "Maps", "Competitors", "Ads", "AI visibility", "Website conversion", "Quote pathway", "Booking friction", "Response bottlenecks",
+  "Search", "Maps", "Competitors", "Ads", "AI visibility", "Website UX", "Conversion friction", "Call pathway", "Quote-request pathway", "Mobile conversion", "Measurement",
 ];
 ---
 
@@ -66,22 +57,22 @@ const analysisScope = [
       <div class="hero__layout">
 
         <div class="hero__content fade-up">
-          <span class="eyebrow" aria-label="Auto Glass Marketing and Lead Generation">
+          <span class="eyebrow" aria-label={siteConfig.category}>
             <span class="status-dot" aria-hidden="true"></span>
-            Auto Glass Marketing &amp; Lead Generation
+            {siteConfig.category}
           </span>
 
           <h1 id="hero-heading" class="hero__heading text-balance">
-            Auto Glass Marketing That Turns
-            <span class="hero__heading-accent">Search Into Booked Jobs</span>
+            Turn More Customer Demand
+            <span class="hero__heading-accent">Into Booked Jobs.</span>
           </h1>
 
           <p class="hero__lead">
-            We help established auto glass companies capture more high-intent demand across Google Search, Maps, Ads and emerging AI discovery — then turn it into qualified calls, quote requests and booked jobs.
+            Auto Glass Growth helps established auto glass companies capture high-intent demand through SEO, Google Maps, paid search and AI discovery — then turn more of that demand into qualified calls, quote requests and measurable business opportunities.
           </p>
 
           <p class="hero__mechanism">
-            <strong>The Auto Glass Search OS</strong> is the system that does it: one connected approach across <span class="hero__descriptor">{siteConfig.channelDescriptor}</span>
+            <strong>The Auto Glass Growth OS</strong> is our auto glass marketing methodology — a framework for connecting discovery, trust, conversion and measurement, not software. <span class="hero__descriptor">{siteConfig.channelDescriptor}</span>
           </p>
 
           <div class="hero__actions fade-up fade-up--delay-1">
@@ -89,7 +80,7 @@ const analysisScope = [
               {siteConfig.primaryCta}
             </a>
             <a href="#journey" data-analytics-event="secondary_cta_click" class="btn btn--secondary btn--lg">
-              See How the System Works
+              See How the Growth OS Works
             </a>
           </div>
 
@@ -109,7 +100,7 @@ const analysisScope = [
   <!-- ════════════════════════════════════════════
        2. CREDIBILITY / SPECIALIZATION STRIP
        ════════════════════════════════════════════ -->
-  <section class="cred" aria-label="Why Auto Glass Search OS">
+  <section class="cred" aria-label="Why Auto Glass Growth">
     <div class="container">
       <ul class="cred__list" role="list">
         {credibilityPoints.map((c) => (
@@ -131,9 +122,12 @@ const analysisScope = [
         <div class="leaks__intro">
           <span class="eyebrow eyebrow--amber">The problem</span>
           <span class="cyan-rule"></span>
-          <h2 id="leaks-heading" class="section-heading text-balance">Where qualified auto glass demand gets lost.</h2>
+          <h2 id="leaks-heading" class="section-heading text-balance">Where auto glass companies lose customer demand.</h2>
           <p class="section-lead">
-            Drivers with a cracked windshield decide in minutes, on a phone. The demand in your market is already there. Most of it is lost at one of six points — usually more than one.
+            Drivers with a cracked windshield decide in minutes, on a phone. The demand in your market is already there. Most of it is lost at one of five points — usually more than one.
+          </p>
+          <p class="leaks__note">
+            Auto Glass Growth directly addresses the marketing and conversion issues. For operational or technology bottlenecks outside our services, we may recommend specialized third-party providers.
           </p>
         </div>
         <ol class="leaks__grid" role="list">
@@ -150,16 +144,16 @@ const analysisScope = [
   </section>
 
   <!-- ════════════════════════════════════════════
-       4. THE SEARCH OS JOURNEY (FOUND → TRUSTED → CHOSEN → MEASURED)
+       4. THE GROWTH OS METHODOLOGY (FOUND → TRUSTED → CHOSEN → MEASURED)
        ════════════════════════════════════════════ -->
   <section id="journey" class="section section--journey" aria-labelledby="journey-heading">
     <div class="container">
       <div class="section-header section-header--wide">
-        <span class="eyebrow">The Auto Glass Search OS</span>
+        <span class="eyebrow">The Auto Glass Growth OS &middot; our methodology</span>
         <span class="cyan-rule"></span>
-        <h2 id="journey-heading" class="section-heading text-balance">One system across the whole customer journey.</h2>
+        <h2 id="journey-heading" class="section-heading text-balance">One methodology across the whole customer journey.</h2>
         <p class="section-lead">
-          Found &rarr; Trusted &rarr; Chosen &rarr; Measured. Every part of the Search OS is built around the moments where a driver either becomes your customer or someone else's.
+          Found &rarr; Trusted &rarr; Chosen &rarr; Measured. The Growth OS is how we connect marketing, conversion and measurement — a framework, not a platform you log into — built around the moments where a driver becomes your customer or someone else's.
         </p>
       </div>
       <JourneySystem />
@@ -167,24 +161,24 @@ const analysisScope = [
   </section>
 
   <!-- ════════════════════════════════════════════
-       5. WHAT SEARCH OS BUILDS
+       5. AUTO GLASS GROWTH SERVICES
        ════════════════════════════════════════════ -->
   <section class="section section--alt" aria-labelledby="modules-heading">
     <div class="container">
       <div class="modules">
         <div class="modules__intro">
-          <span class="eyebrow">What the Search OS builds</span>
+          <span class="eyebrow">Auto Glass Growth services</span>
           <span class="cyan-rule"></span>
-          <h2 id="modules-heading" class="section-heading text-balance">Five components. One customer-acquisition system.</h2>
+          <h2 id="modules-heading" class="section-heading text-balance">What we actually do for auto glass companies.</h2>
           <p class="section-lead">
-            These are not separate agency services. Each one feeds the others — the pages built for SEO become the landing pages for Ads, the business information that wins Maps is what AI search corroborates, and every channel converts on the same site.
+            Seven services, run as one methodology. The pages built for SEO become the landing pages for Ads, the business information that wins Maps is what AI search corroborates, and every channel converts on a website we build or optimize to rank and convert.
           </p>
           <a href="/auto-glass-lead-generation/" data-analytics-event="leadgen_learn_more" class="btn btn--secondary">
             How it generates leads you own &rarr;
           </a>
         </div>
         <ol class="modules__list" role="list">
-          {modules.map((m) => (
+          {services.map((m) => (
             <li class="module" role="listitem">
               <span class="module__num" aria-hidden="true">{m.num}</span>
               <div class="module__body">
@@ -205,17 +199,24 @@ const analysisScope = [
   <section class="section section--paths" aria-labelledby="paths-heading">
     <div class="container">
       <div class="section-header section-header--center">
-        <span class="eyebrow eyebrow--amber">{partnerTech.label}</span>
+        <span class="eyebrow eyebrow--amber">Chosen &middot; conversion optimization</span>
         <span class="cyan-rule" style="margin: 0 auto;"></span>
-        <h2 id="paths-heading" class="section-heading text-balance">Whether they click or call, give them a path to book.</h2>
+        <h2 id="paths-heading" class="section-heading text-balance">Whether they click or call, give them a clear path to book.</h2>
         <p class="section-lead">
-          Visibility is wasted if the driver hits a dead end. The Search OS designs both paths to an appointment — and, where supported, connects them to online quote estimation, availability-based scheduling, and AI-assisted call handling from our specialized auto glass technology partner.
+          Visibility is wasted if the driver hits a dead end. Our conversion work shapes both paths: landing pages, click-to-call, quote-request UX, service and insurance information, and the customer journey from first tap to scheduled job.
         </p>
       </div>
       <ConversionPaths />
-      <ul class="paths-caps" role="list" aria-label="Partner-powered capabilities">
-        {partnerTech.capabilities.map((c) => <li class="check-item">{c}</li>)}
+      <ul class="paths-caps" role="list" aria-label="Auto Glass Growth conversion services">
+        <li class="check-item">Website CRO</li>
+        <li class="check-item">Landing pages</li>
+        <li class="check-item">Call pathways &amp; click-to-call</li>
+        <li class="check-item">Quote-request UX</li>
+        <li class="check-item">Customer journey optimization</li>
       </ul>
+      <div class="paths-partner">
+        <PartnerCallout compact />
+      </div>
     </div>
   </section>
 
@@ -230,13 +231,13 @@ const analysisScope = [
           <span class="cyan-rule"></span>
           <h2 id="economics-heading" class="section-heading text-balance">The goal isn't maximum traffic. It's the right demand your operation can profitably serve.</h2>
           <p class="section-lead">
-            A rock chip repair, a same-day replacement with ADAS calibration, and a fleet account are different jobs with different margins. Search OS strategy starts with how your business actually runs, then shapes which searches, services and markets to capture — and which to leave alone.
+            A rock chip repair, a same-day replacement with ADAS calibration, and a fleet account are different jobs with different margins. Growth OS strategy starts with how your business actually runs, then shapes which searches, services and markets to capture — and which to leave alone.
           </p>
           <ul class="econ__factors" role="list" aria-label="Factors the strategy considers">
             {economics.map((f) => <li>{f}</li>)}
           </ul>
           <p class="econ__note">
-            We don't sell leads. We build the system — your website, Maps listing, ads and brand — that generates them, so every inquiry belongs to you.
+            We don't sell leads, and we don't sell software. We build the marketing, website and conversion system — your site, Maps listing, ads and brand — that generates inquiries, so every one of them belongs to you.
           </p>
         </div>
         <div class="econ__visual">
@@ -258,19 +259,19 @@ const analysisScope = [
       <div class="section-header section-header--center">
         <span class="eyebrow">Engagement models</span>
         <span class="cyan-rule" style="margin: 0 auto;"></span>
-        <h2 id="engagement-models-heading" class="section-heading text-balance">Two ways to run the Search OS.</h2>
+        <h2 id="engagement-models-heading" class="section-heading text-balance">Two ways to work with Auto Glass Growth.</h2>
       </div>
       <div class="models-grid">
         <article class="card model-card model-card--primary">
           <header class="model-card__header">
             <div class="model-card__header-top">
-              <h3 class="model-card__title">Managed Search OS</h3>
+              <h3 class="model-card__title">Fully Managed Growth</h3>
               <span class="model-card__badge">Recommended</span>
             </div>
             <span class="model-card__mode eyebrow eyebrow--blue">We run it for you.</span>
           </header>
           <p class="model-card__body">
-            A specialized external team runs customer acquisition across SEO, Google Maps, Google Ads, AI search and conversion — while your dispatchers stay focused on booking jobs.
+            A specialized external team runs customer acquisition across SEO, Google Maps, Google Ads, your website, conversion and measurement — while your dispatchers stay focused on booking jobs.
           </p>
           <ul class="model-card__list" role="list">
             <li class="arrow-item">Strategy, execution and quality control</li>
@@ -285,12 +286,12 @@ const analysisScope = [
         <article class="card model-card">
           <header class="model-card__header">
             <div class="model-card__header-top">
-              <h3 class="model-card__title">Search OS + Your Team</h3>
+              <h3 class="model-card__title">Growth OS + Your Team</h3>
             </div>
             <span class="model-card__mode eyebrow">We build it with your team.</span>
           </header>
           <p class="model-card__body">
-            For operators who want stronger in-house capability: we build the workflows and AI-enabled systems with your team, then provide ongoing strategy, quality control and support as your markets grow.
+            For operators who want stronger in-house capability: we build the Growth OS workflows with your team, then provide ongoing strategy, quality control and support as your markets grow.
           </p>
           <ul class="model-card__list" role="list">
             <li class="arrow-item">Search systems and reusable workflows your team operates</li>
@@ -322,12 +323,12 @@ const analysisScope = [
           <span class="eyebrow">Founder-led</span>
           <span class="cyan-rule"></span>
           <h2 id="founder-heading" class="section-heading text-balance">A specialist who works directly with each operator.</h2>
-          <p class="founder__name">Valentina Borda <span class="founder__role">Founder, Aligned Growth Digital &middot; leads Auto Glass Search OS</span></p>
+          <p class="founder__name">Valentina Borda <span class="founder__role">Founder, Aligned Growth Digital &middot; leads Auto Glass Growth</span></p>
           <p class="section-lead">
-            Auto Glass Search OS is a specialized auto glass initiative operated under Aligned Growth Digital. Valentina brings more than ten years across search, digital growth, eCommerce and marketing strategy, and she personally owns the opportunity analysis, the strategy, and quality control on what gets published or deployed — with AI-enabled systems handling research, monitoring and execution at scale.
+            {siteConfig.legalStatement} Valentina brings more than ten years across search, digital growth, eCommerce and marketing strategy, and she personally owns the opportunity analysis, the strategy, and quality control on what gets published or deployed.
           </p>
           <p class="founder__standard">
-            <strong>A plain operating standard:</strong> no fabricated client logos, invented performance claims, or unverifiable case studies. Scope is confirmed directly with every operator before an engagement begins.
+            <strong>A plain operating standard:</strong> no fabricated client logos, invented performance claims or unverifiable case studies — and when a growth bottleneck falls outside our core marketing and conversion services, we may recommend specialized auto glass technology providers rather than pretending to build everything ourselves.
           </p>
           <a href="/about/" class="module__link" data-analytics-event="founder_about_click">About Valentina and the company &rarr;</a>
         </div>
@@ -608,6 +609,14 @@ const analysisScope = [
     .leaks__intro { position: sticky; top: 6rem; }
   }
 
+  .leaks__note {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 0.25rem;
+  }
+
   .leaks__grid {
     list-style: none;
     margin: 0;
@@ -618,7 +627,15 @@ const analysisScope = [
   }
 
   @media (min-width: 640px) {
-    .leaks__grid { grid-template-columns: repeat(2, 1fr); }
+    .leaks__note {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 0.25rem;
+  }
+
+  .leaks__grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   .leak {
@@ -756,6 +773,11 @@ const analysisScope = [
     justify-content: center;
     gap: 0.75rem 1.75rem;
     max-width: 60rem;
+  }
+
+  .paths-partner {
+    max-width: 44rem;
+    margin: 2rem auto 0;
   }
 
   /* ── 7. Economics ────────────────────────────── */

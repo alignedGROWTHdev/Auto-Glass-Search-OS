@@ -44,7 +44,7 @@ const breadcrumb = Astro.url.pathname !== "/" ? {
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Auto Glass Search OS",
+      "name": siteConfig.name,
       "item": siteConfig.siteUrl
     },
     {
@@ -63,6 +63,8 @@ const structuredData = {
       "@type": "Organization",
       "@id": siteConfig.entity.organizationId,
       "name": siteConfig.name,
+      "alternateName": "Auto Glass Growth by Aligned Growth Digital",
+      "slogan": siteConfig.tagline,
       "url": siteConfig.siteUrl,
       "description": siteConfig.description,
       "parentOrganization": { "@id": siteConfig.entity.parentOrganizationId },
@@ -74,6 +76,7 @@ const structuredData = {
       "knowsAbout": [
         "Auto Glass Marketing",
         "Auto Glass Lead Generation",
+        "Auto Glass Website Design and Conversion Optimization",
         "Auto Glass SEO",
         "Google Maps and Local SEO for Auto Glass Companies",
         "Google Ads for Auto Glass Companies",
@@ -182,7 +185,7 @@ const structuredData = {
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={siteConfig.name} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content="The Auto Glass Search OS ecosystem: search, Maps, Google Ads, and AI discovery connected to qualified calls and booked jobs" />
+    <meta property="og:image:alt" content="The Auto Glass Growth OS: search, Maps, Google Ads and AI discovery connected to qualified calls and booked jobs" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:title" content={title} />

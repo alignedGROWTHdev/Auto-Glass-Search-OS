@@ -1,4 +1,4 @@
-# Auto Glass Search OS
+# Auto Glass Growth (formerly Auto Glass Search OS)
 
 A specialist acquisition website helping established auto glass companies turn search demand into answered calls and booked glass jobs.
 

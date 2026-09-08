@@ -1,9 +1,10 @@
 ---
 /**
- * ConversionPaths — two paths from search to a booked job:
- * A) Digital: search → landing page → online quote → availability → book
- * B) Phone:   search → call → human / AI-assisted response → schedule → book
- * Includes the partner-technology disclosure.
+ * ConversionPaths — two paths from search to a booked job. Auto Glass Growth's
+ * services shape every step (landing page, quote-request UX, call pathways,
+ * measurement); no third-party technology is shown as a required step.
+ * A) Digital: search → landing page → quote request → response → booked
+ * B) Phone:   search → call → response → scheduled → booked
  */
 interface Props {
   compact?: boolean;
@@ -15,13 +16,13 @@ const paths = [
     key: "digital",
     label: "Path A · Digital",
     icon: "click",
-    steps: ["Search", "Landing page", "Online quote", "Availability", "Book"],
+    steps: ["Search", "Landing page", "Quote request", "Response", "Booked job"],
   },
   {
     key: "phone",
     label: "Path B · Phone",
     icon: "phone",
-    steps: ["Search", "Call", "Human or AI-assisted response", "Schedule", "Book"],
+    steps: ["Search", "Call", "Response", "Scheduled", "Booked job"],
   },
 ];
 ---
@@ -48,9 +49,6 @@ const paths = [
       </ol>
     </div>
   ))}
-  <p class="paths__disclosure">
-    Specialized quoting, scheduling and AI Voice capabilities available through our auto glass technology partner. Auto Glass Search OS owns the strategy, conversion analysis, implementation coordination and measurement; the partner provides the underlying technology, where supported and depending on implementation.
-  </p>
 </div>
 
 <style>
@@ -130,15 +128,6 @@ const paths = [
   }
 
   .path__step--final::before { content: '✓ '; margin-right: 0.35rem; }
-
-  .paths__disclosure {
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
-    line-height: 1.6;
-    margin: 0.25rem 0 0;
-    padding: 0.875rem 1rem;
-    border-left: 2px solid rgba(255,255,255,0.12);
-  }
 
   @media (min-width: 720px) {
     .path__steps {

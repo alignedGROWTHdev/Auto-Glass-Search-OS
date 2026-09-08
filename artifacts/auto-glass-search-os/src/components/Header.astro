@@ -10,7 +10,7 @@ const pathname = Astro.url.pathname;
     <div class="agos-header__bar-inner container">
       <span class="agos-header__bar-label">
         <span class="status-dot"></span>
-        <span>Auto glass marketing &amp; lead generation &middot; SEO &middot; Google Maps &middot; Google Ads &middot; AI Search &middot; Conversion</span>
+        <span>Auto glass marketing, websites &amp; lead generation &middot; SEO &middot; Google Maps &middot; Google Ads &middot; Websites &middot; CRO &middot; AI Search</span>
       </span>
     </div>
   </div>
@@ -26,7 +26,7 @@ const pathname = Astro.url.pathname;
         </span>
         <span class="agos-wordmark__text">
           <span class="agos-wordmark__primary">AUTO GLASS</span>
-          <span class="agos-wordmark__accent">SEARCH OS</span>
+          <span class="agos-wordmark__accent">GROWTH</span>
         </span>
       </a>
 
@@ -177,7 +177,12 @@ const pathname = Astro.url.pathname;
   }
 
   @media (min-width: 1024px) {
-    .agos-nav { display: flex; }
+    .agos-nav { display: flex; flex-wrap: nowrap; white-space: nowrap; }
+  }
+
+  /* Seven links: tighten spacing below 1200px so the nav stays on one line */
+  @media (min-width: 1024px) and (max-width: 1199px) {
+    .agos-nav :global(.nav-link) { padding: 0.375rem 0.5rem; font-size: 0.75rem; }
   }
 
   /* ── Desktop CTA ──────────────────────────────────────── */

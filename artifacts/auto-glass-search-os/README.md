@@ -1,6 +1,6 @@
-# Auto Glass Search OS — Foundational Website
+# Auto Glass Growth — Website
 
-This is the production-ready, SEO-first, HTML-driven Astro website for **Auto Glass Search OS**, a specialized search-growth and customer-acquisition company for established $2M–$20M+ auto glass businesses.
+This is the production-ready, SEO-first, HTML-driven Astro website for **Auto Glass Growth** (formerly Auto Glass Search OS), a specialized auto glass marketing, websites and lead generation initiative from Aligned Growth Digital — a search-growth and customer-acquisition company for established $2M–$20M+ auto glass businesses.
 
 Operating Entity: **Aligned Growth Digital**  
 Founder: **Valentina Borda**  
