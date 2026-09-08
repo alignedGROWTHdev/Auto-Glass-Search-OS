@@ -1,17 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 760" role="img" aria-label="Auto Glass Growth stacked logo">
-  <defs>
-    <linearGradient id="g" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0" stop-color="#0B7FD3"/>
-      <stop offset="1" stop-color="#149FE6"/>
-    </linearGradient>
-  </defs>
-  <g transform="translate(140 20) scale(.95)">
-    <path d="M52 388 L186 112 Q198 88 214 112 L274 232 L229 279 L199 219 L116 388 Z" fill="#0A1B3A"/>
-    <path d="M147 335 L198 231 L224 283 L198 335 Z" fill="#FFFFFF"/>
-    <path d="M325 118 C405 118 458 168 458 246 C458 336 393 402 305 402 C249 402 207 381 173 347 L212 307 C236 331 266 345 305 345 C356 345 393 316 400 271 L316 271 L316 219 L459 219 L459 242 C459 253 458 263 456 273 C448 347 389 402 305 402"
-      fill="none" stroke="url(#g)" stroke-width="46" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M377 145 L459 82 L452 185 Z" fill="url(#g)"/>
+  <g transform="translate(160 0) scale(3)">
+    <path d="M28 123 52 43c2-7 5-10 12-10h34c7 0 10 3 12 10l22 80" fill="none" stroke="#0A1B3A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M39 112h81" fill="none" stroke="#5E768F" stroke-width="4" stroke-linecap="round"/>
+    <path d="M72 91 91 72l13 13 28-31" fill="none" stroke="#0B7FD3" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="m125 54 9-1-2 10" fill="none" stroke="#0B7FD3" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M62 43h36" fill="none" stroke="#149FE6" stroke-width="4" stroke-linecap="round"/>
   </g>
-  <text x="400" y="585" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="800" letter-spacing="2" fill="#0A1B3A">AUTO GLASS</text>
-  <text x="400" y="685" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="90" font-weight="800" letter-spacing="3" fill="#149FE6">GROWTH</text>
+  <g text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" letter-spacing="10">
+    <text x="400" y="550" font-size="78" fill="#0A1B3A">AUTO GLASS</text>
+    <text x="400" y="650" font-size="78" fill="#0B7FD3">GROWTH</text>
+  </g>
 </svg>
