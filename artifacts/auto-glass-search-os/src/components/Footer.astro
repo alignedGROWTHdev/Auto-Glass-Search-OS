@@ -25,19 +25,10 @@ import BrandMark from './BrandMark.astro';
         </p>
 
         <div class="agos-footer__meta">
-          <p>OPERATING ENTITY: {siteConfig.legalParent}</p>
-          <p>FOUNDER: {siteConfig.founder}</p>
           {isConfigured(siteConfig.placeholders.phone) && (
             <p>
               <a href={`tel:${siteConfig.placeholders.phone.replace(/[^\d+]/g, '')}`} data-analytics-event="phone_click" class="agos-footer__contact-link">
                 PHONE: {siteConfig.placeholders.phone}
-              </a>
-            </p>
-          )}
-          {isConfigured(siteConfig.placeholders.email) && (
-            <p>
-              <a href={`mailto:${siteConfig.placeholders.email}`} data-analytics-event="email_click" class="agos-footer__contact-link">
-                EMAIL: {siteConfig.placeholders.email}
               </a>
             </p>
           )}
@@ -92,7 +83,7 @@ import BrandMark from './BrandMark.astro';
           Request Visibility Analysis
         </a>
         <div class="agos-footer__secondary-links">
-          <a href="/about/" class="agos-footer__link">About Valentina Borda</a>
+          <a href="/about/" class="agos-footer__link">About Auto Glass Search OS</a>
           <a href="/privacy/" class="agos-footer__link">Privacy Policy</a>
         </div>
       </div>
@@ -102,7 +93,7 @@ import BrandMark from './BrandMark.astro';
     <!-- Bottom bar -->
     <div class="agos-footer__bottom">
       <p class="agos-footer__legal">
-        &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved. {siteConfig.name} is an Aligned Growth Digital company.
+        &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
       </p>
       <p class="agos-footer__tagline">
         Search strategy &middot; AI-enabled systems &middot; Human expertise

@@ -22,8 +22,7 @@ const {
 const contactPoint = isConfigured(siteConfig.placeholders.phone) ? {
   "@type": "ContactPoint",
   "telephone": siteConfig.placeholders.phone,
-  "contactType": "customer service",
-  "email": isConfigured(siteConfig.placeholders.email) ? siteConfig.placeholders.email : undefined
+  "contactType": "customer service"
 } : undefined;
 
 const breadcrumb = Astro.url.pathname !== "/" ? {
@@ -53,15 +52,6 @@ const structuredData = {
       "name": siteConfig.name,
       "alternateName": "Auto Glass Search OS",
       "url": siteConfig.siteUrl,
-      "parentOrganization": {
-        "@type": "Organization",
-        "name": siteConfig.legalParent
-      },
-      "founder": {
-        "@type": "Person",
-        "name": siteConfig.founder,
-        "jobTitle": siteConfig.founderTitle
-      },
       "description": siteConfig.description,
       "areaServed": {
         "@type": "Country",

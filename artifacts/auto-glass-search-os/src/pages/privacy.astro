@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { siteConfig, isConfigured } from '../data/siteData';
+import { siteConfig } from '../data/siteData';
 
 const pageTitle = "Privacy Policy | Auto Glass Search OS";
 const pageDescription = "Privacy policy for Auto Glass Search OS B2B lead generation and market visibility diagnostics.";
@@ -14,7 +14,7 @@ const pageDescription = "Privacy policy for Auto Glass Search OS B2B lead genera
         <header class="privacy__header">
           <h1 id="privacy-heading">Privacy Policy</h1>
           <p class="privacy__meta">
-            Effective Date: {new Date().getFullYear()} &middot; Operating Entity: {siteConfig.legalParent}
+            Effective Date: {new Date().getFullYear()} &middot; Auto Glass Search OS
           </p>
         </header>
 
@@ -23,7 +23,7 @@ const pageDescription = "Privacy policy for Auto Glass Search OS B2B lead genera
           <section aria-labelledby="privacy-s1">
             <h2 id="privacy-s1">1. Introduction</h2>
             <p>
-              Auto Glass Search OS ("we", "us", or "our"), operated by {siteConfig.legalParent}, provides search acquisition and marketing systems for commercial auto glass operators. This Privacy Policy describes how we collect, use, and protect information submitted via our website and visibility analysis forms.
+              Auto Glass Search OS ("we", "us", or "our") provides search acquisition and marketing systems for commercial auto glass operators. This Privacy Policy describes how we collect, use, and protect information submitted via our website and visibility analysis forms.
             </p>
           </section>
 
@@ -44,7 +44,7 @@ const pageDescription = "Privacy policy for Auto Glass Search OS B2B lead genera
           <section aria-labelledby="privacy-s4">
             <h2 id="privacy-s4">4. Contact</h2>
             <p>
-              For inquiries regarding this privacy statement, please contact {siteConfig.placeholders.email}{isConfigured(siteConfig.placeholders.address) ? ` or write to our parent operating office at ${siteConfig.placeholders.address}` : ''}.
+              For inquiries regarding this privacy statement, please call Auto Glass Search OS at <a href={`tel:${siteConfig.placeholders.phone.replace(/[^\d+]/g, '')}`} data-analytics-event="phone_click">{siteConfig.placeholders.phone}</a>.
             </p>
           </section>
 

@@ -1,11 +1,7 @@
 export const siteConfig = {
   name: "Auto Glass Search OS",
-  legalParent: "Aligned Growth Digital",
-  entityRelationship: "Auto Glass Search OS is a specialized brand of Aligned Growth Digital",
   tagline: "Turn Search Visibility Into Booked Auto Glass Jobs",
   description: "Search visibility and customer acquisition for established auto glass companies across Google Search, Google Maps, AI search, paid search, and website conversion.",
-  founder: "Valentina Borda",
-  founderTitle: "Founder",
   primaryCta: "Get Your Visibility Analysis",
   primaryCtaOffer: "Complimentary Search + AI Visibility Analysis",
   siteUrl: "https://autoglasssearchos.com",
@@ -18,7 +14,6 @@ export const siteConfig = {
     { name: "About", href: "/about/" },
   ],
   placeholders: {
-    email: "valentina@alignedgrowthdigital.com",
     phone: "(516) 521-1149",
     address: "[INSERT_OFFICE_ADDRESS]",
     calendlyUrl: "[INSERT_CALENDLY_OR_SCHEDULING_URL]",
