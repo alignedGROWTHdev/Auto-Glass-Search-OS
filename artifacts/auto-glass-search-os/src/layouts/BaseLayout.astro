@@ -89,7 +89,11 @@ const structuredData = {
         "Auto Glass SEO",
         "Google Maps and Local SEO for Auto Glass Companies",
         "Google Ads for Auto Glass Companies",
+        "Meta Ads (Facebook and Instagram) for Auto Glass Companies",
+        "Digital PR and Online Recommendations for Auto Glass Companies",
         "AI Search Optimization (AEO / GEO) for Auto Glass",
+        "AI Overviews and AI Assistant Visibility for Auto Glass Companies",
+        "AI Voice Agent Strategy for Auto Glass Call Handling",
         "ADAS Calibration Search Demand",
         "Conversion Tracking for Qualified Calls, Quote Requests, and Booked Jobs"
       ],
@@ -99,17 +103,33 @@ const structuredData = {
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Auto Glass Growth services",
-        "itemListElement": services.map((s) => ({
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": s.title,
-            "description": s.body,
-            "url": new URL(s.href, siteConfig.siteUrl).href,
-            "provider": { "@id": siteConfig.entity.organizationId },
-            "audience": { "@type": "BusinessAudience", "audienceType": "Auto glass companies" }
-          }
-        }))
+        "itemListElement": [
+          ...services.map((s) => ({
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": s.title,
+              "description": s.body,
+              "url": new URL(s.href, siteConfig.siteUrl).href,
+              "provider": { "@id": siteConfig.entity.organizationId },
+              "audience": { "@type": "BusinessAudience", "audienceType": "Auto glass companies" }
+            }
+          })),
+          ...[
+            { name: "Meta Ads for Auto Glass Shops", description: "Facebook and Instagram advertising that reaches drivers in your service area before they search, with tracking back to calls, quote requests and booked jobs." },
+            { name: "Digital PR for Auto Glass Shops", description: "Earned mentions and recommendations on the sites, directories and local publications drivers trust, so your shop shows up wherever someone is looking for a recommendation." },
+            { name: "AI Voice and Call-Handling Strategy", description: "Strategy for AI voice agents that answer, quote and book after-hours and overflow calls, implemented and supported by our dedicated technology partners." }
+          ].map((x) => ({
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": x.name,
+              "description": x.description,
+              "provider": { "@id": siteConfig.entity.organizationId },
+              "audience": { "@type": "BusinessAudience", "audienceType": "Auto glass companies" }
+            }
+          }))
+        ]
       }
     },
     {
@@ -134,6 +154,8 @@ const structuredData = {
         "Search engine optimization",
         "Local SEO and Google Business Profile",
         "Google Ads",
+        "Meta Ads",
+        "Digital PR",
         "Conversion rate optimization",
         "AI search optimization",
         "eCommerce growth",
@@ -292,6 +314,9 @@ const structuredData = {
 
 <style is:global>
   @import '../styles/global.css';
+
+  /* Ticker bar above the nav is retired (reads as template/AI-built). Fallback until Header.astro drops the element. */
+  .agos-header__bar { display: none !important; }
 
   /* Layout structure */
   body {

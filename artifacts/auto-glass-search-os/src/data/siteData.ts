@@ -3,7 +3,7 @@ export const siteConfig = {
   category: "Auto Glass Marketing, Websites & Lead Generation",
   methodology: "Auto Glass Growth OS",
   tagline: "Turn More Customer Demand Into Booked Jobs",
-  description: "Auto Glass Growth is a specialized auto glass marketing, websites and lead generation company for established auto glass operators. We help capture high-intent demand through SEO, Google Maps, paid search and AI discovery — then turn more of it into qualified calls, quote requests and booked jobs.",
+  description: "Auto Glass Growth is a specialized auto glass marketing, websites and lead generation company for established auto glass operators. We help capture high-intent demand through SEO, Google Maps, Google Ads, Meta ads, digital PR and visibility in AI Overviews and AI assistants — then turn more of it into qualified calls, quote requests and booked jobs.",
   channelDescriptor: "SEO · Google Maps · Google Ads · Websites · CRO · AI Search · Measurement",
   legalStatement: "Auto Glass Growth is a specialized auto glass growth initiative from Aligned Growth Digital.",
   primaryCta: "Get My Free Growth Analysis",
@@ -101,10 +101,10 @@ export const methodologyStages = [
 // Specialized third-party technology partners. Auto Glass Growth does not sell, own,
 // develop or operate this technology; it can identify the bottleneck and connect clients with providers.
 export const partnerTech = {
-  label: "Specialized technology partners",
-  intro: "Sometimes the conversion bottleneck isn't marketing. If your operation is losing opportunities because customers can't easily get a quote, find availability or receive a timely response, specialized auto glass technology may help.",
-  role: "We can help identify the gap and, where appropriate, connect you with third-party providers offering solutions such as online quoting, scheduling and AI-assisted call handling.",
-  disclosure: "Third-party technology is provided and supported separately by the applicable provider.",
+  label: "AI voice, quoting and scheduling — with our technology partners",
+  intro: "Sometimes the leak isn't marketing. Missed calls, after-hours calls and slow quotes lose jobs that the marketing already won. When that's the gap, an AI voice agent that answers, quotes and books — or online quoting and scheduling — belongs in the plan.",
+  role: "We own the strategy: where the technology fits in your call flow, what it should say, and how it hands off to your team. Our dedicated partners handle implementation and ongoing support, so you get one plan and one point of contact.",
+  disclosure: "Partner technology is provided and supported by the applicable partner under its own terms.",
 };
 
 // Short trust strip for the homepage (three points, owner language).
