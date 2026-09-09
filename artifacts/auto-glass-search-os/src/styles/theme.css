@@ -11,29 +11,29 @@
    ───────────────────────────────────────────────────────────────────────────── */
 
 :root {
-  /* Surfaces (light) — the legacy dark names are remapped on purpose */
+  /* Surfaces (light) */
   --obsidian:        #FFFFFF;
-  --carbon-slate:    #F4F6F9;
+  --carbon-slate:    #F8FAFC;
   --carbon-slate-2:  #FFFFFF;
-  --carbon-slate-3:  #F7F9FB;
-  --surface-04:      #EEF2F7;
+  --carbon-slate-3:  #F1F5F9;
+  --surface-04:      #E2E8F0;
   --navy:            #FFFFFF;
   --graphite:        #FFFFFF;
   --glass-bg:        #FFFFFF;
-  --glass-border:    #DCE3EC;
+  --glass-border:    #CBD5E1;
   --surface-00:      #FFFFFF;
-  --surface-01:      #F4F6F9;
+  --surface-01:      #F8FAFC;
   --surface-02:      #FFFFFF;
-  --surface-03:      #F7F9FB;
+  --surface-03:      #F1F5F9;
   --text-blue:       #0A7FB5;
 
-  /* Text (light) */
-  --text-primary:    #0F2440;
-  --text-secondary:  #3F5470;
-  --text-tertiary:   #6B7C93;
-  --white:           #0F2440;   /* used by ::selection text in global.css */
+  /* Text (light) - Increased contrast for max readability */
+  --text-primary:    #0F172A;
+  --text-secondary:  #334155;
+  --text-tertiary:   #475569;
+  --white:           #0F172A;
 
-  /* Accent: deep cyan for text/links on white (passes AA); bright cyan only on navy */
+  /* Accent */
   --laser-cyan:      #0A7FB5;
   --blue:            #0A7FB5;
   --blue-hover:      #086A98;
@@ -45,12 +45,12 @@
 
   /* Lines and tints */
   --line:            #E2E8F0;
-  --line-2:          #CBD5E1;
+  --line-2:          #94A3B8;
   --border:          #E2E8F0;
-  --border-dark:     #94A3B8;
-  --tint:            rgba(15, 36, 64, 0.03);
-  --card-shadow:     0 2px 4px rgba(15, 36, 64, 0.04), 0 1px 2px rgba(15, 36, 64, 0.02);
-  --card-shadow-hover: 0 12px 24px -4px rgba(15, 36, 64, 0.08), 0 4px 8px -2px rgba(15, 36, 64, 0.04);
+  --border-dark:     #64748B;
+  --tint:            rgba(15, 23, 42, 0.03);
+  --card-shadow:     none;
+  --card-shadow-hover: none;
 }
 
 /* Scopes that stay navy */
@@ -60,42 +60,43 @@
 .page-hero,
 .lp,
 .is-dark {
-  --obsidian:        #0F2440;
-  --carbon-slate:    #162D4F;
-  --carbon-slate-2:  #1B3559;
-  --carbon-slate-3:  #22406A;
-  --surface-04:      #2A4A78;
-  --navy:            #0F2440;
-  --graphite:        #1B3559;
-  --glass-bg:        rgba(22, 45, 79, 0.7);
-  --glass-border:    rgba(63, 217, 255, 0.18);
-  /* surface aliases must be restated: var() inside a custom property resolves where it is declared (:root) */
-  --surface-00:      #0F2440;
-  --surface-01:      #162D4F;
-  --surface-02:      #1B3559;
-  --surface-03:      #22406A;
+  --obsidian:        #0B1120;
+  --carbon-slate:    #111827;
+  --carbon-slate-2:  #1E293B;
+  --carbon-slate-3:  #334155;
+  --surface-04:      #475569;
+  --navy:            #0B1120;
+  --graphite:        #1E293B;
+  --glass-bg:        rgba(17, 24, 39, 0.8);
+  --glass-border:    rgba(63, 217, 255, 0.2);
+  --surface-00:      #0B1120;
+  --surface-01:      #111827;
+  --surface-02:      #1E293B;
+  --surface-03:      #334155;
   --text-blue:       #3FD9FF;
 
-  --text-primary:    #FFFFFF;
-  --text-secondary:  #C9D5E3;
-  --text-tertiary:   #93A5BB;
+  /* Text (dark) - Increased contrast */
+  --text-primary:    #F8FAFC;
+  --text-secondary:  #E2E8F0;
+  --text-tertiary:   #CBD5E1;
   --white:           #FFFFFF;
 
   --laser-cyan:      #3FD9FF;
   --blue:            #3FD9FF;
   --blue-hover:      #7AE6FF;
   --blue-active:     #1FCBF5;
-  --laser-cyan-dim:  rgba(63, 217, 255, 0.10);
-  --laser-cyan-border: rgba(63, 217, 255, 0.28);
-  --blue-light:      rgba(63, 217, 255, 0.10);
+  --laser-cyan-dim:  rgba(63, 217, 255, 0.12);
+  --laser-cyan-border: rgba(63, 217, 255, 0.3);
+  --blue-light:      rgba(63, 217, 255, 0.12);
   --fleet-amber:     #F59E0B;
 
-  --line:            rgba(255, 255, 255, 0.10);
-  --line-2:          rgba(255, 255, 255, 0.24);
-  --border:          rgba(255, 255, 255, 0.10);
-  --border-dark:     rgba(255, 255, 255, 0.10);
-  --tint:            rgba(255, 255, 255, 0.05);
+  --line:            rgba(255, 255, 255, 0.15);
+  --line-2:          rgba(255, 255, 255, 0.3);
+  --border:          rgba(255, 255, 255, 0.15);
+  --border-dark:     rgba(255, 255, 255, 0.3);
+  --tint:            rgba(255, 255, 255, 0.03);
   --card-shadow:     none;
+  --card-shadow-hover: none;
 
   color: var(--text-primary);
 }
@@ -103,28 +104,28 @@
 /* A light island inside a navy scope (the hero form card) */
 .is-light {
   --obsidian:        #FFFFFF;
-  --carbon-slate:    #FFFFFF;
+  --carbon-slate:    #F8FAFC;
   --carbon-slate-2:  #FFFFFF;
-  --carbon-slate-3:  #F7F9FB;
-  --surface-04:      #EEF2F7;
+  --carbon-slate-3:  #F1F5F9;
+  --surface-04:      #E2E8F0;
   --surface-00:      #FFFFFF;
-  --surface-01:      #F4F6F9;
+  --surface-01:      #F8FAFC;
   --surface-02:      #FFFFFF;
-  --surface-03:      #F7F9FB;
+  --surface-03:      #F1F5F9;
   --text-blue:       #0A7FB5;
-  --text-primary:    #0F2440;
-  --text-secondary:  #3F5470;
-  --text-tertiary:   #6B7C93;
+  --text-primary:    #0F172A;
+  --text-secondary:  #334155;
+  --text-tertiary:   #475569;
   --laser-cyan:      #0A7FB5;
   --blue:            #0A7FB5;
   --blue-hover:      #086A98;
   --laser-cyan-dim:  rgba(10, 127, 181, 0.08);
   --laser-cyan-border: rgba(10, 127, 181, 0.28);
   --line:            #E2E8F0;
-  --line-2:          #CBD5E1;
-  --tint:            rgba(15, 36, 64, 0.03);
-  --card-shadow:     0 2px 4px rgba(15, 36, 64, 0.04), 0 1px 2px rgba(15, 36, 64, 0.02);
-  --card-shadow-hover: 0 12px 24px -4px rgba(15, 36, 64, 0.08), 0 4px 8px -2px rgba(15, 36, 64, 0.04);
+  --line-2:          #94A3B8;
+  --tint:            rgba(15, 23, 42, 0.03);
+  --card-shadow:     none;
+  --card-shadow-hover: none;
   color: var(--text-primary);
 }
 
@@ -137,14 +138,19 @@ body { background-color: var(--surface-00); }
 
 .eyebrow--navy { color: var(--text-primary); }
 
-.btn--secondary { border-color: var(--line-2); color: var(--text-primary); box-shadow: none; background: transparent; }
-.btn--secondary:hover { background-color: var(--surface-01); border-color: var(--laser-cyan); }
+.btn--secondary {
+  border-bottom-color: var(--line-2);
+}
+.btn--secondary:hover {
+  border-bottom-color: var(--laser-cyan);
+}
+
 .btn--primary { border-color: transparent; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2); }
 .btn--primary:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 4px 12px rgba(10, 127, 181, 0.3); }
 
-.card { border-color: var(--line); box-shadow: var(--card-shadow); }
+.card { border-color: var(--line); box-shadow: none; }
 .card::before { display: none; }
-.card:hover { border-color: var(--line-2); box-shadow: var(--card-shadow-hover); transform: translateY(-2px); }
+.card:hover { border-color: var(--line-2); box-shadow: none; transform: none; }
 .card--flat { border-color: var(--line); }
 
 .form-input, .form-select, .form-textarea {
@@ -159,10 +165,10 @@ body { background-color: var(--surface-00); }
 .form-select option { background-color: #fff; color: #0F2440; }
 
 .section-divider { border-color: var(--line); }
-.data-table { border-color: var(--line); box-shadow: var(--card-shadow); background-color: var(--surface-00); }
+.data-table { border-color: var(--line); box-shadow: none; background-color: var(--surface-00); }
 .data-table thead tr, .data-table tbody tr { border-color: var(--line); }
 .data-table tbody tr:hover { background-color: var(--surface-01); }
-.glass-panel { background: var(--surface-00); border-color: var(--line); box-shadow: var(--card-shadow); border-radius: var(--radius-sm); }
+.glass-panel { background: var(--surface-00); border-color: var(--line); box-shadow: none; border-radius: var(--radius-sm); }
 .scan-lines::after { display: none; }
 
 /* Header: keep Replit's navy header; bright cyan for the wordmark accent */

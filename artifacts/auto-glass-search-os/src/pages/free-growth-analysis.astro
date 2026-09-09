@@ -135,7 +135,7 @@ const faqs = [
   .lp__accent { color: var(--laser-cyan); }
 
   .lp__lead {
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     color: var(--text-secondary);
     line-height: 1.6;
     margin: 0;
@@ -171,14 +171,13 @@ const faqs = [
   }
 
   .lp__trust li {
-    font-family: var(--font-mono);
-    font-size: 0.625rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
     color: var(--text-secondary);
-    padding: 0.35rem 0.625rem;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-dark);
+    border-radius: 0;
   }
 
   .lp__contact {
@@ -189,50 +188,53 @@ const faqs = [
   }
 
   .lp__contact-label {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
     color: var(--text-tertiary);
   }
 
   .lp__contact-link {
     font-family: var(--font-display);
-    font-weight: 700;
+    font-weight: 800;
+    font-size: 1.125rem;
     color: var(--laser-cyan);
     text-decoration: none;
+    border-bottom: 2px solid transparent;
   }
+  .lp__contact-link:hover { border-bottom-color: var(--laser-cyan); }
 
   .lp__card {
-    padding: 2rem;
-    background: var(--surface-00);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-sm);
+    padding: 2.5rem;
+    background: var(--surface-01);
+    border: none;
+    border-top: 4px solid var(--laser-cyan);
+    border-radius: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    box-shadow: var(--card-shadow);
+    gap: 1rem;
+    box-shadow: none;
   }
 
   @media (min-width: 1024px) { .lp__card { position: sticky; top: 5.5rem; } }
 
   .lp__card-title {
     font-family: var(--font-display);
-    font-size: 1.375rem;
+    font-size: 1.5rem;
     font-weight: 800;
     color: var(--text-primary);
     margin: 0;
   }
 
   .lp__card-sub {
-    font-size: 0.875rem;
+    font-size: 1.0625rem;
     color: var(--text-tertiary);
-    margin: 0 0 0.75rem;
+    margin: 0 0 1rem;
   }
 
   .lp__card-foot {
-    margin: 0.75rem 0 0;
-    font-size: 0.8125rem;
+    margin: 1rem 0 0;
+    font-size: 0.9375rem;
     color: var(--text-tertiary);
     text-align: center;
   }
@@ -250,10 +252,10 @@ const faqs = [
   .lp__faq-q {
     cursor: pointer;
     list-style: none;
-    padding: 1rem 2rem 1rem 0;
+    padding: 1.5rem 2.5rem 1.5rem 0;
     font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 1.1875rem;
+    font-weight: 800;
     color: var(--text-primary);
     position: relative;
   }
@@ -268,14 +270,15 @@ const faqs = [
     transform: translateY(-50%);
     color: var(--laser-cyan);
     font-weight: 400;
+    font-size: 1.25rem;
   }
 
   .lp__faq-item[open] .lp__faq-q::after { content: '−'; }
 
   .lp__faq-a {
     margin: 0;
-    padding: 0 0 1rem;
-    font-size: 0.9375rem;
+    padding: 0 0 1.5rem;
+    font-size: 1.0625rem;
     color: var(--text-secondary);
     line-height: 1.65;
   }
