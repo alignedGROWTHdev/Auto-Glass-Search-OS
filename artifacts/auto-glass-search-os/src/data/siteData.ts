@@ -16,6 +16,10 @@ export const siteConfig = {
     parentOrganizationId: "https://alignedgrowthdigital.com/#organization",
     founderName: "Valentina Borda",
     founderId: "https://autoglassgrowth.com/about/#valentina-borda",
+    // Official profiles for Organization.sameAs. Add Google Business Profile / others here as they go live.
+    sameAs: [
+      "https://www.linkedin.com/company/autoglassgrowth",
+    ],
   },
   navLinks: [
     { name: "Lead Generation", href: "/auto-glass-lead-generation/" },

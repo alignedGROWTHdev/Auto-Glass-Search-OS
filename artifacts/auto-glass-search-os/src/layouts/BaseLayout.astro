@@ -78,6 +78,7 @@ const structuredData = {
       "description": siteConfig.description,
       "parentOrganization": { "@id": siteConfig.entity.parentOrganizationId },
       "founder": { "@id": siteConfig.entity.founderId },
+      ...(siteConfig.entity.sameAs?.length ? { "sameAs": siteConfig.entity.sameAs } : {}),
       "areaServed": {
         "@type": "Country",
         "name": "United States"
