@@ -86,14 +86,14 @@ const { id, heading, eyebrow, cards, alt = true, visuallyHideHeading = false } =
   }
 
   @media (min-width: 768px) {
-    .cap-grid { grid-template-columns: repeat(3, 1fr); }
+    .cap-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
   }
 
   .cap-card {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    padding: 1.75rem;
+    padding: 2rem;
   }
 
   .cap-card__top {
