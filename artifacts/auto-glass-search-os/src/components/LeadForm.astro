@@ -193,11 +193,12 @@ const { minimal = false, compact = false } = Astro.props;
       Send Me My Free Growth Analysis
     </button>
     <p class="agos-form__delivery-note">
-      Submissions are securely delivered by FormSubmit, a trusted third-party form delivery provider. Your information is used only to conduct and deliver your analysis.
+      Submissions are securely delivered to our CRM and email team. Your information is used only to conduct and deliver your analysis.
     </p>
     <p class="agos-form__note">
       Manually reviewed &middot; Confidential opportunity analysis &middot; No obligation
     </p>
+    <p class="agos-form__status" data-form-status role="status" aria-live="polite" hidden></p>
   </div>
 </form>
 
@@ -252,9 +253,20 @@ const { minimal = false, compact = false } = Astro.props;
     font-weight: 500;
     margin: 0;
   }
+
+  .agos-form__status {
+    margin: 0;
+    padding: 0.875rem 1rem;
+    border: 1px solid var(--fleet-amber);
+    color: var(--text-primary);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+  }
 </style>
 
-<!-- Progressive enhancement: set _next to origin + /thank-you/ at runtime -->
+<!-- Progressive enhancement: deliver to HubSpot, then preserve FormSubmit email delivery. -->
 <script>
   (function() {
     const nextField = document.getElementById('form-next-field');
@@ -273,5 +285,65 @@ const { minimal = false, compact = false } = Astro.props;
       });
       document.querySelectorAll('[data-landing]').forEach((el) => { el.value = window.location.pathname; });
     } catch (e) {}
+
+    document.querySelectorAll('[data-lead-form]').forEach((form) => {
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const submitButton = form.querySelector('button[type="submit"]');
+        const status = form.querySelector('[data-form-status]');
+        const formData = new FormData(form);
+
+        if (submitButton) {
+          submitButton.disabled = true;
+          submitButton.setAttribute('aria-busy', 'true');
+        }
+        if (status) {
+          status.hidden = true;
+          status.textContent = '';
+        }
+
+        try {
+          const response = await fetch('/api/leads', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: formData.get('Name'),
+              company: formData.get('Company'),
+              phone: formData.get('Phone'),
+              email: formData.get('Email'),
+              website: formData.get('Website'),
+              fleetScale: formData.get('Fleet Scale') || undefined,
+              primaryMarkets: formData.get('Primary Markets') || undefined,
+              monthlyInvestment: formData.get('Monthly Investment') || undefined,
+              source: formData.get('Source') || undefined,
+              medium: formData.get('Medium') || undefined,
+              campaign: formData.get('Campaign') || undefined,
+              term: formData.get('Ad Group / Term') || undefined,
+              gclid: formData.get('GCLID') || undefined,
+              landingPage: formData.get('Landing Page') || window.location.pathname,
+              honey: formData.get('_honey') || undefined,
+            }),
+          });
+
+          if (!response.ok) {
+            throw new Error('HubSpot delivery failed');
+          }
+
+          // Native submit bypasses this listener and retains the existing
+          // FormSubmit email notification and thank-you redirect.
+          form.submit();
+        } catch (error) {
+          if (status) {
+            status.textContent = 'We could not send your request. Please try again, or call (720) 600-2985.';
+            status.hidden = false;
+          }
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.removeAttribute('aria-busy');
+          }
+        }
+      });
+    });
   })();
 </script>

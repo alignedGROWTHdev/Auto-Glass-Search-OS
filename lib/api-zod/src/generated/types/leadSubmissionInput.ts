@@ -5,9 +5,6 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
-export interface HealthStatus {
-  status: string;
-}
 
 export interface LeadSubmissionInput {
   /**
@@ -52,12 +49,4 @@ export interface LeadSubmissionInput {
   landingPage?: string;
   /** @maxLength 500 */
   honey?: string;
-}
-
-export interface LeadSubmissionResult {
-  success: boolean;
-}
-
-export interface ApiError {
-  error: string;
 }
