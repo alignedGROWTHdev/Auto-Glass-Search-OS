@@ -1,39 +1,105 @@
 /* ─────────────────────────────────────────────────────────────────────────────
-   theme.css — "navy hero, light body" palette (loaded after global.css)
+   theme.css — Option D: navy canvas, white content cards (loaded after global.css)
 
-   Readability fix: body sections are dark-on-light; the header, homepage hero,
-   inner-page hero band, paid landing-page top and footer stay navy so the brand
-   (white-on-dark logo, banners, ads) still matches.
+   The whole site stays navy (bold, on-brand). Readability comes from white "islands":
+   every block of real reading — cards, FAQ, prose sections, forms, tables — is a white
+   card with dark text and a shadow. Orange is the pop accent on card edges and markers;
+   cyan stays the label/link accent; cobalt stays the button.
 
-   How it works: global.css defines every color as a CSS custom property. This file
-   redefines those properties for the light body at :root, then restores the dark
-   set inside the scopes that should stay navy. Components don't need to know.
+   Mechanism: global.css defines colors as custom properties. :root here is the navy set;
+   `.is-light` (and the selector list under LIGHT ISLANDS) swaps to the light set.
+   NOTE: var() inside a custom property resolves where it is declared, so every alias
+   (--surface-*) is restated in each scope.
    ───────────────────────────────────────────────────────────────────────────── */
 
 :root {
-  /* Surfaces (light) */
+  --pop:             #F59E0B;   /* orange accent */
+  --pop-deep:        #D97706;
+
+  --obsidian:        #0F2440;
+  --carbon-slate:    #14294A;
+  --carbon-slate-2:  #1B3559;
+  --carbon-slate-3:  #22406A;
+  --surface-04:      #2A4A78;
+  --navy:            #0F2440;
+  --graphite:        #1B3559;
+  --glass-bg:        rgba(20, 41, 74, 0.7);
+  --glass-border:    rgba(63, 217, 255, 0.18);
+  --surface-00:      #0F2440;
+  --surface-01:      #0B1B33;
+  --surface-02:      #1B3559;
+  --surface-03:      #22406A;
+  --text-blue:       #3FD9FF;
+
+  --text-primary:    #FFFFFF;
+  --text-secondary:  #C9D5E3;
+  --text-tertiary:   #93A5BB;
+  --white:           #FFFFFF;
+
+  --laser-cyan:      #3FD9FF;
+  --blue:            #3FD9FF;
+  --blue-hover:      #7AE6FF;
+  --blue-active:     #1FCBF5;
+  --laser-cyan-dim:  rgba(63, 217, 255, 0.10);
+  --laser-cyan-border: rgba(63, 217, 255, 0.30);
+  --blue-light:      rgba(63, 217, 255, 0.10);
+  --fleet-amber:     #F59E0B;
+  --cobalt:          #2563EB;
+  --cobalt-hover:    #3B82F6;
+  --cobalt-active:   #1D4ED8;
+
+  --line:            rgba(255, 255, 255, 0.10);
+  --line-2:          rgba(255, 255, 255, 0.28);
+  --border:          rgba(255, 255, 255, 0.10);
+  --border-dark:     rgba(255, 255, 255, 0.10);
+  --tint:            rgba(255, 255, 255, 0.05);
+  --card-shadow:     0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+/* ── LIGHT ISLANDS ── white cards with dark text ─────────────────────────── */
+.is-light,
+.hero__form,
+.outcome,
+.leak,
+.model-card,
+.faq-list,
+.path,
+.partner-note,
+.prose-section__inner,
+.cap-card,
+.related__card,
+.analysis-form-card,
+.analysis-checklist,
+.analysis-steps,
+.lp__card,
+.answer__box,
+.table-scroll,
+.res-item__link,
+.article-prose,
+.article-toc,
+.thankyou__inner,
+.about-body,
+.journey {
   --obsidian:        #FFFFFF;
-  --carbon-slate:    #F8FAFC;
+  --carbon-slate:    #F4F6F9;
   --carbon-slate-2:  #FFFFFF;
-  --carbon-slate-3:  #F1F5F9;
-  --surface-04:      #E2E8F0;
+  --carbon-slate-3:  #F7F9FB;
+  --surface-04:      #EEF2F7;
   --navy:            #FFFFFF;
   --graphite:        #FFFFFF;
   --glass-bg:        #FFFFFF;
-  --glass-border:    #CBD5E1;
+  --glass-border:    #DCE3EC;
   --surface-00:      #FFFFFF;
-  --surface-01:      #F8FAFC;
+  --surface-01:      #F4F6F9;
   --surface-02:      #FFFFFF;
-  --surface-03:      #F1F5F9;
+  --surface-03:      #F7F9FB;
   --text-blue:       #0A7FB5;
 
-  /* Text (light) - Increased contrast for max readability */
-  --text-primary:    #0F172A;
-  --text-secondary:  #334155;
-  --text-tertiary:   #475569;
-  --white:           #0F172A;
+  --text-primary:    #0F2440;
+  --text-secondary:  #3F5470;
+  --text-tertiary:   #6B7C93;
+  --white:           #0F2440;
 
-  /* Accent */
   --laser-cyan:      #0A7FB5;
   --blue:            #0A7FB5;
   --blue-hover:      #086A98;
@@ -43,153 +109,93 @@
   --blue-light:      rgba(10, 127, 181, 0.08);
   --fleet-amber:     #D97706;
 
-  /* Lines and tints */
-  --line:            #E2E8F0;
-  --line-2:          #94A3B8;
-  --border:          #E2E8F0;
-  --border-dark:     #64748B;
-  --tint:            rgba(15, 23, 42, 0.03);
-  --card-shadow:     none;
-  --card-shadow-hover: none;
-}
-
-/* Scopes that stay navy */
-.agos-header,
-.agos-footer,
-.hero,
-.page-hero,
-.lp,
-.is-dark {
-  --obsidian:        #0B1120;
-  --carbon-slate:    #111827;
-  --carbon-slate-2:  #1E293B;
-  --carbon-slate-3:  #334155;
-  --surface-04:      #475569;
-  --navy:            #0B1120;
-  --graphite:        #1E293B;
-  --glass-bg:        rgba(17, 24, 39, 0.8);
-  --glass-border:    rgba(63, 217, 255, 0.2);
-  --surface-00:      #0B1120;
-  --surface-01:      #111827;
-  --surface-02:      #1E293B;
-  --surface-03:      #334155;
-  --text-blue:       #3FD9FF;
-
-  /* Text (dark) - Increased contrast */
-  --text-primary:    #F8FAFC;
-  --text-secondary:  #E2E8F0;
-  --text-tertiary:   #CBD5E1;
-  --white:           #FFFFFF;
-
-  --laser-cyan:      #3FD9FF;
-  --blue:            #3FD9FF;
-  --blue-hover:      #7AE6FF;
-  --blue-active:     #1FCBF5;
-  --laser-cyan-dim:  rgba(63, 217, 255, 0.12);
-  --laser-cyan-border: rgba(63, 217, 255, 0.3);
-  --blue-light:      rgba(63, 217, 255, 0.12);
-  --fleet-amber:     #F59E0B;
-
-  --line:            rgba(255, 255, 255, 0.15);
-  --line-2:          rgba(255, 255, 255, 0.3);
-  --border:          rgba(255, 255, 255, 0.15);
-  --border-dark:     rgba(255, 255, 255, 0.3);
-  --tint:            rgba(255, 255, 255, 0.03);
-  --card-shadow:     none;
-  --card-shadow-hover: none;
+  --line:            #E3E8EF;
+  --line-2:          #CBD5E1;
+  --border:          #E3E8EF;
+  --border-dark:     #E3E8EF;
+  --tint:            rgba(15, 36, 64, 0.04);
+  --card-shadow:     0 18px 50px rgba(0, 0, 0, 0.35);
 
   color: var(--text-primary);
+  background-color: #FFFFFF;
+  border-color: #FFFFFF;
+  box-shadow: var(--card-shadow);
 }
 
-/* A light island inside a navy scope (the hero form card) */
-.is-light {
-  --obsidian:        #FFFFFF;
-  --carbon-slate:    #F8FAFC;
-  --carbon-slate-2:  #FFFFFF;
-  --carbon-slate-3:  #F1F5F9;
-  --surface-04:      #E2E8F0;
-  --surface-00:      #FFFFFF;
-  --surface-01:      #F8FAFC;
-  --surface-02:      #FFFFFF;
-  --surface-03:      #F1F5F9;
-  --text-blue:       #0A7FB5;
-  --text-primary:    #0F172A;
-  --text-secondary:  #334155;
-  --text-tertiary:   #475569;
-  --laser-cyan:      #0A7FB5;
-  --blue:            #0A7FB5;
-  --blue-hover:      #086A98;
-  --laser-cyan-dim:  rgba(10, 127, 181, 0.08);
-  --laser-cyan-border: rgba(10, 127, 181, 0.28);
-  --line:            #E2E8F0;
-  --line-2:          #94A3B8;
-  --tint:            rgba(15, 23, 42, 0.03);
-  --card-shadow:     none;
-  --card-shadow-hover: none;
-  color: var(--text-primary);
+/* Containers that are not already padded/rounded cards get card chrome here */
+.prose-section__inner,
+.faq-list,
+.analysis-checklist,
+.analysis-steps,
+.article-prose,
+.article-toc,
+.thankyou__inner,
+.about-body,
+.journey {
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
 }
+@media (min-width: 768px) {
+  .prose-section__inner, .article-prose, .about-body { padding: 2.25rem 2.5rem; }
+}
+.faq-list { padding: 0.25rem 1.5rem; border-top: 0; }
+.answer__box { border-radius: var(--radius-lg); }
+.table-scroll { border-color: #FFFFFF; }
 
-/* ── Overrides for global.css rules that hard-code white/cyan alphas ── */
+/* ── ORANGE POP ── card edges and markers ────────────────────────────────── */
+.outcome, .leak, .model-card--primary, .answer__box, .analysis-steps, .partner-note {
+  border-left: 4px solid var(--pop) !important;
+}
+.leak__tag { color: var(--pop-deep); }
+.outcome__num, .thankyou__step-num, .journey__node-num, .cap-card__num, .analysis-steps b { color: var(--pop-deep); }
+.check-item::before, .promise-icon { color: var(--pop) !important; }
+.kicker--amber { color: var(--pop); }
+.model-card__badge { background: var(--pop); color: #0F2440; border-color: var(--pop); }
+.path__step--final { background: rgba(245, 158, 11, 0.12) !important; border-color: var(--pop) !important; color: var(--pop-deep) !important; }
+.section-heading::after, .faq-section__header::after { background: var(--pop); }
 
+/* ── Buttons ── bright on navy, readable everywhere ──────────────────────── */
+.btn--primary { background-color: var(--cobalt); color: #fff; border-color: transparent; box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35); }
+.btn--primary:hover { background-color: var(--cobalt-hover); box-shadow: 0 8px 26px rgba(59, 130, 246, 0.45); }
+.btn--secondary { background-color: transparent; color: #fff; border: 1px solid rgba(255, 255, 255, 0.5); }
+.btn--secondary:hover { background-color: rgba(255, 255, 255, 0.08); border-color: #fff; }
+.is-light .btn--secondary, .outcome .btn--secondary, .model-card .btn--secondary, .prose-section__inner .btn--secondary {
+  color: #0F2440; border-color: #CBD5E1;
+}
+.is-light .btn--secondary:hover, .model-card .btn--secondary:hover { background-color: rgba(15, 36, 64, 0.05); border-color: #0F2440; }
+.btn--ghost { color: #fff; }
+
+/* ── global.css hard-coded alphas ─────────────────────────────────────────── */
 body { background-color: var(--surface-00); }
-
-::selection { background-color: rgba(10, 127, 181, 0.18); color: var(--text-primary); }
-.is-dark ::selection, .hero ::selection, .page-hero ::selection { background-color: rgba(63, 217, 255, 0.25); color: #fff; }
-
+::selection { background-color: rgba(63, 217, 255, 0.28); color: #fff; }
+.is-light ::selection { background-color: rgba(10, 127, 181, 0.18); color: #0F2440; }
 .eyebrow--navy { color: var(--text-primary); }
 
-.btn--secondary {
-  border-bottom-color: var(--line-2);
-}
-.btn--secondary:hover {
-  border-bottom-color: var(--laser-cyan);
-}
-
-.btn--primary { border-color: transparent; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2); }
-.btn--primary:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 4px 12px rgba(10, 127, 181, 0.3); }
-
-.card { border-color: var(--line); box-shadow: none; }
+.card { border-color: var(--line); box-shadow: var(--card-shadow); }
 .card::before { display: none; }
-.card:hover { border-color: var(--line-2); box-shadow: none; transform: none; }
-.card--flat { border-color: var(--line); }
+.card:hover { border-color: var(--line-2); box-shadow: var(--card-shadow); }
 
-.form-input, .form-select, .form-textarea {
-  background-color: var(--surface-00);
-  border-color: var(--line-2);
-  box-shadow: inset 0 2px 4px rgba(15, 36, 64, 0.02);
-}
-.form-input:focus, .form-select:focus, .form-textarea:focus {
-  border-color: var(--laser-cyan);
-  box-shadow: 0 0 0 3px var(--laser-cyan-dim), inset 0 2px 4px rgba(15, 36, 64, 0.02);
-}
+.form-input, .form-select, .form-textarea { background-color: #F7F9FB; border-color: #CBD5E1; color: #0F2440; }
+.form-input::placeholder { color: #6B7C93; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: #0A7FB5; box-shadow: 0 0 0 3px rgba(10, 127, 181, 0.15); }
 .form-select option { background-color: #fff; color: #0F2440; }
+.form-label { color: #3F5470; }
 
 .section-divider { border-color: var(--line); }
-.data-table { border-color: var(--line); box-shadow: none; background-color: var(--surface-00); }
-.data-table thead tr, .data-table tbody tr { border-color: var(--line); }
-.data-table tbody tr:hover { background-color: var(--surface-01); }
-.glass-panel { background: var(--surface-00); border-color: var(--line); box-shadow: none; border-radius: var(--radius-sm); }
+.glass-panel { background: #fff; border-color: #fff; box-shadow: var(--card-shadow); color: #0F2440; }
 .scan-lines::after { display: none; }
 
-/* Header: keep Replit's navy header; bright cyan for the wordmark accent */
-.agos-header { background-color: var(--obsidian); border-bottom-color: var(--line); }
-
-/* Inner-page hero band: shorter so reading pages are mostly light */
-.page-hero { padding-top: 3.5rem; padding-bottom: 3.5rem; border-bottom: 0; }
-
-/* Footer stays navy */
-.agos-footer { background-color: var(--obsidian); border-top-color: var(--line); }
-
-/* Headline glow reads as "template" on light; keep it only in the navy hero, softer */
-.hero__heading-accent { text-shadow: none; }
-
-/* Replit-owned header/footer hard-code the old near-black; lift them to the navy */
+/* Header / footer (Replit-owned): navy, not near-black */
 header.agos-header[class] { background-color: rgba(15, 36, 64, 0.96); border-bottom-color: rgba(255, 255, 255, 0.08); }
 header.agos-header[class] .agos-header__primary { background-color: transparent; }
-footer.agos-footer[class] { background-color: #0F2440; border-top-color: rgba(255, 255, 255, 0.08); }
+footer.agos-footer[class] { background-color: #0B1B33; border-top-color: rgba(255, 255, 255, 0.08); }
 
-/* Retire monospace caps labels site-wide (they read as template). Eyebrows become plain sans kickers. */
-.eyebrow, .page-hero__support, .lp__contact-label, .lp__trust li, .analysis-checklist__label {
+/* Hero keeps a soft cyan headline, no glow */
+.hero__heading-accent { text-shadow: none; }
+.page-hero { padding-top: 3.5rem; padding-bottom: 3.5rem; border-bottom: 0; }
+
+/* Retire monospace caps labels site-wide */
+.eyebrow, .page-hero__support, .lp__contact-label, .lp__trust li, .analysis-checklist__label, .partner-note__label, .path__label {
   font-family: var(--font-sans) !important;
   font-size: 0.875rem !important;
   font-weight: 600 !important;
@@ -197,3 +203,11 @@ footer.agos-footer[class] { background-color: #0F2440; border-top-color: rgba(25
   text-transform: none !important;
 }
 .page-hero__support, .lp__contact-label { font-weight: 500 !important; color: var(--text-tertiary); }
+
+/* Cards are pure white (page CSS sets a tinted surface); path pills go navy for contrast */
+.outcome, .leak, .model-card, .cap-card, .related__card, .partner-note, .path, .hero__form, .lp__card, .analysis-form-card { background-color: #FFFFFF !important; }
+.path__step { background: #0F2440 !important; border-color: #0F2440 !important; color: #FFFFFF !important; }
+.path__arrow { color: #93A5BB; }
+.outcome { border-top: 0 !important; }
+.model-card__badge { background: var(--pop) !important; color: #0F2440 !important; border-color: var(--pop) !important; }
+.cap-card__list li::before, .cap-card__num { color: var(--pop-deep) !important; }
