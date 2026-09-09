@@ -11,6 +11,8 @@ interface Props {
   ctaHref?: string;
   ctaEvent?: string;
   supportLine?: string;
+  /** Above-fold audience qualifier. Pass "" to hide. */
+  qualifier?: string;
 }
 
 const {
@@ -21,7 +23,8 @@ const {
   ctaLabel,
   ctaHref = "/visibility-analysis/",
   ctaEvent = "primary_cta_click",
-  supportLine
+  supportLine,
+  qualifier = "For established auto glass companies — not windshield repair for drivers."
 } = Astro.props;
 ---
 
@@ -29,6 +32,7 @@ const {
   <div class="container">
     <div class="page-hero__content">
       <span class="eyebrow">{eyebrow}</span>
+      {qualifier && <p class="page-hero__qualifier">{qualifier}</p>}
       <h1 id={`${id}-heading`} class="page-hero__heading text-balance">{heading}</h1>
       <p class="page-hero__lead">{lead}</p>
       <slot />
@@ -41,10 +45,11 @@ const {
 </section>
 
 <style>
+  .page-hero__qualifier { margin: 0.5rem 0 0; font-size: 0.875rem; color: var(--text-tertiary); }
   .page-hero {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid var(--line);
     background-color: var(--surface-00);
     position: relative;
     overflow: hidden;

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import AnswerBlock from '../components/AnswerBlock.astro';
 import CapabilityGrid from '../components/CapabilityGrid.astro';
 import ProseSection from '../components/ProseSection.astro';
 import FaqSection from '../components/FaqSection.astro';
@@ -81,6 +82,10 @@ const extraSchema = [
     ctaLabel="Get My Free Website Analysis"
     supportLine="Free · Manually reviewed · Video walkthrough, no sales call required"
   />
+
+  <AnswerBlock id="web-answer">
+    An auto glass website has one job: turn a driver who found you into a call or quote request, usually from a phone, usually in under a minute. That means the phone number and a short quote form above everything else, service and location pages that match the searches, clear answers on insurance, ADAS and warranty, and load times a parking-lot connection can handle.
+  </AnswerBlock>
 
   <CapabilityGrid id="web-capabilities" heading="What an auto glass website has to do" eyebrow="Three jobs, one site" cards={capabilities} />
 

@@ -1,0 +1,188 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   theme.css — "navy hero, light body" palette (loaded after global.css)
+
+   Readability fix: body sections are dark-on-light; the header, homepage hero,
+   inner-page hero band, paid landing-page top and footer stay navy so the brand
+   (white-on-dark logo, banners, ads) still matches.
+
+   How it works: global.css defines every color as a CSS custom property. This file
+   redefines those properties for the light body at :root, then restores the dark
+   set inside the scopes that should stay navy. Components don't need to know.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Surfaces (light) — the legacy dark names are remapped on purpose */
+  --obsidian:        #FFFFFF;
+  --carbon-slate:    #F4F6F9;
+  --carbon-slate-2:  #FFFFFF;
+  --carbon-slate-3:  #F7F9FB;
+  --surface-04:      #EEF2F7;
+  --navy:            #FFFFFF;
+  --graphite:        #FFFFFF;
+  --glass-bg:        #FFFFFF;
+  --glass-border:    #DCE3EC;
+  --surface-00:      #FFFFFF;
+  --surface-01:      #F4F6F9;
+  --surface-02:      #FFFFFF;
+  --surface-03:      #F7F9FB;
+  --text-blue:       #0A7FB5;
+
+  /* Text (light) */
+  --text-primary:    #0F2440;
+  --text-secondary:  #3F5470;
+  --text-tertiary:   #6B7C93;
+  --white:           #0F2440;   /* used by ::selection text in global.css */
+
+  /* Accent: deep cyan for text/links on white (passes AA); bright cyan only on navy */
+  --laser-cyan:      #0A7FB5;
+  --blue:            #0A7FB5;
+  --blue-hover:      #086A98;
+  --blue-active:     #065A82;
+  --laser-cyan-dim:  rgba(10, 127, 181, 0.08);
+  --laser-cyan-border: rgba(10, 127, 181, 0.28);
+  --blue-light:      rgba(10, 127, 181, 0.08);
+  --fleet-amber:     #D97706;
+
+  /* Lines and tints (new tokens; used by page/component CSS) */
+  --line:            #E3E8EF;
+  --line-2:          #CBD5E1;
+  --border:          #E3E8EF;
+  --border-dark:     #E3E8EF;
+  --tint:            rgba(15, 36, 64, 0.04);
+  --card-shadow:     0 8px 30px rgba(15, 36, 64, 0.08);
+}
+
+/* Scopes that stay navy */
+.agos-header,
+.agos-footer,
+.hero,
+.page-hero,
+.lp,
+.is-dark {
+  --obsidian:        #0F2440;
+  --carbon-slate:    #162D4F;
+  --carbon-slate-2:  #1B3559;
+  --carbon-slate-3:  #22406A;
+  --surface-04:      #2A4A78;
+  --navy:            #0F2440;
+  --graphite:        #1B3559;
+  --glass-bg:        rgba(22, 45, 79, 0.7);
+  --glass-border:    rgba(63, 217, 255, 0.18);
+  /* surface aliases must be restated: var() inside a custom property resolves where it is declared (:root) */
+  --surface-00:      #0F2440;
+  --surface-01:      #162D4F;
+  --surface-02:      #1B3559;
+  --surface-03:      #22406A;
+  --text-blue:       #3FD9FF;
+
+  --text-primary:    #FFFFFF;
+  --text-secondary:  #C9D5E3;
+  --text-tertiary:   #93A5BB;
+  --white:           #FFFFFF;
+
+  --laser-cyan:      #3FD9FF;
+  --blue:            #3FD9FF;
+  --blue-hover:      #7AE6FF;
+  --blue-active:     #1FCBF5;
+  --laser-cyan-dim:  rgba(63, 217, 255, 0.10);
+  --laser-cyan-border: rgba(63, 217, 255, 0.28);
+  --blue-light:      rgba(63, 217, 255, 0.10);
+  --fleet-amber:     #F59E0B;
+
+  --line:            rgba(255, 255, 255, 0.10);
+  --line-2:          rgba(255, 255, 255, 0.24);
+  --border:          rgba(255, 255, 255, 0.10);
+  --border-dark:     rgba(255, 255, 255, 0.10);
+  --tint:            rgba(255, 255, 255, 0.05);
+  --card-shadow:     none;
+
+  color: var(--text-primary);
+}
+
+/* A light island inside a navy scope (the hero form card) */
+.is-light {
+  --obsidian:        #FFFFFF;
+  --carbon-slate:    #FFFFFF;
+  --carbon-slate-2:  #FFFFFF;
+  --carbon-slate-3:  #F7F9FB;
+  --surface-04:      #EEF2F7;
+  --surface-00:      #FFFFFF;
+  --surface-01:      #F4F6F9;
+  --surface-02:      #FFFFFF;
+  --surface-03:      #F7F9FB;
+  --text-blue:       #0A7FB5;
+  --text-primary:    #0F2440;
+  --text-secondary:  #3F5470;
+  --text-tertiary:   #6B7C93;
+  --laser-cyan:      #0A7FB5;
+  --blue:            #0A7FB5;
+  --blue-hover:      #086A98;
+  --laser-cyan-dim:  rgba(10, 127, 181, 0.08);
+  --laser-cyan-border: rgba(10, 127, 181, 0.28);
+  --line:            #E3E8EF;
+  --line-2:          #CBD5E1;
+  --tint:            rgba(15, 36, 64, 0.04);
+  --card-shadow:     0 16px 48px rgba(0, 0, 0, 0.28);
+  color: var(--text-primary);
+}
+
+/* ── Overrides for global.css rules that hard-code white/cyan alphas ── */
+
+body { background-color: var(--surface-00); }
+
+::selection { background-color: rgba(10, 127, 181, 0.18); color: var(--text-primary); }
+.is-dark ::selection, .hero ::selection, .page-hero ::selection { background-color: rgba(63, 217, 255, 0.25); color: #fff; }
+
+.eyebrow--navy { color: var(--text-primary); }
+
+.btn--secondary { border-color: var(--line-2); color: var(--text-primary); }
+.btn--secondary:hover { background-color: var(--tint); border-color: var(--laser-cyan); }
+.btn--primary { border-color: transparent; box-shadow: 0 1px 8px rgba(30, 64, 175, 0.25); }
+.btn--primary:hover { box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3); }
+
+.card { border-color: var(--line); box-shadow: var(--card-shadow); }
+.card::before { display: none; }
+.card:hover { border-color: var(--line-2); box-shadow: var(--card-shadow); }
+.card--flat { border-color: var(--line); }
+
+.form-input, .form-select, .form-textarea {
+  background-color: var(--carbon-slate-3);
+  border-color: var(--line-2);
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  box-shadow: 0 0 0 3px var(--laser-cyan-dim);
+}
+.form-select option { background-color: #fff; color: #0F2440; }
+
+.section-divider { border-color: var(--line); }
+.data-table, .data-table thead tr, .data-table tbody tr { border-color: var(--line); }
+.data-table tbody tr:hover { background-color: var(--tint); }
+.glass-panel { background: var(--carbon-slate-2); border-color: var(--line); box-shadow: var(--card-shadow); }
+.scan-lines::after { display: none; }
+
+/* Header: keep Replit's navy header; bright cyan for the wordmark accent */
+.agos-header { background-color: var(--obsidian); border-bottom-color: var(--line); }
+
+/* Inner-page hero band: shorter so reading pages are mostly light */
+.page-hero { padding-top: 3.5rem; padding-bottom: 3.5rem; border-bottom: 0; }
+
+/* Footer stays navy */
+.agos-footer { background-color: var(--obsidian); border-top-color: var(--line); }
+
+/* Headline glow reads as "template" on light; keep it only in the navy hero, softer */
+.hero__heading-accent { text-shadow: none; }
+
+/* Replit-owned header/footer hard-code the old near-black; lift them to the navy */
+header.agos-header[class] { background-color: rgba(15, 36, 64, 0.96); border-bottom-color: rgba(255, 255, 255, 0.08); }
+header.agos-header[class] .agos-header__primary { background-color: transparent; }
+footer.agos-footer[class] { background-color: #0F2440; border-top-color: rgba(255, 255, 255, 0.08); }
+
+/* Retire monospace caps labels site-wide (they read as template). Eyebrows become plain sans kickers. */
+.eyebrow, .page-hero__support, .lp__contact-label, .lp__trust li, .analysis-checklist__label {
+  font-family: var(--font-sans) !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+.page-hero__support, .lp__contact-label { font-weight: 500 !important; color: var(--text-tertiary); }

@@ -51,7 +51,7 @@ import { methodologyStages } from '../data/siteData';
     top: 0.5rem;
     bottom: 0;
     width: 2px;
-    background: rgba(0,210,255,0.28);
+    background: var(--laser-cyan-border);
   }
 
   .journey__origin::after {
@@ -95,7 +95,7 @@ import { methodologyStages } from '../data/siteData';
     top: 0;
     bottom: 0;
     width: 2px;
-    background: rgba(0,210,255,0.28);
+    background: var(--laser-cyan-border);
   }
 
   .journey__stage--final::before {
@@ -112,7 +112,7 @@ import { methodologyStages } from '../data/siteData';
     border-radius: 50%;
     background: var(--carbon-slate);
     border: 2px solid var(--laser-cyan);
-    box-shadow: 0 0 0 4px rgba(0,210,255,0.12);
+    box-shadow: 0 0 0 4px var(--laser-cyan-dim);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -162,8 +162,8 @@ import { methodologyStages } from '../data/siteData';
     font-size: 0.75rem;
     color: var(--text-secondary);
     padding: 0.3rem 0.625rem;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.09);
+    background: var(--line);
+    border: 1px solid var(--line);
     border-radius: var(--radius);
     line-height: 1.2;
   }

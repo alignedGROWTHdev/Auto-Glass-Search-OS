@@ -1,0 +1,66 @@
+---
+/**
+ * Owner resources index. Noindex + excluded from the sitemap until the first guide is published
+ * (an empty index is a thin page). Flip automatically: once `articles` has entries it indexes.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ClosingCta from '../../components/ClosingCta.astro';
+import { articles } from '../../data/articles';
+import { siteConfig } from '../../data/siteData';
+
+const pageTitle = "Auto Glass Marketing Guides for Shop Owners";
+const pageDescription = "Plain-English guides for auto glass business owners on leads, Google Ads, Google Business Profile, SEO and AI search — written to help you decide, not to sell you a package.";
+const live = [...articles].sort((a, b) => b.published.localeCompare(a.published));
+const fmt = (d: string) => new Date(d + "T12:00:00Z").toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} breadcrumbName="Owner resources" noindex={live.length === 0}>
+  <section class="page-hero res-hero">
+    <div class="container">
+      <span class="eyebrow">Owner resources</span>
+      <h1 class="res-hero__title text-balance">Auto glass marketing guides for shop owners.</h1>
+      <p class="res-hero__lead">How to get more of the right jobs, what to measure, and how to judge any agency — including us. Written for owners and managers of established auto glass companies.</p>
+    </div>
+  </section>
+
+  <section class="section res-list">
+    <div class="container">
+      {live.length === 0 ? (
+        <p class="res-list__empty">The first guides publish this month. In the meantime, the <a href="/auto-glass-digital-marketing/">channel-by-channel guide to auto glass digital marketing</a> is the best place to start.</p>
+      ) : (
+        <ul class="res-list__items" role="list">
+          {live.map((a) => (
+            <li class="res-item">
+              <a href={`/resources/${a.slug}/`} class="res-item__link">
+                <h2 class="res-item__title">{a.title}</h2>
+                <p class="res-item__desc">{a.description}</p>
+                <p class="res-item__meta">{fmt(a.published)} · {a.readMinutes} min read</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </section>
+
+  <ClosingCta
+    id="res-cta"
+    heading="Rather have us look at your market?"
+    description="We review it by hand and send a recorded video walkthrough of what we found and what to fix first. Free, no sales call required."
+    ctaLabel={siteConfig.primaryCta}
+  />
+</BaseLayout>
+
+<style>
+  .res-hero { padding: 3rem 0; background-color: var(--obsidian); }
+  .res-hero__title { margin: 0.5rem 0 0.75rem; font-size: clamp(2rem, 3.4vw + 0.5rem, 3rem); }
+  .res-hero__lead { max-width: 44rem; color: var(--text-secondary); font-size: 1.125rem; }
+  .res-list { padding: 3rem 0; }
+  .res-list__empty { max-width: 44rem; color: var(--text-secondary); }
+  .res-list__items { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 900px) { .res-list__items { grid-template-columns: 1fr 1fr; } }
+  .res-item__link { display: block; padding: 1.5rem; border: 1px solid var(--line); border-radius: var(--radius-xl); background: var(--carbon-slate-2); box-shadow: var(--card-shadow); text-decoration: none; }
+  .res-item__title { font-size: 1.25rem; margin: 0 0 0.5rem; color: var(--text-primary); }
+  .res-item__desc { color: var(--text-secondary); font-size: 0.9375rem; margin: 0 0 0.5rem; }
+  .res-item__meta { color: var(--text-tertiary); font-size: 0.8125rem; margin: 0; }
+</style>

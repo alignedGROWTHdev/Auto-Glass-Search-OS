@@ -109,7 +109,6 @@ const pageDescription = "Your auto glass opportunity analysis request has been r
     transform: translateX(-50%);
     width: 600px;
     height: 300px;
-    background: radial-gradient(ellipse at 50% 0%, rgba(0,210,255,0.06) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -128,12 +127,12 @@ const pageDescription = "Your auto glass opportunity analysis request has been r
     width: 4.5rem;
     height: 4.5rem;
     border-radius: 50%;
-    background-color: rgba(0, 210, 255, 0.08);
-    border: 1px solid rgba(0, 210, 255, 0.3);
+    background-color: var(--laser-cyan-dim);
+    border: 1px solid var(--laser-cyan-border);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 24px rgba(0, 210, 255, 0.12);
+    box-shadow: 0 0 24px var(--laser-cyan-dim);
   }
 
   .thankyou__body {
@@ -147,7 +146,7 @@ const pageDescription = "Your auto glass opportunity analysis request has been r
   .thankyou__next {
     width: 100%;
     background-color: var(--carbon-slate-2);
-    border: 1px solid rgba(0, 210, 255, 0.1);
+    border: 1px solid var(--laser-cyan-dim);
     border-radius: var(--radius-xl);
     padding: 1.75rem;
     display: flex;
@@ -192,7 +191,7 @@ const pageDescription = "Your auto glass opportunity analysis request has been r
     height: 2rem;
     min-width: 2rem;
     border-radius: var(--radius);
-    background: rgba(0, 210, 255, 0.08);
+    background: var(--laser-cyan-dim);
     border: 1px solid rgba(0, 210, 255, 0.2);
     font-family: var(--font-mono);
     font-size: 0.6875rem;
@@ -207,7 +206,7 @@ const pageDescription = "Your auto glass opportunity analysis request has been r
     flex-direction: column;
     gap: 0.875rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid var(--line);
     width: 100%;
   }
 
@@ -244,14 +243,14 @@ const pageDescription = "Your auto glass opportunity analysis request has been r
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: var(--radius-md);
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid var(--line);
     background: var(--carbon-slate-2);
     transition: border-color var(--transition-fast), color var(--transition-fast);
   }
 
   .thankyou__contact-link:hover {
     color: var(--laser-cyan);
-    border-color: rgba(0, 210, 255, 0.3);
+    border-color: var(--laser-cyan-border);
   }
 
   .thankyou__contact-link svg {

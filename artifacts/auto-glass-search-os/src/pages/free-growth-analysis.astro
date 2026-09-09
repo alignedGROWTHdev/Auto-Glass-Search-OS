@@ -60,7 +60,7 @@ const faqs = [
         </div>
 
         <div class="lp__form">
-          <div class="lp__card">
+          <div class="lp__card is-light">
             <h2 class="lp__card-title">Request your free analysis</h2>
             <p class="lp__card-sub">Seven quick fields. A person reads every one.</p>
             <LeadForm compact />
@@ -69,8 +69,12 @@ const faqs = [
         </div>
 
       </div>
+    </div>
+  </section>
 
-      <div class="lp__faq" aria-label="Common questions">
+  <section class="lp-more" aria-label="Common questions">
+    <div class="container">
+      <div class="lp__faq">
         {faqs.map((f) => (
           <details class="lp__faq-item">
             <summary class="lp__faq-q">{f.q}</summary>
@@ -97,10 +101,9 @@ const faqs = [
 <style>
   .lp {
     padding-top: 3rem;
-    padding-bottom: 4rem;
+    padding-bottom: 3.5rem;
     background-color: var(--obsidian);
     background-image: radial-gradient(ellipse at 20% 0%, rgba(30,64,175,0.16) 0%, transparent 55%);
-    min-height: 80dvh;
   }
 
   .lp__grid {
@@ -174,7 +177,7 @@ const faqs = [
     text-transform: uppercase;
     color: var(--text-secondary);
     padding: 0.35rem 0.625rem;
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid var(--line);
     border-radius: var(--radius);
   }
 
@@ -203,7 +206,7 @@ const faqs = [
   .lp__card {
     padding: 1.5rem;
     background: var(--carbon-slate);
-    border: 1px solid rgba(0,210,255,0.18);
+    border: 1px solid var(--laser-cyan-dim);
     border-radius: var(--radius-xl);
     display: flex;
     flex-direction: column;
@@ -233,13 +236,15 @@ const faqs = [
     text-align: center;
   }
 
+  .lp-more { padding: 2.5rem 0 3rem; background-color: var(--surface-00); }
+
   .lp__faq {
-    margin-top: 3rem;
+    margin-top: 0;
     max-width: 44rem;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid var(--line);
   }
 
-  .lp__faq-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .lp__faq-item { border-bottom: 1px solid var(--line); }
 
   .lp__faq-q {
     cursor: pointer;

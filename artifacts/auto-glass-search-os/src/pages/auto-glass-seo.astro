@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import AnswerBlock from '../components/AnswerBlock.astro';
 import CapabilityGrid from '../components/CapabilityGrid.astro';
 import ProseSection from '../components/ProseSection.astro';
 import FaqSection from '../components/FaqSection.astro';
@@ -36,6 +37,10 @@ const faqs = [
     answer: "Auto glass SEO is the work of making an auto glass company visible in organic Google results for the searches drivers actually use — windshield replacement, windshield repair, rock chip repair, mobile auto glass, side and back glass, and ADAS calibration — in the cities and service areas the company serves, and then turning that visibility into calls and quote requests.",
   },
   {
+    question: "What is automotive SEO, and is it the same as auto glass SEO?",
+    answer: "Automotive SEO is a broad term covering dealerships, repair shops, parts retailers and detailers. Auto glass SEO is a narrower discipline: the searches are urgent and local, most happen on a phone, insurance and ADAS questions decide the call, and the map pack matters more than page one. A generic automotive SEO plan usually misses those specifics.",
+  },
+  {
     question: "How is auto glass SEO different from generic SEO?",
     answer: "Auto glass demand is urgent, local, and service-specific. A generic SEO agency tends to optimize a homepage and publish blog posts. Auto glass SEO is built around service pages per service, location or service-area pages per market, ADAS and insurance content that answers real driver questions, and conversion paths that work on a phone. It also has to coexist with Google Maps, because much of the demand converts from the local 3-pack rather than the organic list.",
   },
@@ -63,7 +68,7 @@ const extraSchema = [
     name: "Auto Glass SEO",
     serviceType: "Search engine optimization for auto glass companies",
     description: pageDescription,
-    alternateName: ["SEO for Auto Glass Companies", "Glass Company SEO Service"],
+    alternateName: ["SEO for Auto Glass Companies", "Auto Glass SEO Company", "Auto Glass SEO Agency", "SEO for Windshield Replacement Companies"],
   }),
   faqSchema(faqs, pagePath),
 ];
@@ -79,6 +84,10 @@ const extraSchema = [
     ctaLabel="Get My Free SEO Analysis"
     supportLine="Free · Manually reviewed · Video walkthrough, no sales call required"
   />
+
+  <AnswerBlock id="seo-answer">
+    Auto glass SEO is the work of getting an auto glass shop onto page one and into the Google map pack for the searches drivers actually use — windshield replacement, repair, mobile service and ADAS calibration in a specific city — and turning those rankings into calls and quote requests. An auto glass SEO company does this for one industry, so service pages, locations and reviews are built around how glass jobs are found and booked.
+  </AnswerBlock>
 
   <CapabilityGrid id="seo-capabilities" heading="What auto glass SEO covers" eyebrow="Core capabilities" cards={capabilities} />
 

@@ -28,9 +28,9 @@ const { label, spec, aspect = "4 / 3", rounded = "xl", class: className = "" } =
     margin: 0;
     width: 100%;
     background:
-      repeating-linear-gradient(135deg, rgba(255,255,255,0.025) 0 10px, transparent 10px 20px),
-      linear-gradient(180deg, rgba(26,37,64,0.9), rgba(19,27,46,0.95));
-    border: 1px dashed rgba(0,210,255,0.35);
+      repeating-linear-gradient(135deg, var(--tint) 0 10px, transparent 10px 20px),
+      linear-gradient(180deg, var(--carbon-slate-2), var(--carbon-slate));
+    border: 1px dashed var(--laser-cyan-border);
     display: flex;
     align-items: center;
     justify-content: center;

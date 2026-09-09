@@ -1,0 +1,164 @@
+---
+/**
+ * Category hub for "auto glass digital marketing" / "auto glass internet marketing" /
+ * "auto glass advertising". The SERP for these terms mixes agency pages with
+ * channel listicles, so this page is a hybrid: a definition, an honest channel-by-channel
+ * comparison for shop owners, and the service links. Homepage keeps "auto glass marketing".
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import ProseSection from '../components/ProseSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import ClosingCta from '../components/ClosingCta.astro';
+import { faqSchema, serviceSchema } from '../data/schema';
+
+const pagePath = "/auto-glass-digital-marketing/";
+const pageTitle = "Auto Glass Digital Marketing | Every Channel, Ranked";
+const pageDescription = "Auto glass digital marketing explained for shop owners: Google Maps, SEO, Google Ads, Meta ads, AI search, your website and reviews — which ones book jobs, in what order, and how to measure them.";
+
+const channels = [
+  { name: "Google Business Profile and the map pack", control: "High", speed: "1–3 months", cost: "Time, reviews, consistency", best: "Every shop. The urgent 'near me' driver taps the top three map results first.", link: { href: "/auto-glass-local-seo/", label: "Local SEO and Google Maps" } },
+  { name: "Website and conversion path", control: "High", speed: "Immediate once fixed", cost: "One-time build, then upkeep", best: "Every shop. Everything else sends drivers here; if they can't call in one tap, the rest is wasted.", link: { href: "/auto-glass-websites/", label: "Auto glass websites" } },
+  { name: "Auto glass SEO (organic search)", control: "High", speed: "3–6 months", cost: "Monthly work, no per-click cost", best: "Shops that want durable demand for replacement, repair, mobile and ADAS searches without paying for every click.", link: { href: "/auto-glass-seo/", label: "Auto glass SEO" } },
+  { name: "Google Ads (paid search)", control: "High", speed: "Days", cost: "Ad spend plus management", best: "Filling capacity now, new markets, storm season, and services you want more of. Needs negatives and call tracking or it leaks.", link: { href: "/google-ads/", label: "Google Ads for auto glass" } },
+  { name: "AI search (AI Overviews, ChatGPT, Gemini)", control: "Medium", speed: "Follows SEO", cost: "Mostly the same work as SEO, done precisely", best: "Shops already visible on Maps and organic. AI answers pull from the same profile, pages and reviews.", link: { href: "/ai-search-optimization/", label: "AI SEO for auto glass" } },
+  { name: "Meta ads (Facebook and Instagram)", control: "Medium", speed: "Days", cost: "Ad spend plus creative", best: "Reaching drivers before they search — chip-repair reminders, fleet managers, seasonal offers — and retargeting website visitors.", link: null },
+  { name: "Reviews and digital PR", control: "Medium", speed: "Ongoing", cost: "Process and outreach", best: "Every shop. Reviews decide who gets chosen from the map pack; mentions on local sites feed AI answers and prominence.", link: null },
+  { name: "Lead resellers and pay-per-call", control: "Low", speed: "Immediate", cost: "Per lead or per call, often shared", best: "Short-term volume only. You rent demand you don't own and compete for the same driver with other shops.", link: { href: "/auto-glass-lead-generation/", label: "Owned lead generation vs. bought leads" } },
+];
+
+const faqs = [
+  {
+    question: "What is auto glass digital marketing?",
+    answer: "Auto glass digital marketing is everything a shop does online to get found and chosen when a driver needs windshield repair, replacement, mobile service or ADAS calibration: Google Business Profile and the map pack, search engine optimization, Google Ads, Meta ads, AI search visibility, reviews, and a website that turns the visit into a call or quote request. Done well, it is one system measured in booked jobs, not a list of separate tactics.",
+  },
+  {
+    question: "Is auto glass internet marketing different from digital marketing?",
+    answer: "No. Internet marketing, online marketing and digital marketing describe the same thing — reaching drivers through search, maps, ads, social platforms and your website rather than print, radio or yard signs. The industry has mostly settled on 'digital marketing'; we use 'auto glass marketing' because for a glass shop nearly all of it is digital now.",
+  },
+  {
+    question: "Which digital marketing channel works best for auto glass shops?",
+    answer: "For most shops the order is: a complete Google Business Profile with steady reviews, a website a driver can call from in one tap, then organic SEO for the searches in your market, then Google Ads to fill capacity and enter new services or markets. Meta ads and digital PR come after those are working. The exact order depends on your market and job mix, which is what the free Growth Analysis works out.",
+  },
+  {
+    question: "How much should an auto glass shop spend on digital marketing?",
+    answer: "It depends on how competitive your map pack is, how many markets you serve, and which jobs you want more of. We don't publish ranges because a one-truck mobile operator and a three-location shop competing with national chains need very different plans. Every engagement starts with a free analysis of your market, and the tiers we recommend come from that.",
+  },
+  {
+    question: "Should an auto glass shop buy leads or build its own marketing?",
+    answer: "Bought leads are fast but rented: you pay per lead, often share it with other shops, and stop getting calls the day you stop paying. Owned marketing — your profile, your site, your rankings, your ad account — compounds and stays yours. Many shops use bought leads to bridge a slow season while the owned system is built, then taper them off.",
+  },
+  {
+    question: "Does Auto Glass Growth handle all of these channels?",
+    answer: "Yes. We run local SEO and Google Maps, auto glass SEO, Google Ads, Meta ads, AI search visibility, websites and conversion, reviews and digital PR as one system for auto glass shops, with every call and quote request tracked back to the channel that produced it. AI voice and online quoting come through our dedicated technology partners.",
+  },
+];
+
+const extraSchema = [
+  serviceSchema({
+    pagePath,
+    name: "Auto Glass Digital Marketing",
+    serviceType: "Digital marketing for auto glass companies",
+    description: pageDescription,
+    alternateName: ["Auto Glass Internet Marketing", "Auto Glass Online Marketing", "Auto Glass Advertising"],
+  }),
+  faqSchema(faqs, pagePath),
+];
+---
+
+<BaseLayout title={pageTitle} description={pageDescription} breadcrumbName="Auto Glass Digital Marketing" extraSchema={extraSchema}>
+
+  <PageHero
+    id="digital"
+    eyebrow="Auto glass digital marketing"
+    heading="Auto Glass Digital Marketing, Channel by Channel"
+    lead="Auto glass digital marketing is every way a shop gets found and chosen online — Google Maps, search, Google Ads, Meta ads, AI answers, reviews and your website. This page ranks those channels for shop owners: what each one is good for, how fast it works, and what it takes to measure it in booked jobs."
+    ctaLabel="Get My Free Growth Analysis"
+    supportLine="Free · Manually reviewed · Video walkthrough, no sales call required"
+  />
+
+  <ProseSection id="digital-short" eyebrow="The short answer" heading="What works, in the order most shops should build it">
+    <p>
+      For most auto glass shops the sequence is the same: a complete <a href="/auto-glass-local-seo/">Google Business Profile</a> with a steady flow of reviews, a <a href="/auto-glass-websites/">website a driver can call from in one tap</a>, then <a href="/auto-glass-seo/">organic SEO</a> for the searches in your market, then <a href="/google-ads/">Google Ads</a> to fill capacity and open new services or markets. <a href="/ai-search-optimization/">AI search</a> mostly follows from doing the first three well. Meta ads, digital PR and bought leads are situational. The table below is the whole picture; the free analysis tells you which gap in it is costing you jobs right now.
+    </p>
+  </ProseSection>
+
+  <section class="section channels" id="digital-channels" aria-labelledby="channels-heading">
+    <div class="container">
+      <span class="kicker">The channels</span>
+      <h2 id="channels-heading" class="section-heading text-balance">Eight auto glass marketing channels, ranked for shop owners.</h2>
+      <p class="section-lead">Control means how much of the result you own. Speed is how long until it changes the schedule. "Best for" is honest, including where a channel is the wrong fit.</p>
+      <div class="table-scroll">
+        <table class="channels__table">
+          <thead>
+            <tr><th>Channel</th><th>Control</th><th>Speed</th><th>What it costs</th><th>Best for</th></tr>
+          </thead>
+          <tbody>
+            {channels.map((c) => (
+              <tr>
+                <td><strong>{c.name}</strong>{c.link && <a class="channels__link" href={c.link.href}>{c.link.label} →</a>}</td>
+                <td>{c.control}</td>
+                <td>{c.speed}</td>
+                <td>{c.cost}</td>
+                <td>{c.best}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <ProseSection id="digital-vs-generic" eyebrow="Why auto glass is different" heading="Why generic digital marketing underperforms for glass shops" alt>
+    <p>
+      A driver with a cracked windshield is not browsing. She searches once, from a parking lot, on a phone, and calls the first shop that looks trustworthy and answers. That changes every channel. Search has to win the map pack, not just page one. Ads have to be built for calls, run when someone can answer, and exclude the searches that aren't glass work. The website has to put the phone number and a short quote form above everything else. Reviews decide the call before your pricing ever comes up. A generic agency treats those as separate line items; a shop needs them working as one path from search to booked job.
+    </p>
+    <p>
+      Job mix matters too. A rock chip repair, a replacement with ADAS calibration, an insurance claim and a fleet account are very different jobs with different margins. Digital marketing for auto glass should go after the demand your shop can profitably serve — and be measured that way.
+    </p>
+  </ProseSection>
+
+  <ProseSection id="digital-measure" eyebrow="Measurement" heading="How to tell which channel is producing jobs">
+    <p>
+      Every channel above can be tracked to a call or quote request, and most can be tracked to a booked job. Call tracking numbers per channel, form fields that carry the source, and a short weekly review of what each call actually was — real lead, wrong number, vendor, job seeker — give you cost per qualified lead by channel and, where your booking data allows, cost per booked job. That is the number a growth plan should be built on, and it is what we report.
+    </p>
+  </ProseSection>
+
+  <RelatedLinks
+    id="digital-related"
+    heading="Each channel, in depth."
+    links={[
+      { href: "/auto-glass-lead-generation/", title: "Auto Glass Lead Generation", description: "How the channels connect into one owned acquisition system, and how it compares with buying leads." },
+      { href: "/auto-glass-seo/", title: "Auto Glass SEO", description: "Service pages, locations and technical SEO that turn searches into qualified calls." },
+      { href: "/google-ads/", title: "Google Ads for Auto Glass", description: "Call-focused campaigns, negatives and landing pages built for auto glass." },
+      { href: "/ai-search-optimization/", title: "AI SEO (AEO / GEO)", description: "Be the shop AI Overviews and ChatGPT recommend." },
+    ]}
+    alt
+  />
+
+  <FaqSection id="digital-faq" heading="Auto glass digital marketing questions" items={faqs} />
+
+  <ClosingCta
+    id="digital-cta"
+    heading="Find out which channel is costing you jobs right now."
+    description="We review your market by hand — Maps, search, ads, AI answers, your website and your phone — and send you a recorded video walkthrough of what we found and what to fix first. No sales call required."
+    ctaLabel="Get My Free Growth Analysis"
+  />
+
+</BaseLayout>
+
+<style>
+  .channels { padding: 4rem 0; }
+  .kicker { display: block; font-size: 0.875rem; font-weight: 600; color: var(--laser-cyan); margin-bottom: 0.25rem; }
+  .section-heading { max-width: 40rem; margin-bottom: 0.75rem; }
+  .section-lead { color: var(--text-secondary); max-width: 44rem; margin-bottom: 1.75rem; }
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); border-radius: var(--radius-xl); background: var(--carbon-slate-2); box-shadow: var(--card-shadow); }
+  .channels__table { width: 100%; min-width: 56rem; border-collapse: collapse; font-size: 0.9375rem; }
+  .channels__table th { text-align: left; padding: 0.875rem 1rem; font-family: var(--font-display); font-size: 0.8125rem; letter-spacing: 0.02em; color: var(--text-tertiary); border-bottom: 1px solid var(--line-2); background: var(--carbon-slate); }
+  .channels__table td { padding: 0.875rem 1rem; vertical-align: top; border-bottom: 1px solid var(--line); color: var(--text-secondary); line-height: 1.5; }
+  .channels__table tr:last-child td { border-bottom: 0; }
+  .channels__table td strong { display: block; color: var(--text-primary); font-family: var(--font-display); font-weight: 600; margin-bottom: 0.25rem; }
+  .channels__link { display: inline-block; font-size: 0.8125rem; font-weight: 600; text-decoration: none; }
+  .channels__table td:nth-child(2), .channels__table td:nth-child(3) { white-space: nowrap; }
+</style>

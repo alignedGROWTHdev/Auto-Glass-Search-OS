@@ -1,0 +1,35 @@
+---
+/**
+ * AnswerBlock — a short, self-contained answer (40–70 words) placed directly under a page hero.
+ * One definition or decision rule, audience named, so AI Overviews and featured snippets
+ * have a quotable unit. Keep the copy plain and specific.
+ */
+interface Props {
+  id?: string;
+  label?: string;
+}
+const { id = "answer", label = "The short answer" } = Astro.props;
+---
+
+<section class="answer" id={id} aria-label={label}>
+  <div class="container">
+    <div class="answer__box">
+      <span class="answer__label">{label}</span>
+      <p class="answer__text"><slot /></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .answer { padding: 1.75rem 0 0; }
+  .answer__box {
+    max-width: 52rem;
+    padding: 1.125rem 1.375rem;
+    border-left: 3px solid var(--laser-cyan);
+    background: var(--carbon-slate);
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  }
+  .answer__label { display: block; font-size: 0.8125rem; font-weight: 600; color: var(--laser-cyan); margin-bottom: 0.375rem; }
+  .answer__text { margin: 0; font-size: 1.0625rem; line-height: 1.6; color: var(--text-primary); }
+  .answer__text :global(a) { color: var(--laser-cyan); }
+</style>

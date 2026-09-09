@@ -34,7 +34,7 @@ const { id, heading, eyebrow, alt = false, lead } = Astro.props;
   .prose-section {
     padding-top: 4.5rem;
     padding-bottom: 4.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid var(--line);
     background-color: var(--surface-00);
   }
 
@@ -90,7 +90,7 @@ const { id, heading, eyebrow, alt = false, lead } = Astro.props;
   .prose :global(a) {
     color: var(--laser-cyan);
     text-decoration: underline;
-    text-decoration-color: rgba(0,210,255,0.35);
+    text-decoration-color: var(--laser-cyan-border);
     text-underline-offset: 0.15em;
     transition: text-decoration-color 150ms;
   }
@@ -145,7 +145,7 @@ const { id, heading, eyebrow, alt = false, lead } = Astro.props;
 
   .prose :global(.prose-grid > li) {
     background-color: var(--surface-02);
-    border: 1px solid rgba(255,255,255,0.07);
+    border: 1px solid var(--line);
     border-radius: var(--radius-lg);
     padding: 1.125rem 1.25rem;
     font-size: 0.9375rem;

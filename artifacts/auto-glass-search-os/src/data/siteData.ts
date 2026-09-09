@@ -151,6 +151,11 @@ export const services = [
 // Channel pages that make up the customer-acquisition system (used for cross-linking).
 export const channelPages = [
   {
+    href: "/auto-glass-digital-marketing/",
+    title: "Auto Glass Digital Marketing",
+    description: "Every channel — Maps, SEO, Google Ads, Meta, AI search, website, reviews — ranked for shop owners.",
+  },
+  {
     href: "/auto-glass-seo/",
     title: "Auto Glass SEO",
     description: "Organic search visibility for the services and markets that drive windshield replacement demand.",

@@ -23,7 +23,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="closing-cta" aria-labelledby={`${id}-heading`}>
+<section class="closing-cta is-dark" aria-labelledby={`${id}-heading`}>
   <div class="container">
     <div class="closing-cta__inner">
       <span class="eyebrow">{eyebrow}</span>
@@ -41,7 +41,6 @@ const {
     padding-top: 5rem;
     padding-bottom: 5rem;
     background-color: var(--obsidian);
-    background-image: radial-gradient(ellipse at 50% 100%, rgba(30,64,175,0.18) 0%, transparent 60%);
   }
 
   .closing-cta__inner {

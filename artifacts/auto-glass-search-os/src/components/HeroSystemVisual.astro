@@ -79,16 +79,16 @@
 
 <style>
   .sysvis {
-    --rail: rgba(0, 210, 255, 0.28);
+    --rail: var(--laser-cyan-border);
     position: relative;
     width: 100%;
     min-width: 0;
     max-width: 30rem;
     margin-inline: auto;
-    background: linear-gradient(180deg, rgba(26,37,64,0.92) 0%, rgba(19,27,46,0.96) 100%);
-    border: 1px solid rgba(0, 210, 255, 0.16);
+    background: linear-gradient(180deg, var(--carbon-slate-2) 0%, var(--carbon-slate) 100%);
+    border: 1px solid var(--laser-cyan-dim);
     border-radius: var(--radius-xl);
-    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.02) inset;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,0.7), 0 0 0 1px var(--tint) inset;
     overflow: hidden;
     font-family: var(--font-sans);
   }
@@ -98,8 +98,8 @@
     align-items: center;
     gap: 0.625rem;
     padding: 0.625rem 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    background: rgba(11,15,25,0.6);
+    border-bottom: 1px solid var(--line);
+    background: var(--carbon-slate);
   }
 
   .sysvis__chrome-dot {
@@ -139,7 +139,7 @@
     margin: 1rem 1rem 0;
     padding: 0.625rem 0.875rem;
     background: var(--obsidian);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--line);
     border-radius: var(--radius-lg);
   }
 
@@ -207,7 +207,7 @@
     border-radius: 50%;
     background: var(--carbon-slate);
     border: 2px solid var(--laser-cyan);
-    box-shadow: 0 0 0 3px rgba(0,210,255,0.12);
+    box-shadow: 0 0 0 3px var(--laser-cyan-dim);
   }
 
   .sysvis__stage--measured::after {
@@ -254,8 +254,8 @@
     font-size: 0.75rem;
     color: var(--text-secondary);
     padding: 0.3rem 0.6rem;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.09);
+    background: var(--line);
+    border: 1px solid var(--line);
     border-radius: var(--radius);
     line-height: 1.2;
   }
@@ -306,7 +306,7 @@
   .sysvis__path-btn--call {
     background: transparent;
     color: var(--text-primary);
-    border: 1px solid rgba(255,255,255,0.18);
+    border: 1px solid var(--line-2);
   }
 
   .sysvis__path-steps {

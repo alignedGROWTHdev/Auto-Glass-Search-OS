@@ -26,7 +26,7 @@ const leaks = [
 
 // Homepage FAQ — the questions owners ask before they fill out the form.
 const faqs = [
-  { question: "What does an auto glass marketing agency do?", answer: "Auto Glass Growth is an auto glass marketing agency built for one industry. We make your shop the one drivers find and choose: page-one rankings and the Google map pack, Google Ads for high-intent searches, Meta ads that reach drivers on Facebook and Instagram before they search, and visibility in AI Overviews and AI assistants, where more people now ask \"who should I call?\" We also run digital PR — earning mentions and recommendations on the sites, directories and local publications drivers already trust — so your shop shows up wherever someone is looking for a recommendation, not just on Google. Then we track every call and quote request back to the channel that produced it. We call that method the Auto Glass Growth OS — it's how we work, not software you have to learn." },
+  { question: "What does an auto glass marketing agency do?", answer: "Auto Glass Growth is an auto glass marketing agency built for one industry — what some owners call auto glass digital marketing or internet marketing. We make your shop the one drivers find and choose: page-one rankings and the Google map pack, Google Ads for high-intent searches, Meta ads that reach drivers on Facebook and Instagram before they search, and visibility in AI Overviews and AI assistants, where more people now ask \"who should I call?\" We also run digital PR — earning mentions and recommendations on the sites, directories and local publications drivers already trust — so your shop shows up wherever someone is looking for a recommendation, not just on Google. Then we track every call and quote request back to the channel that produced it. We call that method the Auto Glass Growth OS — it's how we work, not software you have to learn." },
   { question: "How much does auto glass marketing cost?", answer: "We don't sell fixed packages, because a one-truck mobile operator in a small market and a three-location shop competing against national chains don't need the same work. Every engagement starts with the free Growth Analysis. We audit your market, identify the gaps between you and the shops outranking you, and work out what it would actually take to close them. From that, we put together tiers built around your market's demand, your competition and the jobs you want more of — replacements, ADAS calibration, insurance, fleet or mobile — so you're paying for what your shop needs, not a menu." },
   { question: "What happens after the free Growth Analysis?", answer: "Within 2–3 business days we send you a recorded video walkthrough of your market: who's winning the searches you should own, where you're losing drivers, and what we'd fix first. You can watch it on your own time, and there's no obligation. If what you see makes sense, the next step is a discovery call — a conversation about how your shop actually runs, which jobs you want more of, and where you want to be in a year. That's where we learn whether we're the right fit for each other. If we are, we come back with tiers scoped to your business." },
   { question: "Can you get my shop into the Google map pack?", answer: "Map pack positions can't be bought — Google decides them on relevance, distance and prominence — which is exactly why they're worth winning. Our approach targets all three. We audit the shops holding the top three spots to see what Google is rewarding them for, then close the gaps: a Google Business Profile that's complete and category-correct, service pages that match how drivers in your area search, a repeatable review process that builds prominence month after month, and consistent listings across the web. It's the same playbook every time; what changes is which gaps your market needs closed first." },
@@ -86,7 +86,7 @@ const homeSchema = [
         </div>
 
         <div class="hero__visual fade-up fade-up--delay-2">
-          <div class="hero__form" id="growth-analysis-form">
+          <div class="hero__form is-light" id="growth-analysis-form">
             <h2 class="hero__form-title">Request your free growth analysis</h2>
             <p class="hero__form-sub">Seven quick fields. A person reads every one — you get a recorded video walkthrough within 2–3 business days.</p>
             <LeadForm compact />
@@ -138,6 +138,9 @@ const homeSchema = [
       <div class="outcomes__foot">
         <a href="/auto-glass-lead-generation/" data-analytics-event="leadgen_learn_more" class="btn btn--secondary">
           How it all works together as lead generation &rarr;
+        </a>
+        <a href="/auto-glass-digital-marketing/" data-analytics-event="channels_learn_more" class="outcomes__foot-link">
+          Every auto glass digital marketing channel, ranked for shop owners &rarr;
         </a>
       </div>
     </div>
@@ -328,7 +331,7 @@ const homeSchema = [
   .section {
     padding-top: 5.5rem;
     padding-bottom: 5.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid var(--line);
     background-color: var(--obsidian);
   }
 
@@ -338,17 +341,14 @@ const homeSchema = [
 
   .section--journey {
     background-color: var(--obsidian);
-    background-image: radial-gradient(ellipse at 50% 0%, rgba(0,210,255,0.06) 0%, transparent 55%);
   }
 
   .section--paths {
     background-color: var(--obsidian);
-    background-image: radial-gradient(ellipse at 85% 20%, rgba(245,158,11,0.07) 0%, transparent 55%);
   }
 
   .section--cta {
     background-color: var(--obsidian);
-    background-image: radial-gradient(ellipse at 50% 100%, rgba(30,64,175,0.22) 0%, transparent 60%);
     text-align: center;
   }
 
@@ -388,7 +388,7 @@ const homeSchema = [
   .hero {
     padding-top: 4.5rem;
     padding-bottom: 4.5rem;
-    border-bottom: 1px solid rgba(0,210,255,0.08);
+    border-bottom: 1px solid var(--laser-cyan-dim);
     background-color: var(--obsidian);
     position: relative;
     overflow: hidden;
@@ -401,7 +401,6 @@ const homeSchema = [
     right: 0;
     width: 60%;
     height: 100%;
-    background: radial-gradient(ellipse at 70% 30%, rgba(30,64,175,0.14) 0%, transparent 65%);
     pointer-events: none;
   }
 
@@ -443,7 +442,7 @@ const homeSchema = [
   .hero__heading-accent {
     color: var(--laser-cyan);
     display: block;
-    text-shadow: 0 0 40px rgba(0, 210, 255, 0.25);
+    text-shadow: none;
   }
 
   .hero__lead {
@@ -460,7 +459,7 @@ const homeSchema = [
     margin: 0;
     padding: 0.875rem 1.125rem;
     border-left: 2px solid var(--laser-cyan);
-    background: rgba(0,210,255,0.04);
+    background: var(--laser-cyan-dim);
     border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   }
 
@@ -482,7 +481,7 @@ const homeSchema = [
   .hero__form {
     padding: 1.5rem;
     background: var(--carbon-slate);
-    border: 1px solid rgba(0,210,255,0.18);
+    border: 1px solid var(--laser-cyan-dim);
     border-radius: var(--radius-xl);
     display: flex;
     flex-direction: column;
@@ -538,7 +537,7 @@ const homeSchema = [
   /* ── 2. Who this is for ──────────────────────── */
   .cred {
     background-color: var(--carbon-slate);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid var(--line);
     padding: 1.75rem 0;
   }
 
@@ -591,8 +590,8 @@ const homeSchema = [
   .leak {
     position: relative;
     padding: 1.25rem;
-    background: rgba(11,15,25,0.55);
-    border: 1px solid rgba(255,255,255,0.07);
+    background: var(--carbon-slate);
+    border: 1px solid var(--line);
     border-left: 3px solid var(--fleet-amber);
     border-radius: var(--radius-lg);
     display: flex;
@@ -655,7 +654,7 @@ const homeSchema = [
     flex-direction: column;
     gap: 0.375rem;
     padding-bottom: 1.125rem;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid var(--line);
   }
 
   .model-card__header-top {
@@ -762,7 +761,7 @@ const homeSchema = [
     gap: 0.625rem;
     padding: 1.5rem;
     background: var(--carbon-slate);
-    border: 1px solid rgba(255,255,255,0.07);
+    border: 1px solid var(--line);
     border-top: 3px solid var(--laser-cyan);
     border-radius: var(--radius-lg);
   }
@@ -787,7 +786,7 @@ const homeSchema = [
     list-style: none;
     margin: auto 0 0;
     padding: 0.875rem 0 0;
-    border-top: 1px solid rgba(255,255,255,0.07);
+    border-top: 1px solid var(--line);
     display: flex;
     flex-direction: column;
     gap: 0.375rem;
@@ -802,6 +801,8 @@ const homeSchema = [
 
   .outcome__service:hover { opacity: 0.8; }
 
+  .outcomes__foot-link { display: inline-block; margin-left: 1.25rem; font-size: 0.9375rem; font-weight: 600; color: var(--laser-cyan); text-decoration: none; }
+  @media (max-width: 767px) { .outcomes__foot-link { display: block; margin: 0.875rem 0 0; } }
   .outcomes__foot {
     margin-top: 2rem;
     text-align: center;
@@ -821,7 +822,6 @@ const homeSchema = [
   /* ── 5. Mid-page CTA ─────────────────────────── */
   .section--midcta {
     background-color: var(--obsidian);
-    background-image: radial-gradient(ellipse at 20% 50%, rgba(30,64,175,0.18) 0%, transparent 60%);
   }
 
   .midcta {
@@ -847,7 +847,7 @@ const homeSchema = [
     gap: 1.25rem;
     padding: 1.5rem;
     background: var(--carbon-slate);
-    border: 1px solid rgba(0,210,255,0.18);
+    border: 1px solid var(--laser-cyan-dim);
     border-radius: var(--radius-xl);
   }
 
@@ -894,11 +894,11 @@ const homeSchema = [
     display: flex;
     flex-direction: column;
     max-width: 52rem;
-    border-top: 1px solid rgba(255,255,255,0.08);
+    border-top: 1px solid var(--line);
   }
 
   .home-faq__item {
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid var(--line);
   }
 
   .home-faq__q {

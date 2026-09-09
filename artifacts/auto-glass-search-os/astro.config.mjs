@@ -22,7 +22,7 @@ export default defineConfig({
   integrations: [
     tailwind(),
     sitemap({
-      filter: (page) => !page.endsWith('/thank-you/') && !page.endsWith('/free-growth-analysis/'),
+      filter: (page) => !page.endsWith('/thank-you/') && !page.endsWith('/free-growth-analysis/') && !page.endsWith('/resources/'),
     }),
   ],
 });
