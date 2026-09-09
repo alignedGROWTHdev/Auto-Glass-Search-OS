@@ -1,0 +1,333 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { siteConfig, isConfigured, services } from '../data/siteData';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogType?: string;
+  noindex?: boolean;
+  /** Short name used for the breadcrumb (defaults to the part of the title before "|") */
+  breadcrumbName?: string;
+  /** Additional schema.org nodes merged into the page @graph (Service, FAQPage, etc.) */
+  extraSchema?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  canonical = new URL(Astro.url.pathname, siteConfig.siteUrl).href,
+  ogType = "website",
+  noindex = false,
+  breadcrumbName,
+  extraSchema = []
+} = Astro.props;
+
+// Canonical/OG URLs always resolve against siteConfig.siteUrl (the production domain),
+// never the host serving the page, so Replit preview/staging hosts cannot leak into metadata.
+// The Astro dev server (used by the Replit preview) is additionally marked noindex.
+const isDevServer = import.meta.env.DEV;
+const robotsNoindex = noindex || isDevServer;
+const ogImage = new URL("/og-image.png", siteConfig.siteUrl).href;
+const logoUrl = new URL("/icon-512.png", siteConfig.siteUrl).href;
+
+const telE164 = "+1" + siteConfig.placeholders.phone.replace(/\D/g, "");
+const contactPoint = isConfigured(siteConfig.placeholders.phone) ? {
+  "@type": "ContactPoint",
+  "telephone": telE164,
+  "email": siteConfig.placeholders.email,
+  "contactType": "customer service",
+  "areaServed": "US",
+  "availableLanguage": "English"
+} : undefined;
+
+const breadcrumb = Astro.url.pathname !== "/" ? {
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": siteConfig.name,
+      "item": siteConfig.siteUrl
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": breadcrumbName || title.split("|")[0].trim(),
+      "item": canonical
+    }
+  ]
+} : undefined;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": siteConfig.entity.organizationId,
+      "name": siteConfig.name,
+      "alternateName": "Auto Glass Growth by Aligned Growth Digital",
+      "logo": logoUrl,
+      "image": logoUrl,
+      "slogan": siteConfig.tagline,
+      "url": siteConfig.siteUrl,
+      "description": siteConfig.description,
+      "parentOrganization": { "@id": siteConfig.entity.parentOrganizationId },
+      "founder": { "@id": siteConfig.entity.founderId },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "knowsAbout": [
+        "Auto Glass Marketing",
+        "Auto Glass Lead Generation",
+        "Auto Glass Website Design and Conversion Optimization",
+        "Auto Glass SEO",
+        "Google Maps and Local SEO for Auto Glass Companies",
+        "Google Ads for Auto Glass Companies",
+        "AI Search Optimization (AEO / GEO) for Auto Glass",
+        "ADAS Calibration Search Demand",
+        "Conversion Tracking for Qualified Calls, Quote Requests, and Booked Jobs"
+      ],
+      "telephone": telE164,
+      "email": siteConfig.placeholders.email,
+      ...(contactPoint ? { "contactPoint": contactPoint } : {}),
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Auto Glass Growth services",
+        "itemListElement": services.map((s) => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": s.title,
+            "description": s.body,
+            "url": new URL(s.href, siteConfig.siteUrl).href,
+            "provider": { "@id": siteConfig.entity.organizationId },
+            "audience": { "@type": "BusinessAudience", "audienceType": "Auto glass companies" }
+          }
+        }))
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": siteConfig.entity.parentOrganizationId,
+      "name": siteConfig.entity.parentOrganizationName,
+      "url": siteConfig.entity.parentOrganizationUrl,
+      "subOrganization": { "@id": siteConfig.entity.organizationId },
+      "founder": { "@id": siteConfig.entity.founderId }
+    },
+    {
+      "@type": "Person",
+      "@id": siteConfig.entity.founderId,
+      "name": siteConfig.entity.founderName,
+      "jobTitle": "Founder",
+      "description": "Founder of Aligned Growth Digital and lead of Auto Glass Growth, with more than ten years across search, digital growth, eCommerce and marketing strategy. Works directly with each auto glass operator on the opportunity analysis, strategy and quality control.",
+      "url": new URL("/about/", siteConfig.siteUrl).href,
+      "worksFor": { "@id": siteConfig.entity.organizationId },
+      "affiliation": { "@id": siteConfig.entity.parentOrganizationId },
+      "knowsAbout": [
+        "Auto glass marketing",
+        "Search engine optimization",
+        "Local SEO and Google Business Profile",
+        "Google Ads",
+        "Conversion rate optimization",
+        "AI search optimization",
+        "eCommerce growth",
+        "Marketing strategy"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://autoglassgrowth.com/#website",
+      "url": siteConfig.siteUrl,
+      "name": siteConfig.name,
+      "description": siteConfig.tagline,
+      "inLanguage": "en-US",
+      "publisher": {
+        "@id": "https://autoglassgrowth.com/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": canonical + "#webpage",
+      "url": canonical,
+      "name": title,
+      "description": description,
+      "isPartOf": { "@id": "https://autoglassgrowth.com/#website" },
+      "about": { "@id": siteConfig.entity.organizationId },
+      "inLanguage": "en-US"
+    },
+    ...(breadcrumb ? [breadcrumb] : []),
+    ...extraSchema
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0B0F19" />
+    <link
+      rel="preload"
+      href="/fonts/space-grotesk-latin-700-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/plus-jakarta-sans-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/plus-jakarta-sans-latin-500-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/plus-jakarta-sans-latin-600-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/plus-jakarta-sans-latin-700-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-mono-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/ibm-plex-mono-latin-500-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {robotsNoindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Auto Glass Growth — auto glass marketing, websites and lead generation. Turn more customer demand into booked jobs." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] btn btn--primary btn--sm">
+      Skip to main content
+    </a>
+    <Header />
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      const emitAnalyticsEvent = (eventName: string, detail: Record<string, string> = {}) => {
+        const payload = { event: eventName, page_path: window.location.pathname, ...detail };
+        window.dispatchEvent(new CustomEvent('agos:analytics', { detail: payload }));
+        const analyticsWindow = window as typeof window & { dataLayer?: Record<string, string>[] };
+        analyticsWindow.dataLayer?.push(payload);
+      };
+
+      document.addEventListener('click', (event) => {
+        const target = (event.target as HTMLElement).closest<HTMLElement>('[data-analytics-event]');
+        if (!target) return;
+        emitAnalyticsEvent(target.dataset.analyticsEvent || 'interaction', {
+          link_url: target instanceof HTMLAnchorElement ? target.href : '',
+          link_text: target.textContent?.trim() || ''
+        });
+      });
+
+      document.querySelectorAll<HTMLFormElement>('[data-lead-form]').forEach((form) => {
+        let started = false;
+        form.addEventListener('focusin', () => {
+          if (started) return;
+          started = true;
+          emitAnalyticsEvent('visibility_analysis_form_start');
+        });
+      });
+
+      if (window.location.pathname.startsWith('/thank-you')) {
+        emitAnalyticsEvent('thank_you_visit');
+      }
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+
+  /* Layout structure */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+
+  main {
+    flex: 1;
+  }
+
+  /* Screen-reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: fixed;
+    width: auto;
+    height: auto;
+    padding: revert;
+    margin: revert;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+</style>
