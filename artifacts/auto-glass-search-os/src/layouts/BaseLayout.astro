@@ -4,6 +4,9 @@ import Footer from '../components/Footer.astro';
 import { siteConfig, isConfigured, services } from '../data/siteData';
 
 interface Props {
+  /** Path under public/ for a page-specific Open Graph image (1200×630). */
+  ogImage?: string;
+  ogAlt?: string;
   title: string;
   description: string;
   canonical?: string;
@@ -32,7 +35,8 @@ const {
 // The Astro dev server (used by the Replit preview) is additionally marked noindex.
 const isDevServer = import.meta.env.DEV;
 const robotsNoindex = noindex || isDevServer;
-const ogImage = new URL("/og-image.png", siteConfig.siteUrl).href;
+const ogImage = new URL(Astro.props.ogImage ?? "/og-image.jpg", siteConfig.siteUrl).href;
+const ogAlt = Astro.props.ogAlt ?? "Auto Glass Growth — auto glass marketing, websites and lead generation. Turn more customer demand into booked jobs.";
 const logoUrl = new URL("/icon-512.png", siteConfig.siteUrl).href;
 
 const telE164 = "+1" + siteConfig.placeholders.phone.replace(/\D/g, "");
@@ -263,7 +267,7 @@ const structuredData = {
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Auto Glass Growth — auto glass marketing, websites and lead generation. Turn more customer demand into booked jobs." />
+    <meta property="og:image:alt" content={ogAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:title" content={title} />

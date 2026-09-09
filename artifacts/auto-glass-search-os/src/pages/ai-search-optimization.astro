@@ -9,8 +9,8 @@ import ClosingCta from '../components/ClosingCta.astro';
 import { faqSchema, serviceSchema } from '../data/schema';
 
 const pagePath = "/ai-search-optimization/";
-const pageTitle = "AI Search Optimization for Auto Glass | AEO & GEO";
-const pageDescription = "AI search optimization (AEO/GEO) for auto glass companies. Clear business information, structured data and corroboration for AI answers, built on SEO.";
+const pageTitle = "AI SEO for Auto Glass Shops | AEO, GEO & AI Overviews";
+const pageDescription = "AI SEO for auto glass shops: AEO and GEO that get your shop named in Google AI Overviews, ChatGPT and Gemini when a driver asks who to call. Built on SEO.";
 
 const capabilities = [
   {
@@ -29,8 +29,8 @@ const capabilities = [
 
 const faqs = [
   {
-    question: "What is AI search optimization for auto glass companies?",
-    answer: "AI search optimization — sometimes called answer engine optimization (AEO) or generative engine optimization (GEO) — is the work of making your business, services, locations, and credentials clear and consistent enough that AI-assisted search systems such as Google AI Overviews, ChatGPT, and Gemini can understand and corroborate them when a driver asks for an auto glass shop nearby.",
+    question: "What is AI SEO for auto glass companies?",
+    answer: "AI SEO — also called AI search optimization, answer engine optimization (AEO) or generative engine optimization (GEO) — is the work of making your business, services, locations, and credentials clear and consistent enough that AI-assisted search systems such as Google AI Overviews, ChatGPT, and Gemini can understand and corroborate them when a driver asks for an auto glass shop nearby.",
   },
   {
     question: "Can you get our shop recommended by ChatGPT or included in Google AI Overviews?",
@@ -62,20 +62,20 @@ const extraSchema = [
 ];
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription} breadcrumbName="AI Search Optimization" extraSchema={extraSchema}>
+<BaseLayout title={pageTitle} description={pageDescription} ogImage="/og-ai-seo.jpg" ogAlt="AI SEO for auto glass companies — be the shop AI Overviews and ChatGPT recommend." breadcrumbName="AI Search Optimization" extraSchema={extraSchema}>
 
   <PageHero
     id="ai-search"
-    eyebrow="AI Search Visibility"
-    heading="AI Search Visibility for Auto Glass Companies"
-    lead="When a driver asks Google's AI or ChatGPT 'who can replace my windshield and recalibrate the camera near me,' we make sure your shop is the answer. Most of that work is the same Google Maps and website basics that already bring you calls."
+    eyebrow="AI SEO · AEO · GEO"
+    heading="AI SEO for Auto Glass Companies"
+    lead="AI SEO — also called answer engine optimization (AEO) or generative engine optimization (GEO) — is the work of getting your shop named when a driver asks Google's AI Overviews, ChatGPT or Gemini 'who can replace my windshield and recalibrate the camera near me.' Most of it is the same Google Maps and website basics that already bring you calls, done more precisely."
     ctaLabel="Get My Free AI Visibility Analysis"
     supportLine="Free · Manually reviewed · Video walkthrough, no sales call required"
   />
 
   <CapabilityGrid id="ai-capabilities" heading="What AI search optimization covers" eyebrow="Core capabilities" cards={capabilities} />
 
-  <ProseSection id="ai-foundation" eyebrow="Built on fundamentals" heading="AI search optimization sits on top of good SEO">
+  <ProseSection id="ai-foundation" eyebrow="Built on fundamentals" heading="AI SEO, AEO and GEO all sit on top of good SEO">
     <p>
       Google's AI Overviews, ChatGPT, Gemini and the rest don't keep a private list of auto glass shops. When a driver asks which nearby shop can replace a windshield and recalibrate the camera, these systems — depending on the platform and the question — pull from websites, search results, business profiles, reviews and other sources, then sum it up. A shop that is hard to find, or that says different things in different places, has little chance of being described right, let alone recommended.
     </p>
@@ -122,7 +122,7 @@ const extraSchema = [
     alt
   />
 
-  <FaqSection id="ai-faq" heading="AI search optimization questions" items={faqs} />
+  <FaqSection id="ai-faq" heading="AI SEO questions from auto glass owners" items={faqs} />
 
   <ClosingCta
     id="ai-cta"
