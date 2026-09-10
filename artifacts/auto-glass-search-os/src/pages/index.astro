@@ -80,9 +80,6 @@ const homeSchema = [
             </a>
           </div>
 
-          <p class="hero__qualifier">
-            Reviewed by our senior team. Specific to your shop. No cost, no obligation.
-          </p>
         </div>
 
         <div class="hero__visual fade-up fade-up--delay-2">
@@ -421,8 +418,9 @@ const homeSchema = [
 
   @media (min-width: 1024px) {
     .hero__layout {
-      grid-template-columns: 56fr 44fr;
-      gap: 4rem;
+      grid-template-columns: minmax(0, 53fr) minmax(30rem, 47fr);
+      gap: 3.5rem;
+      align-items: center;
     }
   }
 
@@ -485,7 +483,7 @@ const homeSchema = [
 
 
   .hero__form {
-    padding: 2.5rem;
+    padding: 2.25rem;
     background: var(--carbon-slate);
     border: 1px solid var(--laser-cyan-border);
     border-top: 4px solid var(--laser-cyan);
@@ -529,13 +527,6 @@ const homeSchema = [
     align-items: center;
     flex-wrap: wrap;
     gap: 1.5rem;
-  }
-
-  .hero__qualifier {
-    font-size: 1rem;
-    color: var(--text-tertiary);
-    margin: 0;
-    line-height: 1.6;
   }
 
   .hero__visual {
