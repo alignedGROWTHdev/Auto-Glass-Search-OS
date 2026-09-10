@@ -192,9 +192,6 @@ const { minimal = false, compact = false } = Astro.props;
     >
       Send Me My Free Growth Analysis
     </button>
-    <p class="agos-form__delivery-note">
-      Submissions are securely delivered to our CRM and email team. Your information is used only to conduct and deliver your analysis.
-    </p>
     <p class="agos-form__status" data-form-status role="status" aria-live="polite" hidden></p>
   </div>
 </form>
@@ -228,18 +225,6 @@ const { minimal = false, compact = false } = Astro.props;
     flex-direction: column;
     gap: 0.875rem;
     padding-top: 0.5rem;
-  }
-
-  .agos-form__delivery-note {
-    text-align: center;
-    font-size: 0.8125rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin: 0;
-    padding: 1rem;
-    background: transparent;
-    border: 1px solid var(--border-dark);
-    border-radius: 0;
   }
 
   .agos-form__status {

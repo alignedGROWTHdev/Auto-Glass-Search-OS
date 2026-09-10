@@ -87,7 +87,6 @@ const homeSchema = [
             <h2 class="hero__form-title">Request your free growth analysis</h2>
             <p class="hero__form-sub">Seven quick fields. A person reads every one — you get a recorded video walkthrough within 2–3 business days.</p>
             <LeadForm compact />
-            <p class="hero__form-foot">No cost, no obligation. We don't sell leads — your analysis is yours.</p>
           </div>
         </div>
 
@@ -420,7 +419,11 @@ const homeSchema = [
     .hero__layout {
       grid-template-columns: minmax(0, 53fr) minmax(30rem, 47fr);
       gap: 3.5rem;
-      align-items: center;
+      align-items: start;
+    }
+
+    .hero__visual {
+      align-self: center;
     }
   }
 
@@ -507,13 +510,6 @@ const homeSchema = [
     color: var(--text-secondary);
     margin: 0 0 0.75rem;
     line-height: 1.5;
-  }
-
-  .hero__form-foot {
-    margin: 0.75rem 0 0;
-    font-size: 0.875rem;
-    color: var(--text-tertiary);
-    text-align: center;
   }
 
   .hero__mechanism strong { color: var(--text-primary); }
