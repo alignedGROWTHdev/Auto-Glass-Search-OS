@@ -52,3 +52,32 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Add warm emphasis without competing with the cyan brand signal. */
+.hero__form {
+  border-top-color: var(--pop);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42), 0 0 0 1px rgba(245, 158, 11, 0.18);
+}
+
+.hero__form-title::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 2px;
+  margin-top: 0.75rem;
+  background: var(--pop);
+}
+
+.hero__mechanism,
+.cred__item {
+  border-left-color: rgba(245, 158, 11, 0.72);
+}
+
+.outcome:nth-child(2) {
+  border-top-color: var(--pop);
+}
+
+.section--alt .cyan-rule,
+.section--midcta .cyan-rule {
+  background: var(--pop);
+}
