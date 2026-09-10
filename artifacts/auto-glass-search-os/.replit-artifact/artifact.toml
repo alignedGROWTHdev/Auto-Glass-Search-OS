@@ -16,8 +16,7 @@ run = "pnpm run dev"
 
 [services.production]
 build = [ "pnpm", "run", "build" ]
-serve = "static"
-publicDir = "artifacts/auto-glass-search-os/dist/public"
+run = "node artifacts/auto-glass-search-os/server.mjs"
 
 [services.env]
 PORT = "18694"
