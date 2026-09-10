@@ -3,9 +3,14 @@ interface Props {
   minimal?: boolean;
   /** Paid-landing-page mode: fewer fields, budget required, UTM capture. */
   compact?: boolean;
+  submitLabel?: string;
 }
 
-const { minimal = false, compact = false } = Astro.props;
+const {
+  minimal = false,
+  compact = false,
+  submitLabel = "Send Me My Free Growth Analysis",
+} = Astro.props;
 ---
 
 <!--
@@ -190,7 +195,7 @@ const { minimal = false, compact = false } = Astro.props;
       data-analytics-event="visibility_analysis_submit"
       class="btn btn--primary btn--full btn--lg"
     >
-      Send Me My Free Growth Analysis
+      {submitLabel}
     </button>
     <p class="agos-form__status" data-form-status role="status" aria-live="polite" hidden></p>
   </div>
