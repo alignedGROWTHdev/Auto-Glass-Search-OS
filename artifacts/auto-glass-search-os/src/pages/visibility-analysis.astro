@@ -111,7 +111,7 @@ const extraSchema = [faqSchema(faqs, "/visibility-analysis/")];
         </div>
 
         <!-- Right: Form -->
-        <div class="analysis-form-panel">
+        <div class="analysis-form-panel" id="visibility-audit-form">
           <div class="analysis-form-card">
             <header class="analysis-form-card__header">
               <h2 class="analysis-form-card__title">Request Your Free Visibility Audit</h2>
@@ -335,6 +335,18 @@ const extraSchema = [faqSchema(faqs, "/visibility-analysis/")];
 
   @media (min-width: 640px) {
     .analysis-form-card { padding: 2.5rem; }
+  }
+
+  @media (max-width: 359px) {
+    .analysis-form-card {
+      padding: 1.25rem;
+      gap: 1.25rem;
+    }
+
+    .analysis-form-card :global(.btn) {
+      padding-inline: 0.75rem;
+      font-size: 0.75rem;
+    }
   }
 
   .analysis-form-card__header {

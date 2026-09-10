@@ -197,6 +197,9 @@ const {
     >
       {submitLabel}
     </button>
+    <p class="agos-form__privacy">
+      We use your details only to review and respond to your request. <a href="/privacy/">Privacy Policy</a>
+    </p>
     <p class="agos-form__status" data-form-status role="status" aria-live="polite" hidden></p>
   </div>
 </form>
@@ -230,6 +233,20 @@ const {
     flex-direction: column;
     gap: 0.875rem;
     padding-top: 0.5rem;
+  }
+
+  .agos-form__privacy {
+    margin: 0;
+    color: var(--text-tertiary);
+    font-size: 0.75rem;
+    line-height: 1.55;
+    text-align: center;
+  }
+
+  .agos-form__privacy a {
+    color: var(--laser-cyan);
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
   }
 
   .agos-form__status {

@@ -57,13 +57,23 @@ createServer((request, response) => {
     return;
   }
 
+  const requestUrl = new URL(request.url || '/', canonicalOrigin);
+  if (requestUrl.pathname === '/sitemap.xml') {
+    response.writeHead(301, {
+      Location: `${canonicalOrigin}/sitemap-index.xml`,
+      'Cache-Control': 'public, max-age=3600',
+    });
+    response.end();
+    return;
+  }
+
   if (request.method !== 'GET' && request.method !== 'HEAD') {
     response.writeHead(405, { Allow: 'GET, HEAD' });
     response.end('Method Not Allowed');
     return;
   }
 
-  const pathname = new URL(request.url || '/', canonicalOrigin).pathname;
+  const pathname = requestUrl.pathname;
   let filePath;
 
   try {
