@@ -195,9 +195,6 @@ const { minimal = false, compact = false } = Astro.props;
     <p class="agos-form__delivery-note">
       Submissions are securely delivered to our CRM and email team. Your information is used only to conduct and deliver your analysis.
     </p>
-    <p class="agos-form__note">
-      Manually reviewed &middot; Confidential opportunity analysis &middot; No obligation
-    </p>
     <p class="agos-form__status" data-form-status role="status" aria-live="polite" hidden></p>
   </div>
 </form>
@@ -243,15 +240,6 @@ const { minimal = false, compact = false } = Astro.props;
     background: transparent;
     border: 1px solid var(--border-dark);
     border-radius: 0;
-  }
-
-  .agos-form__note {
-    text-align: center;
-    font-family: var(--font-sans);
-    font-size: 0.8125rem;
-    color: var(--text-tertiary);
-    font-weight: 500;
-    margin: 0;
   }
 
   .agos-form__status {

@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ConversionPaths from '../components/ConversionPaths.astro';
 import PartnerCallout from '../components/PartnerCallout.astro';
 import LeadForm from '../components/LeadForm.astro';
-import { siteConfig, services } from '../data/siteData';
+import { siteConfig, services, trustStrip } from '../data/siteData';
 import { serviceSchema, faqSchema } from '../data/schema';
 
 const pageTitle = "Auto Glass Marketing Agency | Websites, SEO & Leads";
@@ -101,11 +101,16 @@ const homeSchema = [
   <!-- ════════════════════════════════════════════
        2. TRUST STRIP (three points)
        ════════════════════════════════════════════ -->
-  <section class="cred" aria-label="Who this is for">
+  <section class="cred" aria-label="Why Auto Glass Growth">
     <div class="container">
-      <p class="cred__text">
-        Built for independent shops, mobile operators and multi-location groups handling replacements, repairs, mobile service and ADAS calibration — not generic local businesses. We start with the jobs you can profitably serve — replacement, ADAS, insurance, fleet — your service area, and how your phone gets answered. And we don't sell leads or software: your website, your Maps listing, your ads and every call they produce belong to you.
-      </p>
+      <ul class="cred__list" role="list">
+        {trustStrip.map((item) => (
+          <li class="cred__item">
+            <span class="cred__label">{item.label}</span>
+            <span class="cred__detail">{item.detail}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
@@ -481,14 +486,14 @@ const homeSchema = [
 
   .hero__form {
     padding: 2.5rem;
-    background: var(--surface-00);
-    border: 1px solid var(--line);
-    border-top: 3px solid var(--laser-cyan);
+    background: var(--carbon-slate);
+    border: 1px solid var(--laser-cyan-border);
+    border-top: 4px solid var(--laser-cyan);
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     scroll-margin-top: 6rem;
-    box-shadow: none;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.38), 0 0 0 1px rgba(0, 229, 255, 0.05);
   }
 
   .hero__form-title {
@@ -537,19 +542,51 @@ const homeSchema = [
     position: relative;
   }
 
-  /* ── 2. Who this is for ──────────────────────── */
+  /* ── 2. Credibility strip ────────────────────── */
   .cred {
     background-color: var(--carbon-slate);
     border-bottom: 1px solid var(--line);
-    padding: 1.75rem 0;
+    padding: 1.5rem 0;
   }
 
-  .cred__text {
+  .cred__list {
+    list-style: none;
     margin: 0;
-    max-width: 62rem;
-    font-size: 1.125rem;
-    line-height: 1.65;
-    color: var(--text-secondary);
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .cred__list { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (min-width: 1024px) {
+    .cred__list { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .cred__item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-left: 0.875rem;
+    border-left: 2px solid var(--laser-cyan-border);
+  }
+
+  .cred__label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+  }
+
+  .cred__detail {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    line-height: 1.5;
   }
 
   /* ── 3. Leaks ────────────────────────────────── */
