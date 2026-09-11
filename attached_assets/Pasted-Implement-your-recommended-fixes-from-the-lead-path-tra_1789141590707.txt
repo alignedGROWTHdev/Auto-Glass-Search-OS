@@ -1,0 +1,31 @@
+Implement your recommended fixes from the lead-path trace, in this priority order. Work through them one at a time and confirm each before moving on.
+
+1. Global first-touch attribution (highest priority)
+
+Move attribution capture out of the form component into the shared site layout so it runs on every page. Store in localStorage, not sessionStorage.
+
+Capture: gclid, utm_source, utm_medium, utm_campaign, utm_term, and the full original landing URL including query string — not just the pathname.
+
+Use first-touch semantics: once stored, don't overwrite unless a new visit arrives with a gclid or utm_source present, which starts a new attribution session.
+
+When the form loads, populate the hidden fields from this stored value. This must work when a visitor lands on /auto-glass-seo/, /auto-glass-local-seo/, /google-ads/ or /ai-search-optimization/ and navigates to the form afterwards — those are live ad sitelink destinations, so attribution failing there means untraceable paid leads.
+
+2. Structured HubSpot attribution properties
+
+Create custom HubSpot contact properties for gclid, utm_source, utm_medium, utm_campaign, utm_term, and landing_url, and map each directly. Keep the human-readable summary in message as a fallback, but attribution must no longer depend on it — a repeat submission from the same email currently overwrites message and destroys earlier attribution.
+
+3. Atomic upsert by email
+
+Replace the search-then-create-or-update sequence in /api/leads with a HubSpot upsert keyed on normalized email, so concurrent submissions can't create duplicate contacts.
+
+4. Timeout on /api/leads
+
+Add a request timeout (10 seconds) with a clear user-facing error. Currently a hang leaves the visitor waiting indefinitely, FormSubmit never fires, and they never reach /thank-you/ — so the lead and its Google Ads conversion are both lost.
+
+Constraints, unchanged:
+
+Do not modify /thank-you/ or the FormSubmit _next behaviour. A live Google Ads conversion fires on that page loading, and FormSubmit must continue to run only after /api/leads returns 200.
+No new database, provider, or third-party service.
+Don't send real test leads to HubSpot — use the honeypot path to verify.
+
+Verify before finishing: land on /auto-glass-seo/?gclid=TEST456, navigate to /visibility-analysis/, and confirm the hidden GCLID field contains TEST456. Then close the tab, reopen the form, and confirm it persists.

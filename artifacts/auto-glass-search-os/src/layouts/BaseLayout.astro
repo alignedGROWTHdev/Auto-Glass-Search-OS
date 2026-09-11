@@ -282,6 +282,32 @@ const structuredData = {
       gtag('js', new Date());
       gtag('config', 'AW-18441254785');
     </script>
+    <script is:inline>
+      (function () {
+        try {
+          var storageKey = 'agg_attr';
+          var params = new URLSearchParams(window.location.search);
+          var keys = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term'];
+          var stored = JSON.parse(localStorage.getItem(storageKey) || 'null');
+          var startsNewSession = Boolean(params.get('gclid') || params.get('utm_source'));
+
+          if (!stored || startsNewSession) {
+            var attribution = {
+              landing_url: window.location.href
+            };
+
+            keys.forEach(function (key) {
+              var value = params.get(key);
+              if (value) attribution[key] = value;
+            });
+
+            localStorage.setItem(storageKey, JSON.stringify(attribution));
+          }
+        } catch (error) {
+          // Attribution must never prevent the page or lead form from loading.
+        }
+      })();
+    </script>
 
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>

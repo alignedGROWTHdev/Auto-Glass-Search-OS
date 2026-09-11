@@ -268,17 +268,15 @@ const {
     if (nextField) {
       nextField.value = 'https://autoglassgrowth.com/thank-you/';
     }
-    // Attribution capture: URL params first, then anything stored from an earlier page view.
+    // Populate attribution captured globally by BaseLayout on the visitor's first touch.
     try {
-      const params = new URLSearchParams(window.location.search);
-      const keys = ['utm_source','utm_medium','utm_campaign','utm_term','gclid'];
-      const store = JSON.parse(sessionStorage.getItem('agg_attr') || '{}');
-      keys.forEach((k) => { const v = params.get(k); if (v) store[k] = v; });
-      sessionStorage.setItem('agg_attr', JSON.stringify(store));
+      const store = JSON.parse(localStorage.getItem('agg_attr') || '{}');
       document.querySelectorAll('[data-utm]').forEach((el) => {
         const k = el.getAttribute('data-utm'); if (store[k]) el.value = store[k];
       });
-      document.querySelectorAll('[data-landing]').forEach((el) => { el.value = window.location.pathname; });
+      document.querySelectorAll('[data-landing]').forEach((el) => {
+        el.value = store.landing_url || window.location.href;
+      });
     } catch (e) {}
 
     document.querySelectorAll('[data-lead-form]').forEach((form) => {
