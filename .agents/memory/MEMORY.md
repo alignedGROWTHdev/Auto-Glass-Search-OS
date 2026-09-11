@@ -1,2 +1,2 @@
 - [Astro previews on Replit](astro-preview-proxy.md) — allow Replit preview hosts explicitly; disable Astro’s dev toolbar if its proxied /@fs module returns 403.
-- [HubSpot attribution fields](hubspot-attribution-fields.md) — connector can write contacts but not create contact properties; do not map custom attribution fields until they exist.
+- [HubSpot attribution fields](hubspot-attribution-fields.md) — attribution keys are intentionally sent, but HubSpot last reported them missing and the connector cannot create them.

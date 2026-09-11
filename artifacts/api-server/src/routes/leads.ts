@@ -86,18 +86,18 @@ router.post("/leads", async (req, res): Promise<void> => {
       ["Service area", lead.primaryMarkets],
       ["Shop scale", lead.fleetScale],
       ["Monthly marketing investment", lead.monthlyInvestment],
-      ["UTM source", lead.source],
-      ["UTM medium", lead.medium],
-      ["UTM campaign", lead.campaign],
-      ["UTM term", lead.term],
       ["GCLID", lead.gclid],
-      ["Landing page", lead.landingPage],
     ]),
   };
 
   if (name.lastname) properties.lastname = name.lastname;
   if (lead.primaryMarkets?.trim()) properties.city = lead.primaryMarkets.trim();
   if (lead.fleetScale?.trim()) properties.company_size = lead.fleetScale.trim();
+  if (lead.source?.trim()) properties.utm_source = lead.source.trim();
+  if (lead.medium?.trim()) properties.utm_medium = lead.medium.trim();
+  if (lead.campaign?.trim()) properties.utm_campaign = lead.campaign.trim();
+  if (lead.term?.trim()) properties.utm_term = lead.term.trim();
+  if (lead.landingPage?.trim()) properties.landing_url = lead.landingPage.trim();
 
   try {
     const upsertResponse = await connectors.proxy(
