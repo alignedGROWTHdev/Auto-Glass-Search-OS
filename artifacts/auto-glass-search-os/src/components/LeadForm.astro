@@ -297,9 +297,12 @@ const {
         }
 
         try {
+          const controller = new AbortController();
+          const timeoutId = window.setTimeout(() => controller.abort(), 10000);
           const response = await fetch('/api/leads', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            signal: controller.signal,
             body: JSON.stringify({
               name: formData.get('Name'),
               company: formData.get('Company'),
@@ -317,7 +320,7 @@ const {
               landingPage: formData.get('Landing Page') || window.location.pathname,
               honey: formData.get('_honey') || undefined,
             }),
-          });
+          }).finally(() => window.clearTimeout(timeoutId));
 
           if (!response.ok) {
             throw new Error('HubSpot delivery failed');
@@ -328,7 +331,9 @@ const {
           form.submit();
         } catch (error) {
           if (status) {
-            status.textContent = 'We could not send your request. Please try again, or call (720) 600-2985.';
+            status.textContent = error instanceof DOMException && error.name === 'AbortError'
+              ? 'The request timed out. Please try again, or call (720) 600-2985.'
+              : 'We could not send your request. Please try again, or call (720) 600-2985.';
             status.hidden = false;
           }
           if (submitButton) {
