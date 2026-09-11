@@ -7,9 +7,12 @@ import {
 
 const router: IRouter = Router();
 
-type HubSpotBatchUpsertResponse = {
-  status?: string;
-  results?: Array<{ id: string }>;
+type HubSpotContact = {
+  id: string;
+};
+
+type HubSpotSearchResponse = {
+  results?: HubSpotContact[];
 };
 
 class HubSpotRequestError extends Error {
@@ -100,24 +103,45 @@ router.post("/leads", async (req, res): Promise<void> => {
   if (lead.fleetScale?.trim()) properties.company_size = lead.fleetScale.trim();
 
   try {
-    const upsertResponse = await connectors.proxy(
+    const searchResponse = await connectors.proxy(
       "hubspot",
-      "/crm/v3/objects/contacts/batch/upsert",
+      "/crm/v3/objects/contacts/search",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          inputs: [{
-            id: properties.email,
-            idProperty: "email",
-            properties,
+          filterGroups: [{
+            filters: [{
+              propertyName: "email",
+              operator: "EQ",
+              value: properties.email,
+            }],
           }],
+          properties: ["email"],
+          limit: 1,
         }),
       },
     );
-    await readHubSpotJson<HubSpotBatchUpsertResponse>(upsertResponse);
+    const search = await readHubSpotJson<HubSpotSearchResponse>(searchResponse);
+    const contactId = search.results?.[0]?.id;
 
-    req.log.info({ hubspotAction: "upserted" }, "Delivered lead to HubSpot");
+    const writeResponse = await connectors.proxy(
+      "hubspot",
+      contactId
+        ? `/crm/v3/objects/contacts/${encodeURIComponent(contactId)}`
+        : "/crm/v3/objects/contacts",
+      {
+        method: contactId ? "PATCH" : "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ properties }),
+      },
+    );
+    await readHubSpotJson<HubSpotContact>(writeResponse);
+
+    req.log.info(
+      { hubspotAction: contactId ? "updated" : "created" },
+      "Delivered lead to HubSpot",
+    );
     res.json(SubmitLeadResponse.parse({ success: true }));
   } catch (error) {
     const details = error instanceof HubSpotRequestError
