@@ -48,7 +48,11 @@ function resolvePublicFile(pathname) {
 }
 
 createServer((request, response) => {
-  if (requestHost(request) === 'www.autoglassgrowth.com') {
+  const host = requestHost(request);
+  // The API is routed to its own service; only redirect page/asset requests
+  // from the default Replit hostname so a POST is never rewritten as a GET.
+  if (host === 'www.autoglassgrowth.com' ||
+      (host === 'auto-glass-search-os.replit.app' && (request.method === 'GET' || request.method === 'HEAD'))) {
     response.writeHead(301, {
       Location: `${canonicalOrigin}${request.url || '/'}`,
       'Cache-Control': 'public, max-age=3600',
