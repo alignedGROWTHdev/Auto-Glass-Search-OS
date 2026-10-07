@@ -24,10 +24,8 @@ export const HealthCheckResponse = zod.object({
 export const submitLeadBodyNameMin = 2;
 export const submitLeadBodyNameMax = 120;
 
-export const submitLeadBodyCompanyMin = 2;
 export const submitLeadBodyCompanyMax = 160;
 
-export const submitLeadBodyPhoneMin = 7;
 export const submitLeadBodyPhoneMax = 40;
 
 export const submitLeadBodyEmailMax = 254;
@@ -59,8 +57,8 @@ export const submitLeadBodyHoneyMax = 500;
 
 export const SubmitLeadBody = zod.object({
   "name": zod.string().min(submitLeadBodyNameMin).max(submitLeadBodyNameMax),
-  "company": zod.string().min(submitLeadBodyCompanyMin).max(submitLeadBodyCompanyMax),
-  "phone": zod.string().min(submitLeadBodyPhoneMin).max(submitLeadBodyPhoneMax),
+  "company": zod.string().max(submitLeadBodyCompanyMax).optional(),
+  "phone": zod.string().max(submitLeadBodyPhoneMax).optional(),
   "email": zod.string().email().max(submitLeadBodyEmailMax),
   "website": zod.string().min(submitLeadBodyWebsiteMin).max(submitLeadBodyWebsiteMax),
   "fleetScale": zod.string().max(submitLeadBodyFleetScaleMax).optional(),

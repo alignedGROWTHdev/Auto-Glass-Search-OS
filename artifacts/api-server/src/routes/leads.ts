@@ -76,8 +76,6 @@ router.post("/leads", async (req, res): Promise<void> => {
   const name = splitName(lead.name);
   const properties: Record<string, string> = {
     email: lead.email.trim().toLowerCase(),
-    phone: lead.phone.trim(),
-    company: lead.company.trim(),
     website: lead.website.trim(),
     firstname: name.firstname,
     lifecyclestage: "lead",
@@ -99,6 +97,8 @@ router.post("/leads", async (req, res): Promise<void> => {
   };
 
   if (name.lastname) properties.lastname = name.lastname;
+  if (lead.phone?.trim()) properties.phone = lead.phone.trim();
+  if (lead.company?.trim()) properties.company = lead.company.trim();
   if (lead.primaryMarkets?.trim()) properties.city = lead.primaryMarkets.trim();
   if (lead.fleetScale?.trim()) properties.company_size = lead.fleetScale.trim();
 

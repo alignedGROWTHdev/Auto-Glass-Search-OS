@@ -3,12 +3,15 @@ interface Props {
   minimal?: boolean;
   /** Paid-landing-page mode: fewer fields, budget required, UTM capture. */
   compact?: boolean;
+  /** Audit form: name, email and website are the only required fields. */
+  optionalContactDetails?: boolean;
   submitLabel?: string;
 }
 
 const {
   minimal = false,
   compact = false,
+  optionalContactDetails = false,
   submitLabel = "Send Me My Free Growth Analysis",
 } = Astro.props;
 ---
@@ -66,17 +69,17 @@ const {
     </div>
     <div class="agos-form__field">
       <label for="companyName" class="form-label">
-        Company Name <span class="required" aria-label="required">*</span>
+        Company Name {!optionalContactDetails && <span class="required" aria-label="required">*</span>}
       </label>
       <input
         type="text"
         id="companyName"
         name="Company"
-        required
+        required={!optionalContactDetails}
         autocomplete="organization"
         placeholder="e.g. Apex Auto Glass &amp; ADAS"
         class="form-input"
-        aria-required="true"
+        aria-required={!optionalContactDetails ? "true" : undefined}
       />
     </div>
   </div>
@@ -84,17 +87,17 @@ const {
   <div class="agos-form__row">
     <div class="agos-form__field">
       <label for="phone" class="form-label">
-        Direct Phone <span class="required" aria-label="required">*</span>
+        Direct Phone {!optionalContactDetails && <span class="required" aria-label="required">*</span>}
       </label>
       <input
         type="tel"
         id="phone"
         name="Phone"
-        required
+        required={!optionalContactDetails}
         autocomplete="tel"
         placeholder="(555) 000-0000"
         class="form-input"
-        aria-required="true"
+        aria-required={!optionalContactDetails ? "true" : undefined}
       />
     </div>
     <div class="agos-form__field">
@@ -153,16 +156,16 @@ const {
   {!minimal && (
     <div class="agos-form__field">
       <label for="markets" class="form-label">
-        {compact ? "Your City / Main Service Area" : "Primary Markets / Service Areas"} <span class="required" aria-label="required">*</span>
+        {compact ? "Your City / Main Service Area" : "Primary Markets / Service Areas"} {!optionalContactDetails && <span class="required" aria-label="required">*</span>}
       </label>
       <input
         type="text"
         id="markets"
         name="Primary Markets"
-        required
+        required={!optionalContactDetails}
         placeholder={compact ? "e.g. Phoenix, AZ" : "e.g. Phoenix Metro, Scottsdale, Mesa, Chandler"}
         class="form-input"
-        aria-required="true"
+        aria-required={!optionalContactDetails ? "true" : undefined}
       />
     </div>
   )}

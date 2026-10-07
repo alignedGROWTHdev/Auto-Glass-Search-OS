@@ -71,8 +71,6 @@ components:
       additionalProperties: false
       required:
         - name
-        - company
-        - phone
         - email
         - website
       properties:
@@ -82,11 +80,9 @@ components:
           maxLength: 120
         company:
           type: string
-          minLength: 2
           maxLength: 160
         phone:
           type: string
-          minLength: 7
           maxLength: 40
         email:
           type: string

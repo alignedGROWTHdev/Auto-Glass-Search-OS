@@ -15,16 +15,10 @@ export interface LeadSubmissionInput {
      * @maxLength 120
      */
   name: string;
-  /**
-     * @minLength 2
-     * @maxLength 160
-     */
-  company: string;
-  /**
-     * @minLength 7
-     * @maxLength 40
-     */
-  phone: string;
+  /** @maxLength 160 */
+  company?: string;
+  /** @maxLength 40 */
+  phone?: string;
   /** @maxLength 254 */
   email: string;
   /**
